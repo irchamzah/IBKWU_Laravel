@@ -27,7 +27,7 @@
       <div class="container">
         <div class="flex items-center justify-between relative">
           <div class="px-4">
-            <a href="#home" class="font-bold text-lg text-primary block py-6">IBKWU</a>
+            <a href="/" class="font-bold text-lg text-primary block py-6">IBKWU</a>
           </div>
           <div class="flex items-center px-4">
             <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
@@ -39,23 +39,23 @@
             <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:dark:bg-transparent dark:bg-dark dark:shadow-slate-500">
               <ul class="block lg:flex">
                 <li class="group">
-                  <a href="#home" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Beranda</a>
+                  <a href="/" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Beranda</a>
                 </li>
                 <li class="group">
-                  <a href="#about" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Profil</a>
+                  <a href="/profil" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Profil</a>
                 </li>
                 <li class="group">
-                  <a href="#galeri" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Galeri Tenant</a>
+                  <a href="/galeri" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Galeri Tenant</a>
                 </li>
                 <li class="group">
+                  <a href="/blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Blog</a>
+                </li>
+                {{-- <li class="group">
                   <a href="#mitra" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Mitra</a>
-                </li>
-                <li class="group">
-                  <a href="#blog" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Blog</a>
-                </li>
-                <li class="group">
+                </li> --}}
+                {{-- <li class="group">
                   <a href="#contact" class="text-base text-dark py-2 mx-8 flex group-hover:text-primary dark:text-white">Kontak</a>
-                </li>
+                </li> --}}
                 <li class="mt-3 lg:mt-0 flex items-center pl-8">
                   <div class="flex">
                     <span class="mr-2 text-sm text-slate-500">light</span>
@@ -85,7 +85,7 @@
             <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">Artist & <span class="text-dark dark:text-white">Gamer</span></h2>
             <p class="font-medium text-secondary mb-10 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, <span class="text-dark font-bold dark:text-white">deserunt?</span></p>
 
-            <a href="profil" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya ></a>
+            <a href="/profil" class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya ></a>
           </div>
           <div class="w-full self-end px-4 lg:w-1/2">
             <div class="relative mt-10 lg:mt-0 lg:right-0">

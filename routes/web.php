@@ -17,11 +17,13 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/3', [HomeController::class, 'index3']);
 Route::get('/profil', [HomeController::class, 'profil']);
-Route::get('/ibkppk', [HomeController::class, 'ibkppk']);
-Route::get('/programkegiatan', [HomeController::class, 'programkegiatan']);
+Route::get('/galeri', [HomeController::class, 'galeri']);
+Route::get('/galeri/detail_galeri', [HomeController::class, 'detail_galeri']);
+Route::get('/blog', [HomeController::class, 'blog']);
+Route::get('/blog/detail_blog', [HomeController::class, 'detail_blog']);
 
+// Admin
 // Auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticated']);
@@ -30,10 +32,10 @@ Route::get('/logout', [AuthController::class, 'logout']);
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::resource('slider', SliderController::class)->middleware('auth');
-Route::resource('layanan', LayananController::class)->middleware('auth');
-Route::resource('announcement', AnnouncementController::class)->middleware('auth');
-Route::resource('galeri', GaleriController::class)->middleware('auth');
+// Route::resource('slider', SliderController::class)->middleware('auth');
+// Route::resource('layanan', LayananController::class)->middleware('auth');
+// Route::resource('announcement', AnnouncementController::class)->middleware('auth');
+Route::resource('galeriadmin', GaleriController::class)->middleware('auth');
 Route::resource('profiladmin', ProfiladminController::class)->middleware('auth');
 Route::resource('ibkppkadmin', IbkppkadminController::class)->middleware('auth');
 Route::resource('programkegiatanadmin', ProgramkegiatanadminController::class)->middleware('auth');

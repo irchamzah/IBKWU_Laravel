@@ -5,6 +5,8 @@ module.exports = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js",
     ],
     darkMode: "class",
     theme: {
@@ -27,4 +29,5 @@ module.exports = {
         },
     },
     plugins: [require("flowbite/plugin")],
+    plugins: [require("tw-elements/dist/plugin")],
 };

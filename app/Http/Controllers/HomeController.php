@@ -14,25 +14,35 @@ class HomeController extends Controller
         return view('home.index', compact('sliders'));
     }
 
-    public function index3()
-    {
-        $sliders = Slider::all();
-        // return view('home.index', compact('sliders'));
-        return view('home.index3', compact('sliders'));
-    }
+    // public function index3()
+    // {
+    //     $sliders = Slider::all();
+    //     // return view('home.index', compact('sliders'));
+    //     return view('home.index3', compact('sliders'));
+    // }
 
     public function profil()
     {
         return view('home.profil');
     }
 
-    public function ibkppk()
+    public function galeri()
     {
-        return view('home.ibkppk');
+        return view('home.galeri');
     }
 
-    public function programkegiatan()
+    public function detail_galeri()
     {
-        return view('home.programkegiatan');
+        return view('home.detail_galeri');
+    }
+
+    public function blog()
+    {
+        return view('home.blog');
+    }
+
+    public function detail_blog()
+    {
+        return view('home.detail_blog');
     }
 }

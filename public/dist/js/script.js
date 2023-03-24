@@ -56,3 +56,33 @@ if (
 } else {
     darkToggle.checked = false;
 }
+
+// kategoriGaleri
+const kategoriGaleri = document.querySelector("#kategoriGaleri");
+const navMenuGaleri = document.querySelector("#navMenuGaleri");
+
+kategoriGaleri.addEventListener("click", function () {
+    kategoriGaleri.classList.toggle("kategoriGaleri-active");
+    navMenuGaleri.classList.toggle("hidden");
+});
+
+// Klik di luar kategoriGaleri
+window.addEventListener("click", function (e) {
+    if (e.target != kategoriGaleri && e.target != navMenuGaleri) {
+        kategoriGaleri.classList.remove("kategoriGaleri-active");
+        navMenuGaleri.classList.add("hidden");
+    }
+});
+
+//Show Modal
+const modal = document.querySelector("#modal");
+const showModal = document.querySelector("#show-modal");
+const closeModal = document.querySelector("#close-modal");
+
+showModal.addEventListener("click", function () {
+    modal.classList.toggle("hidden");
+});
+
+closeModal.addEventListener("click", function () {
+    modal.classList.add("hidden");
+});
