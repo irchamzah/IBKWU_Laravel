@@ -5,18 +5,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title')</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="/lte/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/lte/dist/css/adminlte.min.css">
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
@@ -35,7 +38,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="/lte/index3.html" class="brand-link">
-                <img src="/lte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="/lte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                    style="opacity: .8">
                 <span class="brand-text font-weight-light">IBKWU - Admin</span>
             </a>
 
@@ -51,7 +55,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                 </div>
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item">
@@ -82,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/slider" class="nav-link">
+                                    <a href="/admin/slider" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit Beranda</p>
                                     </a>
@@ -90,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/layanan" class="nav-link">
+                                    <a href="/admin/layanan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit Layanan</p>
                                     </a>
@@ -98,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/announcement" class="nav-link">
+                                    <a href="/admin/announcement" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit Pengumuman</p>
                                     </a>
@@ -106,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/galeri" class="nav-link">
+                                    <a href="/admin/galeri" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit Galeri Tenant</p>
                                     </a>
@@ -114,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/profiladmin" class="nav-link">
+                                    <a href="/admin/profiladmin" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit Profil</p>
                                     </a>
@@ -122,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/ibkppkadmin" class="nav-link">
+                                    <a href="/admin/ibkppkadmin" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit IBK & PPK</p>
                                     </a>
@@ -130,7 +135,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/programkegiatanadmin" class="nav-link">
+                                    <a href="/admin/programkegiatanadmin" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Edit Program Kegiatan</p>
                                     </a>
@@ -138,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="/logout" class="nav-link">
+                            <a href="/admin/logout" class="nav-link">
                                 <i class="fas fa-arrow-left nav-icon"></i>
                                 <p>
                                     Logout
@@ -147,7 +152,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li><br><br><br><br>
                         <li class="nav-item">
-                            <a href="/" target="_blank" class="nav-link">
+                            <a href="/admin/" target="_blank" class="nav-link">
                                 <i class="far fa-eye nav-icon"></i>
                                 <p>
                                     Lihat Website
@@ -232,4 +237,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- AdminLTE App -->
     <script src="/lte/dist/js/adminlte.min.js"></script>
 </body>
+
 </html>

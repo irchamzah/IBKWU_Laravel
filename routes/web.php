@@ -24,13 +24,25 @@ Route::get('/blog', [HomeController::class, 'blog']);
 Route::get('/blog/detail_blog', [HomeController::class, 'detail_blog']);
 
 // Admin
-// Auth
+// Login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
-
 // Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/admin2', [DashboardController::class, 'index2'])->middleware('auth');
+// Akun Admin
+Route::get('/admin/akun', [UserController::class, 'index'])->middleware('auth');
+Route::get('/admin/akun/create', [UserController::class, 'create'])->middleware('auth');
+Route::post('/admin/akun/store', [UserController::class, 'create'])->middleware('auth')->name('admin.akun.store');
+Route::post('/admin/akun/edit/{id}', [UserController::class, 'edit'])->middleware('auth')->name('admin.akun.edit');
+Route::post('/admin/akun/destroy/{id}', [UserController::class, 'destroy'] )->middleware('auth')->name('admin.akun.destroy');
+
+
+
+
+
+
 
 // Route::resource('slider', SliderController::class)->middleware('auth');
 // Route::resource('layanan', LayananController::class)->middleware('auth');
@@ -39,6 +51,5 @@ Route::resource('galeriadmin', GaleriController::class)->middleware('auth');
 Route::resource('profiladmin', ProfiladminController::class)->middleware('auth');
 Route::resource('ibkppkadmin', IbkppkadminController::class)->middleware('auth');
 Route::resource('programkegiatanadmin', ProgramkegiatanadminController::class)->middleware('auth');
-Route::resource('user', UserController::class)->middleware('auth');
 
 Route::post('user/{id}', [UserController::class, 'update'])->middleware('auth');
