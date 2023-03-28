@@ -34,8 +34,9 @@ Route::get('/admin2', [DashboardController::class, 'index2'])->middleware('auth'
 // Akun Admin
 Route::get('/admin/akun', [UserController::class, 'index'])->middleware('auth');
 Route::get('/admin/akun/create', [UserController::class, 'create'])->middleware('auth');
-Route::post('/admin/akun/store', [UserController::class, 'create'])->middleware('auth')->name('admin.akun.store');
-Route::post('/admin/akun/edit/{id}', [UserController::class, 'edit'])->middleware('auth')->name('admin.akun.edit');
+Route::post('/admin/akun/store', [UserController::class, 'store'])->middleware('auth')->name('admin.akun.store');
+Route::get('/admin/akun/edit/{id}', [UserController::class, 'edit'])->middleware('auth')->name('admin.akun.edit');
+Route::post('/admin/akun/update/{id}', [UserController::class, 'update'])->middleware('auth')->name('admin.akun.update');
 Route::post('/admin/akun/destroy/{id}', [UserController::class, 'destroy'] )->middleware('auth')->name('admin.akun.destroy');
 
 

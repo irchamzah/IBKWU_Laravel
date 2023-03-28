@@ -69,13 +69,12 @@
                             <td>{{$user->email}}</td>
                             <td class="flex flex-col">
                                 <a href="{{route('admin.akun.edit', $user->id)}}"
-                                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full text-center mb-2">Edit</a>
+                                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full text-center mt-3 mb-1">Edit</a>
                                 <form action="{{route('admin.akun.destroy', $user->id)}}" method="POST"
                                     onsubmit="return confirm('YAKIN HAPUS DATA INI?')">
                                     @csrf
-                                    @method('DELETE')
                                     <button type="submit"
-                                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full">Hapus</button>
+                                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full mb-3 mt-1">Hapus</button>
                                 </form>
                             </td>
                         </tr>

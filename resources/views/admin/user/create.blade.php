@@ -60,9 +60,7 @@
 
                             <div class="form-group">
                                 <label for="password">Password</label><br>
-                                @error('password')
-                                <small style="color: red">{{$message}}</small>
-                                @enderror
+
                                 <input type="password" id="password"
                                     class="block border border-grey-light w-full p-3 rounded mb-4 @error('password') is-invalid @enderror"
                                     name="password" value="{{ old('password') }}" required autocomplete="password"
@@ -73,6 +71,9 @@
                                 <label for="password-confirm" class="">{{ __('Confirm Password') }}</label>
 
                                 <div class="form-group">
+                                    @error('password')
+                                    <small style="color: red">{{$message}}</small>
+                                    @enderror
                                     <input id="password-confirm" type="password"
                                         class="block border border-grey-light w-full p-3 rounded mb-4"
                                         name="password_confirmation" required autocomplete="new-password">
@@ -84,18 +85,18 @@
                                     Profil</label>
 
                                 <div class="col-md-6">
+                                    @error('image')
+                                    <div class="text-sm text-red-500">{{$message}}</div>
+                                    @enderror
                                     <input type="file"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
                                         name="image" accept="image/*">
-                                    @error('image')
-                                    <div class="alert alert-danger">{{$message}}</div>
-                                    @enderror
+
                                 </div>
                             </div>
 
                             <button type="submit"
-                                class="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-500 focus:outline-none my-1">Create
-                                Account</button>
+                                class="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-500 focus:outline-none my-1">Daftar</button>
                         </div>
                     </div>
                 </div>

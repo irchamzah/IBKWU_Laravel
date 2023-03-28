@@ -43,7 +43,7 @@ class UserController extends Controller
         $rules = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'confirmed'],
             'image' => ['required', 'max:5000|mimes:jpeg,png,jpg'],
         ];
 
@@ -79,7 +79,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/user')->with('message', 'Data Berhasil Ditambahkan');
+        return redirect('/admin/akun')->with('message', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -99,9 +99,10 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        return view('user.edit', compact('user'));
+        $user = User::whereId($id)->first();
+        return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -111,8 +112,9 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
+        // dd($request->id);
         $rules = [
             'name' => 'required', 'string', 'max:255',
             'email' => 'required', 'string', 'email', 'max:255', 'unique:admins',
@@ -141,6 +143,7 @@ class UserController extends Controller
         $this->validate($request, $rules, $message);
 
         //simpan ke database user
+        $user = User::where('id', $request->id)->first();
         $user->name = $request->name;
         $user->email = $request->email;
         if (!empty($request->password)) {
@@ -156,7 +159,7 @@ class UserController extends Controller
         }
         $user->update();
 
-        return redirect('/user')->with('message', 'Data Berhasil Diedit');
+        return redirect('/admin/akun')->with('message', 'Data Berhasil Diedit');
     }
 
     /**
@@ -165,13 +168,14 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request)
     {
-        if (\File::exists(public_path('img/fotoadmin/') . $user->image)) {
-            \File::delete(public_path('img/fotoadmin/') . $user->image);
+        if (\File::exists(public_path('img/fotoadmin/') . $request->image)) {
+            \File::delete(public_path('img/fotoadmin/') . $request->image);
         }
-        $user->delete();
+        $request = User::where('id', $request->id)->first();
+        $request->delete();
 
-        return redirect('/user')->with('message', 'Data Berhasil Dihapus');
+        return redirect('/admin/akun')->with('message', 'Data Berhasil Dihapus');
     }
 }
