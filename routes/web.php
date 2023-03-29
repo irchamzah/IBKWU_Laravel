@@ -3,8 +3,12 @@
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GaleriController;
+use App\Http\Controllers\HalamanController;
 use App\Http\Controllers\IbkppkadminController;
 use App\Http\Controllers\IbkppkController;
 use App\Http\Controllers\LayananController;
@@ -38,7 +42,18 @@ Route::post('/admin/akun/store', [UserController::class, 'store'])->middleware('
 Route::get('/admin/akun/edit/{id}', [UserController::class, 'edit'])->middleware('auth')->name('admin.akun.edit');
 Route::post('/admin/akun/update/{id}', [UserController::class, 'update'])->middleware('auth')->name('admin.akun.update');
 Route::post('/admin/akun/destroy/{id}', [UserController::class, 'destroy'] )->middleware('auth')->name('admin.akun.destroy');
-
+// Edit Halaman
+Route::get('/admin/halaman', [HalamanController::class, 'index'])->middleware('auth');
+// Edit Halaman Beranda
+Route::get('/admin/halaman/beranda', [BerandaController::class, 'index'])->middleware('auth');
+// Edit Halaman Profil
+Route::get('/admin/halaman/profil', [ProfilController::class, 'index'])->middleware('auth');
+// Edit Halaman Galeri
+Route::get('/admin/halaman/galeri', [GaleriController::class, 'index'])->middleware('auth');
+// Edit Halaman Blog
+Route::get('/admin/halaman/blog', [BlogController::class, 'index'])->middleware('auth');
+// Edit Footer
+Route::get('/admin/halaman/footer', [FooterController::class, 'index'])->middleware('auth');
 
 
 

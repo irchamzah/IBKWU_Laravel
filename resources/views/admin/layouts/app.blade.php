@@ -9,6 +9,7 @@
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
+    @vite('resources/css/app.css')
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
@@ -20,7 +21,7 @@
 
 </head>
 
-<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
+<body class="bg-gray-800 font-poppins leading-normal tracking-normal mt-12">
 
     <header>
         <!--Nav-->
@@ -118,7 +119,7 @@
                                 </a>
                             </li>
                             <li class="mr-3 flex-1">
-                                <a href="/admin/edit"
+                                <a href="/admin/halaman"
                                     class="block py-1 md:py-3 pl-1 align-middle text-white no-underline border-b-2 @yield('menu-3') hover:border-purple-500">
                                     <i class="fa fa-envelope pr-0 md:pr-3"></i><span
                                         class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Edit
@@ -149,13 +150,17 @@
                     <div class="bg-gray-800 pt-3">
                         <div
                             class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
-                            {{-- Title --}}
+
+                            {{-- Start Title --}}
                             <h1 class="font-bold pl-2">@yield('title')</h1>
+                            {{-- End Title --}}
+
                         </div>
                     </div>
 
-                    {{-- Content --}}
+                    {{-- Start Content --}}
                     @yield('content')
+                    {{-- End Content --}}
 
                 </div>
             </section>
