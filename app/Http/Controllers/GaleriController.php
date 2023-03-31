@@ -19,6 +19,36 @@ class GaleriController extends Controller
         return view('admin.halaman.galeri.index', compact('galeris'));
     }
 
+    public function tambah_produk()
+    {
+        return view('admin.halaman.galeri.create');
+    }
+
+    public function edit_produk()
+    {
+        return view('admin.halaman.galeri.edit');
+    }
+
+    public function tambah_foto_produk()
+    {
+        return view('admin.halaman.galeri.tambah_foto');
+    }
+
+    public function edit_foto_produk()
+    {
+        return view('admin.halaman.galeri.edit_foto');
+    }
+
+    public function tambah_sosmed_produk()
+    {
+        return view('admin.halaman.galeri.tambah_sosmed');
+    }
+    
+    public function edit_sosmed_produk()
+    {
+        return view('admin.halaman.galeri.edit_sosmed');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

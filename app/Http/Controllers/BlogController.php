@@ -16,6 +16,26 @@ class BlogController extends Controller
         return view('admin.halaman.blog.index');
     }
 
+    public function tambah_blog()
+    {
+        return view('admin.halaman.blog.create');
+    }
+
+    public function edit_blog()
+    {
+        return view('admin.halaman.blog.edit');
+    }
+
+    public function tambah_foto_blog()
+    {
+        return view('admin.halaman.blog.tambah_foto');
+    }
+
+    public function edit_foto_blog()
+    {
+        return view('admin.halaman.blog.edit_foto');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

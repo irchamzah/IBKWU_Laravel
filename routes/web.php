@@ -34,7 +34,7 @@ Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
 // Dashboard
 Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth');
-Route::get('/admin2', [DashboardController::class, 'index2'])->middleware('auth');
+// Route::get('/admin2', [DashboardController::class, 'index2'])->middleware('auth');
 // Akun Admin
 Route::get('/admin/akun', [UserController::class, 'index'])->middleware('auth');
 Route::get('/admin/akun/create', [UserController::class, 'create'])->middleware('auth');
@@ -46,12 +46,24 @@ Route::post('/admin/akun/destroy/{id}', [UserController::class, 'destroy'] )->mi
 Route::get('/admin/halaman', [HalamanController::class, 'index'])->middleware('auth');
 // Edit Halaman Beranda
 Route::get('/admin/halaman/beranda', [BerandaController::class, 'index'])->middleware('auth');
+Route::get('/admin/halaman/beranda/tambah_mitra', [BerandaController::class, 'tambah_mitra'])->middleware('auth');
+Route::get('/admin/halaman/beranda/edit_mitra', [BerandaController::class, 'edit_mitra'])->middleware('auth');
 // Edit Halaman Profil
 Route::get('/admin/halaman/profil', [ProfilController::class, 'index'])->middleware('auth');
 // Edit Halaman Galeri
 Route::get('/admin/halaman/galeri', [GaleriController::class, 'index'])->middleware('auth');
+Route::get('/admin/halaman/galeri/tambah_produk', [GaleriController::class, 'tambah_produk'])->middleware('auth');
+Route::get('/admin/halaman/galeri/edit_produk', [GaleriController::class, 'edit_produk'])->middleware('auth');
+Route::get('/admin/halaman/galeri/edit_produk/tambah_foto', [GaleriController::class, 'tambah_foto_produk'])->middleware('auth');
+Route::get('/admin/halaman/galeri/edit_produk/edit_foto', [GaleriController::class, 'edit_foto_produk'])->middleware('auth');
+Route::get('/admin/halaman/galeri/edit_produk/tambah_sosmed', [GaleriController::class, 'tambah_sosmed_produk'])->middleware('auth');
+Route::get('/admin/halaman/galeri/edit_produk/edit_sosmed', [GaleriController::class, 'edit_sosmed_produk'])->middleware('auth');
 // Edit Halaman Blog
 Route::get('/admin/halaman/blog', [BlogController::class, 'index'])->middleware('auth');
+Route::get('/admin/halaman/blog/tambah_blog', [BlogController::class, 'tambah_blog'])->middleware('auth');
+Route::get('/admin/halaman/blog/edit_blog', [BlogController::class, 'edit_blog'])->middleware('auth');
+Route::get('/admin/halaman/blog/edit_blog/tambah_foto', [BlogController::class, 'tambah_foto_blog'])->middleware('auth');
+Route::get('/admin/halaman/blog/edit_blog/edit_foto', [BlogController::class, 'edit_foto_blog'])->middleware('auth');
 // Edit Footer
 Route::get('/admin/halaman/footer', [FooterController::class, 'index'])->middleware('auth');
 

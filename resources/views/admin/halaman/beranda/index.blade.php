@@ -234,10 +234,45 @@
 
                     <div class="w-full px-4">
                         <div class="flex flex-wrap items-center justify-center">
-                            <a href="/admin/halaman/profil"
-                                class="w-60 text-center py-3 rounded bg-primary text-white hover:opacity-90 focus:outline-none my-1">Edit
-                                Daftar Mitra</a>
+                            <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
+                                <img src="/dist/img/mitra/google.svg" alt="Google"
+                                    class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
+                                <a href="/admin/halaman/beranda/edit_mitra"
+                                    class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
+                                <a href="#"
+                                    class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
+                            </div>
+                            <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
+                                <img src="/dist/img/mitra/gojek.svg" alt="Google"
+                                    class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
+                                <a href="/admin/halaman/beranda/edit_mitra"
+                                    class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
+                                <a href="#"
+                                    class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
+                            </div>
+                            <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
+                                <img src="/dist/img/mitra/tokopedia.svg" alt="Google"
+                                    class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
+                                <a href="/admin/halaman/beranda/edit_mitra"
+                                    class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
+                                <a href="#"
+                                    class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
+                            </div>
+                            <div class="max-w-[120px] mx-4 py-4  lg:mx-6 xl:mx-8 flex flex-col">
+                                <img src="/dist/img/mitra/traveloka.svg" alt="Google"
+                                    class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 ">
+                                <a href="/admin/halaman/beranda/edit_mitra"
+                                    class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
+                                <a href="#"
+                                    class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
+                            </div>
+
+
                         </div>
+                        <a href="/admin/halaman/beranda/tambah_mitra"
+                            class="w-60 text-center py-3 rounded bg-primary text-white hover:opacity-90 focus:outline-none my-1 block mx-auto mt-10">Tambah
+                            Mitra
+                        </a>
                     </div>
                 </div>
             </section>

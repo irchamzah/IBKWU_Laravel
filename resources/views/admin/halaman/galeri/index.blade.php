@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Galeri')
+@section('title', 'Edit Galeri Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
@@ -144,18 +144,7 @@
                         <div class="justify-center">
                             <div class="flex justify-center mx-auto">
                                 <div class="mb-3 xl:w-96">
-                                    <!--Metric Card-->
-                                    <a href="/admin/halaman/galeri/tambah_produk">
-                                        <button
-                                            class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mb-10 w-full">
-                                            <div class="flex flex-row items-center justify-center">
-                                                <div class="text-right md:text-center">
-                                                    <h2 class="font-bold uppercase">Tambah Produk Baru</h2>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </a>
-                                    <!--/Metric Card-->
+
                                     <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                                         <input type="search"
                                             class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
@@ -236,7 +225,7 @@
                                         <p class="font-medium text-base text-secondary mb-6">Lorem ipsum dolor sit, amet
                                             consectetur adipisicing
                                             elit. Explicabo, harum!</p>
-                                        <a href="/admin/halaman/galeri/detail_galeri"
+                                        <a href="/admin/halaman/galeri/edit_produk"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
                                         <a href="#"
                                             class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
@@ -256,7 +245,7 @@
                                         <p class="font-medium text-base text-secondary mb-6">Lorem, ipsum dolor sit amet
                                             consectetur adipisicing
                                             elit. Commodi minima quisquam quos?</p>
-                                        <a href="/admin/halaman/galeri/detail_galeri"
+                                        <a href="/admin/halaman/galeri/edit_produk"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
                                         <a href="#"
                                             class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
@@ -276,7 +265,7 @@
                                         <p class="font-medium text-base text-secondary mb-6">Lorem ipsum dolor sit amet
                                             consectetur adipisicing
                                             elit. Dicta minus enim voluptates rem sint eius iusto.</p>
-                                        <a href="/admin/halaman/galeri/detail_galeri"
+                                        <a href="/admin/halaman/galeri/edit_produk"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
                                         <a href="#"
                                             class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
@@ -284,6 +273,18 @@
                                 </div>
                             </div>
                         </div>
+                        <!--Metric Card-->
+                        <a href="/admin/halaman/galeri/tambah_produk">
+                            <button
+                                class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mt-10  block mx-auto w-full sm:w-96">
+                                <div class="flex flex-row items-center justify-center">
+                                    <div class="text-right md:text-center">
+                                        <h2 class="font-bold uppercase">Tambah Produk Baru</h2>
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                        <!--/Metric Card-->
                     </div>
             </section>
             {{-- Galeri Tenant Section End --}}

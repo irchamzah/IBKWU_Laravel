@@ -97,43 +97,24 @@
                     <h2 class="font-bold text-4xl text-white mb-5">IBKWU</h2>
                     <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
                     <p>irchamzah.fikri.ababil@gmail.com</p>
-                    <p>Jl. Mastrip, Kotak Pos 164 – Tegalgede, Sumbersari</p>
-                    <p>Kabupaten Jember, Jawa Timur 68124</p>
+                    <p>Jl. Mastrip, Kotak Pos 164 – Tegalgede, Sumbersari, Kabupaten Jember, Jawa Timur 68124</p>
                 </div>
                 <div class="w-full px-4 mb-12 md:w-1/3">
-                    <h3 class="font-semibold text-xl text-white mb-5">Kategori Tulisan</h3>
-                    <ul class="text-slate-300">
-                        <li>
-                            <a href="#" class="inline-block text-base hover:text-primary mb-3">Programming</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block text-base hover:text-primary mb-3">Teknologi</a>
-                        </li>
-                        <li>
-                            <a href="#" class="inline-block text-base hover:text-primary mb-3">Gaya Hidup</a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="w-full px-4 mb-12 md:w-1/3">
                     <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
                     <ul class="text-slate-300">
                         <li>
-                            <a href="#home" class="inline-block text-base hover:text-primary mb-3">Beranda</a>
+                            <a href="/" class="inline-block text-base hover:text-primary mb-3">Beranda</a>
                         </li>
                         <li>
-                            <a href="#about" class="inline-block text-base hover:text-primary mb-3">Tentang Saya</a>
+                            <a href="/profil" class="inline-block text-base hover:text-primary mb-3">Profil</a>
                         </li>
                         <li>
-                            <a href="#galeri" class="inline-block text-base hover:text-primary mb-3">Galeri Tenant</a>
+                            <a href="/galeri" class="inline-block text-base hover:text-primary mb-3">Galeri Tenant</a>
                         </li>
                         <li>
-                            <a href="#mitra" class="inline-block text-base hover:text-primary mb-3">Mitra</a>
-                        </li>
-                        <li>
-                            <a href="#blog" class="inline-block text-base hover:text-primary mb-3">Blog</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="inline-block text-base hover:text-primary mb-3">Kontak</a>
+                            <a href="/blog" class="inline-block text-base hover:text-primary mb-3">Blog</a>
                         </li>
                     </ul>
                 </div>

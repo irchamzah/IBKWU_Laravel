@@ -79,7 +79,7 @@ class UserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect('/admin/akun')->with('message', 'Data Berhasil Ditambahkan');
+        return redirect('/admin/akun')->with('message', 'Akun Berhasil Ditambahkan');
     }
 
     /**
@@ -159,7 +159,7 @@ class UserController extends Controller
         }
         $user->update();
 
-        return redirect('/admin/akun')->with('message', 'Data Berhasil Diedit');
+        return redirect('/admin/akun')->with('message', 'Akun Berhasil Diedit');
     }
 
     /**
@@ -170,12 +170,13 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+        
+        $request = User::where('id', $request->id)->first();
         if (\File::exists(public_path('img/fotoadmin/') . $request->image)) {
             \File::delete(public_path('img/fotoadmin/') . $request->image);
         }
-        $request = User::where('id', $request->id)->first();
         $request->delete();
 
-        return redirect('/admin/akun')->with('message', 'Data Berhasil Dihapus');
+        return redirect('/admin/akun')->with('message', 'Akun Berhasil Dihapus');
     }
 }

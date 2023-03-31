@@ -16,6 +16,16 @@ class BerandaController extends Controller
         return view('admin.halaman.beranda.index');
     }
 
+    public function tambah_mitra()
+    {
+        return view('admin.halaman.beranda.tambah_mitra');
+    }
+
+    public function edit_mitra()
+    {
+        return view('admin.halaman.beranda.edit_mitra');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
