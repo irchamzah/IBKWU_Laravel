@@ -27,7 +27,7 @@
       </div>
       <div class="w-full self-end px-4 lg:w-1/2">
         <div class="relative mt-10 lg:mt-0 lg:right-0">
-          <img src="/img/dhanang.png" alt="Dhanang Eka Putra" class="relative z-10 max-w-full mx-auto ">
+          <img src="/img/dhanang.png" alt="Dhanang Eka Putra" class="relative z-10 mx-auto w-96 bg-cover">
           <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
             {{-- <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <path fill="#0093d3"

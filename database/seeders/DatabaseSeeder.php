@@ -17,11 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'irchamzah',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin'),
-            'image' => 'test.jpg'
-        ]);
+        $this->call(UserSeeder::class);
+        $this->call(BerandaSeeder::class);
+        $this->call(MitraSeeder::class);
     }
 }

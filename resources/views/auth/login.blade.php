@@ -33,7 +33,7 @@
       </div>
 
       @error('loginError')
-      <div class="bg-red-600">
+      <div class="bg-red-600 rounded-xl text-white p-2">
         <strong>Error</strong>
         <p>{{ $message }}</p>
       </div>
@@ -45,18 +45,18 @@
         <div class="-space-y-px rounded-md shadow-sm">
 
           @error('email')
-          <small style="color: red">{{$message}}</small>
+          <small class="rounded-xl text-red-500">{{$message}}</small>
           @enderror
 
           <div>
             <label for="email-address" class="sr-only">Email address</label>
             <input id="email-address" name="email" type="email" autocomplete="email" required
               class="relative block w-full rounded-t-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-4"
-              placeholder="Email address">
+              placeholder="Email address" value="{{ old('email') }}">
           </div>
 
           @error('password')
-          <small style="color: red">{{$message}}</small>
+          <small class="rounded-xl text-red-500">{{$message}}</small>
           @enderror
 
           <div class="">

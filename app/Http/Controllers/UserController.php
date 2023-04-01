@@ -19,7 +19,6 @@ class UserController extends Controller
         $users = User::all();
         // dd($users);
         return view('admin.user.index', compact('users'));
-        
     }
 
     /**
@@ -170,13 +169,17 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
-        
-        $request = User::where('id', $request->id)->first();
-        if (\File::exists(public_path('img/fotoadmin/') . $request->image)) {
-            \File::delete(public_path('img/fotoadmin/') . $request->image);
-        }
-        $request->delete();
+        $userCount = User::count();
+        if ($userCount < 2) {
+            return redirect('/admin/akun')->with('error', 'Tidak Boleh Menghapus Akun Terakhir');
+        } else {
+            $request = User::where('id', $request->id)->first();
+            if (\File::exists(public_path('img/fotoadmin/') . $request->image)) {
+                \File::delete(public_path('img/fotoadmin/') . $request->image);
+            }
+            $request->delete();
 
-        return redirect('/admin/akun')->with('message', 'Akun Berhasil Dihapus');
+            return redirect('/admin/akun')->with('message', 'Akun Berhasil Dihapus');
+        }
     }
 }

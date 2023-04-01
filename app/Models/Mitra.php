@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Layanan extends Model
+class Mitra extends Model
 {
     use HasFactory;
+    protected $table = "mitras";
 
     protected $fillable = [
-        'title', 'description', 'image'
+        'mitra_img',
+        'mitra_link'
     ];
 }

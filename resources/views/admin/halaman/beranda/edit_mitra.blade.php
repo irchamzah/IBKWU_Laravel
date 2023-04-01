@@ -7,62 +7,71 @@
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<div class="flex flex-wrap">
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+<form action="{{route('admin.halaman.beranda.update_mitra', $mitra->id)}}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/beranda">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Kembali</h2>
+            <!--Metric Card-->
+            <a href="/admin/halaman/beranda">
+                <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                    <div class="flex flex-row items-center justify-center">
+                        <div class="text-right md:text-center">
+                            <h2 class="font-bold uppercase">Kembali</h2>
+                        </div>
                     </div>
                 </div>
-            </button>
-        </a>
-        <!--/Metric Card-->
+            </a>
+            <!--/Metric Card-->
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/beranda">
-            <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
+            <!--Metric Card-->
+            <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700" type="submit">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
                         <h2 class="font-bold uppercase">Simpan</h2>
                     </div>
                 </div>
             </button>
-        </a>
-        <!--/Metric Card-->
+            <!--/Metric Card-->
+        </div>
     </div>
-</div>
 
-<!-- component -->
-<div class="bg-grey-lighter flex flex-col">
-    <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
-        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            <div class="form-group">
-                <label for="name">Logo Mitra</label><br>
-                @error('name')
-                <small style="color: red">{{$message}}</small>
-                @enderror
-                <input type="file"
-                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
-                    name="image" accept="image/*">
-            </div>
+    <!-- component -->
+    <div class="bg-grey-lighter flex flex-col">
+        <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
+            <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                <div class="form-group">
+                    <label for="mitra_img">Logo Mitra</label><br>
+                    @error('mitra_img')
+                    <small style="color: red">{{$message}}</small>
+                    @enderror
+                    <img src="/img/mitra/{{$mitra->mitra_img}}" alt="" class="w-40 h-40">
+                    <input type="file"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('mitra_img') is-invalid @enderror"
+                        name="mitra_img" accept="image/*">
+                </div>
 
-            <div class="form-group">
-                <label for="email">Link Mitra</label><br>
-                @error('email')
-                <small style="color: red">{{$message}}</small>
-                @enderror
-                <input type="text" id="email"
-                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('email') is-invalid @enderror"
-                    name="email" value="https://www.youtube.com/playlist?list=PLPWSAJrDQSajcM22LtMqVvHJ_OVIxCfcc"
-                    required autocomplete="email" autofocus>
+                <div class="form-group">
+                    <label for="mitra_link">Link Mitra</label><br>
+                    @error('mitra_link')
+                    <small style="color: red">{{$message}}</small>
+                    @enderror
+                    <input type="text" id="mitra_link"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('mitra_link') is-invalid @enderror"
+                        name="mitra_link" value="{{$mitra->mitra_link}}" required autocomplete="mitra_link" autofocus>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
+
+
+
+
+
+
+
+
 
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">

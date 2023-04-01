@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Admin Starter Template : Tailwind Toolbox</title>
+    <title>IBKWU - @yield('title')</title>
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
@@ -51,13 +51,13 @@
 
                 <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
                     <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-                        {{-- <li class="flex-1 md:flex-none md:mr-3">
-                            <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
+                        <li class="flex-1 md:flex-none md:mr-3 opacity-0">
+                            <a class="inline-block py-2 px-4 text-white no-underline">Active</a>
                         </li>
-                        <li class="flex-1 md:flex-none md:mr-3">
-                            <a class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4"
-                                href="#">link</a>
-                        </li> --}}
+                        <li class="flex-1 md:flex-none md:mr-3 opacity-0">
+                            <a
+                                class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4">link</a>
+                        </li>
                         <li class="flex-1 md:flex-none md:mr-3">
                             <div class="relative inline-block">
 
