@@ -7,22 +7,24 @@
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<div class="flex flex-wrap">
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-        <!--Metric Card-->
-        <a href="/admin/halaman">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Kembali</h2>
+<form action="{{route('admin.halaman.profil.update', $profil->id)}}" method="POST" enctype="multipart/form-data">
+    @csrf
+
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+            <!--Metric Card-->
+            <a href="/admin/halaman">
+                <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                    <div class="flex flex-row items-center justify-center">
+                        <div class="text-right md:text-center">
+                            <h2 class="font-bold uppercase">Kembali</h2>
+                        </div>
                     </div>
                 </div>
-            </button>
-        </a>
-        <!--/Metric Card-->
+            </a>
+            <!--/Metric Card-->
 
-        <!--Metric Card-->
-        <a href="/admin/halaman">
+            <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
@@ -30,108 +32,191 @@
                     </div>
                 </div>
             </button>
-        </a>
-        <!--/Metric Card-->
-    </div>
-</div>
+            <!--/Metric Card-->
 
-<div class="flex flex-wrap">
-    <div class="w-full p-6">
-        <div class=" rounded-lg shadow-xl p-5">
-
-            {{-- Tentang Section Start --}}
-            <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-                <div class="container">
-                    <div class="w-full px-4">
-                        <div class="max-w-5xl mx-auto text-center mb-6">
-                            <h4 class="font-semibold text-lg text-primary mb-2">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Sejarah dan Pendirian" required autocomplete="name" autofocus>
-                            </h4>
-                            <h2 class="font-bold text-dark text-3xl mb-6 sm:text-4xl lg:text-5xl dark:text-white"><input
-                                    type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Sejarah dan Pendirian IBKWU" required autocomplete="name"
-                                    autofocus>
-                            </h2>
-                            <p class="font-medium text-md text-secondary md:text-lg text-justify indent-8 mb-2">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name" autofocus>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel eos blanditiis sed non aut error illum explicabo quaerat consequuntur libero consectetur quis illo quod ut rerum repellat magni nulla laudantium hic maiores atque, eius quibusdam optio. At fuga facere impedit, neque saepe quia dolorum quis error nemo qui nobis doloribus fugit sit molestias harum. Non cupiditate numquam sit. Nihil voluptatem, laborum, architecto debitis hic animi reprehenderit illo minus explicabo nam dolore obcaecati laudantium excepturi suscipit ea quis dolor est. Aliquid omnis expedita facere quam assumenda tenetur quisquam voluptatibus, vitae ipsa minus libero consequuntur nihil impedit, unde et accusamus nostrum at?
-                                </textarea>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                        <div class="mb-12 p-4 md:w-1/2">
-                            <div class="rounded-md shadow-md overflow-hidden">
-                                <img src="/dist/img/galeri/macarina-1.jpg" alt="" width="w-full">
-                                <input type="file"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
-                                    name="image" accept="image/*">
-                            </div>
-                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Sejarah IBKWU" required autocomplete="name" autofocus>
-                            </h3>
-                            <p class="font-medium text-base text-secondary text-justify">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name"
-                                    autofocus>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia dolorem, adipisci cumque aliquid est excepturi repellendus non reiciendis quas qui?</textarea>
-                            </p>
-                        </div>
-                        <div class="mb-12 p-4 md:w-1/2">
-                            <div class="rounded-md shadow-md overflow-hidden">
-                                <img src="/dist/img/galeri/macarina-2.jpg" alt="" width="w-full">
-                                <input type="file"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
-                                    name="image" accept="image/*">
-                            </div>
-                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Pendirian IBKWU" required autocomplete="name" autofocus>
-                            </h3>
-                            <p class="font-medium text-base text-secondary text-justify">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name"
-                                    autofocus>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero nulla consequuntur blanditiis architecto suscipit mollitia dolore quas beatae. Ex, dolorem?</textarea>
-                            </p>
-                        </div>
-                    </div>
+            @if($message = Session::get('message'))
+            <div role="alert">
+                <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                    Berhasil!
                 </div>
-            </section>
-            {{-- Tentang Section End --}}
+                <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                    <p>{{$message}}</p>
+                </div>
+            </div>
+            @endif
 
-            {{-- Visi dan Misi Section Start --}}
-            <section id="visi" class="pt-36 pb-16 bg-slate-200 dark:bg-slate-800">
-                <div class="container">
+        </div>
+    </div>
+
+    <div class="flex flex-wrap">
+        <div class="w-full p-6">
+            <div class=" rounded-lg shadow-xl p-5">
+
+                {{-- Tentang Section Start --}}
+                <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
+                    <div class="container">
+                        <div class="w-full px-4">
+                            <div class="max-w-5xl mx-auto text-center mb-6">
+                                <h4 class="font-semibold text-lg text-primary mb-2">
+                                    <input type="text" id="tentang_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_h1') is-invalid @enderror"
+                                        name="tentang_h1" value="{{$profil->tentang_h1}}" required
+                                        autocomplete="tentang_h1" autofocus>
+                                </h4>
+                                <h2 class="font-bold text-dark text-3xl mb-6 sm:text-4xl lg:text-5xl dark:text-white">
+                                    <input type="text" id="tentang_h2"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_h2') is-invalid @enderror"
+                                        name="tentang_h2" value="{{$profil->tentang_h2}}" required
+                                        autocomplete="tentang_h2" autofocus>
+                                </h2>
+                                <div class="font-medium text-md text-secondary md:text-lg text-justify indent-8 mb-2">
+                                    @error('tentang_p1')
+                                    <small style="color: red">{{$message}}</small>
+                                    @enderror
+                                    <textarea name="tentang_p1" id="editor1" cols="30" rows="10" type="text"
+                                        class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_p1') is-invalid @enderror"
+                                        required autocomplete="tentang_p1" autofocus>{{$profil->tentang_p1}}</textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                            <div class="mb-12 p-4 md:w-1/2">
+                                <div class="rounded-md shadow-md overflow-hidden">
+                                    <img src="/img/profil/{{$profil->tentang_img1}}" alt="" width="w-full">
+                                    <input type="file"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_img1') is-invalid @enderror"
+                                        name="tentang_img1" accept="image/*">
+                                </div>
+                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
+                                    <input type="text" id="tentang_h3"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_h3') is-invalid @enderror"
+                                        name="tentang_h3" value="{{$profil->tentang_h3}}" required
+                                        autocomplete="tentang_h3" autofocus>
+                                </h3>
+                                <p class="font-medium text-base text-secondary text-justify">
+                                    <textarea name="tentang_p2" id="tentang_p2" cols="30" rows="10" type="text"
+                                        class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_p2') is-invalid @enderror"
+                                        required autocomplete="tentang_p2" autofocus>{{$profil->tentang_p2}}</textarea>
+                                </p>
+                            </div>
+                            <div class="mb-12 p-4 md:w-1/2">
+                                <div class="rounded-md shadow-md overflow-hidden">
+                                    <img src="/img/profil/{{$profil->tentang_img2}}" alt="" width="w-full">
+                                    <input type="file"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_img2') is-invalid @enderror"
+                                        name="tentang_img2" accept="image/*">
+                                </div>
+                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
+                                    <input type="text" id="tentang_h4"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_h4') is-invalid @enderror"
+                                        name="tentang_h4" value="{{$profil->tentang_h4}}" required
+                                        autocomplete="tentang_h4" autofocus>
+                                </h3>
+                                <p class="font-medium text-base text-secondary text-justify">
+                                    <textarea name="tentang_p3" id="tentang_p3" cols="30" rows="10" type="text"
+                                        class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('tentang_p3') is-invalid @enderror"
+                                        required autocomplete="tentang_p3" autofocus>{{$profil->tentang_p3}}</textarea>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {{-- Tentang Section End --}}
+
+                {{-- Visi dan Misi Section Start --}}
+                <section id="visi" class="pt-36 pb-16 bg-slate-200 dark:bg-slate-800">
+                    <div class="container">
+                        <div class="container">
+                            <div class="w-full px-4">
+                                <div class="max-w-5xl mx-auto text-center mb-10">
+                                    <h4 class="font-semibold text-lg text-primary mb-2">
+                                        <input type="text" id="visi_h1"
+                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('visi_h1') is-invalid @enderror"
+                                            name="visi_h1" value="{{$profil->visi_h1}}" required autocomplete="visi_h1"
+                                            autofocus>
+                                    </h4>
+                                    <h2
+                                        class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
+                                        <input type="text" id="visi_h2"
+                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('visi_h2') is-invalid @enderror"
+                                            name="visi_h2" value="{{$profil->visi_h2}}" required autocomplete="visi_h2"
+                                            autofocus>
+                                    </h2>
+                                    <p class="font-medium text-md text-secondary md:text-lg"><textarea name="visi_p1"
+                                            id="visi_p1" cols="30" rows="10" type="text"
+                                            class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('visi_p1') is-invalid @enderror"
+                                            required autocomplete="visi_p1" autofocus>{{$profil->visi_p1}}</textarea>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap">
+                                <div class="w-full px-4 lg:w-1/2">
+                                    <h2
+                                        class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white text-center">
+                                        <input type="text" id="visi_h3"
+                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('visi_h3') is-invalid @enderror"
+                                            name="visi_h3" value="{{$profil->visi_h3}}" required autocomplete="visi_h3"
+                                            autofocus>
+                                    </h2>
+                                    <ul
+                                        class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
+                                        @error('visi_p2')
+                                        <small style="color: red">{{$message}}</small>
+                                        @enderror
+                                        <textarea name="visi_p2" id="editor2" cols="30" rows="10" type="text"
+                                            class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('visi_p2') is-invalid @enderror"
+                                            required autocomplete="visi_p2" autofocus>
+                                            {{$profil->visi_p2}}</textarea>
+                                    </ul>
+                                </div>
+                                <div class="w-full px-4 lg:w-1/2">
+                                    <h2
+                                        class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white text-center">
+                                        <input type="text" id="visi_h4"
+                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('visi_h4') is-invalid @enderror"
+                                            name="visi_h4" value="{{$profil->visi_h4}}" required autocomplete="visi_h4"
+                                            autofocus>
+                                    </h2>
+                                    <ul
+                                        class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
+                                        @error('visi_p3')
+                                        <small style="color: red">{{$message}}</small>
+                                        @enderror
+                                        <textarea name="visi_p3" id="editor3" cols="30" rows="10" type="text"
+                                            class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('visi_p3') is-invalid @enderror"
+                                            required autocomplete="visi_p3" autofocus>{{$profil->visi_p3}}</textarea>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                {{-- Visi dan Misi Section End --}}
+
+                {{-- Tujuan dan Sasaran Section Start --}}
+                <section id="tujuan" class="pt-36 pb-16 dark:bg-dark">
                     <div class="container">
                         <div class="w-full px-4">
                             <div class="max-w-5xl mx-auto text-center mb-10">
                                 <h4 class="font-semibold text-lg text-primary mb-2">
-                                    <input type="text" id="name"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        name="name" value="Visi dan Misi" required autocomplete="name" autofocus>
+                                    <input type="text" id="tujuan_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_h1') is-invalid @enderror"
+                                        name="tujuan_h1" value="{{$profil->tujuan_h1}}" required
+                                        autocomplete="tujuan_h1" autofocus>
                                 </h4>
                                 <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                    <input type="text" id="name"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        name="name" value="Visi dan Misi IBKWU" required autocomplete="name" autofocus>
+                                    <input type="text" id="tujuan_h2"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_h2') is-invalid @enderror"
+                                        name="tujuan_h2" value="{{$profil->tujuan_h2}}" required
+                                        autocomplete="tujuan_h2" autofocus>
                                 </h2>
-                                <p class="font-medium text-md text-secondary md:text-lg"><textarea name="name" id="name"
-                                        cols="30" rows="10" type="text"
-                                        class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        required autocomplete="name" autofocus>Lorem ipsum dolor sit amet
-                                    consectetur adipisicing
-                                    elit. Placeat adipisci qui dolores similique harum odit in molestiae quaerat
-                                    laboriosam
-                                    voluptate?</textarea></p>
+                                <p class="font-medium text-md text-secondary md:text-lg">
+                                    <textarea name="tujuan_p1" id="tujuan_p1" cols="30" rows="10" type="text"
+                                        class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_p1') is-invalid @enderror"
+                                        required autocomplete="tujuan_p1" autofocus>{{$profil->tujuan_p1}}</textarea>
+                                </p>
                             </div>
                         </div>
 
@@ -139,232 +224,99 @@
                             <div class="w-full px-4 lg:w-1/2">
                                 <h2
                                     class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white text-center">
-                                    <input type="text" id="name"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        name="name" value="Visi" required autocomplete="name" autofocus>
+                                    <input type="text" id="tujuan_h3"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_h3') is-invalid @enderror"
+                                        name="tujuan_h3" value="{{$profil->tujuan_h3}}" required
+                                        autocomplete="tujuan_h3" autofocus>
                                 </h2>
                                 <ul
                                     class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
-                                    <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                        class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        required autocomplete="name" autofocus>
-                                    <li>Menjalankan inkubasi sesuai standar manajemen mutu dan ISO 9001 – 2008.</li>
-                                    <li>Memberikan layanan kepada masyarakat, mahasiswa dan alumni berbagai perguruan
-                                        tinggi
-                                        untuk memulai
-                                        usaha sehingga tumbuh dan berkembang secara mandiri.</li></textarea>
+                                    @error('tujuan_p2')
+                                    <small style="color: red">{{$message}}</small>
+                                    @enderror
+                                    <textarea name="tujuan_p2" id="editor4" cols="30" rows="10" type="text"
+                                        class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_p2') is-invalid @enderror"
+                                        required autocomplete="tujuan_p2" autofocus>{{$profil->tujuan_p2}}</textarea>
                                 </ul>
                             </div>
                             <div class="w-full px-4 lg:w-1/2">
                                 <h2
                                     class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white text-center">
-                                    <input type="text" id="name"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        name="name" value="Misi" required autocomplete="name" autofocus>
+                                    <input type="text" id="tujuan_h4"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_h4') is-invalid @enderror"
+                                        name="tujuan_h4" value="{{$profil->tujuan_h4}}" required
+                                        autocomplete="tujuan_h4" autofocus>
                                 </h2>
                                 <ul
                                     class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
-                                    <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                        class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        required autocomplete="name" autofocus>
-                                    <li>Memberikan layanan pra inkubasi – masa inkubasi – pasca inkubasi secara
-                                        terstruktur
-                                        dan berkelanjutan
-                                        dengan masa inkubasi minimal 3 tahun.</li>
-                                    <li>Memberikan layanan inkubasi in-wall dan out-wall baik secara langsung maupun
-                                        virtual
-                                        dalam bentuk
-                                        aplikasi dan inovasi IPTEK, motivasi, peningkatan kekuatan personal,
-                                        pengetahuan,
-                                        keterampilan teknis,
-                                        manajerial dan kepemimpinan melalui kegiatan penyuluhan, pelatihan, pendidikan,
-                                        pendampingan dan
-                                        business coach.</li>
-                                    <li>Memberi layanan transfer pengetahuan dan teknologi tepat guna maupun
-                                        pengembangan
-                                        hak kekayaan
-                                        intelektual serta hak cipta terhadap produk dan bisnis.</li>
-                                    <li>Memberikan layanan yang berbasis pada nilai – nilai kebenaran perkataan, nurani
-                                        dan
-                                        pikiran.</li>
-                                    <li>Memberikan layanan dengan prinsip etika bisnis, komitmen dua arah, berorientasi
-                                        tujuan, dan fokus
-                                        untuk sukses.</li>
-                                    <li>Meningkatkan reputasi dan pencitraan terhadap layanan inkubasi.</li>
-                                    <li>Mengembangkan kapabilitas dan kompetensi team work inkubator secara professional
-                                        dan
-                                        berdaya saing.
-                                    </li></textarea>
+                                    @error('tujuan_p3')
+                                    <small style="color: red">{{$message}}</small>
+                                    @enderror
+                                    <textarea name="tujuan_p3" id="editor5" cols="30" rows="10" type="text"
+                                        class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('tujuan_p3') is-invalid @enderror"
+                                        required autocomplete="tujuan_p3" autofocus>{{$profil->tujuan_p3}}</textarea>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            {{-- Visi dan Misi Section End --}}
+                </section>
+                {{-- Tujuan dan Sasaran Section End --}}
 
-            {{-- Tujuan dan Sasaran Section Start --}}
-            <section id="tujuan" class="pt-36 pb-16 dark:bg-dark">
-                <div class="container">
-                    <div class="w-full px-4">
-                        <div class="max-w-5xl mx-auto text-center mb-10">
-                            <h4 class="font-semibold text-lg text-primary mb-2">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Tujuan dan Sasaran" required autocomplete="name" autofocus>
-                            </h4>
-                            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Tujuan dan Sasaran IBKWU" required autocomplete="name" autofocus>
-                            </h2>
-                            <p class="font-medium text-md text-secondary md:text-lg">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name" autofocus>Lorem ipsum dolor, sit amet
-                                consectetur
-                                adipisicing
-                                elit. Eveniet ipsam quia quasi earum. Minus iste consequuntur deleniti obcaecati, fugit
-                                deserunt!</textarea>
-                            </p>
+                {{-- Struktur Kepengurusan Section Start --}}
+                <section id="struktur" class="pt-36 pb-16 bg-slate-200 dark:bg-slate-800">
+                    <div class="container">
+                        <div class="w-full px-4">
+                            <div class="max-w-5xl mx-auto text-center mb-10">
+                                <h4 class="font-semibold text-lg text-primary mb-2">
+                                    <input type="text" id="struktur_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('struktur_h1') is-invalid @enderror"
+                                        name="struktur_h1" value="{{$profil->struktur_h1}}" required
+                                        autocomplete="struktur_h1" autofocus>
+                                </h4>
+                                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
+                                    <input type="text" id="struktur_h2"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('struktur_h2') is-invalid @enderror"
+                                        name="struktur_h2" value="{{$profil->struktur_h2}}" required
+                                        autocomplete="struktur_h2" autofocus>
+                                </h2>
+                                <p class="font-medium text-md text-secondary md:text-lg">
+                                    <textarea name="struktur_p1" id="struktur_p1" cols="30" rows="10" type="text"
+                                        class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('struktur_p1') is-invalid @enderror"
+                                        required autocomplete="struktur_p1"
+                                        autofocus>{{$profil->struktur_p1}}</textarea>
+                                </p>
+                                <div class="font-medium text-md text-secondary md:text-lg">
+                                    @error('struktur_p2')
+                                    <small style="color: red">{{$message}}</small>
+                                    @enderror
+                                    <textarea name="struktur_p2" id="editor6" cols="30" rows="10" type="text"
+                                        class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('struktur_p2') is-invalid @enderror"
+                                        required autocomplete="struktur_p2"
+                                        autofocus>{{$profil->struktur_p2}}</textarea>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="flex flex-wrap">
-                        <div class="w-full px-4 lg:w-1/2">
-                            <h2
-                                class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white text-center">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Tujuan" required autocomplete="name" autofocus>
-                            </h2>
-                            <ul
-                                class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name" autofocus>
-                                <li>Menumbuhkembangkan budaya kewirausahaan di lingkungan Perguruan Tinggi dan
-                                    Masyarakat
-                                    umum.</li>
-                                <li>Mewujudkan sinergi Politeknik Negeri Jember dengan potensi dunia usaha sehingga
-                                    dapat
-                                    menumbuhkembangkan
-                                    IPTEK sesuai kebutuhan.</li>
-                                <li>MMendorong kemanfaatan potensi bisnis akademik dan non akademik yang bernilai
-                                    komersial.
-                                </li></textarea>
-                            </ul>
-                        </div>
-                        <div class="w-full px-4 lg:w-1/2">
-                            <h2
-                                class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white text-center">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Sasaran" required autocomplete="name" autofocus>
-                            </h2>
-                            <ul
-                                class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name" autofocus>
-                                <li>Melakukan inkubasi untuk pengembangan wirausaha baru yang mandiri dan professional.
-                                </li>
-                                <li>Meningkatkan kinerja tenant yang dicirikan dengan meningkatnya volume usaha, nilai
-                                    tambah, produktivitas
-                                    dan penyerapan tenaga kerja.</li>
-                                <li>Meningkatkan kualitas layanan Inkubator Bisnis, memaksimalkan semangat kewirausahaan
-                                    mahasiswa POLIJE.
-                                </li>
-                                <li>Menstimulasi dan menggalang partisipasi berbagai pihak dalam mengembangkan wirausaha
-                                    melalui Inkubator
-                                    Bisnis dan KWU POLIJE.</li></textarea>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {{-- Tujuan dan Sasaran Section End --}}
-
-            {{-- Struktur Kepengurusan Section Start --}}
-            <section id="struktur" class="pt-36 pb-16 bg-slate-200 dark:bg-slate-800">
-                <div class="container">
-                    <div class="w-full px-4">
-                        <div class="max-w-5xl mx-auto text-center mb-10">
-                            <h4 class="font-semibold text-lg text-primary mb-2">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Struktur Kepengurusan" required autocomplete="name" autofocus>
-                            </h4>
-                            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Struktur Kepengurusan IBKWU" required autocomplete="name"
-                                    autofocus>
-                            </h2>
-                            <p class="font-medium text-md text-secondary md:text-lg">
-                                <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                    class="h-32 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    required autocomplete="name" autofocus>Lorem ipsum dolor sit amet
-                                consectetur
-                                adipisicing
-                                elit. Placeat adipisci qui dolores similique harum odit in molestiae quaerat laboriosam
-                                voluptate?</textarea>
-                            </p>
-                            <textarea name="name" id="name" cols="30" rows="10" type="text"
-                                class="h-96 block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                required autocomplete="name" autofocus>
-                            <p class="font-medium text-md text-secondary md:text-lg text-justify mb-2 mt-16">IBKWU
-                                Politeknik Negeri
-                                Jember memiliki struktur kepengurusan sesuai Surat Keputusan Direktur Politeknik Negeri
-                                Jember Nomor
-                                3131/PL17/KP/SK/2020 adalah sebagai berikut:</p>
-                            <ul
-                                class="list-disc font-medium text-base text-secondary mb-6 lg:text-lg lg:pl-6 text-justify">
-                                <li><span class="font-semibold">Kepala</span> : Dr. Dhanang Eka Putra, SP, M.Sc</li>
-                                <li><span class="font-semibold">Sekretaris</span> : Hariyono Rakhmad, S.Pd, M.Kom</li>
-                                <li><span class="font-semibold">General Manajer</span> : Drs. Lukman Ekana Putra, P.Si.,
-                                    M.
-                                    Si.</li>
-                                <li><span class="font-semibold">Manajer Teknologi Informasi</span> : Nugroho Setyo
-                                    Wibowo,
-                                    S.T., M. T.</li>
-                                <li><span class="font-semibold">Manajer Kemitraan</span> : Elly Antika, S.T., M. Kom.
-                                </li>
-                                <li><span class="font-semibold">Manajer Training & Business Class</span> : Mukhamad
-                                    Angga
-                                    Gumilang, S. Pd.,
-                                    M. Eng.</li>
-                                <li><span class="font-semibold">Manajer Diseminasi Teknologi</span> : Rindha Retina
-                                    Darah
-                                    Pertami, S. P., M.
-                                    Si.</li>
-                                <li><span class="font-semibold">Manajer Pengembangan Produk</span> : Silvia Oktavia Nur
-                                    Yudiastuti, S.T.P.,
-                                    M.T.P.</li>
-                            </ul>
-                                </textarea>
-                        </div>
-                    </div>
-
-                    <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
-                        <div class="mb-12 p-4">
-                            <div class="rounded-md shadow-md overflow-hidden">
-                                <img src="/dist/img/galeri/macarina-1.jpg" alt="" width="w-full">
-                                <input type="file"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
-                                    name="image" accept="image/*">
+                        <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+                            <div class="mb-12 p-4">
+                                <div class="rounded-md shadow-md overflow-hidden">
+                                    <img src="/img/profil/{{$profil->struktur_img1}}" alt="" width="w-full">
+                                    <input type="file"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('struktur_img1') is-invalid @enderror"
+                                        name="struktur_img1" accept="image/*">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-            {{-- Struktur Kepengurusan Section End --}}
+                </section>
+                {{-- Struktur Kepengurusan Section End --}}
+            </div>
         </div>
     </div>
-</div>
 
+</form>
 
-<div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
+{{-- <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
         <!--Graph Card-->
@@ -505,5 +457,48 @@
     </div>
 
 
-</div>
+</div> --}}
+@endsection
+
+@section('ck-editor')
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    ClassicEditor
+        .create( document.querySelector( '#editor2' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    ClassicEditor
+        .create( document.querySelector( '#editor3' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    ClassicEditor
+        .create( document.querySelector( '#editor4' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    ClassicEditor
+        .create( document.querySelector( '#editor5' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+
+    ClassicEditor
+        .create( document.querySelector( '#editor6' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 @endsection

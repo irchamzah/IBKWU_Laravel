@@ -12,14 +12,13 @@
   <div class="container">
     <div class="flex flex-wrap">
       <div class="w-full self-center px-4 lg:w-1/2">
-        <span class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl dark:text-white mb-6">Irchamzah
-          Fikri</span>
+        <span
+          class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl dark:text-white mb-6">{{$beranda->home_h1}}</span>
         {{-- <h1 class="text-base font-semibold text-primary md:text-xl">Halo Semua 👋, saya
         </h1> --}}
         {{-- <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">Artist & <span
             class="text-dark dark:text-white">Gamer</span></h2> --}}
-        <p class="font-medium text-secondary mb-10 leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Atque</p>
+        <p class="font-medium text-secondary mb-10 leading-relaxed">{{$beranda->home_p1}}</p>
 
         <a href="/profil"
           class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya
@@ -27,7 +26,8 @@
       </div>
       <div class="w-full self-end px-4 lg:w-1/2">
         <div class="relative mt-10 lg:mt-0 lg:right-0">
-          <img src="/img/dhanang.png" alt="Dhanang Eka Putra" class="relative z-10 mx-auto w-96 bg-cover">
+          <img src="/img/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
+            class="relative z-10 mx-auto w-96 bg-cover">
           <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
             {{-- <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <path fill="#0093d3"
@@ -47,18 +47,14 @@
   <div class="container">
     <div class="flex flex-wrap">
       <div class="w-full px-4 mb-10 lg:w-1/2">
-        <h4 class="font-bold uppercase text-primary text-lg mb-3">Tentang Saya</h4>
-        <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white">Yuk, belajar web
-          programming di WPU!</h2>
-        <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Ratione, perspiciatis placeat asperiores aperiam quo numquam nemo.
-        </p>
+        <h4 class="font-bold uppercase text-primary text-lg mb-3">{{$beranda->about_h1}}</h4>
+        <h2 class="font-bold text-dark text-3xl mb-5 max-w-md lg:text-4xl dark:text-white">{{$beranda->about_h2}}</h2>
+        <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">{{$beranda->about_p1}}</p>
       </div>
       <div class="w-full px-4 lg:w-1/2">
-        <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white">Mari Berteman</h3>
-        <p class="font-medium text-base text-secondary mb-6 lg:text-lg">Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Distinctio laudantium, fugit dolorum id sequi facilis ex eius a.
-        </p>
+        <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 dark:text-white">{{$beranda->about_h3}}
+        </h3>
+        <p class="font-medium text-base text-secondary mb-6 lg:text-lg">{{$beranda->about_p2}}</p>
         <div class="flex items-center">
           {{-- Youtube --}}
           <a href="https://youtube.com/ibkwu" target="_blank"
@@ -111,10 +107,10 @@
   <div class="container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">Galeri Tenant</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Sub Judul</h2>
-        <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Placeat adipisci qui dolores similique harum odit in molestiae quaerat laboriosam voluptate?</p>
+        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->galeri_h1}}</h4>
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$beranda->galeri_h2}}
+        </h2>
+        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->galeri_p1}}</p>
       </div>
     </div>
 
@@ -161,32 +157,31 @@
   <div class="container">
     <div class="w-full px-4">
       <div class="mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">Mitra Kami</h4>
-        <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark">Yang Pernah Bekerjasama
+        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->mitra_h1}}</h4>
+        <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark">{{$beranda->mitra_h2}}
         </h2>
-        <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Atque, nulla adipisci! Voluptates!</p>
+        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->mitra_p1}}</p>
       </div>
     </div>
 
     <div class="w-full px-4">
       <div class="flex flex-wrap items-center justify-center">
-        <a href="#"
-          class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
-          <img src="/dist/img/mitra/google.svg" alt="Google">
-        </a>
-        <a href="#"
-          class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
-          <img src="/dist/img/mitra/gojek.svg" alt="Google">
-        </a>
-        <a href="#"
-          class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
-          <img src="/dist/img/mitra/tokopedia.svg" alt="Google">
-        </a>
-        <a href="#"
-          class="max-w-[120px] mx-4 py-4 grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100 lg:mx-6 xl:mx-8">
-          <img src="/dist/img/mitra/traveloka.svg" alt="Google">
-        </a>
+
+        @foreach($mitras as $mitra)
+        <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
+          <a href="{{$mitra->mitra_link}}" target="_blank">
+            <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
+              class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
+          </a>
+          <a href="{{route('admin.halaman.beranda.edit_mitra', $mitra->id)}}"
+            class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
+
+          <a href="{{route('admin.halaman.beranda.delete_mitra', $mitra->id)}}"
+            class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
+
+        </div>
+        @endforeach
+
       </div>
     </div>
   </div>
@@ -198,11 +193,9 @@
   <div class="container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Tulisan Terkini</h2>
-        <p class="font-medium text-md text-secondary md:text-lg">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non minus cupiditate sed dolorem.
-        </p>
+        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4>
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$beranda->blog_h2}}</h2>
+        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p>
       </div>
     </div>
 
@@ -265,11 +258,10 @@
   <div class="container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">Kontak</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Hubungi Kami</h2>
-        <p class="font-medium text-md text-secondary md:text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, provident!
-        </p>
+        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->kontak_h1}}</h4>
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$beranda->kontak_h2}}
+        </h2>
+        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->kontak_p1}}</p>
       </div>
     </div>
 

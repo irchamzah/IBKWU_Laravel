@@ -15,8 +15,8 @@ class GaleriController extends Controller
      */
     public function index()
     {
-        $galeris = Galeri::all();
-        return view('admin.halaman.galeri.index', compact('galeris'));
+        // $galeris = Galeri::all();
+        return view('admin.halaman.galeri.index');
     }
 
     public function tambah_produk()
@@ -43,7 +43,7 @@ class GaleriController extends Controller
     {
         return view('admin.halaman.galeri.tambah_sosmed');
     }
-    
+
     public function edit_sosmed_produk()
     {
         return view('admin.halaman.galeri.edit_sosmed');

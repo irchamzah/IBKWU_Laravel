@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Beranda;
 use App\Models\Mitra;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class BerandaController extends Controller
 {
@@ -48,8 +49,8 @@ class BerandaController extends Controller
             'home_p1.required' => 'Tidak Boleh Kosong',
             'home_p1.string' => 'Harus Berupa String',
 
-            'image.max' => ' Ukuran File Terlalu Besar',
-            'image.mimes' => ' File Format Harus jpeg,png,jpg',
+            'home_img1.max' => ' Ukuran File Terlalu Besar',
+            'home_img1.mimes' => ' File Format Harus jpeg,png,jpg',
 
             'about_h1.required' => 'Tidak Boleh Kosong',
             'about_h1.string' => 'Tidak Boleh Kosong',
@@ -137,8 +138,7 @@ class BerandaController extends Controller
         $beranda->kontak_p1 = $request->kontak_p1;
         $beranda->update();
 
-        $mitras = Mitra::all();
-        return view('admin.halaman.beranda.index', compact('beranda', 'mitras'))->with('message', 'Halaman Beranda Berhasil Diperbarui');
+        return Redirect::route('admin.halaman.beranda')->with('message', 'Halaman Beranda Berhasil Diperbarui');
     }
 
     public function tambah_mitra()

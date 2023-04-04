@@ -41,7 +41,7 @@ Route::post('/admin/akun/destroy/{id}', [UserController::class, 'destroy'])->mid
 Route::get('/admin/halaman', [HalamanController::class, 'index'])->middleware('auth');
 
 // Edit Halaman Beranda
-Route::get('/admin/halaman/beranda', [BerandaController::class, 'index'])->middleware('auth');
+Route::get('/admin/halaman/beranda', [BerandaController::class, 'index'])->middleware('auth')->name('admin.halaman.beranda');
 Route::post('/admin/halaman/beranda/update/{id}', [BerandaController::class, 'update'])->middleware('auth')->name('admin.halaman.beranda.update');
 Route::get('/admin/halaman/beranda/tambah_mitra', [BerandaController::class, 'tambah_mitra'])->middleware('auth')->name('admin.halaman.beranda.tambah_mitra');
 Route::post('/admin/halaman/beranda/store_mitra', [BerandaController::class, 'store'])->middleware('auth')->name('admin.halaman.beranda.store_mitra');
@@ -50,7 +50,8 @@ Route::post('/admin/halaman/beranda/update_mitra/{id}', [BerandaController::clas
 Route::get('/admin/halaman/beranda/delete_mitra/{id}', [BerandaController::class, 'destroy'])->middleware('auth')->name('admin.halaman.beranda.delete_mitra');
 
 // Edit Halaman Profil
-Route::get('/admin/halaman/profil', [ProfilController::class, 'index'])->middleware('auth');
+Route::get('/admin/halaman/profil', [ProfilController::class, 'index'])->middleware('auth')->name('admin.halaman.profil');
+Route::post('/admin/halaman/profil/update/{id}', [ProfilController::class, 'update'])->middleware('auth')->name('admin.halaman.profil.update');
 
 // Edit Halaman Galeri
 Route::get('/admin/halaman/galeri', [GaleriController::class, 'index'])->middleware('auth');

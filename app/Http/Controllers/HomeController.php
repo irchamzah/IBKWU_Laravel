@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Beranda;
+use App\Models\Mitra;
+use App\Models\Profil;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home.index');
+        $beranda = Beranda::first();
+        $mitras = Mitra::all();
+        return view('home.index', compact('beranda', 'mitras'));
     }
 
     public function profil()
     {
-        return view('home.profil');
+        $profil = Profil::first();
+        return view('home.profil', compact('profil'));
     }
 
     public function galeri()
