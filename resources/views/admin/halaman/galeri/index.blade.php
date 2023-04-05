@@ -7,67 +7,27 @@
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-{{-- <div class="container">
-    <a href="/galeri/create" class="btn btn-primary mb-3">Tambah Data</a>
-    @if($message = Session::get('message'))
-    <div class="alert alert-success">
-        <strong>Berhasil</strong>
-        <p>{{$message}}</p>
-    </div>
-    @endif
-    <div class="table-responsive">
-        <table class="table table-bordered table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Judul</th>
-                    <th>Deskripsi</th>
-                    <th>Gambar</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php
-                $i = 1
-                @endphp
-                @foreach ($galeris as $galeri)
-                <tr>
-                    <td>{{$i++}}</td>
-                    <td>{{$galeri->title}}</td>
-                    <td>{{$galeri->description}}</td>
-                    <td><img src="/image/{{$galeri->image}}" alt="" class="img-fluid" width="90"></td>
-                    <td>
-                        <a href="{{route('galeri.edit', $galeri->id)}}" class="btn btn-warning">Edit</a>
-                        <form action="{{route('galeri.destroy', $galeri->id)}}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-</div> --}}
+<form action="{{route('admin.halaman.galeri.update', $galeri->id)}}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-<div class="flex flex-wrap">
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
 
-        <!--Metric Card-->
-        <a href="/admin/halaman">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Kembali</h2>
+            <!--Metric Card-->
+            <div class="w-min">
+                <a href="/admin/halaman">
+                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                        <div class="flex flex-row items-center justify-center">
+                            <div class="text-right md:text-center">
+                                <h2 class="font-bold uppercase">Kembali</h2>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </button>
-        </a>
-        <!--/Metric Card-->
+                </a>
+            </div>
+            <!--/Metric Card-->
 
-        <!--Metric Card-->
-        <a href="/admin/halaman">
+            <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
@@ -75,224 +35,203 @@
                     </div>
                 </div>
             </button>
-        </a>
-        <!--/Metric Card-->
-    </div>
-</div>
+            <!--/Metric Card-->
 
-<div class="flex flex-wrap">
-    <div class="w-full p-6">
-        <div class=" rounded-lg shadow-xl p-5">
-
-            {{-- Rekomendasi Tenant Section Start --}}
-            <section id="home" class="pt-36 pb-32 dark:bg-dark">
-                <div class="container">
-                    <div class="w-full px-4">
-                        <div class="max-w-xl mx-auto text-center mb-0">
-                            <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Sorotan Galeri Tenant" required autocomplete="name" autofocus>
-                            </h4>
-                            <h2
-                                class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-dark bg-clip-text">
-                                    <input type="text" id="name"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                        name="name" value="Rekomendasi Produk" required autocomplete="name"
-                                        autofocus></span>
-                            </h2>
-                            <p class="font-medium text-md text-secondary md:text-lg">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Berikut adalah tenant yang direkomendasikan." required
-                                    autocomplete="name" autofocus>
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
+            @if($message = Session::get('message'))
+            <div role="alert">
+                <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                    Berhasil!
                 </div>
-            </section>
-            {{-- Rekomendasi Tenant Section End --}}
+                <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                    <p>{{$message}}</p>
+                </div>
+            </div>
+            @endif
 
-            {{-- Galeri Tenant Section Start --}}
-            <section id="tenant" class="pt-36 pb-32 bg-slate-200 dark:bg-slate-800">
-                <div class="container">
-                    <div class="w-full px-4">
-                        <div class="max-w-xl mx-auto text-center mb-10">
-                            <h4 class="font-semibold text-lg text-primary mb-2">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Galeri Tenant" required autocomplete="name" autofocus>
-                            </h4>
-                            <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Produk yang Tersedia" required autocomplete="name" autofocus>
-                            </h2>
-                            <p class="font-medium text-md text-secondary md:text-lg">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" value="Berikut Semua Produk yang Tersedia." required autocomplete="name"
-                                    autofocus>
-                            </p>
-                        </div>
+        </div>
+    </div>
 
-                        <div class="justify-center">
-                            <div class="flex justify-center mx-auto">
-                                <div class="mb-3 xl:w-96">
+    <div class="flex flex-wrap">
+        <div class="w-full p-6">
+            <div class=" rounded-lg shadow-xl p-5">
 
-                                    <div class="relative mb-4 flex w-full flex-wrap items-stretch">
-                                        <input type="search"
-                                            class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
-                                            placeholder="Cari Produk" aria-label="Search"
-                                            aria-describedby="button-addon1" />
-                                        <button
-                                            class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
-                                            type="button" id="button-addon1" data-te-ripple-init
-                                            data-te-ripple-color="light">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-                                                fill="currentColor" class="h-5 w-5">
-                                                <path fill-rule="evenodd"
-                                                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
+                {{-- Rekomendasi Tenant Section Start --}}
+                <section id="home" class="pt-36 pb-32 dark:bg-dark">
+                    <div class="container">
+                        <div class="w-full px-4">
+                            <div class="max-w-xl mx-auto text-center mb-0">
+                                <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">
+                                    <input type="text" id="sorotan_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_h1') is-invalid @enderror"
+                                        name="sorotan_h1" value="{{$galeri->sorotan_h1}}" required
+                                        autocomplete="sorotan_h1" autofocus>
+                                </h4>
+                                <h2
+                                    class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
+                                    <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-dark bg-clip-text">
+                                        <input type="text" id="sorotan_h2"
+                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_h2') is-invalid @enderror"
+                                            name="sorotan_h2" value="{{$galeri->sorotan_h2}}" required
+                                            autocomplete="sorotan_h2" autofocus></span>
+                                </h2>
+                                <p class="font-medium text-md text-secondary md:text-lg">
+                                    <input type="text" id="sorotan_p1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_p1') is-invalid @enderror"
+                                        name="sorotan_p1" value="{{$galeri->sorotan_p1}}" required
+                                        autocomplete="sorotan_p1" autofocus>
+                                </p>
+
                             </div>
 
-                            {{-- Pilih Kategori --}}
-                            <div class="flex justify-center mx-auto mb-10">
-                                <div class="mb-3 xl:w-96">
-                                    <div class="relative mb-4 flex w-full flex-wrap items-stretch">
-                                        <button id="kategoriGaleri" name="kategoriGaleri"
-                                            data-dropdown-toggle="navMenuGaleri"
-                                            class="text-white bg-primary hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800 mx-auto group"
-                                            type="button">
-                                            Pilih Kategori
-                                            <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none"
-                                                stroke="currentColor" viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M19 9l-7 7-7-7" class="">
-                                                </path>
-                                            </svg>
-                                        </button>
-                                        <!-- Dropdown menu -->
-                                        <div id="navMenuGaleri"
-                                            class="z-10 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-full dark:bg-gray-700 top-12 text-center">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                                                        out</a>
-                                                </li>
-                                            </ul>
+                        </div>
+
+
+                    </div>
+                </section>
+                {{-- Rekomendasi Tenant Section End --}}
+
+                {{-- Galeri Tenant Section Start --}}
+                <section id="tenant" class="pt-36 pb-32 bg-slate-200 dark:bg-slate-800">
+                    <div class="container">
+                        <div class="w-full px-4">
+                            <div class="max-w-xl mx-auto text-center mb-10">
+                                <h4 class="font-semibold text-lg text-primary mb-2">
+                                    <input type="text" id="galeri_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('galeri_h1') is-invalid @enderror"
+                                        name="galeri_h1" value="{{$galeri->galeri_h1}}" required
+                                        autocomplete="galeri_h1" autofocus>
+                                </h4>
+                                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
+                                    <input type="text" id="galeri_h2"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('galeri_h2') is-invalid @enderror"
+                                        name="galeri_h2" value="{{$galeri->galeri_h2}}" required
+                                        autocomplete="galeri_h2" autofocus>
+                                </h2>
+                                <p class="font-medium text-md text-secondary md:text-lg">
+                                    <input type="text" id="galeri_p1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('galeri_p1') is-invalid @enderror"
+                                        name="galeri_p1" value="{{$galeri->galeri_p1}}" required
+                                        autocomplete="galeri_p1" autofocus>
+                                </p>
+                            </div>
+
+                            <div class="justify-center">
+                                <div class="flex justify-center mx-auto">
+                                    <div class="mb-3 xl:w-96">
+
+                                        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+                                            <input type="search"
+                                                class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                                                placeholder="Cari Produk" aria-label="Search"
+                                                aria-describedby="button-addon1" />
+                                            <div class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                                                type="button" id="button-addon1" data-te-ripple-init
+                                                data-te-ripple-color="light">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                                    fill="currentColor" class="h-5 w-5">
+                                                    <path fill-rule="evenodd"
+                                                        d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                                        clip-rule="evenodd" />
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {{-- Pilih Kategori --}}
+                                <div class="flex justify-center mx-auto mb-10">
+                                    <div class="mb-3 xl:w-96">
+                                        <div class="relative mb-4 flex w-full flex-wrap items-stretch">
+                                            <div id="kategoriGaleri" name="kategoriGaleri"
+                                                data-dropdown-toggle="navMenuGaleri"
+                                                class="text-white bg-primary hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800 mx-auto group"
+                                                type="button">
+                                                Pilih Kategori
+                                                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none"
+                                                    stroke="currentColor" viewBox="0 0 24 24"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2" d="M19 9l-7 7-7-7" class="">
+                                                    </path>
+                                                </svg>
+                                            </div>
+                                            <!-- Dropdown menu -->
+                                            <div id="navMenuGaleri"
+                                                class="z-10 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-full dark:bg-gray-700 top-12 text-center">
+                                                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
+                                                    <li>
+                                                        <a href="#"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"
+                                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
+                                                            out</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="flex flex-wrap">
+
+                                @foreach($detail_produks as $detail_produk)
+                                <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+                                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-dark">
+                                        <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}"
+                                            alt="Programming" class="w-full">
+                                        <div class="py-8 px-6">
+                                            <h3>
+                                                <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
+                                                    class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_produk->judul_h1}}</a>
+                                            </h3>
+                                            <div
+                                                class="font-medium text-base text-secondary mb-6 truncate hover:text-clip">
+                                                {!!$detail_produk->deskripsi_p1!!}</div>
+                                            <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
+                                                class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
+                                            <a href="{{route('admin.halaman.galeri.delete_produk', $detail_produk->id)}}"
+                                                class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+
+                            </div>
+                            <!--Metric Card-->
+                            <div class="w-min mx-auto">
+                                <a href="/admin/halaman/galeri/tambah_produk">
+                                    <div
+                                        class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mt-10  block mx-auto w-full sm:w-96">
+                                        <div class="flex flex-row items-center justify-center">
+                                            <div class="text-right md:text-center">
+                                                <h2 class="font-bold uppercase">Tambah Produk Baru</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--/Metric Card-->
                         </div>
+                </section>
+                {{-- Galeri Tenant Section End --}}
 
-
-                        <div class="flex flex-wrap">
-                            <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="https://source.unsplash.com/360x200?programming" alt="Programming"
-                                        class="w-full">
-                                    <div class="py-8 px-6">
-                                        <h3>
-                                            <a href="#"
-                                                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">Tips
-                                                Belajar Programming</a>
-                                        </h3>
-                                        <p class="font-medium text-base text-secondary mb-6">Lorem ipsum dolor sit, amet
-                                            consectetur adipisicing
-                                            elit. Explicabo, harum!</p>
-                                        <a href="/admin/halaman/galeri/edit_produk"
-                                            class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="https://source.unsplash.com/360x200?mechanical+keyboard"
-                                        alt="Mechanical Keyboard" class="w-full">
-                                    <div class="py-8 px-6">
-                                        <h3>
-                                            <a href="#"
-                                                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">Review
-                                                Keyboard GMMK Pro</a>
-                                        </h3>
-                                        <p class="font-medium text-base text-secondary mb-6">Lorem, ipsum dolor sit amet
-                                            consectetur adipisicing
-                                            elit. Commodi minima quisquam quos?</p>
-                                        <a href="/admin/halaman/galeri/edit_produk"
-                                            class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="https://source.unsplash.com/360x200?coffe" alt="Programming"
-                                        class="w-full">
-                                    <div class="py-8 px-6">
-                                        <h3>
-                                            <a href="#"
-                                                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">Menikmati
-                                                Secangkir Kopi</a>
-                                        </h3>
-                                        <p class="font-medium text-base text-secondary mb-6">Lorem ipsum dolor sit amet
-                                            consectetur adipisicing
-                                            elit. Dicta minus enim voluptates rem sint eius iusto.</p>
-                                        <a href="/admin/halaman/galeri/edit_produk"
-                                            class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Metric Card-->
-                        <a href="/admin/halaman/galeri/tambah_produk">
-                            <button
-                                class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mt-10  block mx-auto w-full sm:w-96">
-                                <div class="flex flex-row items-center justify-center">
-                                    <div class="text-right md:text-center">
-                                        <h2 class="font-bold uppercase">Tambah Produk Baru</h2>
-                                    </div>
-                                </div>
-                            </button>
-                        </a>
-                        <!--/Metric Card-->
-                    </div>
-            </section>
-            {{-- Galeri Tenant Section End --}}
-
+            </div>
         </div>
     </div>
-</div>
 
+</form>
 
 
 

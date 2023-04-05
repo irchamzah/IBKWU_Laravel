@@ -56,6 +56,7 @@
                                 <div class="mb-12 w-full aspect-video">
                                     <iframe class="w-full h-full"
                                         src="https://www.youtube.com/embed/7G0ovtPqHnI"></iframe>
+                                    <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
                                     <input type="text" id="name"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
                                         name="name" placeholder="Kode link youtube.. (ex: BAxwEIrXGAQ)"

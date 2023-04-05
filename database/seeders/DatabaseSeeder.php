@@ -22,5 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(MitraSeeder::class);
         $this->call(ProfilSeeder::class);
         $this->call(GaleriSeeder::class);
+        $this->call(DetailProdukSeeder::class);
+        $this->call(FotoProdukSeeder::class);
+        $this->call(SosmedSeeder::class);
     }
 }

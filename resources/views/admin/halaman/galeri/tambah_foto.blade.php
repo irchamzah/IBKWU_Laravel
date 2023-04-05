@@ -7,23 +7,27 @@
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<div class="flex flex-wrap">
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+<form action="{{route('admin.halaman.galeri.edit_produk.store_foto')}}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/galeri/edit_produk">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Kembali</h2>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+
+            <!--Metric Card-->
+            <div class="w-min">
+                <a href="{{route('admin.halaman.galeri.edit_produk', $id)}}">
+                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                        <div class="flex flex-row items-center justify-center">
+                            <div class="text-right md:text-center">
+                                <h2 class="font-bold uppercase">Kembali</h2>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </button>
-        </a>
-        <!--/Metric Card-->
+                </a>
+            </div>
+            <!--/Metric Card-->
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/galeri/edit_produk">
+            <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
@@ -31,49 +35,54 @@
                     </div>
                 </div>
             </button>
-        </a>
-        <!--/Metric Card-->
-    </div>
-</div>
-
-<div class="flex flex-wrap">
-    <div class="w-full p-6">
-        <div class=" rounded-lg shadow-xl p-5">
-
-            {{-- Tentang Section Start --}}
-            <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-                <div class="container">
-                    <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
-                        <div class="mb-12 p-4 md:w-1/2">
-                            <button id="show-modal"
-                                class="rounded-md shadow-md overflow-hidden hover:opacity-80 w-full">
-                                <img src="" alt="" width="w-full">
-                                <input type="file"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
-                                    name="image" accept="image/*">
-                            </button>
-                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" placeholder="Judul Foto.." value="" required autocomplete="name"
-                                    autofocus>
-                            </h3>
-                            <p class="font-medium text-base text-secondary text-justify">
-                                <textarea type="text" id="email"
-                                    class="w-full text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96"
-                                    placeholder="Deskripsi Foto.."></textarea>
-                            </p>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-            {{-- Tentang Section End --}}
-
+            <!--/Metric Card-->
         </div>
     </div>
-</div>
+
+    <div class="flex flex-wrap">
+        <div class="w-full p-6">
+            <div class=" rounded-lg shadow-xl p-5">
+
+                {{-- Tentang Section Start --}}
+                <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
+                    <div class="container">
+                        <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
+                            <div class="mb-12 p-4 md:w-1/2">
+                                <input type="text" name="produk_id" value="{{$id}}" hidden>
+                                <button id="show-modal"
+                                    class="rounded-md shadow-md overflow-hidden hover:opacity-80 w-full">
+                                    <img src="" alt="" width="w-full">
+                                    @error('produk_img1')
+                                    <small class="text-red-600">{{$message}}</small>
+                                    @enderror
+                                    <input type="file"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('produk_img1') is-invalid @enderror"
+                                        name="produk_img1" accept="image/*">
+                                </button>
+                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
+                                    <input type="text" id="produk_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('produk_h1') is-invalid @enderror"
+                                        name="produk_h1" placeholder="Judul Foto.." value="" required
+                                        autocomplete="produk_h1" autofocus>
+                                </h3>
+                                <p class="font-medium text-base text-secondary text-justify">
+                                    <textarea type="text" id="produk_p1" name="produk_p1"
+                                        class="w-full text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96"
+                                        placeholder="Deskripsi Foto.." required></textarea>
+                                </p>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                {{-- Tentang Section End --}}
+
+            </div>
+        </div>
+    </div>
+
+</form>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 

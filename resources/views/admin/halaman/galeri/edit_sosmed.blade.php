@@ -11,15 +11,17 @@
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
 
         <!--Metric Card-->
-        <a href="/admin/halaman/galeri/edit_produk">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Kembali</h2>
+        <div class="w-min">
+            <a href="/admin/halaman/galeri/edit_produk">
+                <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
+                    <div class="flex flex-row items-center justify-center">
+                        <div class="text-right md:text-center">
+                            <h2 class="font-bold uppercase">Kembali</h2>
+                        </div>
                     </div>
-                </div>
-            </button>
-        </a>
+                </button>
+            </a>
+        </div>
         <!--/Metric Card-->
 
         <!--Metric Card-->

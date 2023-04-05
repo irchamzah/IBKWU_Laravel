@@ -54,11 +54,18 @@ Route::get('/admin/halaman/profil', [ProfilController::class, 'index'])->middlew
 Route::post('/admin/halaman/profil/update/{id}', [ProfilController::class, 'update'])->middleware('auth')->name('admin.halaman.profil.update');
 
 // Edit Halaman Galeri
-Route::get('/admin/halaman/galeri', [GaleriController::class, 'index'])->middleware('auth');
-Route::get('/admin/halaman/galeri/tambah_produk', [GaleriController::class, 'tambah_produk'])->middleware('auth');
-Route::get('/admin/halaman/galeri/edit_produk', [GaleriController::class, 'edit_produk'])->middleware('auth');
-Route::get('/admin/halaman/galeri/edit_produk/tambah_foto', [GaleriController::class, 'tambah_foto_produk'])->middleware('auth');
-Route::get('/admin/halaman/galeri/edit_produk/edit_foto', [GaleriController::class, 'edit_foto_produk'])->middleware('auth');
+Route::get('/admin/halaman/galeri', [GaleriController::class, 'index'])->middleware('auth')->name('admin.halaman.galeri');
+Route::post('/admin/halaman/galeri/update/{id}', [GaleriController::class, 'update'])->middleware('auth')->name('admin.halaman.galeri.update');
+Route::get('/admin/halaman/galeri/tambah_produk', [GaleriController::class, 'tambah_produk'])->middleware('auth')->name('admin.halaman.galeri.tambah_produk');
+Route::post('/admin/halaman/galeri/store_produk', [GaleriController::class, 'store_produk'])->middleware('auth')->name('admin.halaman.galeri.store_produk');
+Route::get('/admin/halaman/galeri/edit_produk/{id}', [GaleriController::class, 'edit_produk'])->middleware('auth')->name('admin.halaman.galeri.edit_produk');
+Route::post('/admin/halaman/galeri/update_produk/{id}', [GaleriController::class, 'update_produk'])->middleware('auth')->name('admin.halaman.galeri.update_produk');
+Route::get('/admin/halaman/galeri/delete_produk/{id}', [GaleriController::class, 'delete_produk'])->middleware('auth')->name('admin.halaman.galeri.delete_produk');
+Route::get('/admin/halaman/galeri/edit_produk/tambah_foto/{id}', [GaleriController::class, 'tambah_foto_produk'])->middleware('auth')->name('admin.halaman.galeri.edit_produk.tambah_foto');
+Route::post('/admin/halaman/galeri/edit_produk/store_foto', [GaleriController::class, 'store_foto_produk'])->middleware('auth')->name('admin.halaman.galeri.edit_produk.store_foto');
+Route::get('/admin/halaman/galeri/edit_produk/edit_foto/{id}', [GaleriController::class, 'edit_foto_produk'])->middleware('auth')->name('admin.halaman.galeri.edit_produk.edit_foto');
+Route::post('/admin/halaman/galeri/edit_produk/update_foto/{id}', [GaleriController::class, 'update_foto_produk'])->middleware('auth')->name('admin.halaman.galeri.edit_produk.update_foto');
+Route::get('/admin/halaman/galeri/edit_produk/delete_foto/{id}', [GaleriController::class, 'delete_foto_produk'])->middleware('auth')->name('admin.halaman.galeri.edit_produk.delete_foto');
 Route::get('/admin/halaman/galeri/edit_produk/tambah_sosmed', [GaleriController::class, 'tambah_sosmed_produk'])->middleware('auth');
 Route::get('/admin/halaman/galeri/edit_produk/edit_sosmed', [GaleriController::class, 'edit_sosmed_produk'])->middleware('auth');
 

@@ -173,12 +173,6 @@
             <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
               class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
           </a>
-          <a href="{{route('admin.halaman.beranda.edit_mitra', $mitra->id)}}"
-            class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
-
-          <a href="{{route('admin.halaman.beranda.delete_mitra', $mitra->id)}}"
-            class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
-
         </div>
         @endforeach
 

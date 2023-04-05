@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('galeris', function (Blueprint $table) {
+        Schema::create('sosmeds', function (Blueprint $table) {
             $table->id();
-            $table->string('sorotan_h1');
-            $table->string('sorotan_h2');
-            $table->text('sorotan_p1');
-            $table->string('galeri_h1');
-            $table->string('galeri_h2');
-            $table->text('galeri_p1');
             $table->timestamps();
         });
     }
@@ -32,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeris');
+        Schema::dropIfExists('sosmeds');
     }
 };

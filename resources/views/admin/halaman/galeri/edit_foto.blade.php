@@ -7,23 +7,28 @@
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<div class="flex flex-wrap">
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+<form action="{{route('admin.halaman.galeri.edit_produk.update_foto', $foto_produk->id)}}" method="POST"
+    enctype="multipart/form-data">
+    @csrf
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/galeri/edit_produk">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Kembali</h2>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+
+            <!--Metric Card-->
+            <div class="w-min">
+                <a href="{{route('admin.halaman.galeri.edit_produk', $foto_produk->produk_id)}}">
+                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                        <div class="flex flex-row items-center justify-center">
+                            <div class="text-right md:text-center">
+                                <h2 class="font-bold uppercase">Kembali</h2>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </button>
-        </a>
-        <!--/Metric Card-->
+                </a>
+            </div>
+            <!--/Metric Card-->
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/galeri/edit_produk">
+            <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
@@ -31,47 +36,62 @@
                     </div>
                 </div>
             </button>
-        </a>
-        <!--/Metric Card-->
-    </div>
-</div>
+            <!--/Metric Card-->
 
-<div class="flex flex-wrap">
-    <div class="w-full p-6">
-        <div class=" rounded-lg shadow-xl p-5">
-
-            {{-- Tentang Section Start --}}
-            <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-                <div class="container">
-                    <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
-                        <div class="mb-12 p-4 md:w-1/2">
-                            <button id="show-modal" class="rounded-md shadow-md overflow-hidden hover:opacity-80">
-                                <img src="/dist/img/galeri/macarina-1.jpg" alt="" width="w-full">
-                                <input type="file"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
-                                    name="image" accept="image/*">
-                            </button>
-                            <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-                                <input type="text" id="name"
-                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                                    name="name" placeholder="Judul Foto.." value="Sejarah IBKWU" required
-                                    autocomplete="name" autofocus>
-                            </h3>
-                            <p class="font-medium text-base text-secondary text-justify">
-                                <textarea type="text" id="email" placeholder="Deskripsi foto.."
-                                    class="w-full text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officia dolorem, adipisci cumque aliquid est excepturi repellendus non reiciendis quas qui?</textarea>
-                            </p>
-
-                        </div>
-                    </div>
-
+            @if($message = Session::get('message'))
+            <div role="alert">
+                <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                    Berhasil!
                 </div>
-            </section>
-            {{-- Tentang Section End --}}
+                <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                    <p>{{$message}}</p>
+                </div>
+            </div>
+            @endif
 
         </div>
     </div>
-</div>
+
+    <div class="flex flex-wrap">
+        <div class="w-full p-6">
+            <div class=" rounded-lg shadow-xl p-5">
+
+                {{-- Tentang Section Start --}}
+                <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
+                    <div class="container">
+                        <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
+                            <div class="mb-12 p-4 md:w-1/2">
+                                <div id="show-modal" class="rounded-md shadow-md overflow-hidden hover:opacity-80">
+                                    <img src="/img/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
+                                    @error('produk_img1')
+                                    <small class="text-red-600">{{$message}}</small>
+                                    @enderror
+                                    <input type="file"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('produk_img1') is-invalid @enderror"
+                                        name="produk_img1" accept="image/*">
+                                </div>
+                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
+                                    <input type="text" id="produk_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('produk_h1') is-invalid @enderror"
+                                        name="produk_h1" placeholder="Judul Foto.." value="{{$foto_produk->produk_h1}}"
+                                        required autocomplete="produk_h1" autofocus>
+                                </h3>
+                                <div class="font-medium text-base text-secondary text-justify">
+                                    <textarea type="text" id="produk_p1" name="produk_p1" placeholder="Deskripsi foto.."
+                                        class="w-full p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96">{{$foto_produk->produk_p1}}</textarea>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                {{-- Tentang Section End --}}
+
+            </div>
+        </div>
+    </div>
+</form>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 

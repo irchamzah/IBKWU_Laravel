@@ -13,14 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('galeris', function (Blueprint $table) {
+        Schema::create('detail_produks', function (Blueprint $table) {
             $table->id();
-            $table->string('sorotan_h1');
-            $table->string('sorotan_h2');
-            $table->text('sorotan_p1');
-            $table->string('galeri_h1');
-            $table->string('galeri_h2');
-            $table->text('galeri_p1');
+            $table->string('detail_produk_img')->default('');
+            $table->string('judul_h1');
+            $table->string('link_yt');
+            $table->text('deskripsi_p1');
             $table->timestamps();
         });
     }
@@ -32,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galeris');
+        Schema::dropIfExists('detail_produks');
     }
 };
