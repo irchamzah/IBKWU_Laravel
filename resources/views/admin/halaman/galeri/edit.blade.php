@@ -160,61 +160,29 @@
                         </div>
 
                         <div class="w-full px-4">
-                            <div class="flex flex-wrap items-center justify-center">
+                            <div class="flex flex-wrap items-center justify-center capitalize">
 
+                                @foreach($sosmeds as $sosmed)
                                 <div class="flex flex-col m-3">
-                                    <a href="https://www.youtube.com/playlist?list=PLPWSAJrDQSajcM22LtMqVvHJ_OVIxCfcc"
-                                        target="_blank"
-                                        class="w-20 rounded-full flex justify-center items-center hover:text-red-600 text-slate-500 hover:animate-pulse font-extrabold">
-                                        Youtube
-                                        <a href="/admin/halaman/galeri/edit_produk/edit_sosmed"
+                                    <a href="{{$sosmed->link_sosmed}}" target="_blank"
+                                        class="w-20 rounded-full flex justify-center items-center hover:text-{{$sosmed->warna->nama_warna}}-600 text-slate-500 hover:animate-pulse font-extrabold">
+                                        {{$sosmed->nama_sosmed}}
+                                        <a href="{{route('admin.halaman.galeri.edit_produk.edit_sosmed', $sosmed->id)}}"
                                             class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto mb-1">Edit</a>
-                                        <a href="#"
+                                        <a href="{{route('admin.halaman.galeri.edit_produk.delete_sosmed', $sosmed->id)}}"
                                             class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto">Hapus</a>
 
 
                                     </a>
                                 </div>
-
-                                <div class="flex flex-col m-3">
-                                    <a href="https://instagram.com/ibkwu" target="_blank"
-                                        class="w-20 rounded-full flex justify-center items-center hover:text-pink-500 text-slate-500 hover:animate-pulse font-extrabold">
-                                        Instagram
-                                        <a href="/admin/halaman/galeri/edit_produk/edit_sosmed"
-                                            class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto mb-1">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto">Hapus</a>
-                                    </a>
-                                </div>
-
-                                <div class="flex flex-col m-3">
-                                    <a href="https://twitter.com/ibkwu" target="_blank"
-                                        class="w-20 rounded-full flex justify-center items-center hover:text-sky-400 text-slate-500 hover:animate-pulse font-extrabold">
-                                        Twitter
-                                        <a href="/admin/halaman/galeri/edit_produk/edit_sosmed"
-                                            class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto mb-1">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto">Hapus</a>
-                                    </a>
-                                </div>
-
-                                <div class="flex flex-col m-3 ">
-                                    <a href="https://linkedin.com/in/ibkwu" target="_blank"
-                                        class="w-20 rounded-full flex justify-center items-center hover:text-blue-500 text-slate-500 hover:animate-pulse font-extrabold">
-                                        LinkedIn
-                                        <a href="/admin/halaman/galeri/edit_produk/edit_sosmed"
-                                            class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto mb-1">Edit</a>
-                                        <a href="#"
-                                            class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto">Hapus</a>
-                                    </a>
-                                </div>
+                                @endforeach
 
                             </div>
                         </div>
 
                         <!--Metric Card-->
                         <div class="w-min mx-auto">
-                            <a href="/admin/halaman/galeri/edit_produk/tambah_sosmed">
+                            <a href="{{route('admin.halaman.galeri.edit_produk.tambah_sosmed', $detail_produk->id)}}">
                                 <div
                                     class="bg-primary text-white rounded-lg p-5 hover:opacity-90 w-full sm:w-96 block mx-auto mt-4 ">
                                     <div class="flex flex-row items-center justify-center">

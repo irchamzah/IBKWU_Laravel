@@ -14,11 +14,22 @@ class DetailProduk extends Model
         'detail_produk_img',
         'judul_h1',
         'link_yt',
-        'deskripsi_p1'
+        'deskripsi_p1',
+        'kategori_galeri_id'
     ];
 
     public function foto_produk()
     {
         return $this->hasMany('App\Models\FotoProduk', 'produk_id', 'id');
+    }
+
+    public function sosmed()
+    {
+        return $this->hasMany('App\Models\Sosmed', 'produk_id', 'id');
+    }
+
+    public function kategori_galeri()
+    {
+        return $this->belongsTo('App\Models\KategoriGaleri', 'kategori_galeri_id', 'id');
     }
 }

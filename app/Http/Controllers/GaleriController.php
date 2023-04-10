@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\DetailProduk;
 use App\Models\FotoProduk;
 use App\Models\Galeri;
+use App\Models\Sosmed;
+use App\Models\Warna;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class GaleriController extends Controller
@@ -65,6 +68,16 @@ class GaleriController extends Controller
         return Redirect::route('admin.halaman.galeri')->with('message', 'Halaman Galeri Tenant Berhasil Diperbarui');
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $detail_produks = DetailProduk::where('judul_h1', 'LIKE', '%' . $query . '%')
+            ->orWhere('deskripsi_p1', 'LIKE', '%' . $query . '%')
+            ->get();
+        $galeri = Galeri::first();
+        // dd($detail_produks);
+        return view('admin.halaman.galeri.index', compact('detail_produks', 'query', 'galeri'));
+    }
 
     /////////// DETAIL PRODUK
     public function tambah_produk()
@@ -114,7 +127,8 @@ class GaleriController extends Controller
     {
         $detail_produk = DetailProduk::whereId($id)->first();
         $foto_produks = FotoProduk::where('produk_id', $id)->orderBy('id', 'asc')->get();
-        return view('admin.halaman.galeri.edit', compact('detail_produk', 'foto_produks'));
+        $sosmeds = Sosmed::where('produk_id', $id)->orderBy('id', 'asc')->get();
+        return view('admin.halaman.galeri.edit', compact('detail_produk', 'foto_produks', 'sosmeds'));
     }
 
     public function update_produk(Request $request)
@@ -264,28 +278,84 @@ class GaleriController extends Controller
     }
 
     /////////// SOSMED PRODUK
-    public function tambah_sosmed_produk()
+    public function tambah_sosmed_produk($id)
     {
-        return view('admin.halaman.galeri.tambah_sosmed');
+        $warnas = Warna::get();
+        return view('admin.halaman.galeri.tambah_sosmed', compact('id', 'warnas'));
     }
 
-    public function edit_sosmed_produk()
+    public function store_sosmed_produk(Request $request)
     {
-        return view('admin.halaman.galeri.edit_sosmed');
+        // Validasi Data
+        $rules = [
+            'nama_sosmed' => 'required', 'string',
+            'link_sosmed' => 'required', 'string',
+            'warna_id' => 'required',
+        ];
+        $message = [
+            'nama_sosmed.required' => ' Judul Tidak Boleh Kosong',
+            'nama_sosmed.string' => ' Judul Harus Berupa String',
+
+            'link_sosmed.required' => ' Deskripsi Tidak Boleh Kosong',
+            'link_sosmed.string' => ' Deskripsi Harus Berupa String',
+
+            'warna_id.required' => ' Warna Tidak Boleh Kosong',
+        ];
+        $this->validate($request, $rules, $message);
+
+        Sosmed::create([
+            'produk_id' => $request->produk_id,
+            'nama_sosmed' => $request->nama_sosmed,
+            'link_sosmed' => $request->link_sosmed,
+            'warna_id' => $request->warna_id,
+        ]);
+
+        return Redirect::route('admin.halaman.galeri.edit_produk', $request->produk_id)->with('message', 'Sosmed Produk Berhasil Ditambahkan.');
     }
 
-    public function create()
+    public function edit_sosmed_produk($id)
     {
-        return view('galeri.create');
+
+
+        $sosmed_produk = Sosmed::whereId($id)->first();
+        $warnas = Warna::orderByRaw("id = $sosmed_produk->warna_id DESC")->get();
+        return view('admin.halaman.galeri.edit_sosmed', compact('sosmed_produk', 'warnas'));
     }
 
-    public function show(Galeri $galeri)
+    public function update_sosmed_produk(Request $request)
     {
-        //
+        // Validasi Data
+        $rules = [
+            'nama_sosmed' => 'required', 'string',
+            'link_sosmed' => 'required', 'string',
+            'warna_id' => 'required',
+        ];
+        $message = [
+            'nama_sosmed.required' => ' Judul Tidak Boleh Kosong',
+            'nama_sosmed.string' => ' Judul Harus Berupa String',
+
+            'link_sosmed.required' => ' Deskripsi Tidak Boleh Kosong',
+            'link_sosmed.string' => ' Deskripsi Harus Berupa String',
+
+            'warna_id.required' => ' Warna Tidak Boleh Kosong',
+        ];
+        $this->validate($request, $rules, $message);
+
+        // Simpan ke database Mitra
+        $sosmed_produk = Sosmed::where('id', $request->id)->first();
+        $sosmed_produk->nama_sosmed = $request->nama_sosmed;
+        $sosmed_produk->link_sosmed = $request->link_sosmed;
+        $sosmed_produk->warna_id = $request->warna_id;
+        $sosmed_produk->update();
+
+        return Redirect::route('admin.halaman.galeri.edit_produk.edit_sosmed', $sosmed_produk->id)->with('message', 'Sosmed Produk Berhasil Diperbarui.');
     }
 
-    public function edit(Galeri $galeri)
+    public function delete_sosmed_produk(Request $request)
     {
-        return view('galeri.edit', compact('galeri'));
+        $sosmed_produk = Sosmed::where('id', $request->id)->first();
+        $sosmed_produk->delete();
+
+        return Redirect::route('admin.halaman.galeri.edit_produk', $sosmed_produk->produk_id)->with('message', 'Sosmed Produk Berhasil Dihapus.');
     }
 }

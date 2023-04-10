@@ -7,25 +7,27 @@
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<div class="flex flex-wrap">
-    <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+<form action="{{route('admin.halaman.galeri.edit_produk.store_sosmed')}}" method="POST" enctype="multipart/form-data">
+    @csrf
 
-        <!--Metric Card-->
-        <div class="w-min">
-            <a href="/admin/halaman/galeri/edit_produk">
-                <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
-                    <div class="flex flex-row items-center justify-center">
-                        <div class="text-right md:text-center">
-                            <h2 class="font-bold uppercase">Kembali</h2>
+    <div class="flex flex-wrap">
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+
+            <!--Metric Card-->
+            <div class="w-min">
+                <a href="{{route('admin.halaman.galeri.edit_produk', $id)}}">
+                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                        <div class="flex flex-row items-center justify-center">
+                            <div class="text-right md:text-center">
+                                <h2 class="font-bold uppercase">Kembali</h2>
+                            </div>
                         </div>
                     </div>
-                </button>
-            </a>
-        </div>
-        <!--/Metric Card-->
+                </a>
+            </div>
+            <!--/Metric Card-->
 
-        <!--Metric Card-->
-        <a href="/admin/halaman/galeri/edit_produk">
+            <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
@@ -33,48 +35,52 @@
                     </div>
                 </div>
             </button>
-        </a>
-        <!--/Metric Card-->
-    </div>
-</div>
-
-<!-- component -->
-<div class="bg-grey-lighter flex flex-col">
-    <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
-        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-            <div class="form-group">
-                <label for="name">Nama Sosmed</label><br>
-                @error('name')
-                <small style="color: red">{{$message}}</small>
-                @enderror
-                <input type="text" id="name"
-                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('name') is-invalid @enderror"
-                    name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            </div>
-
-            <div class="form-group">
-                <label for="email">Link Sosmed</label><br>
-                @error('email')
-                <small style="color: red">{{$message}}</small>
-                @enderror
-                <input type="text" id="email"
-                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('email') is-invalid @enderror"
-                    name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-            </div>
-            <button id="kategoriGaleri" name="kategoriGaleri" data-dropdown-toggle="navMenuGaleri"
-                class="text-white bg-primary hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800 mx-auto group"
-                type="button">
-                Pilih Warna
-                <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" class="">
-                    </path>
-                </svg>
-            </button>
+            <!--/Metric Card-->
         </div>
     </div>
-</div>
 
+    <!-- component -->
+    <div class="bg-grey-lighter flex flex-col">
+        <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
+            <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                <input type="text" name="produk_id" value="{{$id}}" hidden>
+                <div class="form-group">
+                    <label for="nama_sosmed">Nama Sosmed</label><br>
+                    @error('nama_sosmed')
+                    <small style="color: red">{{$message}}</small>
+                    @enderror
+                    <input type="text" id="nama_sosmed"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('nama_sosmed') is-invalid @enderror"
+                        name="nama_sosmed" value="{{ old('nama_sosmed') }}" required autocomplete="nama_sosmed"
+                        autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="link_sosmed">Link Sosmed</label><br>
+                    @error('link_sosmed')
+                    <small style="color: red">{{$message}}</small>
+                    @enderror
+                    <input type="text" id="link_sosmed"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_sosmed') is-invalid @enderror"
+                        name="link_sosmed" value="{{ old('link_sosmed') }}" required autocomplete="link_sosmed"
+                        autofocus>
+                </div>
+                <label for="nama_field" class="block mb-2">Warna Text Sosmed</label>
+                <div class="relative inline-block text-left">
+                    <select name="warna_id" id="nama_field"
+                        class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500">
+                        @foreach ($warnas as $warna)
+                        <option value="{{$warna->id}}"
+                            class="block px-4 py-2 text-sm text-{{$warna->nama_warna}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
+                            role="menuitem" @if($warna->nama_warna == '{{$warna->nama_warna}}') selected
+                            @endif>{{$warna->nama_warna}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 
