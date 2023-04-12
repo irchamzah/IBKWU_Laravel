@@ -20,6 +20,10 @@
         @csrf
     </form>
 
+    <form id="filterForm" action="{{ route('admin.halaman.galeri.filter')}}" method="GET">
+        @csrf
+    </form>
+
     <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 xl:w-1/3 p-6">
 
@@ -131,8 +135,7 @@
                             </div>
 
                             <div class="flex justify-center mx-auto">
-                                <div class="mb-3 xl:w-96 mt-5">
-
+                                <div class="mt-5 w-full sm:w-96">
                                     <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                                         <input form="searchForm" name="query" type="text"
                                             class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
@@ -150,53 +153,34 @@
                                             </svg>
                                         </button>
                                     </div>
-
                                 </div>
                             </div>
 
                             {{-- Pilih Kategori --}}
-                            <div class="flex justify-center mx-auto mb-10">
-                                <div class="mb-3 xl:w-96">
+                            <div class="flex justify-center mx-auto">
+                                <div class="mb-10 w-full sm:w-96">
                                     <div class="relative mb-4 flex w-full flex-wrap items-stretch">
-                                        <div id="kategoriGaleri" name="kategoriGaleri"
-                                            data-dropdown-toggle="navMenuGaleri"
-                                            class="text-white bg-primary hover:bg-opacity-80 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800 mx-auto group"
-                                            type="button">
-                                            Pilih Kategori
-                                            <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none"
-                                                stroke="currentColor" viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M19 9l-7 7-7-7" class="">
-                                                </path>
-                                            </svg>
-                                        </div>
-                                        <!-- Dropdown menu -->
-                                        <div id="navMenuGaleri"
-                                            class="z-10 hidden absolute bg-white divide-y divide-gray-100 rounded-lg shadow w-full dark:bg-gray-700 top-12 text-center">
-                                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"
-                                                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign
-                                                        out</a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        <select name="kategori"
+                                            class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                                            form="filterForm">
+                                            <option value="">Pilih Kategori</option>
+                                            @foreach ($kategoris as $kategori)
+                                            <option value="{{ $kategori->id }}" {{ old('kategori')==$kategori->id ?
+                                                'selected' : '' }}>
+                                                {{ $kategori->kategori }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                        <button type="submit" form="filterForm"
+                                            class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                                            Filter
+                                        </button>
+                                        <a href="{{route('admin.halaman.galeri.show_kategori')}}"
+                                            class=" flex items-center rounded bg-secondary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg ml-1">Edit</a>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
 
@@ -204,9 +188,9 @@
                             @if ($detail_produks->count())
                             @foreach($detail_produks as $detail_produk)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-                                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}"
-                                        alt="Programming" class="w-full">
+                                <div class="bg-white rounded shadow-lg overflow-hidden mb-10 dark:bg-dark">
+                                    <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Gambar"
+                                        class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>
                                             <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
@@ -223,16 +207,28 @@
                             </div>
                             @endforeach
                             @else
-                            <p class="text-gray-600">Galeri yang anda cari tidak ada.</p>
+                            <p
+                                class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+                                Produk
+                                yang anda
+                                cari tidak
+                                ada.</p>
                             @endif
                         </div>
+
+                        <div class="w-full sm:w-96 mx-auto">
+                            <div class="mt-4">
+                                {{ $detail_produks->links() }}
+                            </div>
+                        </div>
+
                         <!--Metric Card-->
                         <div class="w-min mx-auto">
                             <a href="/admin/halaman/galeri/tambah_produk">
                                 <div
                                     class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mt-10  block mx-auto w-full sm:w-96">
                                     <div class="flex flex-row items-center justify-center">
-                                        <div class="text-right md:text-center">
+                                        <div class="text-center">
                                             <h2 class="font-bold uppercase">Tambah Produk Baru</h2>
                                         </div>
                                     </div>

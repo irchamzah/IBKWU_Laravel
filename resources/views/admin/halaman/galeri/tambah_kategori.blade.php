@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Sosial Media Produk Galeri Tenant')
+@section('title', 'Tambah Sosial Media Produk Galeri Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<form action="{{route('admin.halaman.galeri.edit_produk.update_sosmed', $sosmed_produk->id)}}" method="POST"
+<form action="{{route('admin.halaman.galeri.show_kategori.store_kategori')}}" method="POST"
     enctype="multipart/form-data">
     @csrf
 
@@ -16,7 +16,7 @@
 
             <!--Metric Card-->
             <div class="w-min">
-                <a href="{{route('admin.halaman.galeri.edit_produk', $sosmed_produk->produk_id)}}">
+                <a href="{{route('admin.halaman.galeri.show_kategori')}}">
                     <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
                             <div class="text-center">
@@ -37,18 +37,6 @@
                 </div>
             </button>
             <!--/Metric Card-->
-
-            @if($message = Session::get('message'))
-            <div role="alert">
-                <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
-                    Berhasil!
-                </div>
-                <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
-                    <p>{{$message}}</p>
-                </div>
-            </div>
-            @endif
-
         </div>
     </div>
 
@@ -57,63 +45,18 @@
         <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
             <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                 <div class="form-group">
-                    <label for="nama_sosmed">Nama Sosmed</label><br>
-                    @error('nama_sosmed')
+                    <label for="kategori">Nama kategori</label><br>
+                    @error('kategori')
                     <small style="color: red">{{$message}}</small>
                     @enderror
-                    <input type="text" id="nama_sosmed"
-                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('nama_sosmed') is-invalid @enderror"
-                        name="nama_sosmed" value="{{$sosmed_produk->nama_sosmed}}" required autocomplete="nama_sosmed"
-                        autofocus>
+                    <input type="text" id="kategori"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('kategori') is-invalid @enderror"
+                        name="kategori" value="{{ old('kategori') }}" required autocomplete="kategori" autofocus>
                 </div>
-
-                <div class="form-group">
-                    <label for="link_sosmed">Link Sosmed</label><br>
-                    @error('link_sosmed')
-                    <small style="color: red">{{$message}}</small>
-                    @enderror
-                    <input type="text" id="link_sosmed"
-                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_sosmed') is-invalid @enderror"
-                        name="link_sosmed" value="{{$sosmed_produk->link_sosmed}}" required autocomplete="link_sosmed"
-                        autofocus>
-                </div>
-
-
-                <label for="nama_field" class="block mb-2">Warna Text Sosmed</label>
-                <div class="relative inline-block text-left">
-                    <select name="warna_id" id="nama_field"
-                        class="border-2 border-{{$sosmed_produk->warna->nama_warna}}-400 p-2 rounded-lg w-full capitalize text-{{$sosmed_produk->warna->nama_warna}}-500">
-                        @foreach ($warnas as $warna)
-                        <option value="{{$warna->id}}"
-                            class="block px-4 py-2 text-sm text-{{$warna->nama_warna}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
-                            role="menuitem" @if($warna->nama_warna == '{{$warna->nama_warna}}') selected
-                            @endif>{{$warna->nama_warna}}</option>
-                        @endforeach
-                    </select>
-                </div>
-
             </div>
         </div>
     </div>
 </form>
-
-<script>
-    document.addEventListener('click', function(event) {
-      var dropdownMenu = document.getElementById('dropdown-menu');
-      var dropdownMenuItems = document.getElementById('dropdown-menu-items');
-      var targetElement = event.target;
-      do {
-        if (targetElement == dropdownMenu) {
-          dropdownMenuItems.classList.toggle('hidden');
-          return;
-        }
-        targetElement = targetElement.parentNode;
-      } while (targetElement);
-      dropdownMenuItems.classList.add('hidden');
-    });
-</script>
-
-
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 

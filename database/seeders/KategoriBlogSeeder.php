@@ -16,6 +16,10 @@ class KategoriBlogSeeder extends Seeder
     public function run()
     {
         KategoriBlog::create([
+            'kategori' => 'Tidak Ada'
+        ]);
+
+        KategoriBlog::create([
             'kategori' => 'Rekomendasi'
         ]);
 

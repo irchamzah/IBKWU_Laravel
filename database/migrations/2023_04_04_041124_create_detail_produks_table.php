@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('judul_h1');
             $table->string('link_yt');
             $table->text('deskripsi_p1');
+            $table->integer('kategori_galeri_id');
             $table->timestamps();
         });
     }

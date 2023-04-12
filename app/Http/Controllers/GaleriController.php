@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\DetailProduk;
 use App\Models\FotoProduk;
 use App\Models\Galeri;
+use App\Models\KategoriGaleri;
 use App\Models\Sosmed;
 use App\Models\Warna;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use PhpParser\Node\Stmt\Return_;
 
 class GaleriController extends Controller
 {
@@ -19,8 +21,9 @@ class GaleriController extends Controller
     public function index()
     {
         $galeri = Galeri::first();
-        $detail_produks = DetailProduk::all();
-        return view('admin.halaman.galeri.index', compact('galeri', 'detail_produks'));
+        $detail_produks = DetailProduk::orderBy('id', 'desc')->paginate(6);
+        $kategoris = KategoriGaleri::all();
+        return view('admin.halaman.galeri.index', compact('galeri', 'detail_produks', 'kategoris'));
     }
 
     public function update(Request $request, $id)
@@ -73,16 +76,114 @@ class GaleriController extends Controller
         $query = $request->input('query');
         $detail_produks = DetailProduk::where('judul_h1', 'LIKE', '%' . $query . '%')
             ->orWhere('deskripsi_p1', 'LIKE', '%' . $query . '%')
-            ->get();
+            ->orderBy('id', 'desc')->paginate(6);
         $galeri = Galeri::first();
-        // dd($detail_produks);
-        return view('admin.halaman.galeri.index', compact('detail_produks', 'query', 'galeri'));
+        $kategoris = KategoriGaleri::all();
+        return view('admin.halaman.galeri.index', compact('detail_produks', 'query', 'galeri', 'kategoris'));
     }
+
+    public function filter(Request $request)
+    {
+        $query = DetailProduk::query();
+
+        if ($request->kategori == null) {
+            return Redirect::route('admin.halaman.galeri');
+        } elseif ($request->has('kategori')) {
+            $query->where('kategori_galeri_id', $request->kategori);
+
+            $kategoris = KategoriGaleri::all();
+            $detail_produks = $query->orderBy('id', 'desc')->paginate(6);
+            $galeri = Galeri::first();
+            return view('admin.halaman.galeri.index', compact('detail_produks', 'query', 'galeri', 'kategoris'));
+        }
+    }
+
+    /////////// KATEGORI PRODUK
+    public function show_kategori_produk()
+    {
+        $kategoris = KategoriGaleri::all();
+        return view('admin.halaman.galeri.show_kategori', compact('kategoris'));
+    }
+
+    public function tambah_kategori_produk()
+    {
+        return view('admin.halaman.galeri.tambah_kategori');
+    }
+
+    public function store_kategori_produk(Request $request)
+    {
+        // Validasi Data
+        $rules = [
+            'kategori' => 'required', 'string',
+        ];
+        $message = [
+            'kategori.required' => ' Judul Tidak Boleh Kosong',
+            'kategori.string' => ' Judul Harus Berupa String',
+        ];
+        $this->validate($request, $rules, $message);
+
+        KategoriGaleri::create([
+            'kategori' => $request->kategori,
+        ]);
+
+        return Redirect::route('admin.halaman.galeri.show_kategori')->with('message', 'Kategori Berhasil Ditambahkan.');
+    }
+
+    public function edit_kategori_produk($id)
+    {
+
+
+        $kategori_produk = KategoriGaleri::whereId($id)->first();
+
+        if ($kategori_produk->kategori == 'Tidak Ada') {
+            return back()->withErrors(['Kategori "Tidak Ada" tidak boleh diedit']);
+        } elseif ($kategori_produk->kategori == 'Rekomendasi') {
+            return back()->withErrors(['Kategori "Rekomendasi" tidak boleh diedit']);
+        }
+
+        return view('admin.halaman.galeri.edit_kategori', compact('kategori_produk'));
+    }
+
+    public function update_kategori_produk(Request $request)
+    {
+        // Validasi Data
+        $rules = [
+            'kategori' => 'required', 'string',
+        ];
+        $message = [
+            'kategori.required' => ' Judul Tidak Boleh Kosong',
+            'kategori.string' => ' Judul Harus Berupa String',
+        ];
+        $this->validate($request, $rules, $message);
+
+        // Simpan ke database Mitra
+        $kategori_produk = KategoriGaleri::where('id', $request->id)->first();
+        $kategori_produk->kategori = $request->kategori;
+        $kategori_produk->update();
+
+        return Redirect::route('admin.halaman.galeri.show_kategori.edit_kategori', $kategori_produk->id)->with('message', 'Kategori Produk Berhasil Diperbarui.');
+    }
+
+    public function delete_kategori_produk(Request $request)
+    {
+        $kategori_produk = KategoriGaleri::where('id', $request->id)->first();
+        if ($kategori_produk->kategori == 'Tidak Ada') {
+            return back()->withErrors(['Kategori "Tidak Ada" tidak boleh dihapus']);
+        } elseif ($kategori_produk->kategori == 'Rekomendasi') {
+            return back()->withErrors(['Kategori "Rekomendasi" tidak boleh dihapus']);
+        }
+        $kategori_produk->delete();
+
+        return Redirect::route('admin.halaman.galeri.show_kategori', $kategori_produk->produk_id)->with('message', 'Kategori Produk Berhasil Dihapus.');
+    }
+
+
 
     /////////// DETAIL PRODUK
     public function tambah_produk()
     {
-        return view('admin.halaman.galeri.create');
+        $kategoris = KategoriGaleri::all();
+        return view('admin.halaman.galeri.create', compact('kategoris'));
     }
 
     public function store_produk(Request $request)
@@ -117,6 +218,7 @@ class GaleriController extends Controller
             'judul_h1' => $request->judul_h1,
             'link_yt' => $request->link_yt,
             'deskripsi_p1' => $request->deskripsi_p1,
+            'kategori_galeri_id' => $request->kategori,
         ]);
 
         $detail_produk = DetailProduk::latest()->first();
@@ -125,10 +227,12 @@ class GaleriController extends Controller
 
     public function edit_produk($id)
     {
+
         $detail_produk = DetailProduk::whereId($id)->first();
         $foto_produks = FotoProduk::where('produk_id', $id)->orderBy('id', 'asc')->get();
         $sosmeds = Sosmed::where('produk_id', $id)->orderBy('id', 'asc')->get();
-        return view('admin.halaman.galeri.edit', compact('detail_produk', 'foto_produks', 'sosmeds'));
+        $kategoris = KategoriGaleri::orderByRaw("id = $detail_produk->kategori_galeri_id DESC")->get();
+        return view('admin.halaman.galeri.edit', compact('detail_produk', 'foto_produks', 'sosmeds', 'kategoris'));
     }
 
     public function update_produk(Request $request)
@@ -168,6 +272,7 @@ class GaleriController extends Controller
         $detail_produk->judul_h1 = $request->judul_h1;
         $detail_produk->link_yt = $request->link_yt;
         $detail_produk->deskripsi_p1 = $request->deskripsi_p1;
+        $detail_produk->kategori_galeri_id = $request->kategori;
         $detail_produk->update();
 
         return Redirect::route('admin.halaman.galeri.edit_produk', $detail_produk->id)->with('message', 'Produk Berhasil Diperbarui');

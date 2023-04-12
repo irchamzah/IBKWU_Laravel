@@ -19,7 +19,7 @@
                 <a href="/admin/halaman/galeri">
                     <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
-                            <div class="text-right md:text-center">
+                            <div class="text-center">
                                 <h2 class="font-bold uppercase">Kembali</h2>
                             </div>
                         </div>
@@ -31,7 +31,7 @@
             <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
+                    <div class="text-center">
                         <h2 class="font-bold uppercase">Simpan</h2>
                     </div>
                 </div>
@@ -93,6 +93,22 @@
                                             autofocus>
                                     </div>
                                 </div>
+
+                                <div class="w-52 my-10 text-left">
+                                    <label for="kategori" class="">Pilih Kategori Produk</label>
+                                    <select name="kategori" id="kategori"
+                                        class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500">
+
+                                        @foreach ($kategoris as $kategori)
+                                        <option value="{{$kategori->id}}"
+                                            class="block px-4 py-2 text-sm text-{{$kategori->kategori}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
+                                            role="menuitem" @if($kategori->kategori == '{{$kategori->kategori}}')
+                                            selected
+                                            @endif>{{$kategori->kategori}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
                                 @error('deskripsi_p1')
                                 <small style="color: red">{{$message}}</small>
                                 @enderror
@@ -134,7 +150,7 @@
                                 <div
                                     class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mb-10 w-full block mx-auto sm:w-96">
                                     <div class="flex flex-row items-center justify-center">
-                                        <div class="text-right md:text-center">
+                                        <div class="text-center">
                                             <h2 class="font-bold uppercase">Tambah Foto</h2>
                                         </div>
                                     </div>
@@ -186,8 +202,8 @@
                                 <div
                                     class="bg-primary text-white rounded-lg p-5 hover:opacity-90 w-full sm:w-96 block mx-auto mt-4 ">
                                     <div class="flex flex-row items-center justify-center">
-                                        <div class="text-right md:text-center">
-                                            <h2 class="font-bold uppercase">Tambah Link</h2>
+                                        <div class="text-center">
+                                            <h2 class="font-bold uppercase">Tambah Sosmed</h2>
                                         </div>
                                     </div>
                                 </div>

@@ -90,6 +90,20 @@
                                             required autocomplete="link_yt" autofocus placeholder="Kode Link Youtube..">
                                     </div>
                                 </div>
+                                <div class="w-52 my-10 text-left">
+                                    <label for="kategori" class="">Pilih Kategori Produk</label>
+                                    <select name="kategori" id="kategori"
+                                        class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500">
+
+                                        @foreach ($kategoris as $kategori)
+                                        <option value="{{$kategori->id}}"
+                                            class="block px-4 py-2 text-sm text-{{$kategori->kategori}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
+                                            role="menuitem" @if($kategori->kategori == '{{$kategori->kategori}}')
+                                            selected
+                                            @endif>{{$kategori->kategori}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="font-medium text-md text-secondary md:text-lg text-justify mb-2">
                                     @error('deskripsi_p1')
                                     <small style="color: red">{{$message}}</small>

@@ -18,7 +18,7 @@
                 <a href="{{route('admin.halaman.galeri.edit_produk', $id)}}">
                     <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
-                            <div class="text-right md:text-center">
+                            <div class="text-center">
                                 <h2 class="font-bold uppercase">Kembali</h2>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
             <!--Metric Card-->
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
-                    <div class="text-right md:text-center">
+                    <div class="text-center">
                         <h2 class="font-bold uppercase">Simpan</h2>
                     </div>
                 </div>

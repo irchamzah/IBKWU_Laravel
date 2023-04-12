@@ -16,6 +16,10 @@ class KategoriGaleriSeeder extends Seeder
     public function run()
     {
         KategoriGaleri::create([
+            'kategori' => 'Tidak Ada'
+        ]);
+
+        KategoriGaleri::create([
             'kategori' => 'Rekomendasi'
         ]);
     }
