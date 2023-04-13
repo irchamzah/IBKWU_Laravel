@@ -57,7 +57,7 @@
                                     @enderror
                                     <input type="file"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('produk_img1') is-invalid @enderror"
-                                        name="produk_img1" accept="image/*">
+                                        name="produk_img1" accept="image/*" required>
                                 </button>
                                 <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
                                     <input type="text" id="produk_h1"

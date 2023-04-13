@@ -61,8 +61,12 @@
                     <div class="container">
                         <div class="flex flex-wrap">
                             <div class="w-full self-center px-4 lg:w-1/2">
+                                @error('home_h1')
+                                <small class="text-red-600">{{$message}}</small>
+                                @enderror
                                 <span
                                     class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl dark:text-white mb-6">
+
                                     <input type="text" id="home_h1"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('home_h1') is-invalid @enderror"
                                         name="home_h1" value="{{$beranda->home_h1}}" required autocomplete="home_h1"

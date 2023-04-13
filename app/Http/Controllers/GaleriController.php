@@ -30,11 +30,11 @@ class GaleriController extends Controller
     {
         //validasi data
         $rules = [
-            'sorotan_h1' => 'required', 'string',
-            'sorotan_h2' => 'required', 'string',
+            'sorotan_h1' => 'required|string|max:255',
+            'sorotan_h2' => 'required|string|max:255',
             'sorotan_p1' => 'required', 'string',
-            'galeri_h1' => 'required', 'string',
-            'galeri_h2' => 'required', 'string',
+            'galeri_h1' => 'required|string|max:255',
+            'galeri_h2' => 'required|string|max:255',
             'galeri_p1' => 'required', 'string',
         ];
         $message = [
@@ -114,7 +114,7 @@ class GaleriController extends Controller
     {
         // Validasi Data
         $rules = [
-            'kategori' => 'required', 'string',
+            'kategori' => 'required|string|max:255',
         ];
         $message = [
             'kategori.required' => ' Judul Tidak Boleh Kosong',
@@ -148,7 +148,7 @@ class GaleriController extends Controller
     {
         // Validasi Data
         $rules = [
-            'kategori' => 'required', 'string',
+            'kategori' => 'required|string|max:255',
         ];
         $message = [
             'kategori.required' => ' Judul Tidak Boleh Kosong',
@@ -190,9 +190,9 @@ class GaleriController extends Controller
     {
         // Validasi Data
         $rules = [
-            'judul_h1' => 'required', 'string',
+            'judul_h1' => 'required|string|max:255',
             'detail_produk_img' => 'required', 'max:5000|mimes:jpeg,png,jpg,svg',
-            'link_yt' => 'required', 'string',
+            'link_yt' => 'required|string|max:255',
             'deskripsi_p1' => 'required', 'string',
         ];
         $message = [
@@ -240,8 +240,8 @@ class GaleriController extends Controller
         // Validasi Data
         $rules = [
             'detail_produk_img' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'judul_h1' => 'required', 'string',
-            'link_yt' => 'required', 'string',
+            'judul_h1' => 'required|string|max:255',
+            'link_yt' => 'required|string|max:255',
             'deskripsi_p1' => 'required', 'string',
         ];
         $message = [
@@ -301,7 +301,7 @@ class GaleriController extends Controller
         // Validasi Data
         $rules = [
             'produk_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'produk_h1' => 'required', 'string',
+            'produk_h1' => 'required|string|max:255',
             'produk_p1' => 'required', 'string',
         ];
         $message = [
@@ -339,7 +339,7 @@ class GaleriController extends Controller
         // Validasi Data
         $rules = [
             'produk_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'produk_h1' => 'required', 'string',
+            'produk_h1' => 'required|string|max:255',
             'produk_p1' => 'required', 'string',
         ];
         $message = [
@@ -393,8 +393,8 @@ class GaleriController extends Controller
     {
         // Validasi Data
         $rules = [
-            'nama_sosmed' => 'required', 'string',
-            'link_sosmed' => 'required', 'string',
+            'nama_sosmed' => 'required|string|max:255',
+            'link_sosmed' => 'required|string|max:255',
             'warna_id' => 'required',
         ];
         $message = [
@@ -431,8 +431,8 @@ class GaleriController extends Controller
     {
         // Validasi Data
         $rules = [
-            'nama_sosmed' => 'required', 'string',
-            'link_sosmed' => 'required', 'string',
+            'nama_sosmed' => 'required|string|max:255',
+            'link_sosmed' => 'required|string|max:255',
             'warna_id' => 'required',
         ];
         $message = [

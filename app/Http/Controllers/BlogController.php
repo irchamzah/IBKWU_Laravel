@@ -24,11 +24,11 @@ class BlogController extends Controller
     {
         //validasi data
         $rules = [
-            'sorotan_h1' => 'required', 'string',
-            'sorotan_h2' => 'required', 'string',
+            'sorotan_h1' => 'required|string|max:255',
+            'sorotan_h2' => 'required|string|max:255',
             'sorotan_p1' => 'required', 'string',
-            'blog_h1' => 'required', 'string',
-            'blog_h2' => 'required', 'string',
+            'blog_h1' => 'required|string|max:255',
+            'blog_h2' => 'required|string|max:255',
             'blog_p1' => 'required', 'string',
         ];
         $message = [
@@ -108,7 +108,7 @@ class BlogController extends Controller
     {
         // Validasi Data
         $rules = [
-            'kategori' => 'required', 'string',
+            'kategori' => 'required|string|max:255',
         ];
         $message = [
             'kategori.required' => ' Judul Tidak Boleh Kosong',
@@ -142,7 +142,7 @@ class BlogController extends Controller
     {
         // Validasi Data
         $rules = [
-            'kategori' => 'required', 'string',
+            'kategori' => 'required|string|max:255',
         ];
         $message = [
             'kategori.required' => ' Judul Tidak Boleh Kosong',
@@ -184,9 +184,9 @@ class BlogController extends Controller
     {
         // Validasi Data
         $rules = [
-            'judul_h1' => 'required', 'string',
+            'judul_h1' => 'required|string|max:255',
             'detail_blog_img' => 'required', 'max:5000|mimes:jpeg,png,jpg,svg',
-            'link_yt' => 'required', 'string',
+            'link_yt' => 'required|string|max:255',
             'deskripsi_p1' => 'required', 'string',
         ];
         $message = [
@@ -233,8 +233,8 @@ class BlogController extends Controller
         // Validasi Data
         $rules = [
             'detail_blog_img' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'judul_h1' => 'required', 'string',
-            'link_yt' => 'required', 'string',
+            'judul_h1' => 'required|string|max:255',
+            'link_yt' => 'required|string|max:255',
             'deskripsi_p1' => 'required', 'string',
         ];
         $message = [
@@ -294,7 +294,7 @@ class BlogController extends Controller
         // Validasi Data
         $rules = [
             'blog_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'blog_h1' => 'required', 'string',
+            'blog_h1' => 'required|string|max:255',
             'blog_p1' => 'required', 'string',
         ];
         $message = [
@@ -332,7 +332,7 @@ class BlogController extends Controller
         // Validasi Data
         $rules = [
             'blog_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'blog_h1' => 'required', 'string',
+            'blog_h1' => 'required|string|max:255',
             'blog_p1' => 'required', 'string',
         ];
         $message = [

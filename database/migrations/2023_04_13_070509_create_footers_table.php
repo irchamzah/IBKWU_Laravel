@@ -15,6 +15,13 @@ return new class extends Migration
     {
         Schema::create('footers', function (Blueprint $table) {
             $table->id();
+            $table->string('phone');
+            $table->string('email');
+            $table->string('address');
+            $table->string('yt_link');
+            $table->string('ig_link');
+            $table->string('twt_link');
+            $table->string('li_link');
             $table->timestamps();
         });
     }

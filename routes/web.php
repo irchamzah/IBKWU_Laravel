@@ -110,4 +110,5 @@ Route::post('/admin/halaman/blog/show_kategori/update_kategori/{id}', [BlogContr
 Route::get('/admin/halaman/blog/show_kategori/delete_kategori/{id}', [BlogController::class, 'delete_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori.delete_kategori');
 
 // Edit Footer
-Route::get('/admin/halaman/footer', [FooterController::class, 'index'])->middleware('auth');
+Route::get('/admin/halaman/footer', [FooterController::class, 'index'])->middleware('auth')->name('admin.halaman.footer');
+Route::post('/admin/halaman/footer/update/{id}', [FooterController::class, 'update'])->middleware('auth')->name('admin.halaman.footer.update');
