@@ -13,4 +13,9 @@ class KategoriBlog extends Model
     protected $fillable = [
         'kategori'
     ];
+
+    public function detail_blog()
+    {
+        return $this->hasMany('App\Models\DetailBlog', 'kategori_blog_id', 'id');
+    }
 }

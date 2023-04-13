@@ -85,11 +85,29 @@ Route::post('/admin/halaman/galeri/show_kategori/update_kategori/{id}', [GaleriC
 Route::get('/admin/halaman/galeri/show_kategori/delete_kategori/{id}', [GaleriController::class, 'delete_kategori_produk'])->middleware('auth')->name('admin.halaman.galeri.show_kategori.delete_kategori');
 
 // Edit Halaman Blog
-Route::get('/admin/halaman/blog', [BlogController::class, 'index'])->middleware('auth');
-Route::get('/admin/halaman/blog/tambah_blog', [BlogController::class, 'tambah_blog'])->middleware('auth');
-Route::get('/admin/halaman/blog/edit_blog', [BlogController::class, 'edit_blog'])->middleware('auth');
-Route::get('/admin/halaman/blog/edit_blog/tambah_foto', [BlogController::class, 'tambah_foto_blog'])->middleware('auth');
-Route::get('/admin/halaman/blog/edit_blog/edit_foto', [BlogController::class, 'edit_foto_blog'])->middleware('auth');
+Route::get('/admin/halaman/blog', [BlogController::class, 'index'])->middleware('auth')->name('admin.halaman.blog');
+Route::post('/admin/halaman/blog/update/{id}', [BlogController::class, 'update'])->middleware('auth')->name('admin.halaman.blog.update');
+Route::get('/admin/halaman/blog/search', [BlogController::class, 'search'])->middleware('auth')->name('admin.halaman.blog.search');
+Route::get('/admin/halaman/blog/filter', [BlogController::class, 'filter'])->middleware('auth')->name('admin.halaman.blog.filter');
+// blog
+Route::get('/admin/halaman/blog/tambah_blog', [BlogController::class, 'tambah_blog'])->middleware('auth')->name('admin.halaman.blog.tambah_blog');
+Route::post('/admin/halaman/blog/store_blog', [BlogController::class, 'store_blog'])->middleware('auth')->name('admin.halaman.blog.store_blog');
+Route::get('/admin/halaman/blog/edit_blog/{id}', [BlogController::class, 'edit_blog'])->middleware('auth')->name('admin.halaman.blog.edit_blog');
+Route::post('/admin/halaman/blog/update_blog/{id}', [BlogController::class, 'update_blog'])->middleware('auth')->name('admin.halaman.blog.update_blog');
+Route::get('/admin/halaman/blog/delete_blog/{id}', [BlogController::class, 'delete_blog'])->middleware('auth')->name('admin.halaman.blog.delete_blog');
+// Foto
+Route::get('/admin/halaman/blog/edit_blog/tambah_foto/{id}', [BlogController::class, 'tambah_foto_blog'])->middleware('auth')->name('admin.halaman.blog.edit_blog.tambah_foto');
+Route::post('/admin/halaman/blog/edit_blog/store_foto', [BlogController::class, 'store_foto_blog'])->middleware('auth')->name('admin.halaman.blog.edit_blog.store_foto');
+Route::get('/admin/halaman/blog/edit_blog/edit_foto/{id}', [BlogController::class, 'edit_foto_blog'])->middleware('auth')->name('admin.halaman.blog.edit_blog.edit_foto');
+Route::post('/admin/halaman/blog/edit_blog/update_foto/{id}', [BlogController::class, 'update_foto_blog'])->middleware('auth')->name('admin.halaman.blog.edit_blog.update_foto');
+Route::get('/admin/halaman/blog/edit_blog/delete_foto/{id}', [BlogController::class, 'delete_foto_blog'])->middleware('auth')->name('admin.halaman.blog.edit_blog.delete_foto');
+// kategori
+Route::get('/admin/halaman/blog/show_kategori', [BlogController::class, 'show_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori');
+Route::get('/admin/halaman/blog/show_kategori/tambah_kategori', [BlogController::class, 'tambah_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori.tambah_kategori');
+Route::post('/admin/halaman/blog/show_kategori/store_kategori', [BlogController::class, 'store_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori.store_kategori');
+Route::get('/admin/halaman/blog/show_kategori/edit_kategori/{id}', [BlogController::class, 'edit_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori.edit_kategori');
+Route::post('/admin/halaman/blog/show_kategori/update_kategori/{id}', [BlogController::class, 'update_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori.update_kategori');
+Route::get('/admin/halaman/blog/show_kategori/delete_kategori/{id}', [BlogController::class, 'delete_kategori_blog'])->middleware('auth')->name('admin.halaman.blog.show_kategori.delete_kategori');
 
 // Edit Footer
 Route::get('/admin/halaman/footer', [FooterController::class, 'index'])->middleware('auth');

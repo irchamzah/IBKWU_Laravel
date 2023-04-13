@@ -192,31 +192,4 @@ class ProfilController extends Controller
 
         return Redirect::route('admin.halaman.profil')->with('message', 'Halaman Profil Berhasil Diperbarui');
     }
-
-    public function create()
-    {
-        //
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-
-
-    public function destroy($id)
-    {
-        //
-    }
 }

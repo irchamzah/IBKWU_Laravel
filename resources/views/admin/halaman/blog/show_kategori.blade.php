@@ -1,88 +1,112 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tambah Foto Detail Blog')
+@section('title', 'Daftar Kategori')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<form action="{{route('admin.halaman.blog.edit_blog.store_foto')}}" method="POST" enctype="multipart/form-data">
-    @csrf
 
-    <div class="flex flex-wrap">
-        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
 
-            <!--Metric Card-->
-            <div class="w-min">
-                <a href="{{route('admin.halaman.blog.edit_blog', $id)}}">
-                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
-                        <div class="flex flex-row items-center justify-center">
-                            <div class="text-center">
-                                <h2 class="font-bold uppercase">Kembali</h2>
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
+
+
+
+                <div class="w-min">
+                    <a href="{{route('admin.halaman.blog')}}">
+                        <div class="bg-gray-500 text-white rounded-lg p-5 hover:opacity-90 w-full sm:w-52 block mt-4 ">
+                            <div class="flex flex-row items-center justify-center">
+                                <div class="text-center">
+                                    <h2 class="font-bold uppercase">Kembali</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-            </div>
-            <!--/Metric Card-->
+                    </a>
+                </div>
 
-            <!--Metric Card-->
-            <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
-                <div class="flex flex-row items-center justify-center">
-                    <div class="text-center">
-                        <h2 class="font-bold uppercase">Simpan</h2>
+                <div class="w-min">
+                    <a href="{{route('admin.halaman.blog.show_kategori.tambah_kategori')}}">
+                        <div class="bg-primary text-white rounded-lg p-5 hover:opacity-90 w-full sm:w-52 block mt-4 ">
+                            <div class="flex flex-row items-center justify-center">
+                                <div class="text-center">
+                                    <h2 class="font-bold uppercase">Tambah Kategori</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+                @if($message = Session::get('message'))
+                <div role="alert" class="w-full sm:w-96">
+                    <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                        Berhasil!
+                    </div>
+                    <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                        <p>{{$message}}</p>
                     </div>
                 </div>
-            </button>
-            <!--/Metric Card-->
-        </div>
-    </div>
+                @endif
 
-    <div class="flex flex-wrap">
-        <div class="w-full p-6">
-            <div class=" rounded-lg shadow-xl p-5">
-
-                {{-- Tentang Section Start --}}
-                <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-                    <div class="container">
-                        <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
-                            <div class="mb-12 p-4 md:w-1/2">
-                                <input type="text" name="blog_id" value="{{$id}}" hidden>
-                                <button id="show-modal"
-                                    class="rounded-md shadow-md overflow-hidden hover:opacity-80 w-full">
-                                    <img src="" alt="" width="w-full">
-                                    @error('blog_img1')
-                                    <small class="text-red-600">{{$message}}</small>
-                                    @enderror
-                                    <input type="file"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_img1') is-invalid @enderror"
-                                        name="blog_img1" accept="image/*">
-                                </button>
-                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-                                    <input type="text" id="blog_h1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_h1') is-invalid @enderror"
-                                        name="blog_h1" placeholder="Judul Foto.." value="" required
-                                        autocomplete="blog_h1" autofocus>
-                                </h3>
-                                <p class="font-medium text-base text-secondary text-justify">
-                                    <textarea type="text" id="blog_p1" name="blog_p1"
-                                        class="w-full text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96"
-                                        placeholder="Deskripsi Foto.." required></textarea>
-                                </p>
-
-                            </div>
-                        </div>
-
+                @if ($errors->any())
+                <div role="alert" class="w-full sm:w-96">
+                    <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                        Gagal
                     </div>
-                </section>
-                {{-- Tentang Section End --}}
 
+                    @foreach ($errors->all() as $error)
+                    <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                        {{ $error }}
+                    </div>
+                    @endforeach
+                </div>
+                @endif
+
+                <div class="mt-6">
+
+                    <table class="table-auto w-full">
+                        <thead>
+                            <tr>
+                                <th class="border px-4 py-2">No</th>
+                                <th class="border px-4 py-2">Nama Kategori</th>
+                                <th class="border px-4 py-2">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @php
+                            $i = 1
+                            @endphp
+                            @foreach($kategoris as $kategori)
+                            <tr>
+                                <td class="border px-4 py-2 text-center">{{$i++}}</td>
+                                <td class="border px-4 py-2">{{ $kategori->kategori }}</td>
+                                <td class="border px-4 py-2 text-center">
+                                    <a href="{{ route('admin.halaman.blog.show_kategori.edit_kategori', $kategori->id) }}"
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-3">
+                                        Edit
+                                    </a>
+                                    <form
+                                        action="{{ route('admin.halaman.blog.show_kategori.delete_kategori', $kategori->id) }}"
+                                        method="GET" class="inline">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-3">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-
-</form>
+</div>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 

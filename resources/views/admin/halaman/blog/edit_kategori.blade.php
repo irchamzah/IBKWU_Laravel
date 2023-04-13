@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Detail Blog')
+@section('title', 'Edit Kategori Blog')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
 @section('menu-4', 'border-gray-800')
 @section('content')
 
-<form action="{{route('admin.halaman.blog.update_blog', $detail_blog->id)}}" method="POST"
+<form action="{{route('admin.halaman.blog.show_kategori.update_kategori', $kategori_blog->id)}}" method="POST"
     enctype="multipart/form-data">
     @csrf
 
@@ -16,7 +16,7 @@
 
             <!--Metric Card-->
             <div class="w-min">
-                <a href="/admin/halaman/blog">
+                <a href="{{route('admin.halaman.blog.show_kategori')}}">
                     <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
                             <div class="text-center">
@@ -52,120 +52,23 @@
         </div>
     </div>
 
-    <div class="flex flex-wrap">
-        <div class="w-full p-6">
-            <div class=" rounded-lg shadow-xl p-5">
-
-                {{-- Tentang Section Start --}}
-                <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-                    <div class="container">
-                        <div class="w-full px-4">
-                            <div class="max-w-5xl mx-auto text-center mb-6">
-                                <h4 class="font-semibold text-lg text-primary mb-2">Detail blog</h4>
-                                <h2 class="font-bold text-dark text-3xl mb-12 sm:text-4xl lg:text-5xl dark:text-white">
-                                    @error('judul_h1')
-                                    <small style="color: red">{{$message}}</small>
-                                    @enderror
-                                    <input type="text" id="judul_h1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('judul_h1') is-invalid @enderror"
-                                        name="judul_h1" placeholder="Judul blog.." value="{{$detail_blog->judul_h1}}"
-                                        required autocomplete="judul_h1" autofocus>
-                                </h2>
-                                <div class="w-full flex flex-wrap">
-                                    <div class="w-full px-4 lg:w-1/2 aspect-video">
-                                        <img src="/img/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
-                                            class="w-full">
-                                        <input type="file"
-                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('detail_blog_img') is-invalid @enderror"
-                                            name="detail_blog_img" accept="image/*">
-                                    </div>
-                                    <div class="w-full px-4 lg:w-1/2 aspect-video">
-                                        <iframe class="w-full aspect-video"
-                                            src="https://www.youtube.com/embed/{{$detail_blog->link_yt}}"></iframe>
-                                        <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
-                                        @error('link_yt')
-                                        <small style="color: red">{{$message}}</small>
-                                        @enderror
-                                        <input type="text" id="link_yt"
-                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_yt') is-invalid @enderror"
-                                            name="link_yt" placeholder="Kode link youtube.."
-                                            value="{{$detail_blog->link_yt}}" required autocomplete="link_yt" autofocus>
-                                    </div>
-                                </div>
-
-                                <div class="w-52 my-10 text-left">
-                                    <label for="kategori" class="">Pilih Kategori blog</label>
-                                    <select name="kategori" id="kategori"
-                                        class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500">
-
-                                        @foreach ($kategoris as $kategori)
-                                        <option value="{{$kategori->id}}"
-                                            class="block px-4 py-2 text-sm text-{{$kategori->kategori}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
-                                            role="menuitem" @if($kategori->kategori == '{{$kategori->kategori}}')
-                                            selected
-                                            @endif>{{$kategori->kategori}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                @error('deskripsi_p1')
-                                <small style="color: red">{{$message}}</small>
-                                @enderror
-                                <div class="font-medium text-md text-secondary md:text-lg text-justify mb-2">
-                                    <textarea type="text" id="editor1" name="deskripsi_p1"
-                                        class="w-full p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96 indent-8">{{$detail_blog->deskripsi_p1}}</textarea>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-
-                        <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
-
-                            @foreach($foto_blogs as $foto_blog)
-                            <div class="mb-12 p-4 md:w-1/2">
-                                <div id="show-modal" class="rounded-md shadow-md overflow-hidden hover:opacity-80">
-                                    <img src="/img/foto_blog/{{$foto_blog->blog_img1}}" alt="" width="w-full">
-                                </div>
-                                <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-                                    {{$foto_blog->blog_h1}}</h3>
-                                <p class="font-medium text-base text-secondary text-justify">{{$foto_blog->blog_p1}}
-                                </p>
-                                <div class="w-full mx-auto justify-center flex mt-5">
-                                    <a href="{{route('admin.halaman.blog.edit_blog.edit_foto', $foto_blog->id)}}"
-                                        class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 mx-2">Edit</a>
-                                    <a href="{{route('admin.halaman.blog.edit_blog.delete_foto', $foto_blog->id)}}"
-                                        class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80 mx-2">Hapus</a>
-                                </div>
-                            </div>
-                            @endforeach
-
-                        </div>
-
-                        <!--Metric Card-->
-                        <div class="w-min mx-auto">
-                            <a href="{{route('admin.halaman.blog.edit_blog.tambah_foto', $detail_blog->id)}}">
-                                <div
-                                    class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mb-10 w-full block mx-auto sm:w-96">
-                                    <div class="flex flex-row items-center justify-center">
-                                        <div class="text-center">
-                                            <h2 class="font-bold uppercase">Tambah Foto</h2>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <!--/Metric Card-->
-
-                    </div>
-                </section>
-                {{-- Tentang Section End --}}
+    <!-- component -->
+    <div class="bg-grey-lighter flex flex-col">
+        <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
+            <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                <div class="form-group">
+                    <label for="kategori">Nama Kategori</label><br>
+                    @error('kategori')
+                    <small style="color: red">{{$message}}</small>
+                    @enderror
+                    <input type="text" id="kategori"
+                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('kategori') is-invalid @enderror"
+                        name="kategori" value="{{$kategori_blog->kategori}}" required autocomplete="kategori" autofocus>
+                </div>
 
             </div>
         </div>
     </div>
-
 </form>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
@@ -310,18 +213,5 @@
 
 
 </div>
-
-@endsection
-
-@section('ck-editor')
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
-
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor1' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
 
 @endsection
