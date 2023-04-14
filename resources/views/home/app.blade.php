@@ -123,7 +123,7 @@
             <div class="w-full pt-10 border-t border-slate-700">
                 <div class="flex items-center justify-center mb-5">
                     {{-- Youtube --}}
-                    <a href="https://youtube.com/ibkwu" target="_blank"
+                    <a href="{{$footer->yt_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -134,7 +134,7 @@
                     </a>
 
                     {{-- Instagram --}}
-                    <a href="https://instagram.com/ibkwu" target="_blank"
+                    <a href="{{$footer->ig_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -145,7 +145,7 @@
                     </a>
 
                     {{-- Twitter --}}
-                    <a href="https://twitter.com/ibkwu" target="_blank"
+                    <a href="{{$footer->twt_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
@@ -156,7 +156,7 @@
                     </a>
 
                     {{-- LinkedIn --}}
-                    <a href="https://linkedin.com/in/ibkwu" target="_blank"
+                    <a href="{{$footer->li_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">

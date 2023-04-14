@@ -210,9 +210,7 @@
                             <p
                                 class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
                                 Produk
-                                yang anda
-                                cari tidak
-                                ada.</p>
+                                tidak tersedia.</p>
                             @endif
                         </div>
 

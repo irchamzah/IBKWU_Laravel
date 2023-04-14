@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/profil', [HomeController::class, 'profil']);
-Route::get('/galeri', [HomeController::class, 'galeri']);
-Route::get('/galeri/detail_galeri', [HomeController::class, 'detail_galeri']);
-Route::get('/blog', [HomeController::class, 'blog']);
-Route::get('/blog/detail_blog', [HomeController::class, 'detail_blog']);
+Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
+Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri');
+Route::get('/galeri/detail_galeri', [HomeController::class, 'detail_galeri'])->name('galeri.detail_galeri');
+Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
+Route::get('/blog/detail_blog', [HomeController::class, 'detail_blog'])->name('blog.detail_blog');
 
 // Admin
 // Login
@@ -27,11 +27,11 @@ Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 // Dashboard
-Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/admin', [DashboardController::class, 'index'])->middleware('auth')->name('admin');
 
 // Akun Admin
-Route::get('/admin/akun', [UserController::class, 'index'])->middleware('auth');
-Route::get('/admin/akun/create', [UserController::class, 'create'])->middleware('auth');
+Route::get('/admin/akun', [UserController::class, 'index'])->middleware('auth')->name('admin.akun');
+Route::get('/admin/akun/create', [UserController::class, 'create'])->middleware('auth')->name('admin.akun.create');
 Route::post('/admin/akun/store', [UserController::class, 'store'])->middleware('auth')->name('admin.akun.store');
 Route::get('/admin/akun/edit/{id}', [UserController::class, 'edit'])->middleware('auth')->name('admin.akun.edit');
 Route::post('/admin/akun/update/{id}', [UserController::class, 'update'])->middleware('auth')->name('admin.akun.update');

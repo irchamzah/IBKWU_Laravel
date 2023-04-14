@@ -14,10 +14,6 @@
       <div class="w-full self-center px-4 lg:w-1/2">
         <span
           class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl dark:text-white mb-6">{{$beranda->home_h1}}</span>
-        {{-- <h1 class="text-base font-semibold text-primary md:text-xl">Halo Semua 👋, saya
-        </h1> --}}
-        {{-- <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">Artist & <span
-            class="text-dark dark:text-white">Gamer</span></h2> --}}
         <p class="font-medium text-secondary mb-10 leading-relaxed">{{$beranda->home_p1}}</p>
 
         <a href="/profil"
@@ -29,11 +25,6 @@
           <img src="/img/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
             class="relative z-10 mx-auto w-96 bg-cover">
           <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
-            {{-- <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="#0093d3"
-                d="M65.9,-19.9C74.1,3.6,61.5,35.5,41.6,47.7C21.7,59.9,-5.6,52.5,-28.6,36.4C-51.7,20.4,-70.6,-4.4,-65.1,-24.2C-59.7,-44.1,-29.8,-59.1,-0.5,-59C28.9,-58.8,57.8,-43.5,65.9,-19.9Z"
-                transform="translate(100 100) scale(1.1)" />
-            </svg> --}}
           </span>
         </div>
       </div>
@@ -57,7 +48,7 @@
         <p class="font-medium text-base text-secondary mb-6 lg:text-lg">{{$beranda->about_p2}}</p>
         <div class="flex items-center">
           {{-- Youtube --}}
-          <a href="https://youtube.com/ibkwu" target="_blank"
+          <a href="{{$footer->yt_link}}" target="_blank"
             class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <title>YouTube</title>
@@ -67,7 +58,7 @@
           </a>
 
           {{-- Instagram --}}
-          <a href="https://instagram.com/ibkwu" target="_blank"
+          <a href="{{$footer->ig_link}}" target="_blank"
             class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <title>Instagram</title>
@@ -77,7 +68,7 @@
           </a>
 
           {{-- Twitter --}}
-          <a href="https://twitter.com/ibkwu" target="_blank"
+          <a href="{{$footer->twt_link}}" target="_blank"
             class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <title>Twitter</title>
@@ -87,7 +78,7 @@
           </a>
 
           {{-- LinkedIn --}}
-          <a href="https://linkedin.com/in/ibkwu" target="_blank"
+          <a href="{{$footer->li_link}}" target="_blank"
             class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <title>LinkedIn</title>
@@ -115,39 +106,31 @@
     </div>
 
     <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+
+      @if ($detail_produks->count())
+      @foreach($detail_produks as $detail_produk)
       <div class="mb-12 p-4 md:w-1/2">
         <div class="rounded-md shadow-md overflow-hidden">
-          <img src="/dist/img/galeri/macarina-1.jpg" alt="macarina" width="w-full">
+          <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
+            class="h-64 w-full object-cover">
         </div>
-        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Judul Galeri Tenant Pertama</h3>
-        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Velit laudantium vero consequuntur?</p>
+        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">{{$detail_produk->judul_h1}}</h3>
+        <div class="font-medium text-base text-secondary truncate">{!!$detail_produk->deskripsi_p1!!}</div>
       </div>
-      <div class="mb-12 p-4 md:w-1/2">
-        <div class="rounded-md shadow-md overflow-hidden">
-          <img src="/dist/img/galeri/macarina-2.jpg" alt="macarina" width="w-full">
-        </div>
-        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Judul Galeri Tenant Pertama</h3>
-        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Velit laudantium vero consequuntur?</p>
-      </div>
-      <div class="mb-12 p-4 md:w-1/2">
-        <div class="rounded-md shadow-md overflow-hidden">
-          <img src="/dist/img/galeri/musaechips-1.jpg" alt="macarina" width="w-full">
-        </div>
-        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Judul Galeri Tenant Pertama</h3>
-        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Velit laudantium vero consequuntur?</p>
-      </div>
-      <div class="mb-12 p-4 md:w-1/2">
-        <div class="rounded-md shadow-md overflow-hidden">
-          <img src="/dist/img/galeri/musaechips-2.jpg" alt="macarina" width="w-full">
-        </div>
-        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Judul Galeri Tenant Pertama</h3>
-        <p class="font-medium text-base text-secondary">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Velit laudantium vero consequuntur?</p>
-      </div>
+      @endforeach
+      @else
+      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+        Produk
+        tidak tersedia.</p>
+      @endif
+
     </div>
+
+  </div>
+  <div class=" mx-auto items-center w-full text-center">
+    <a href="/galeri"
+      class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya
+      ></a>
   </div>
 </section>
 {{-- Galeri Section End --}}
@@ -167,6 +150,7 @@
     <div class="w-full px-4">
       <div class="flex flex-wrap items-center justify-center">
 
+        @if ($mitras->count())
         @foreach($mitras as $mitra)
         <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
           <a href="{{$mitra->mitra_link}}" target="_blank">
@@ -175,7 +159,10 @@
           </a>
         </div>
         @endforeach
-
+        @else
+        <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+          Mitra tidak Tersedia.</p>
+        @endif
       </div>
     </div>
   </div>
@@ -194,54 +181,30 @@
     </div>
 
     <div class="flex flex-wrap">
+
+      @if ($detail_blogs->count())
+      @foreach($detail_blogs as $detail_blog)
       <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-          <img src="https://source.unsplash.com/360x200?programming" alt="Programming" class="w-full">
+          <img src="/img/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
+            class="h-64 w-full object-cover">
           <div class="py-8 px-6">
             <h3>
-              <a href="#"
-                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">Tips
-                Belajar Programming</a>
+              <a href="/blog"
+                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
             </h3>
-            <p class="font-medium text-base text-secondary mb-6">Lorem ipsum dolor sit, amet consectetur adipisicing
-              elit. Explicabo, harum!</p>
-            <a href="#" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
+            <div class="font-medium text-base text-secondary mb-6 truncate">{!!$detail_blog->deskripsi_p1!!}</div>
+            <a href="/blog" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
               Selengkapnya</a>
           </div>
         </div>
       </div>
-      <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-          <img src="https://source.unsplash.com/360x200?mechanical+keyboard" alt="Mechanical Keyboard" class="w-full">
-          <div class="py-8 px-6">
-            <h3>
-              <a href="#"
-                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">Review
-                Keyboard GMMK Pro</a>
-            </h3>
-            <p class="font-medium text-base text-secondary mb-6">Lorem, ipsum dolor sit amet consectetur adipisicing
-              elit. Commodi minima quisquam quos?</p>
-            <a href="#" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
-              Selengkapnya</a>
-          </div>
-        </div>
-      </div>
-      <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-          <img src="https://source.unsplash.com/360x200?coffe" alt="Programming" class="w-full">
-          <div class="py-8 px-6">
-            <h3>
-              <a href="#"
-                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">Menikmati
-                Secangkir Kopi</a>
-            </h3>
-            <p class="font-medium text-base text-secondary mb-6">Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Dicta minus enim voluptates rem sint eius iusto.</p>
-            <a href="#" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
-              Selengkapnya</a>
-          </div>
-        </div>
-      </div>
+      @endforeach
+      @else
+      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+        Blog tidak tersedia.</p>
+      @endif
+
     </div>
   </div>
 </section>
