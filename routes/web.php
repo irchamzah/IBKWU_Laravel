@@ -15,10 +15,16 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
+// Galeri
 Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri');
-Route::get('/galeri/detail_galeri', [HomeController::class, 'detail_galeri'])->name('galeri.detail_galeri');
+Route::get('/galeri/search', [HomeController::class, 'search'])->middleware('auth')->name('galeri.search');
+Route::get('/galeri/filter', [HomeController::class, 'filter'])->middleware('auth')->name('galeri.filter');
+Route::get('/galeri/detail_galeri/{id}', [HomeController::class, 'detail_galeri'])->name('galeri.detail_galeri');
+// Blog
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::get('/blog/detail_blog', [HomeController::class, 'detail_blog'])->name('blog.detail_blog');
+Route::get('/blog/search', [HomeController::class, 'search_blog'])->middleware('auth')->name('blog.search');
+Route::get('/blog/filter', [HomeController::class, 'filter_blog'])->middleware('auth')->name('blog.filter');
+Route::get('/blog/detail_blog/{id}', [HomeController::class, 'detail_blog'])->name('blog.detail_blog');
 
 // Admin
 // Login

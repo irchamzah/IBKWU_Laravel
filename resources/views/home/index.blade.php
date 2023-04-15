@@ -115,7 +115,11 @@
             class="h-64 w-full object-cover">
         </div>
         <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">{{$detail_produk->judul_h1}}</h3>
-        <div class="font-medium text-base text-secondary truncate">{!!$detail_produk->deskripsi_p1!!}</div>
+        <small class="text-slate-400 dark:text-slate-600">{{
+          $detail_produk->created_at->diffForHumans()}} |
+          {{$detail_produk->kategori_galeri->kategori}}
+        </small>
+        <div class="font-medium text-base text-secondary truncate mt-2">{!!$detail_produk->deskripsi_p1!!}</div>
       </div>
       @endforeach
       @else
@@ -191,9 +195,13 @@
           <div class="py-8 px-6">
             <h3>
               <a href="/blog"
-                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
+                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
             </h3>
-            <div class="font-medium text-base text-secondary mb-6 truncate">{!!$detail_blog->deskripsi_p1!!}</div>
+            <small class="text-slate-400 dark:text-slate-600">{{
+              $detail_blog->created_at->diffForHumans()}} |
+              {{$detail_blog->kategori_blog->kategori}}
+            </small>
+            <div class="font-medium text-base text-secondary mb-6 truncate mt-2">{!!$detail_blog->deskripsi_p1!!}</div>
             <a href="/blog" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
               Selengkapnya</a>
           </div>

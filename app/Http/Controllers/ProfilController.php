@@ -146,7 +146,7 @@ class ProfilController extends Controller
             if (\File::exists(public_path('img/profil/') . $profil->tentang_img1)) {
                 \File::delete(public_path('img/profil/') . $profil->tentang_img1);
             }
-            $fileName = date('Ymd') . time() . '.' . $request->tentang_img1->extension();
+            $fileName = uniqid() . date('Ymd') . time() . '.' . $request->tentang_img1->extension();
             $request->file('tentang_img1')->move(public_path('img/profil'), $fileName);
             $profil->tentang_img1 = $fileName;
         }
@@ -156,7 +156,7 @@ class ProfilController extends Controller
             if (\File::exists(public_path('img/profil/') . $profil->tentang_img2)) {
                 \File::delete(public_path('img/profil/') . $profil->tentang_img2);
             }
-            $fileName = date('Ymd') . time() . '.' . $request->tentang_img2->extension();
+            $fileName = uniqid() . date('Ymd') . time() . '.' . $request->tentang_img2->extension();
             $request->file('tentang_img2')->move(public_path('img/profil'), $fileName);
             $profil->tentang_img2 = $fileName;
         }

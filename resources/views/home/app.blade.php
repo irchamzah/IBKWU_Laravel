@@ -96,8 +96,9 @@
                 <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
                     <h2 class="font-bold text-4xl text-white mb-5">IBKWU</h2>
                     <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
-                    <p>irchamzah.fikri.ababil@gmail.com</p>
-                    <p>Jl. Mastrip, Kotak Pos 164 – Tegalgede, Sumbersari, Kabupaten Jember, Jawa Timur 68124</p>
+                    <p>{{$footer->phone}}</p>
+                    <p>{{$footer->email}}</p>
+                    <p>{{$footer->address}}</p>
                 </div>
                 <div class="w-full px-4 mb-12 md:w-1/3">
                 </div>
