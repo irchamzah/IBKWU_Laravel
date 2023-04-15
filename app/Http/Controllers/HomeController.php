@@ -79,11 +79,11 @@ class HomeController extends Controller
         }
     }
 
-    public function detail_galeri($id)
+    public function detail_galeri($slug)
     {
-        $detail_produk = DetailProduk::whereId($id)->first();
-        $foto_produks = FotoProduk::where('produk_id', $id)->orderBy('id', 'asc')->get();
-        $sosmeds = Sosmed::where('produk_id', $id)->orderBy('id', 'asc')->get();
+        $detail_produk = DetailProduk::where('slug', $slug)->first();
+        $foto_produks = FotoProduk::where('produk_id', $detail_produk->id)->orderBy('id', 'asc')->get();
+        $sosmeds = Sosmed::where('produk_id', $detail_produk->id)->orderBy('id', 'asc')->get();
         $kategoris = KategoriGaleri::orderByRaw("id = $detail_produk->kategori_galeri_id DESC")->get();
         $footer = Footer::first();
         return view('home.detail_galeri', compact('footer', 'detail_produk', 'foto_produks', 'sosmeds', 'kategoris'));
@@ -131,10 +131,10 @@ class HomeController extends Controller
         }
     }
 
-    public function detail_blog($id)
+    public function detail_blog($slug)
     {
-        $detail_blog = DetailBlog::whereId($id)->first();
-        $foto_blogs = FotoBlog::where('blog_id', $id)->orderBy('id', 'asc')->get();
+        $detail_blog = DetailBlog::where('slug', $slug)->first();
+        $foto_blogs = FotoBlog::where('blog_id', $detail_blog->id)->orderBy('id', 'asc')->get();
         $kategoris = KategoriBlog::orderByRaw("id = $detail_blog->kategori_blog_id DESC")->get();
         $footer = Footer::first();
         return view('home.detail_blog', compact('footer', 'detail_blog', 'foto_blogs', 'kategoris'));

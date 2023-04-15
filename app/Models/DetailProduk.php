@@ -13,6 +13,7 @@ class DetailProduk extends Model
     protected $fillable = [
         'detail_produk_img',
         'judul_h1',
+        'slug',
         'link_yt',
         'deskripsi_p1',
         'kategori_galeri_id'

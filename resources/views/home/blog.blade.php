@@ -40,7 +40,7 @@
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
             <h3>
-              <a href="{{route('blog.detail_blog', $rekomendasiblog->id)}}"
+              <a href="{{route('blog.detail_blog', $rekomendasiblog->slug)}}"
                 class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$rekomendasiblog->judul_h1}}</a>
             </h3>
             <small class="text-slate-400 dark:text-slate-600">{{
@@ -49,7 +49,7 @@
             </small>
             <div class="font-medium text-base text-secondary mb-6 truncate mt-2">{!!$rekomendasiblog->deskripsi_p1!!}
             </div>
-            <a href="{{route('blog.detail_blog', $rekomendasiblog->id)}}"
+            <a href="{{route('blog.detail_blog', $rekomendasiblog->slug)}}"
               class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
               Selengkapnya</a>
           </div>
@@ -89,7 +89,7 @@
           <div class="mt-5 w-full sm:w-96">
             <div class="relative mb-4 flex w-full flex-wrap items-stretch">
               <input form="searchForm" name="query" type="text"
-                class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                class="bg-white dark:bg-slate-600 dark:border-neutral-700 relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
                 placeholder="Cari blog" aria-label="Search" aria-describedby="searchForm" />
               <button form="searchForm"
                 class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
@@ -109,7 +109,7 @@
           <div class="mb-10 w-full sm:w-96">
             <div class="relative mb-4 flex w-full flex-wrap items-stretch">
               <select name="kategori"
-                class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                class="bg-white dark:bg-slate-600 dark:border-neutral-700 relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300  bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
                 form="filterForm">
                 <option value="">Pilih Kategori</option>
                 @foreach ($kategoris as $kategori)
@@ -135,12 +135,12 @@
         @if ($detail_blogs->count())
         @foreach($detail_blogs as $detail_blog)
         <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-900">
             <img src="/img/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
               class="h-64 w-full object-cover">
             <div class="py-8 px-6">
               <h3>
-                <a href="{{route('blog.detail_blog', $detail_blog->id)}}"
+                <a href="{{route('blog.detail_blog', $detail_blog->slug)}}"
                   class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
               </h3>
               <small class="text-slate-400 dark:text-slate-600">{{
@@ -149,7 +149,7 @@
               </small>
               <div class="font-medium text-base text-secondary mb-6 truncate mt-2">{!!$detail_blog->deskripsi_p1!!}
               </div>
-              <a href="{{route('blog.detail_blog', $detail_blog->id)}}"
+              <a href="{{route('blog.detail_blog', $detail_blog->slug)}}"
                 class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
                 Selengkapnya</a>
             </div>

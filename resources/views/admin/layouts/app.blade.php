@@ -11,6 +11,7 @@
     <meta name="keywords" content="keywords,here">
     @vite('resources/css/app.css')
 
+    <link rel="icon" href="/img/logo_IBKWU.png" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <!--Replace with your tailwind.css once created-->

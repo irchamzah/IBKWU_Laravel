@@ -230,7 +230,13 @@
       </div>
     </div>
 
-    <form>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415.135323894769!2d113.72303419350794!3d-8.156823629789072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6c06feea7%3A0x8014dc75ef0320b7!2sGedung%20Pasca%20Sarjana%20Politeknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1681550636653!5m2!1sid!2sid"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" class="items-center w-full text-center mx-auto"></iframe>
+
+
+    {{-- <form>
       <div class="w-full lg:w-2/3 lg:mx-auto">
         <div class="w-full px-4 mb-8">
           <label for="nama" class="text-base font-bold text-primary">Nama</label>
@@ -252,7 +258,7 @@
             class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
         </div>
       </div>
-    </form>
+    </form> --}}
   </div>
 </section>
 {{-- Contact Section End --}}

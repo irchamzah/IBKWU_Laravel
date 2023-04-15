@@ -187,8 +187,6 @@
                                             class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto mb-1">Edit</a>
                                         <a href="{{route('admin.halaman.galeri.edit_produk.delete_sosmed', $sosmed->id)}}"
                                             class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto">Hapus</a>
-
-
                                     </a>
                                 </div>
                                 @endforeach

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use PhpParser\Node\Stmt\Return_;
+use Illuminate\Support\Str;
 
 class GaleriController extends Controller
 {
@@ -190,13 +191,14 @@ class GaleriController extends Controller
     {
         // Validasi Data
         $rules = [
-            'judul_h1' => 'required|string|max:255',
+            'judul_h1' => 'required|string|unique:detail_produks|max:255',
             'detail_produk_img' => 'required', 'max:5000|mimes:jpeg,png,jpg,svg',
             'link_yt' => 'required|string|max:255',
             'deskripsi_p1' => 'required', 'string',
         ];
         $message = [
             'judul_h1.required' => ' Judul Tidak Boleh Kosong',
+            'judul_h1.unique' => 'Judul tidak boleh sama dengan judul post lain',
             'judul_h1.string' => ' Judul Harus Berupa String',
 
             'detail_produk_img.required' => ' Foto Tidak Boleh Kosong',
@@ -216,6 +218,7 @@ class GaleriController extends Controller
         DetailProduk::create([
             'detail_produk_img' => $fileName,
             'judul_h1' => $request->judul_h1,
+            'slug' => Str::slug($request->judul_h1, '-'),
             'link_yt' => $request->link_yt,
             'deskripsi_p1' => $request->deskripsi_p1,
             'kategori_galeri_id' => $request->kategori,
@@ -270,6 +273,7 @@ class GaleriController extends Controller
             $detail_produk->detail_produk_img = $fileName;
         }
         $detail_produk->judul_h1 = $request->judul_h1;
+        $detail_produk->slug = Str::slug($request->judul_h1, '-');
         $detail_produk->link_yt = $request->link_yt;
         $detail_produk->deskripsi_p1 = $request->deskripsi_p1;
         $detail_produk->kategori_galeri_id = $request->kategori;

@@ -17,7 +17,8 @@
       <div class="max-w-5xl mx-auto text-center mb-6">
         <div class="w-min">
           <a href="/galeri">
-            <div class=" text-secondary rounded-lg p-5  w-min mb-2 border-2 bg-slate-100 hover:bg-white">
+            <div
+              class=" text-secondary rounded-lg p-5  w-min mb-2 border-2 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 dark:hover:bg-slate-700 hover:bg-white">
               <div class="flex flex-row items-center justify-center">
                 <div class="text-center">
                   <h2 class="font-bold uppercase">Kembali</h2>

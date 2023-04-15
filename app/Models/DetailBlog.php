@@ -13,6 +13,7 @@ class DetailBlog extends Model
     protected $fillable = [
         'detail_blog_img',
         'judul_h1',
+        'slug',
         'link_yt',
         'deskripsi_p1',
         'kategori_blog_id'

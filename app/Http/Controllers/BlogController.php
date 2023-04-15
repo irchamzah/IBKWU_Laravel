@@ -8,6 +8,7 @@ use App\Models\FotoBlog;
 use App\Models\KategoriBlog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -184,13 +185,14 @@ class BlogController extends Controller
     {
         // Validasi Data
         $rules = [
-            'judul_h1' => 'required|string|max:255',
+            'judul_h1' => 'required|string|unique:detail_blogs|max:255',
             'detail_blog_img' => 'required', 'max:5000|mimes:jpeg,png,jpg,svg',
             'link_yt' => 'required|string|max:255',
             'deskripsi_p1' => 'required', 'string',
         ];
         $message = [
             'judul_h1.required' => ' Judul Tidak Boleh Kosong',
+            'judul_h1.unique' => 'Judul tidak boleh sama dengan judul post lain',
             'judul_h1.string' => ' Judul Harus Berupa String',
 
             'detail_blog_img.required' => ' Foto Tidak Boleh Kosong',
@@ -210,6 +212,7 @@ class BlogController extends Controller
         DetailBlog::create([
             'detail_blog_img' => $fileName,
             'judul_h1' => $request->judul_h1,
+            'slug' => Str::slug($request->judul_h1, '-'),
             'link_yt' => $request->link_yt,
             'deskripsi_p1' => $request->deskripsi_p1,
             'kategori_blog_id' => $request->kategori,
@@ -263,6 +266,7 @@ class BlogController extends Controller
             $detail_blog->detail_blog_img = $fileName;
         }
         $detail_blog->judul_h1 = $request->judul_h1;
+        $detail_blog->slug = Str::slug($request->judul_h1, '-');
         $detail_blog->link_yt = $request->link_yt;
         $detail_blog->deskripsi_p1 = $request->deskripsi_p1;
         $detail_blog->kategori_blog_id = $request->kategori;
