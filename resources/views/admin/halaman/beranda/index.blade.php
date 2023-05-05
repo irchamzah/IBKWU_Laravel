@@ -342,7 +342,7 @@
                             </div>
                         </div>
 
-                        <div class="w-full lg:w-2/3 lg:mx-auto">
+                        {{-- <div class="w-full lg:w-2/3 lg:mx-auto">
                             <div class="w-full px-4 mb-8">
                                 <label for="nama" class="text-base font-bold text-primary">Nama</label>
                                 <input type="text" id="nama"
@@ -365,7 +365,7 @@
                                         Kirim</div>
                                 </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </section>
                 {{-- Contact Section End --}}
