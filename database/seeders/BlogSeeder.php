@@ -17,10 +17,10 @@ class BlogSeeder extends Seeder
     {
         Blog::create([
             'sorotan_h1' => 'Sorotan Blog Tenant',
-            'sorotan_h2' => 'Rekomendasi Produk',
+            'sorotan_h2' => 'Sorotan Post',
             'sorotan_p1' => 'Berikut adalah tenant yang direkomendasikan.',
             'blog_h1' => 'Blog Tenant',
-            'blog_h2' => 'Produk yang Tersedia',
+            'blog_h2' => 'Post yang Tersedia',
             'blog_p1'  => 'Berikut Semua Produk yang Tersedia.'
         ]);
     }

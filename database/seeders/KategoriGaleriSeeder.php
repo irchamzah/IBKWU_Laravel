@@ -20,7 +20,7 @@ class KategoriGaleriSeeder extends Seeder
         ]);
 
         KategoriGaleri::create([
-            'kategori' => 'Rekomendasi'
+            'kategori' => 'Sorotan'
         ]);
     }
 }

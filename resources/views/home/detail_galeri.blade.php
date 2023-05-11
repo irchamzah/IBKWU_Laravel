@@ -1,99 +1,100 @@
 @extends('home.app')
 
 @section('title', 'Detail Galeri Tenant')
-@section('menu-1', 'text-dark dark:text-white')
-@section('menu-2', 'text-dark dark:text-white')
-@section('menu-3', 'text-primary dark:text-primary')
-@section('menu-4', 'text-dark dark:text-white')
+@section('menu-1', 'text-dark')
+@section('menu-2', 'text-dark')
+@section('menu-3', 'text-dark')
+@section('menu-31', 'text-dark')
+@section('menu-32', 'text-dark')
+@section('menu-33', 'text-dark')
+@section('menu-34', 'text-dark')
+@section('menu-4', 'text-dark')
+@section('menu-5', 'text-dark')
+@section('menu-6', 'text-primary')
+@section('menu-7', 'text-dark')
 @section('content')
 
-
 {{-- Tentang Section Start --}}
-<section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-  <div class="container">
-
+<section id="tentang" class="pt-36 pb-16">
+  <div class="sm:container">
     <div class="w-full px-4">
+      <div class="max-w-5xl mx-auto mb-6">
 
-      <div class="max-w-5xl mx-auto text-center mb-6">
-        <div class="w-min">
-          <a href="/galeri">
-            <div
-              class=" text-secondary rounded-lg p-5  w-min mb-2 border-2 bg-slate-100 dark:bg-slate-600 dark:text-slate-300 dark:hover:bg-slate-700 hover:bg-white">
-              <div class="flex flex-row items-center justify-center">
-                <div class="text-center">
-                  <h2 class="font-bold uppercase">Kembali</h2>
-                </div>
+        <div class="shadow-md p-4">
+          <div><a href="/galeri" class="text-primary hover:text-dark">Home</a> / {{$detail_produk->judul_h1}}</div>
+        </div>
+
+        <div class="flex flex-wrap">
+
+          <div class="w-full p-4 lg:w-3/4">
+            <h1 class="font-bold text-3xl my-5 text-justify">
+              {{$detail_produk->judul_h1}}
+            </h1>
+            <hr>
+            <small class="text-slate-400">{{
+              $detail_produk->created_at->diffForHumans()}} |
+              {{$detail_produk->kategori_galeri->kategori}}
+            </small>
+            <div class="font-medium text-base text-dark text-justify mt-7 mb-3">
+              {!!$detail_produk->deskripsi_p1!!}
+            </div>
+
+            @foreach($foto_produks as $foto_produk)
+            <div class="mb-12 w-full">
+              <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
+                <img src="/img/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
+              </div>
+              <h3 class="font-semibold text-sm text-dark mt-5 mb-3 text-center">
+                {{$foto_produk->produk_h1}}</h3>
+              <div class="font-medium text-base text-dark text-justify">{!!$foto_produk->produk_p1!!}
               </div>
             </div>
-          </a>
-        </div>
-        <h4 class="font-semibold text-lg text-primary mb-2">Detail Produk</h4>
-        <h2 class="font-bold text-dark text-3xl mb-12 sm:text-4xl lg:text-5xl dark:text-white">
-          {{$detail_produk->judul_h1}}</h2>
-        <div class="w-full flex flex-wrap mb-5">
-          <div class="w-full px-4 lg:w-1/2 aspect-video">
-            <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Programming" class="w-full">
+            @endforeach
+
+            <hr class="mt-5">
           </div>
-          <div class="w-full px-4 lg:w-1/2 aspect-video">
-            <iframe class="w-full aspect-video"
-              src="https://www.youtube.com/embed/{{$detail_produk->link_yt}}"></iframe>
+
+          <div class="w-full p-4 lg:w-1/4">
+            <div class="">
+
+              <h1 class="text-base mb-4 mt-7">Video Produk :</h1>
+              <div class="w-full mb-10">
+                <iframe class="" src="https://www.youtube.com/embed/{{$detail_produk->link_yt}}"></iframe>
+              </div>
+
+              <h1 class="text-base mb-4">Kontak Pemilik:</h1>
+              <div class="mb-10">
+                @foreach($sosmeds as $sosmed)
+                <a href="{{$sosmed->link_sosmed}}" target="_blank" class="">
+                  <div
+                    class="bg-{{$sosmed->warna->nama_warna}}-600 text-white rounded-lg p-2 text-center w-full hover:bg-{{$sosmed->warna->nama_warna}}-700 my-2">
+
+                    {{$sosmed->nama_sosmed}}
+                  </div>
+                </a>
+                @endforeach
+              </div>
+
+              <h1 class="text-base mb-4 mt-7">Instagram :</h1>
+              <div class="mb-10">
+                {{-- instagram embed code --}}
+                <blockquote class="instagram-media w-full" data-instgrm-captioned
+                  data-instgrm-permalink="https://www.instagram.com/p/Ck3kfIPPEVS/?utm_source=ig_embed&amp;utm_campaign=loading"
+                  data-instgrm-version="14"
+                  style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+                </blockquote>
+                <script async src="//www.instagram.com/embed.js"></script>
+              </div>
+
+            </div>
           </div>
+
         </div>
-        <small class="text-slate-400 dark:text-slate-600">{{
-          $detail_produk->created_at->diffForHumans()}} |
-          {{$detail_produk->kategori_galeri->kategori}}
-        </small>
-        <div class="font-medium text-md text-secondary md:text-lg text-justify indent-8 mb-2 mt-10">
-          {!!$detail_produk->deskripsi_p1!!}</div>
       </div>
-    </div>
-
-    <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
-
-      @foreach($foto_produks as $foto_produk)
-      <div class="mb-12 p-4 md:w-1/2">
-        <div id="show-modal" class="rounded-md shadow-md overflow-hidden hover:opacity-80">
-          <img src="/img/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
-        </div>
-        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
-          {{$foto_produk->produk_h1}}</h3>
-        <p class="font-medium text-base text-secondary text-justify">{{$foto_produk->produk_p1}}
-        </p>
-      </div>
-      @endforeach
-
     </div>
   </div>
 </section>
 {{-- Tentang Section End --}}
 
-{{-- Visi dan Misi Section Start --}}
-<section id="visi" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
-  <div class="container">
-    <div class="w-full px-4">
-      <div class="mx-auto text-center">
-        <h4 class="font-semibold text-lg text-primary mb-2">Hubungi Kami</h4>
-        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl dark:text-white">Sosial Media Kami</h2>
-      </div>
-    </div>
-
-    <div class="w-full px-4">
-      <div class="flex flex-wrap items-center justify-center capitalize">
-
-        @foreach($sosmeds as $sosmed)
-        <div class="flex flex-col m-3 mt-20">
-          <a href="{{$sosmed->link_sosmed}}" target="_blank"
-            class="w-20 rounded-full flex justify-center items-center hover:text-{{$sosmed->warna->nama_warna}}-600 text-slate-500 hover:animate-pulse font-extrabold">
-            {{$sosmed->nama_sosmed}}
-          </a>
-        </div>
-        @endforeach
-
-      </div>
-    </div>
-
-  </div>
-</section>
-{{-- Visi dan Misi Section End --}}
 
 @endsection

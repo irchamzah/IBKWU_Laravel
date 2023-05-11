@@ -1,14 +1,21 @@
 @extends('home.app')
 
 @section('title', 'Beranda')
-@section('menu-1', 'text-primary dark:text-primary')
-@section('menu-2', 'text-dark dark:text-white')
-@section('menu-3', 'text-dark dark:text-white')
-@section('menu-4', 'text-dark dark:text-white')
+@section('menu-1', 'text-primary')
+@section('menu-2', 'text-dark')
+@section('menu-3', 'text-dark')
+@section('menu-31', 'text-dark')
+@section('menu-32', 'text-dark')
+@section('menu-33', 'text-dark')
+@section('menu-34', 'text-dark')
+@section('menu-4', 'text-dark')
+@section('menu-5', 'text-dark')
+@section('menu-6', 'text-dark')
+@section('menu-7', 'text-dark')
 @section('content')
 
 {{-- Slider Section Start --}}
-<section id="slider" class="pt-24 dark:bg-dark">
+<section id="slider" class="pt-24">
   <div class="">
     <div class="flex flex-wrap">
       <div class="w-full self-center px-4 ">
@@ -20,42 +27,29 @@
           <div id="default-carousel" class="relative" data-carousel="static">
             <!-- Carousel wrapper -->
             <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+
+              @if ($post_pengumumans->count())
+              @foreach($post_pengumumans as $post_pengumuman)
               <!-- Item 1 -->
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <div
                   class="absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-1/2 text-center">
-                  <span class="text-2xl font-semibold text-white sm:text-3xl mb-2">First
-                    Slide</span>
-                  <span class="text-sm font-semibold text-white sm:text-sm truncate">Lorem
-                    ipsum dolor sit amet consectetur adipisicing elit. Impedit, dicta.</span>
-                  <a href="#"
+                  <span
+                    class="text-2xl font-semibold text-white sm:text-3xl mb-2 truncate">{{$post_pengumuman->judul_h1}}</span>
+                  <span
+                    class="text-sm font-semibold text-white sm:text-sm truncate max-h-10">{!!$post_pengumuman->deskripsi_p1!!}</span>
+                  <a href="{{route('blog.detail_blog', $post_pengumuman->slug)}}"
                     class="border-2 text-white w-min mx-auto px-3 py-1 mt-4 rounded hover:bg-white hover:bg-opacity-20">Selengkapnya</a>
                 </div>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+                <img src="/img/detail_blog/{{$post_pengumuman->detail_blog_img}}"
                   class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
               </div>
-              <!-- Item 2 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-                <span
-                  class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800 z-10">Second
-                  Slide</span>
-                <span
-                  class="absolute bottom-1/3 left-1/2 text-sm font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-sm dark:text-gray-800 z-10">Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Impedit, dicta.</span>
-              </div>
-              <!-- Item 3 -->
-              <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
-                <span
-                  class="absolute top-1/2 left-1/2 text-2xl font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-3xl dark:text-gray-800 z-10">Third
-                  Slide</span>
-                <span
-                  class="absolute bottom-1/3 left-1/2 text-sm font-semibold text-white -translate-x-1/2 -translate-y-1/2 sm:text-sm dark:text-gray-800 z-10">Lorem
-                  ipsum dolor sit amet consectetur adipisicing elit. Impedit, dicta.</span>
-              </div>
+              @endforeach
+              @else
+              <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+                Blog tidak tersedia.</p>
+              @endif
+
             </div>
             <!-- Slider indicators -->
             <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
@@ -71,9 +65,9 @@
               class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
               data-carousel-prev>
               <span
-                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-white/50  group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
                 <span class="hidden">Previous</span>
@@ -83,9 +77,9 @@
               class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
               data-carousel-next>
               <span
-                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor"
-                  viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-white/50  group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                 </svg>
                 <span class="hidden">Next</span>
@@ -104,35 +98,39 @@
 {{-- Slider Section End --}}
 
 {{-- Blog Section Start --}}
-<section id="blog" class="pt-36 pb-32 bg-slate-100 dark:bg-dark">
-  <div class="container">
+<section id="blog" class="pt-36 pb-32 bg-slate-100">
+  <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$beranda->blog_h2}}</h2>
-        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p>
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4> --}}
+        <h2 class="font-bold text-dark  mb-4 text-3xl sm:text-4xl lg:text-5xl hover:text-primary"><a
+            href="/blog">PENGUMUMAN</a></h2>
+        <hr>
+        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p> --}}
       </div>
     </div>
 
     <div class="flex flex-wrap">
 
-      @if ($detail_blogs->count())
-      @foreach($detail_blogs as $detail_blog)
+      @if ($post_pengumumans->count())
+      @foreach($post_pengumumans as $post_pengumuman)
       <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-          <img src="/img/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+          <img src="/img/detail_blog/{{$post_pengumuman->detail_blog_img}}" alt="Programming"
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
             <h3>
-              <a href="/blog"
-                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
+              <a href="{{route('blog.detail_blog', $post_pengumuman->slug)}}"
+                class="block mb-1 font-semibold text-xl text-dark hover:text-primary truncate">{{$post_pengumuman->judul_h1}}</a>
             </h3>
-            <small class="text-slate-400 dark:text-slate-600">{{
-              $detail_blog->created_at->diffForHumans()}} |
-              {{$detail_blog->kategori_blog->kategori}}
+            <small class="text-slate-400">{{
+              $post_pengumuman->created_at->diffForHumans()}} |
+              {{$post_pengumuman->kategori_blog->kategori}}
             </small>
-            <div class="font-medium text-base text-secondary mb-6 truncate mt-2">{!!$detail_blog->deskripsi_p1!!}</div>
-            <a href="/blog" class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
+            <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
+              {!!$post_pengumuman->deskripsi_p1!!}</div>
+            <a href="{{route('blog.detail_blog', $post_pengumuman->slug)}}"
+              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
               Selengkapnya</a>
           </div>
         </div>
@@ -149,22 +147,31 @@
 {{-- Blog Section End --}}
 
 {{-- About Section Start --}}
-<section id="about" class="pt-36 pb-32 dark:bg-dark">
-  <div class="container">
+<section id="about" class="pt-36 pb-32">
+  <div class="sm:container">
     <div class="flex flex-wrap">
       <div class="w-full px-4 mb-10 lg:w-1/2">
-        <h4 class="font-bold uppercase text-primary text-lg mb-3">{{$beranda->about_h1}}</h4>
-        <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl dark:text-white">{{$beranda->about_h2}}
-          </h2>
-          <div class="w-full px-4 aspect-video">
-            <img src="/img/detail_produk/" alt="Programming" class="w-full">
-          </div>
-      </div>
-      <div class="w-full px-4 lg:w-1/2">
-        <h3 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-white">{{$beranda->about_h3}}
+        {{-- <h4 class="font-bold uppercase text-primary text-lg mb-3">{{$beranda->about_h1}}</h4> --}}
+        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">TEMUI KAMI DI INSTAGRAM
         </h3>
         <div class="w-full px-4 aspect-video">
-          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/"></iframe>
+
+          {{-- instagram embed code --}}
+          <blockquote class="instagram-media w-full" data-instgrm-captioned
+            data-instgrm-permalink="https://www.instagram.com/p/Ck3kfIPPEVS/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-version="14"
+            style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+
+
+        </div>
+      </div>
+      <div class="w-full px-4 lg:w-1/2">
+        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">TEMUI KAMI DI YOUTUBE
+        </h3>
+        <div class="w-full px-4 aspect-video">
+          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/s9AtzO8r1WI"></iframe>
         </div>
       </div>
     </div>
@@ -172,13 +179,61 @@
 </section>
 {{-- About Section End --}}
 
+{{-- Blog Section Start --}}
+<section id="blog" class="pt-36 pb-32 bg-slate-100">
+  <div class="sm:container">
+    <div class="w-full px-4">
+      <div class="max-w-xl mx-auto text-center mb-16">
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4> --}}
+        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4 hover:text-primary"><a href="/blog">BERITA
+            TERBARU</a></h2>
+        <hr>
+        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p> --}}
+      </div>
+    </div>
+
+    <div class="flex flex-wrap">
+
+      @if ($post_beritas->count())
+      @foreach($post_beritas as $post_berita)
+      <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+          <img src="/img/detail_blog/{{$post_berita->detail_blog_img}}" alt="Programming"
+            class="h-64 w-full object-cover">
+          <div class="py-8 px-6">
+            <h3>
+              <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
+                class="block mb-1 font-semibold text-xl text-dark hover:text-primary truncate">{{$post_berita->judul_h1}}</a>
+            </h3>
+            <small class="text-slate-400">{{
+              $post_berita->created_at->diffForHumans()}} |
+              {{$post_berita->kategori_blog->kategori}}
+            </small>
+            <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
+              {!!$post_berita->deskripsi_p1!!}</div>
+            <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
+              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
+              Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+      @endforeach
+      @else
+      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+        Blog tidak tersedia.</p>
+      @endif
+
+    </div>
+  </div>
+</section>
+{{-- Blog Section End --}}
+
 {{-- Hero Section Start --}}
-<section id="home" class="pt-36 dark:bg-dark">
+{{-- <section id="home" class="pt-36">
   <div class="container">
     <div class="flex flex-wrap">
       <div class="w-full self-center px-4 lg:w-1/2">
-        <span
-          class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl dark:text-white mb-6">{{$beranda->home_h1}}</span>
+        <span class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl mb-6">{{$beranda->home_h1}}</span>
         <p class="font-medium text-secondary mb-10 leading-relaxed">{{$beranda->home_p1}}</p>
 
         <a href="/profil"
@@ -195,38 +250,39 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 {{-- Hero Section End --}}
 
-
-
 {{-- Galeri Section Start --}}
-<section id="galeri" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
-  <div class="container">
+<section id="galeri" class="pt-36 pb-16 bg-white">
+  <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->galeri_h1}}</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$beranda->galeri_h2}}
-        </h2>
-        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->galeri_p1}}</p>
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->galeri_h1}}</h4> --}}
+        <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl hover:text-primary"><a
+            href="/galeri">GALERI TENANT</a>
+        </h3>
+        <hr>
+        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->galeri_p1}}</p> --}}
       </div>
     </div>
 
-    <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
+    <div class="w-full px-4 flex flex-wrap justify-center  xl:mx-auto">
 
       @if ($detail_produks->count())
       @foreach($detail_produks as $detail_produk)
-      <div class="mb-12 p-4 md:w-1/2">
-        <div class="rounded-md shadow-md overflow-hidden">
-          <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
-            class="h-64 w-full object-cover">
+      <div class=" p-4 md:w-1/3">
+        <div class="rounded-md shadow-md overflow-hidden"><a
+            href="{{route('galeri.detail_galeri', $detail_produk->slug)}}">
+            <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
+              class="h-64 w-full object-cover hover:opacity-90"></a>
         </div>
-        <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">{{$detail_produk->judul_h1}}</h3>
-        <small class="text-slate-400 dark:text-slate-600">{{
+        {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{$detail_produk->judul_h1}}</h3>
+        <small class="text-slate-400">{{
           $detail_produk->created_at->diffForHumans()}} |
           {{$detail_produk->kategori_galeri->kategori}}
         </small>
-        <div class="font-medium text-base text-secondary truncate mt-2">{!!$detail_produk->deskripsi_p1!!}</div>
+        <div class="font-medium text-base text-secondary truncate mt-2">{!!$detail_produk->deskripsi_p1!!}</div> --}}
       </div>
       @endforeach
       @else
@@ -238,21 +294,21 @@
     </div>
 
   </div>
-  <div class=" mx-auto items-center w-full text-center">
+  <div class=" mx-auto items-center w-full text-center mt-12 mb-20">
     <a href="/galeri"
-      class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya
+      class=" text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya
       ></a>
   </div>
 </section>
 {{-- Galeri Section End --}}
 
 {{-- Mitra Section Start --}}
-<section id="mitra" class="pt-36 pb-32 bg-slate-800 dark:bg-slate-300">
+{{-- <section id="mitra" class="pt-36 pb-32 bg-slate-800">
   <div class="container">
     <div class="w-full px-4">
       <div class="mx-auto text-center mb-16">
         <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->mitra_h1}}</h4>
-        <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-dark">{{$beranda->mitra_h2}}
+        <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$beranda->mitra_h2}}
         </h2>
         <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->mitra_p1}}</p>
       </div>
@@ -277,20 +333,19 @@
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 {{-- Mitra Section End --}}
 
-
-
 {{-- Contact Section Start --}}
-<section id="contact" class="pt-36 pb-32 dark:bg-slate-800">
+<section id="contact" class="pt-36 pb-32 bg-slate-100">
   <div class="container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->kontak_h1}}</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$beranda->kontak_h2}}
-        </h2>
-        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->kontak_p1}}</p>
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->kontak_h1}}</h4> --}}
+        <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">LOKASI KANTOR
+        </h3>
+        <hr>
+        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->kontak_p1}}</p> --}}
       </div>
     </div>
 

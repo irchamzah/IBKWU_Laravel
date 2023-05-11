@@ -17,44 +17,72 @@ class FotoProdukSeeder extends Seeder
     {
         FotoProduk::create([
             'produk_id' => 1,
-            'produk_img1' => 'MusaeChips-1.jpg',
-            'produk_h1' => 'Tips Belajar Programming 1',
-            'produk_p1' => 'ini Deskripsi foto 1'
+            'produk_img1' => 'RedVelvet-1.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
         ]);
 
         FotoProduk::create([
             'produk_id' => 1,
-            'produk_img1' => 'MusaeChips-2.jpg',
-            'produk_h1' => 'Review Keyboard GMMK Pro 2',
-            'produk_p1' => 'ini Deskripsi foto 2'
+            'produk_img1' => 'RedVelvet-2.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
         ]);
 
         FotoProduk::create([
             'produk_id' => 2,
             'produk_img1' => 'MusaeChips-1.jpg',
-            'produk_h1' => 'Tips Belajar Programming 3',
-            'produk_p1' => 'ini Deskripsi foto 3'
+            'produk_h1' => '',
+            'produk_p1' => ''
         ]);
 
         FotoProduk::create([
             'produk_id' => 2,
             'produk_img1' => 'MusaeChips-2.jpg',
-            'produk_h1' => 'Review Keyboard GMMK Pro 4',
-            'produk_p1' => 'ini Deskripsi foto 4'
+            'produk_h1' => '',
+            'produk_p1' => ''
         ]);
 
         FotoProduk::create([
             'produk_id' => 3,
-            'produk_img1' => 'MusaeChips-1.jpg',
-            'produk_h1' => 'Tips Belajar Programming 5',
-            'produk_p1' => 'ini Deskripsi foto 5'
+            'produk_img1' => 'macarina-1.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
         ]);
 
         FotoProduk::create([
             'produk_id' => 3,
-            'produk_img1' => 'MusaeChips-2.jpg',
-            'produk_h1' => 'Review Keyboard GMMK Pro 6',
-            'produk_p1' => 'ini Deskripsi foto 6'
+            'produk_img1' => 'macarina-2.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
+        ]);
+
+        FotoProduk::create([
+            'produk_id' => 4,
+            'produk_img1' => 'GT-BumbuHerbal-1.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
+        ]);
+
+        FotoProduk::create([
+            'produk_id' => 4,
+            'produk_img1' => 'GT-BumbuHerbal-2.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
+        ]);
+
+        FotoProduk::create([
+            'produk_id' => 5,
+            'produk_img1' => 'GT-Samber Mbegor.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
+        ]);
+
+        FotoProduk::create([
+            'produk_id' => 5,
+            'produk_img1' => 'GT-Samber Mbegor2.jpg',
+            'produk_h1' => '',
+            'produk_p1' => ''
         ]);
     }
 }

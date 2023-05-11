@@ -5,11 +5,11 @@ window.onscroll = function () {
     const toTop = document.querySelector("#to-top");
 
     if (window.pageYOffset > fixedNav) {
-        header.classList.add("navbar-fixed");
+        // header.classList.add("navbar-fixed");
         toTop.classList.remove("hidden");
         toTop.classList.add("flex");
     } else {
-        header.classList.remove("navbar-fixed");
+        // header.classList.remove("navbar-fixed");
         toTop.classList.remove("flex");
         toTop.classList.add("hidden");
     }
@@ -24,13 +24,21 @@ hamburger.addEventListener("click", function () {
     navMenu.classList.toggle("hidden");
 });
 
-// Klik di luar hamburger
-window.addEventListener("click", function (e) {
-    if (e.target != hamburger && e.target != navMenu) {
-        hamburger.classList.remove("hamburger-active");
-        navMenu.classList.add("hidden");
-    }
+// Layanan Dropdown
+const layananDropdown = document.querySelector("#layanan_dropdown");
+const layananMenu = document.querySelector("#layanan_menu");
+
+layananDropdown.addEventListener("click", function () {
+    layananMenu.classList.toggle("hidden");
 });
+
+// Klik di luar hamburger
+// window.addEventListener("click", function (e) {
+//     if (e.target != hamburger && e.target != navMenu) {
+//         hamburger.classList.remove("hamburger-active");
+//         navMenu.classList.add("hidden");
+//     }
+// });
 
 // Darkmode toggle
 const darkToggle = document.querySelector("#dark-toggle");

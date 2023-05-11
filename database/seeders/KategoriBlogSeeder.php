@@ -15,24 +15,54 @@ class KategoriBlogSeeder extends Seeder
      */
     public function run()
     {
+        //1
         KategoriBlog::create([
             'kategori' => 'Tidak Ada'
         ]);
 
+        //2
         KategoriBlog::create([
-            'kategori' => 'Rekomendasi'
+            'kategori' => 'Sorotan'
         ]);
 
+        //3
         KategoriBlog::create([
             'kategori' => 'IBK & PPK'
         ]);
 
+        //4
         KategoriBlog::create([
-            'kategori' => 'Layanan IBKWU'
+            'kategori' => 'Layanan'
         ]);
 
+        //5
         KategoriBlog::create([
             'kategori' => 'Program Kegiatan'
+        ]);
+
+        //6
+        KategoriBlog::create([
+            'kategori' => 'Berita'
+        ]);
+
+        //7
+        KategoriBlog::create([
+            'kategori' => 'Kegiatan'
+        ]);
+
+        //8
+        KategoriBlog::create([
+            'kategori' => 'Pengumuman'
+        ]);
+
+        //9
+        KategoriBlog::create([
+            'kategori' => 'Popular'
+        ]);
+
+        //10
+        KategoriBlog::create([
+            'kategori' => 'Seminar dan Loka Karya'
         ]);
     }
 }

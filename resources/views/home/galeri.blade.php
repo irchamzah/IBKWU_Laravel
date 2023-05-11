@@ -1,10 +1,17 @@
 @extends('home.app')
 
 @section('title', 'Galeri Tenant')
-@section('menu-1', 'text-dark dark:text-white')
-@section('menu-2', 'text-dark dark:text-white')
-@section('menu-3', 'text-primary dark:text-primary')
-@section('menu-4', 'text-dark dark:text-white')
+@section('menu-1', 'text-dark')
+@section('menu-2', 'text-dark')
+@section('menu-3', 'text-dark')
+@section('menu-31', 'text-dark')
+@section('menu-32', 'text-dark')
+@section('menu-33', 'text-dark')
+@section('menu-34', 'text-dark')
+@section('menu-4', 'text-dark')
+@section('menu-5', 'text-dark')
+@section('menu-6', 'text-primary')
+@section('menu-7', 'text-dark')
 @section('content')
 
 <form id="searchForm" action="{{ route('galeri.search')}}" method="GET">
@@ -17,16 +24,17 @@
 
 {{-- Rekomendasi Tenant Section Start --}}
 <section id="home" class="pt-36 pb-32 dark:bg-dark">
-  <div class="container">
+  <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">{{$galeri->sorotan_h1}}</h4>
-        <h2 class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white"><span
+        {{-- <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">{{$galeri->sorotan_h1}}</h4> --}}
+        <h2 class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"><span
             class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">{{$galeri->sorotan_h2}}</span>
         </h2>
-        <div class="font-medium text-md text-secondary md:text-lg">
+        <hr>
+        {{-- <div class="font-medium text-md text-secondary md:text-lg">
           {{$galeri->sorotan_p1}}
-        </div>
+        </div> --}}
       </div>
 
     </div>
@@ -42,13 +50,14 @@
           <div class="py-8 px-6">
             <h3>
               <a href="{{route('galeri.detail_galeri', $rekomendasiGaleri->slug)}}"
-                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$rekomendasiGaleri->judul_h1}}</a>
+                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate">{{$rekomendasiGaleri->judul_h1}}</a>
             </h3>
             <small class="text-slate-400 dark:text-slate-600">{{
               $rekomendasiGaleri->created_at->diffForHumans()}} |
               {{$rekomendasiGaleri->kategori_galeri->kategori}}
             </small>
-            <div class="font-medium text-base text-secondary mb-6 truncate mt-2">{!!$rekomendasiGaleri->deskripsi_p1!!}
+            <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
+              {!!$rekomendasiGaleri->deskripsi_p1!!}
             </div>
             <a href="{{route('galeri.detail_galeri', $rekomendasiGaleri->slug)}}"
               class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
@@ -59,8 +68,7 @@
       @endforeach
       @else
       <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
-        Produk
-        tidak tersedia.</p>
+        Belum ada produk yang disorot</p>
       @endif
     </div>
 
@@ -76,13 +84,14 @@
 
 {{-- Galeri Tenant Section Start --}}
 <section id="tenant" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-800">
-  <div class="container">
+  <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-10">
-        <h4 class="font-semibold text-lg text-primary mb-2">{{$galeri->galeri_h1}}</h4>
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">{{$galeri->galeri_h2}}
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$galeri->galeri_h1}}</h4> --}}
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$galeri->galeri_h2}}
         </h2>
-        <div class="font-medium text-md text-secondary md:text-lg">{{$galeri->galeri_p1}}</div>
+        <hr>
+        {{-- <div class="font-medium text-md text-secondary md:text-lg">{{$galeri->galeri_p1}}</div> --}}
       </div>
 
       <div class="justify-center">
@@ -142,13 +151,14 @@
             <div class="py-8 px-6">
               <h3>
                 <a href="{{route('galeri.detail_galeri', $detail_produk->slug)}}"
-                  class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_produk->judul_h1}}</a>
+                  class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate">{{$detail_produk->judul_h1}}</a>
               </h3>
               <small class="text-slate-400 dark:text-slate-600">{{
                 $detail_produk->created_at->diffForHumans()}} |
                 {{$detail_produk->kategori_galeri->kategori}}
               </small>
-              <div class="font-medium text-base text-secondary mb-6 truncate mt-2">{!!$detail_produk->deskripsi_p1!!}
+              <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
+                {!!$detail_produk->deskripsi_p1!!}
               </div>
               <a href="{{route('galeri.detail_galeri', $detail_produk->slug)}}"
                 class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca

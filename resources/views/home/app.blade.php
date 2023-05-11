@@ -24,7 +24,7 @@
 
 <body class="font-poppins">
     {{-- Header Start --}}
-    <header class="bg-transparent fixed top-0 left-0 w-full flex items-center z-10">
+    <header class="bg-transparent fixed top-0 left-0 w-full flex items-center z-10 navbar-fixed">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
@@ -33,11 +33,10 @@
                 <div class="flex items-center px-4">
                     <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
                         <span
-                            class="w-[30px] h-[2px] my-2 block bg-dark dark:bg-white transition duration-300 ease-in-out origin-top-left"></span>
+                            class="w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out origin-top-left"></span>
+                        <span class="w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out"></span>
                         <span
-                            class="w-[30px] h-[2px] my-2 block bg-dark dark:bg-white transition duration-300 ease-in-out"></span>
-                        <span
-                            class="w-[30px] h-[2px] my-2 block bg-dark dark:bg-white transition duration-300 ease-in-out origin-bottom-left"></span>
+                            class="w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out origin-bottom-left"></span>
                     </button>
 
                     <nav id="nav-menu"
@@ -45,22 +44,59 @@
                         <ul class="block lg:flex">
                             <li class="group">
                                 <a href="/"
-                                    class="text-base @yield('menu-1') py-2 mx-8 flex group-hover:text-primary">Beranda</a>
+                                    class="text-base @yield('menu-1') py-2 mx-4 flex group-hover:text-primary">Beranda</a>
                             </li>
                             <li class="group">
                                 <a href="/profil"
-                                    class="text-base @yield('menu-2') py-2 mx-8 flex group-hover:text-primary">Profil</a>
+                                    class="text-base @yield('menu-2') py-2 mx-4 flex group-hover:text-primary">Profil</a>
+                            </li>
+                            <li class="group">
+                                <a href="/layanan" id="layanan_dropdown" name="layanan_dropdown"
+                                    class="text-base @yield('menu-3') py-2 mx-4 flex group-hover:text-primary">
+                                    Layanan
+                                    {{-- <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M10 14l6-6H4z" />
+                                    </svg> --}}
+                                </a>
+
+                                {{-- <ul class="hidden absolute bg-white border-2 rounded-lg shadow-lg py-5 mt-1"
+                                    id="layanan_menu">
+                                    <li class="group"><a href=""
+                                            class="text-base @yield('menu-31') py-2 mx-4 flex hover:text-primary">Layanan
+                                            Pra-Startup</a></li>
+                                    <li class="group"><a href=""
+                                            class="text-base @yield('menu-32') py-2 mx-4 flex hover:text-primary">Layanan
+                                            Start-Up</a></li>
+                                    <li class="group"><a href=""
+                                            class="text-base @yield('menu-33') py-2 mx-4 flex hover:text-primary">Pendampingan
+                                            Skill Up</a></li>
+                                    <li class="group"><a href=""
+                                            class="text-base @yield('menu-34') py-2 mx-4 flex hover:text-primary">IBC
+                                            (Innovation Business Class)</a></li>
+                                </ul> --}}
+                            </li>
+
+                            <li class="group">
+                                <a href="/ibk_ppk"
+                                    class="text-base @yield('menu-4') py-2 mx-4 flex group-hover:text-primary">IBK &
+                                    PPK</a>
+                            </li>
+                            <li class="group">
+                                <a href="/program_kegiatan"
+                                    class="text-base @yield('menu-5') py-2 mx-4 flex group-hover:text-primary">Program
+                                    Kegiatan</a>
                             </li>
                             <li class="group">
                                 <a href="/galeri"
-                                    class="text-base @yield('menu-3') py-2 mx-8 flex group-hover:text-primary">Galeri
+                                    class="text-base @yield('menu-6') py-2 mx-4 flex group-hover:text-primary">Galeri
                                     Tenant</a>
                             </li>
                             <li class="group">
                                 <a href="/blog"
-                                    class="text-base @yield('menu-4') py-2 mx-8 flex group-hover:text-primary">Blog</a>
+                                    class="text-base @yield('menu-7') py-2 mx-4 flex group-hover:text-primary">Post</a>
                             </li>
-                            <li class="mt-3 lg:mt-0 flex items-center pl-8">
+                            {{-- <li class="mt-3 lg:mt-0 flex items-center pl-8">
                                 <div class="flex">
                                     <span class="mr-2 text-sm text-slate-500">light</span>
                                     <input type="checkbox" class="hidden" id="dark-toggle">
@@ -74,7 +110,7 @@
                                     </label>
                                     <span class="ml-2 text-sm text-slate-500">dark</span>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     </nav>
                 </div>
@@ -94,36 +130,57 @@
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
-                    <h2 class="font-bold text-4xl text-white mb-5">IBKWU</h2>
-                    <h3 class="font-bold text-2xl mb-2">Hubungi Kami</h3>
-                    <p>{{$footer->phone}}</p>
-                    <p>{{$footer->email}}</p>
-                    <p>{{$footer->address}}</p>
+                    <h3 class="font-bold text-2xl mb-2">ALAMAT KANTOR</h3>
+                    <p class="my-5">{{$footer->address}}
+                    </p>
+                    <p class="my-5">{{$footer->address_2}}</p>
+                    <p class="my-5">{{$footer->phone}}</p>
+                    <p class="my-5">{{$footer->phone_2}}</p>
+                </div>
+                <div class="w-full px-4 mb-12 md:w-1/3 ">
+                    <h3 class="font-bold text-2xl mb-2 text-slate-300 mx-auto text-center">MITRA IBKWU</h3>
+                    <div class="flex flex-wrap">
+                        @if ($mitras->count())
+                        @foreach($mitras as $mitra)
+                        <div class="max-w-[120px]  mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
+                            <a href="{{$mitra->mitra_link}}" target="_blank">
+                                <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
+                                    class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
+                            </a>
+                        </div>
+                        @endforeach
+                        @else
+                        <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+                            Mitra tidak Tersedia.</p>
+                        @endif
+                    </div>
                 </div>
                 <div class="w-full px-4 mb-12 md:w-1/3">
-                </div>
-                <div class="w-full px-4 mb-12 md:w-1/3">
-                    <h3 class="font-semibold text-xl text-white mb-5">Tautan</h3>
-                    <ul class="text-slate-300">
+                    <h3 class="font-bold text-2xl mb-2 text-slate-300 mx-auto text-center">LINK EKSTERNAL POLIJE</h3>
+                    <ul class="text-slate-300 mt-4 text-center">
                         <li>
-                            <a href="/" class="inline-block text-base hover:text-primary mb-3">Beranda</a>
+                            <a href="{{$footer->link_1}}" target="_blank"
+                                class="inline-block text-base hover:text-primary mb-3">{{$footer->link_1}}</a>
                         </li>
                         <li>
-                            <a href="/profil" class="inline-block text-base hover:text-primary mb-3">Profil</a>
+                            <a href="{{$footer->link_2}}" target="_blank"
+                                class="inline-block text-base hover:text-primary mb-3">{{$footer->link_2}}</a>
                         </li>
                         <li>
-                            <a href="/galeri" class="inline-block text-base hover:text-primary mb-3">Galeri Tenant</a>
+                            <a href="{{$footer->link_3}}" target="_blank"
+                                class="inline-block text-base hover:text-primary mb-3">{{$footer->link_3}}</a>
                         </li>
                         <li>
-                            <a href="/blog" class="inline-block text-base hover:text-primary mb-3">Blog</a>
+                            <a href="{{$footer->link_4}}" target="_blank"
+                                class="inline-block text-base hover:text-primary mb-3">{{$footer->link_4}}</a>
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div class="w-full pt-10 border-t border-slate-700">
-                <div class="flex items-center justify-center mb-5">
-                    {{-- Youtube --}}
+                {{-- <div class="flex items-center justify-center mb-5">
+
                     <a href="{{$footer->yt_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
@@ -134,7 +191,7 @@
                         </svg>
                     </a>
 
-                    {{-- Instagram --}}
+
                     <a href="{{$footer->ig_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
@@ -145,7 +202,6 @@
                         </svg>
                     </a>
 
-                    {{-- Twitter --}}
                     <a href="{{$footer->twt_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
@@ -156,7 +212,6 @@
                         </svg>
                     </a>
 
-                    {{-- LinkedIn --}}
                     <a href="{{$footer->li_link}}" target="_blank"
                         class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                         <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
@@ -166,11 +221,12 @@
                                 d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                     </a>
-                </div>
-                <p class="font-medium text-xs text-slate-500 text-center">Dibuat oleh <a
+                </div> --}}
+                <p class="font-medium text-xs text-slate-500 text-center">© Hak Cipta 2018-2021 IBKWU</p>
+                {{-- <p class="font-medium text-xs text-slate-500 text-center">Dibuat oleh <a
                         href="https://instagram.com/irchamzah" target="_blank" class="font-bold text-primary">Irchamzah
                         Fikri Ababil</a>, menggunakan <a href="https://tailwindcss.com" target="_blank"
-                        class="font-bold text-sky-500">Tailwind CSS</a>.</p>
+                        class="font-bold text-sky-500">Tailwind CSS</a>.</p> --}}
             </div>
         </div>
     </footer>

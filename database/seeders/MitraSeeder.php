@@ -16,23 +16,53 @@ class MitraSeeder extends Seeder
     public function run()
     {
         Mitra::create([
-            'mitra_img' => 'gojek.svg',
-            'mitra_link' => 'https://www.gojek.com/id-id/'
+            'mitra_img' => 'aibi.png',
+            'mitra_link' => 'https://aibinetwork.com/'
         ]);
 
         Mitra::create([
-            'mitra_img' => 'google.svg',
-            'mitra_link' => 'https://www.google.com/?hl=id'
+            'mitra_img' => 'apo_64.png',
+            'mitra_link' => 'https://www.apo-tokyo.org/'
         ]);
 
         Mitra::create([
-            'mitra_img' => 'tokopedia.svg',
-            'mitra_link' => 'https://www.tokopedia.com/'
+            'mitra_img' => 'bekraf_64.png',
+            'mitra_link' => 'https://bekraf.wordpress.com/'
         ]);
 
         Mitra::create([
-            'mitra_img' => 'traveloka.svg',
-            'mitra_link' => 'https://www.traveloka.com/en-id/'
+            'mitra_img' => 'bi_64.png',
+            'mitra_link' => 'https://www.bi.go.id/id/default.aspx'
+        ]);
+
+        Mitra::create([
+            'mitra_img' => 'cpc_64.png',
+            'mitra_link' => 'https://www.cpc.org.tw/en-us'
+        ]);
+
+        Mitra::create([
+            'mitra_img' => 'p4s_64.png',
+            'mitra_link' => 'http://distani.tulangbawangkab.go.id/news/read/4436/peran-p4s-dalam-meningkatkan-sdm-pertanian'
+        ]);
+
+        Mitra::create([
+            'mitra_img' => 'pnm_64.png',
+            'mitra_link' => 'https://www.pnm.co.id/'
+        ]);
+
+        Mitra::create([
+            'mitra_img' => 'ristekdikti_64.png',
+            'mitra_link' => 'https://pddikti.kemdikbud.go.id/'
+        ]);
+
+        Mitra::create([
+            'mitra_img' => 'shell_64.png',
+            'mitra_link' => 'https://www.shell.co.id/'
+        ]);
+
+        Mitra::create([
+            'mitra_img' => 'ubc_64.png',
+            'mitra_link' => 'https://www.crunchbase.com/organization/entrepreneurship-ubc-seed-fund'
         ]);
     }
 }

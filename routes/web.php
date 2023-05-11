@@ -15,16 +15,20 @@ use Illuminate\Support\Facades\Route;
 // Home
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/profil', [HomeController::class, 'profil'])->name('profil');
+Route::get('/layanan', [HomeController::class, 'layanan'])->name('layanan');
+Route::get('/ibk_ppk', [HomeController::class, 'ibk_ppk'])->name('ibk_ppk');
+Route::get('/program_kegiatan', [HomeController::class, 'program_kegiatan'])->name('program_kegiatan');
 // Galeri
 Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri');
-Route::get('/galeri/search', [HomeController::class, 'search'])->middleware('auth')->name('galeri.search');
-Route::get('/galeri/filter', [HomeController::class, 'filter'])->middleware('auth')->name('galeri.filter');
+Route::get('/galeri/search', [HomeController::class, 'search'])->name('galeri.search');
+Route::get('/galeri/filter', [HomeController::class, 'filter'])->name('galeri.filter');
 Route::get('/galeri/detail_galeri/{slug}', [HomeController::class, 'detail_galeri'])->name('galeri.detail_galeri');
 // Blog
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
-Route::get('/blog/search', [HomeController::class, 'search_blog'])->middleware('auth')->name('blog.search');
-Route::get('/blog/filter', [HomeController::class, 'filter_blog'])->middleware('auth')->name('blog.filter');
+Route::get('/blog/search', [HomeController::class, 'search_blog'])->name('blog.search');
+Route::get('/blog/filter', [HomeController::class, 'filter_blog'])->name('blog.filter');
 Route::get('/blog/detail_blog/{slug}', [HomeController::class, 'detail_blog'])->name('blog.detail_blog');
+Route::get('/blog/list_blog/{kategori}', [HomeController::class, 'list_blog'])->name('blog.list_blog');
 
 // Admin
 // Login
