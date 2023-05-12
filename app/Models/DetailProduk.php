@@ -15,6 +15,7 @@ class DetailProduk extends Model
         'judul_h1',
         'slug',
         'link_yt',
+        'link_ig',
         'deskripsi_p1',
         'kategori_galeri_id'
     ];

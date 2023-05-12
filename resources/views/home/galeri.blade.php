@@ -27,16 +27,11 @@
   <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
-        {{-- <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">{{$galeri->sorotan_h1}}</h4> --}}
         <h2 class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"><span
-            class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">{{$galeri->sorotan_h2}}</span>
+            class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">{{$galeri->sorotan_h1}}</span>
         </h2>
         <hr>
-        {{-- <div class="font-medium text-md text-secondary md:text-lg">
-          {{$galeri->sorotan_p1}}
-        </div> --}}
       </div>
-
     </div>
 
     <div class="flex flex-wrap">
@@ -70,6 +65,7 @@
       <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
         Belum ada produk yang disorot</p>
       @endif
+
     </div>
 
     <div class="w-full sm:w-96 mx-auto">
@@ -88,7 +84,7 @@
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-10">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$galeri->galeri_h1}}</h4> --}}
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$galeri->galeri_h2}}
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$galeri->galeri_h1}}
         </h2>
         <hr>
         {{-- <div class="font-medium text-md text-secondary md:text-lg">{{$galeri->galeri_p1}}</div> --}}

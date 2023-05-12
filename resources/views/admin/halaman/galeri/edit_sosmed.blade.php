@@ -57,7 +57,7 @@
         <div class="container mx-auto flex-1 flex flex-col items-center justify-center">
             <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                 <div class="form-group">
-                    <label for="nama_sosmed">Nama Sosmed</label><br>
+                    <label for="nama_sosmed">Nama</label><br>
                     @error('nama_sosmed')
                     <small style="color: red">{{$message}}</small>
                     @enderror
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="link_sosmed">Link Sosmed</label><br>
+                    <label for="link_sosmed">Link</label><br>
                     @error('link_sosmed')
                     <small style="color: red">{{$message}}</small>
                     @enderror
@@ -79,7 +79,7 @@
                 </div>
 
 
-                <label for="nama_field" class="block mb-2">Warna Text Sosmed</label>
+                <label for="nama_field" class="block mb-2">Warna</label>
                 <div class="relative inline-block text-left">
                     <select name="warna_id" id="nama_field"
                         class="border-2 border-{{$sosmed_produk->warna->nama_warna}}-400 p-2 rounded-lg w-full capitalize text-{{$sosmed_produk->warna->nama_warna}}-500">

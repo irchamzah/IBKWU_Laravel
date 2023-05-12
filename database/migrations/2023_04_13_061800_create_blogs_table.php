@@ -16,11 +16,7 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('sorotan_h1');
-            $table->string('sorotan_h2');
-            $table->text('sorotan_p1');
             $table->string('blog_h1');
-            $table->string('blog_h2');
-            $table->text('blog_p1');
             $table->timestamps();
         });
     }

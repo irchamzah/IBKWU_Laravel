@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('blog_id');
             $table->string('blog_img1')->default('');
-            $table->string('blog_h1');
-            $table->text('blog_p1');
+            $table->string('blog_h1')->nullable();
+            $table->text('blog_p1')->nullable();
             $table->timestamps();
         });
     }

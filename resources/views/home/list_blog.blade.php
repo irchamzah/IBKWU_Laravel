@@ -27,7 +27,7 @@
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-10">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$blog->blog_h1}}</h4> --}}
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$blog->blog_h2}}
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$blog->blog_h1}}
         </h2>
         {{-- <div class="font-medium text-md text-secondary md:text-lg">{{$blog->blog_p1}}</div> --}}
       </div>

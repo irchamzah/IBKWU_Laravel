@@ -16,12 +16,8 @@ class BlogSeeder extends Seeder
     public function run()
     {
         Blog::create([
-            'sorotan_h1' => 'Sorotan Blog Tenant',
-            'sorotan_h2' => 'Sorotan Post',
-            'sorotan_p1' => 'Berikut adalah tenant yang direkomendasikan.',
-            'blog_h1' => 'Blog Tenant',
-            'blog_h2' => 'Post yang Tersedia',
-            'blog_p1'  => 'Berikut Semua Produk yang Tersedia.'
+            'sorotan_h1' => 'Sorotan Post',
+            'blog_h1' => 'Post yang Tersedia'
         ]);
     }
 }

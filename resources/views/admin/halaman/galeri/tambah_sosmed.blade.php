@@ -45,7 +45,7 @@
             <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                 <input type="text" name="produk_id" value="{{$id}}" hidden>
                 <div class="form-group">
-                    <label for="nama_sosmed">Nama Sosmed</label><br>
+                    <label for="nama_sosmed">Nama</label><br>
                     @error('nama_sosmed')
                     <small style="color: red">{{$message}}</small>
                     @enderror
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="link_sosmed">Link Sosmed</label><br>
+                    <label for="link_sosmed">Link</label><br>
                     @error('link_sosmed')
                     <small style="color: red">{{$message}}</small>
                     @enderror
@@ -65,7 +65,7 @@
                         name="link_sosmed" value="{{ old('link_sosmed') }}" required autocomplete="link_sosmed"
                         autofocus>
                 </div>
-                <label for="warna_id" class="block mb-2">Warna Text Sosmed</label>
+                <label for="warna_id" class="block mb-2">Warna</label>
                 <div class="relative inline-block text-left">
                     <select name="warna_id" id="warna_id"
                         class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500">

@@ -12,10 +12,6 @@ class Galeri extends Model
 
     protected $fillable = [
         'sorotan_h1',
-        'sorotan_h2',
-        'sorotan_p1',
-        'galeri_h1',
-        'galeri_h2',
-        'galeri_p1'
+        'galeri_h1'
     ];
 }

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Foto Detail Blog')
+@section('title', 'Edit Foto blog blog Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
@@ -71,13 +71,19 @@
                                         name="blog_img1" accept="image/*">
                                 </div>
                                 <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
+                                    @error('blog_h1')
+                                    <small class="text-red-600">{{$message}}</small>
+                                    @enderror
                                     <input type="text" id="blog_h1"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_h1') is-invalid @enderror"
-                                        name="blog_h1" placeholder="Judul Foto.." value="{{$foto_blog->blog_h1}}"
-                                        required autocomplete="blog_h1" autofocus>
+                                        name="blog_h1" placeholder="Keterangan Foto.." value="{{$foto_blog->blog_h1}}"
+                                        autocomplete="blog_h1" autofocus>
                                 </h3>
                                 <div class="font-medium text-base text-secondary text-justify">
-                                    <textarea type="text" id="blog_p1" name="blog_p1" placeholder="Deskripsi foto.."
+                                    @error('blog_p1')
+                                    <small class="text-red-600">{{$message}}</small>
+                                    @enderror
+                                    <textarea type="text" id="editor1" name="blog_p1" placeholder="Deskripsi foto.."
                                         class="w-full p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96">{{$foto_blog->blog_p1}}</textarea>
                                 </div>
 
@@ -92,6 +98,16 @@
         </div>
     </div>
 </form>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 
@@ -235,5 +251,7 @@
 
 
 </div>
+
+
 
 @endsection

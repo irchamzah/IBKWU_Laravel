@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->integer('produk_id');
             $table->string('produk_img1')->default('');
-            $table->string('produk_h1');
-            $table->string('produk_p1');
+            $table->string('produk_h1')->nullable();
+            $table->string('produk_p1')->nullable();
             $table->timestamps();
         });
     }

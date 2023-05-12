@@ -18,7 +18,8 @@ class BlogController extends Controller
         $blog = Blog::first();
         $detail_blogs = DetailBlog::orderBy('id', 'desc')->paginate(6);
         $kategoris = KategoriBlog::all();
-        return view('admin.halaman.blog.index', compact('blog', 'detail_blogs', 'kategoris'));
+        $rekomendasiBlogs = DetailBlog::where('kategori_blog_id', '2')->orderBy('id', 'desc')->paginate(3);
+        return view('admin.halaman.blog.index', compact('blog', 'detail_blogs', 'kategoris', 'rekomendasiBlogs'));
     }
 
     public function update(Request $request, $id)
@@ -26,41 +27,21 @@ class BlogController extends Controller
         //validasi data
         $rules = [
             'sorotan_h1' => 'required|string|max:255',
-            'sorotan_h2' => 'required|string|max:255',
-            'sorotan_p1' => 'required', 'string',
             'blog_h1' => 'required|string|max:255',
-            'blog_h2' => 'required|string|max:255',
-            'blog_p1' => 'required', 'string',
         ];
         $message = [
             'sorotan_h1.required' => 'Tidak Boleh Kosong',
             'sorotan_h1.string' => 'Harus Berupa String',
 
-            'sorotan_h2.required' => 'Tidak Boleh Kosong',
-            'sorotan_h2.string' => 'Harus Berupa String',
-
-            'sorotan_p1.required' => 'Tidak Boleh Kosong',
-            'sorotan_p1.string' => 'Harus Berupa String',
-
             'blog_h1.required' => 'Tidak Boleh Kosong',
             'blog_h1.string' => 'Harus Berupa String',
-
-            'blog_h2.required' => 'Tidak Boleh Kosong',
-            'blog_h2.string' => 'Harus Berupa String',
-
-            'blog_p1.required' => 'Tidak Boleh Kosong',
-            'blog_p1.string' => 'Harus Berupa String',
         ];
         $this->validate($request, $rules, $message);
 
         //simpan ke database blog
         $blog = Blog::where('id', $request->id)->first();
         $blog->sorotan_h1 = $request->sorotan_h1;
-        $blog->sorotan_h2 = $request->sorotan_h2;
-        $blog->sorotan_p1 = $request->sorotan_p1;
         $blog->blog_h1 = $request->blog_h1;
-        $blog->blog_h2 = $request->blog_h2;
-        $blog->blog_p1 = $request->blog_p1;
         $blog->update();
 
         return Redirect::route('admin.halaman.blog')->with('message', 'Halaman Blog Berhasil Diperbarui');
@@ -89,7 +70,8 @@ class BlogController extends Controller
             $kategoris = KategoriBlog::all();
             $detail_blogs = $query->orderBy('id', 'desc')->paginate(6);
             $blog = Blog::first();
-            return view('admin.halaman.blog.index', compact('detail_blogs', 'query', 'blog', 'kategoris'));
+            $rekomendasiBlogs = DetailBlog::where('kategori_blog_id', '2')->orderBy('id', 'desc')->paginate(3);
+            return view('admin.halaman.blog.blog_list', compact('detail_blogs', 'query', 'blog', 'kategoris', 'rekomendasiBlogs'));
         }
     }
 
@@ -130,10 +112,20 @@ class BlogController extends Controller
 
         $kategori_blog = KategoriBlog::whereId($id)->first();
 
-        if ($kategori_blog->kategori == 'Tidak Ada') {
+        if ($kategori_blog->id == '1') {
             return back()->withErrors(['Kategori "Tidak Ada" tidak boleh diedit']);
-        } elseif ($kategori_blog->kategori == 'Rekomendasi') {
-            return back()->withErrors(['Kategori "Rekomendasi" tidak boleh diedit']);
+        } elseif ($kategori_blog->id == '2') {
+            return back()->withErrors(['Kategori "Sorotan" tidak boleh diedit']);
+        } elseif ($kategori_blog->id == '3') {
+            return back()->withErrors(['Kategori "IBK & PPK" tidak boleh diedit']);
+        } elseif ($kategori_blog->id == '4') {
+            return back()->withErrors(['Kategori "Layanan" tidak boleh diedit']);
+        } elseif ($kategori_blog->id == '5') {
+            return back()->withErrors(['Kategori "Program Kegiatan" tidak boleh diedit']);
+        } elseif ($kategori_blog->id == '6') {
+            return back()->withErrors(['Kategori "Berita" tidak boleh diedit']);
+        } elseif ($kategori_blog->id == '8') {
+            return back()->withErrors(['Kategori "Pengumuman" tidak boleh diedit']);
         }
 
         return view('admin.halaman.blog.edit_kategori', compact('kategori_blog'));
@@ -162,10 +154,20 @@ class BlogController extends Controller
     public function delete_kategori_blog(Request $request)
     {
         $kategori_blog = KategoriBlog::where('id', $request->id)->first();
-        if ($kategori_blog->kategori == 'Tidak Ada') {
+        if ($kategori_blog->id == '1') {
             return back()->withErrors(['Kategori "Tidak Ada" tidak boleh dihapus']);
-        } elseif ($kategori_blog->kategori == 'Rekomendasi') {
-            return back()->withErrors(['Kategori "Rekomendasi" tidak boleh dihapus']);
+        } elseif ($kategori_blog->id == '2') {
+            return back()->withErrors(['Kategori "Sorotan" tidak boleh dihapus']);
+        } elseif ($kategori_blog->id == '3') {
+            return back()->withErrors(['Kategori "IBK & PPK" tidak boleh dihapus']);
+        } elseif ($kategori_blog->id == '4') {
+            return back()->withErrors(['Kategori "Layanan" tidak boleh dihapus']);
+        } elseif ($kategori_blog->id == '5') {
+            return back()->withErrors(['Kategori "Program Kegiatan" tidak boleh dihapus']);
+        } elseif ($kategori_blog->id == '6') {
+            return back()->withErrors(['Kategori "Berita" tidak boleh dihapus']);
+        } elseif ($kategori_blog->id == '8') {
+            return back()->withErrors(['Kategori "Pengumuman" tidak boleh dihapus']);
         }
         $kategori_blog->delete();
 
@@ -298,18 +300,13 @@ class BlogController extends Controller
         // Validasi Data
         $rules = [
             'blog_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'blog_h1' => 'required|string|max:255',
-            'blog_p1' => 'required', 'string',
+            'blog_h1' => 'max:255',
         ];
         $message = [
             'blog_img1.max' => ' Ukuran File Tidak Boleh Lebih Dari 5 MB',
             'blog_img1.mimes' => ' File Format Harus jpeg,png,jpg,svg',
 
-            'blog_h1.required' => ' Judul Tidak Boleh Kosong',
-            'blog_h1.string' => ' Judul Harus Berupa String',
-
-            'blog_p1.required' => ' Deskripsi Tidak Boleh Kosong',
-            'blog_p1.string' => ' Deskripsi Harus Berupa String',
+            'blog_h1.max' => ' Judul Tidak Boleh Lebih Dari 255 Karakter',
         ];
         $this->validate($request, $rules, $message);
 
@@ -336,18 +333,13 @@ class BlogController extends Controller
         // Validasi Data
         $rules = [
             'blog_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'blog_h1' => 'required|string|max:255',
-            'blog_p1' => 'required', 'string',
+            'blog_h1' => 'max:255',
         ];
         $message = [
             'blog_img1.max' => ' Ukuran File Tidak Boleh Lebih Dari 5 MB',
             'blog_img1.mimes' => ' File Format Harus jpeg,png,jpg,svg',
 
-            'blog_h1.required' => ' Judul Tidak Boleh Kosong',
-            'blog_h1.string' => ' Judul Harus Berupa String',
-
-            'blog_p1.required' => ' Deskripsi Tidak Boleh Kosong',
-            'blog_p1.string' => ' Deskripsi Harus Berupa String',
+            'blog_h1.max' => ' Judul Tidak Boleh Lebih Dari 255 Karakter',
         ];
         $this->validate($request, $rules, $message);
 

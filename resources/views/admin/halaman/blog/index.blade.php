@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Blog')
+@section('title', 'Edit blog Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
@@ -75,63 +75,81 @@
             <div class=" rounded-lg shadow-xl p-5">
 
                 {{-- Rekomendasi Tenant Section Start --}}
-                <section id="home" class="pt-36 pb-32 dark:bg-dark">
+                <section id="home" class="pt-36 pb-32 dark:bg-dark bg-white">
                     <div class="container">
                         <div class="w-full px-4">
-                            <div class="max-w-xl mx-auto text-center mb-0">
-                                <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">
-                                    <input form="saveForm" type="text" id="sorotan_h1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_h1') is-invalid @enderror"
-                                        name="sorotan_h1" value="{{$blog->sorotan_h1}}" required
-                                        autocomplete="sorotan_h1" autofocus>
-                                </h4>
+                            <div class="max-w-xl mx-auto text-center mb-16">
                                 <h2
                                     class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
                                     <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-dark bg-clip-text">
-                                        <input form="saveForm" type="text" id="sorotan_h2"
-                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_h2') is-invalid @enderror"
-                                            name="sorotan_h2" value="{{$blog->sorotan_h2}}" required
-                                            autocomplete="sorotan_h2" autofocus></span>
+                                        <input form="saveForm" type="text" id="sorotan_h1"
+                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_h1') is-invalid @enderror"
+                                            name="sorotan_h1" value="{{$blog->sorotan_h1}}" required
+                                            autocomplete="sorotan_h1" autofocus></span>
                                 </h2>
-                                <p class="font-medium text-md text-secondary md:text-lg">
-                                    <input form="saveForm" type="text" id="sorotan_p1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_p1') is-invalid @enderror"
-                                        name="sorotan_p1" value="{{$blog->sorotan_p1}}" required
-                                        autocomplete="sorotan_p1" autofocus>
-                                </p>
-
+                                <hr>
                             </div>
+                        </div>
+
+
+                        <div class="flex flex-wrap">
+
+                            @if ($rekomendasiBlogs->count())
+                            @foreach($rekomendasiBlogs as $rekomendasiblog)
+                            <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+                                <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
+                                    <img src="/img/detail_blog/{{$rekomendasiblog->detail_blog_img}}" alt="Programming"
+                                        class="h-64 w-full object-cover">
+                                    <div class="py-8 px-6">
+                                        <h3>
+                                            <a href="{{route('admin.halaman.blog.edit_blog', $rekomendasiblog->id)}}"
+                                                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate">{{$rekomendasiblog->judul_h1}}</a>
+                                        </h3>
+                                        <small class="text-slate-400 dark:text-slate-600">{{
+                                            $rekomendasiblog->created_at->diffForHumans()}} |
+                                            {{$rekomendasiblog->kategori_blog->kategori}}
+                                        </small>
+                                        <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
+                                            {!!$rekomendasiblog->deskripsi_p1!!}
+                                        </div>
+                                        <a href="{{route('admin.halaman.blog.edit_blog', $rekomendasiblog->id)}}"
+                                            class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
+                                        <a href="{{route('admin.halaman.blog.delete_blog', $rekomendasiblog->id)}}"
+                                            class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                            @else
+                            <p
+                                class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+                                Belum ada blog yang disorot</p>
+                            @endif
 
                         </div>
 
+                        <div class="w-full sm:w-96 mx-auto">
+                            <div class="mt-4">
+                                {{ $rekomendasiBlogs->links() }}
+                            </div>
+                        </div>
 
                     </div>
                 </section>
                 {{-- Rekomendasi Tenant Section End --}}
 
                 {{-- blog Tenant Section Start --}}
-                <section id="tenant" class="pt-36 pb-32 bg-slate-200 dark:bg-slate-800">
+                <section id="tenant" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-800">
                     <div class="container">
                         <div class="w-full px-4">
                             <div class="max-w-xl mx-auto text-center mb-10">
-                                <h4 class="font-semibold text-lg text-primary mb-2">
+                                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
                                     <input form="saveForm" type="text" id="blog_h1"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_h1') is-invalid @enderror"
                                         name="blog_h1" value="{{$blog->blog_h1}}" required autocomplete="blog_h1"
                                         autofocus>
-                                </h4>
-                                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                    <input form="saveForm" type="text" id="blog_h2"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_h2') is-invalid @enderror"
-                                        name="blog_h2" value="{{$blog->blog_h2}}" required autocomplete="blog_h2"
-                                        autofocus>
                                 </h2>
-                                <p class="font-medium text-md text-secondary md:text-lg">
-                                    <input form="saveForm" type="text" id="blog_p1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_p1') is-invalid @enderror"
-                                        name="blog_p1" value="{{$blog->blog_p1}}" required autocomplete="blog_p1"
-                                        autofocus>
-                                </p>
+                                <hr>
                             </div>
 
                             <div class="flex justify-center mx-auto">
@@ -195,7 +213,8 @@
                                             <a href="{{route('admin.halaman.blog.edit_blog', $detail_blog->id)}}"
                                                 class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
                                         </h3>
-                                        <div class="font-medium text-base text-secondary mb-6 truncate hover:text-clip">
+                                        <div
+                                            class="font-medium text-base text-secondary mb-6 truncate hover:text-clip max-h-20">
                                             {!!$detail_blog->deskripsi_p1!!}</div>
                                         <a href="{{route('admin.halaman.blog.edit_blog', $detail_blog->id)}}"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
@@ -208,7 +227,8 @@
                             @else
                             <p
                                 class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
-                                Blog tidak tersedia.</p>
+                                blog
+                                tidak tersedia.</p>
                             @endif
                         </div>
 
@@ -240,152 +260,4 @@
         </div>
     </div>
 
-
-
-
-
-
-
-    <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
-
-        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-            <!--Graph Card-->
-            <div class="bg-white border-transparent rounded-lg shadow-xl">
-                <div
-                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                    <h class="font-bold uppercase text-gray-600">Graph</h>
-                </div>
-                <div class="p-5">
-                    <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
-                    <script>
-                        new Chart(document.getElementById("chartjs-7"), {
-                "type": "bar",
-                "data": {
-                    "labels": ["January", "February", "March", "April"],
-                    "datasets": [{
-                        "label": "Page Impressions",
-                        "data": [10, 20, 30, 40],
-                        "borderColor": "rgb(255, 99, 132)",
-                        "backgroundColor": "rgba(255, 99, 132, 0.2)"
-                    }, {
-                        "label": "Adsense Clicks",
-                        "data": [5, 15, 10, 30],
-                        "type": "line",
-                        "fill": false,
-                        "borderColor": "rgb(54, 162, 235)"
-                    }]
-                },
-                "options": {
-                    "scales": {
-                        "yAxes": [{
-                            "ticks": {
-                                "beginAtZero": true
-                            }
-                        }]
-                    }
-                }
-            });
-                    </script>
-                </div>
-            </div>
-            <!--/Graph Card-->
-        </div>
-
-        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-            <!--Graph Card-->
-            <div class="bg-white border-transparent rounded-lg shadow-xl">
-                <div
-                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                    <h2 class="font-bold uppercase text-gray-600">Graph</h2>
-                </div>
-                <div class="p-5">
-                    <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
-                    <script>
-                        new Chart(document.getElementById("chartjs-0"), {
-                "type": "line",
-                "data": {
-                    "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                    "datasets": [{
-                        "label": "Views",
-                        "data": [65, 59, 80, 81, 56, 55, 40],
-                        "fill": false,
-                        "borderColor": "rgb(75, 192, 192)",
-                        "lineTension": 0.1
-                    }]
-                },
-                "options": {}
-            });
-                    </script>
-                </div>
-            </div>
-            <!--/Graph Card-->
-        </div>
-
-        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-            <!--Graph Card-->
-            <div class="bg-white border-transparent rounded-lg shadow-xl">
-                <div
-                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                    <h2 class="font-bold uppercase text-gray-600">Graph</h2>
-                </div>
-                <div class="p-5">
-                    <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
-                    <script>
-                        new Chart(document.getElementById("chartjs-1"), {
-                "type": "bar",
-                "data": {
-                    "labels": ["January", "February", "March", "April", "May", "June", "July"],
-                    "datasets": [{
-                        "label": "Likes",
-                        "data": [65, 59, 80, 81, 56, 55, 40],
-                        "fill": false,
-                        "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
-                        "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
-                        "borderWidth": 1
-                    }]
-                },
-                "options": {
-                    "scales": {
-                        "yAxes": [{
-                            "ticks": {
-                                "beginAtZero": true
-                            }
-                        }]
-                    }
-                }
-            });
-                    </script>
-                </div>
-            </div>
-            <!--/Graph Card-->
-        </div>
-
-        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-            <!--Graph Card-->
-            <div class="bg-white border-transparent rounded-lg shadow-xl">
-                <div
-                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
-                    <h5 class="font-bold uppercase text-gray-600">Graph</h5>
-                </div>
-                <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined" height="undefined"></canvas>
-                    <script>
-                        new Chart(document.getElementById("chartjs-4"), {
-                "type": "doughnut",
-                "data": {
-                    "labels": ["P1", "P2", "P3"],
-                    "datasets": [{
-                        "label": "Issues",
-                        "data": [300, 50, 100],
-                        "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
-                    }]
-                }
-            });
-                    </script>
-                </div>
-            </div>
-            <!--/Graph Card-->
-        </div>
-
-
-    </div>
     @endsection

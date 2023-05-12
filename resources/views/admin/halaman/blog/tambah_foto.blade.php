@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tambah Foto Detail Blog')
+@section('title', 'Tambah Foto blog blog Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
@@ -62,13 +62,13 @@
                                 <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white text-center">
                                     <input type="text" id="blog_h1"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_h1') is-invalid @enderror"
-                                        name="blog_h1" placeholder="Judul Foto.." value="" required
-                                        autocomplete="blog_h1" autofocus>
+                                        name="blog_h1" placeholder="Keterangan Foto.." value="" autocomplete="blog_h1"
+                                        autofocus>
                                 </h3>
                                 <p class="font-medium text-base text-secondary text-justify">
-                                    <textarea type="text" id="blog_p1" name="blog_p1"
+                                    <textarea type="text" id="editor1" name="blog_p1"
                                         class="w-full text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96"
-                                        placeholder="Deskripsi Foto.." required></textarea>
+                                        placeholder="Deskripsi Foto.."></textarea>
                                 </p>
 
                             </div>
@@ -83,6 +83,16 @@
     </div>
 
 </form>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
 

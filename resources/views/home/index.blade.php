@@ -104,7 +104,7 @@
       <div class="max-w-xl mx-auto text-center mb-16">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4> --}}
         <h2 class="font-bold text-dark  mb-4 text-3xl sm:text-4xl lg:text-5xl hover:text-primary"><a
-            href="/blog">PENGUMUMAN</a></h2>
+            href="/blog">{{$beranda->pengumuman_h1}}</a></h2>
         <hr>
         {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p> --}}
       </div>
@@ -152,13 +152,13 @@
     <div class="flex flex-wrap">
       <div class="w-full px-4 mb-10 lg:w-1/2">
         {{-- <h4 class="font-bold uppercase text-primary text-lg mb-3">{{$beranda->about_h1}}</h4> --}}
-        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">TEMUI KAMI DI INSTAGRAM
+        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">{{$beranda->ig_h1}}
         </h3>
         <div class="w-full px-4 aspect-video">
 
           {{-- instagram embed code --}}
           <blockquote class="instagram-media w-full" data-instgrm-captioned
-            data-instgrm-permalink="https://www.instagram.com/p/Ck3kfIPPEVS/?utm_source=ig_embed&amp;utm_campaign=loading"
+            data-instgrm-permalink="https://www.instagram.com/p/{{$beranda->link_ig}}/?utm_source=ig_embed&amp;utm_campaign=loading"
             data-instgrm-version="14"
             style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
           </blockquote>
@@ -168,10 +168,10 @@
         </div>
       </div>
       <div class="w-full px-4 lg:w-1/2">
-        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">TEMUI KAMI DI YOUTUBE
+        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">{{$beranda->yt_h1}}
         </h3>
         <div class="w-full px-4 aspect-video">
-          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/s9AtzO8r1WI"></iframe>
+          <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/{{$beranda->link_yt}}"></iframe>
         </div>
       </div>
     </div>
@@ -185,8 +185,8 @@
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4> --}}
-        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4 hover:text-primary"><a href="/blog">BERITA
-            TERBARU</a></h2>
+        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4 hover:text-primary"><a
+            href="/blog">{{$beranda->berita_h1}}</a></h2>
         <hr>
         {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p> --}}
       </div>
@@ -260,7 +260,7 @@
       <div class="max-w-xl mx-auto text-center mb-16">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->galeri_h1}}</h4> --}}
         <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl hover:text-primary"><a
-            href="/galeri">GALERI TENANT</a>
+            href="/galeri">{{$beranda->galeri_h1}}</a>
         </h3>
         <hr>
         {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->galeri_p1}}</p> --}}
@@ -342,7 +342,7 @@
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->kontak_h1}}</h4> --}}
-        <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">LOKASI KANTOR
+        <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$beranda->lokasi_h1}}
         </h3>
         <hr>
         {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->kontak_p1}}</p> --}}

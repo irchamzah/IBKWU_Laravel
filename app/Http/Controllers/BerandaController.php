@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Beranda;
+use App\Models\DetailBlog;
+use App\Models\DetailProduk;
 use App\Models\Mitra;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -13,7 +15,10 @@ class BerandaController extends Controller
     {
         $beranda = Beranda::first();
         $mitras = Mitra::all();
-        return view('admin.halaman.beranda.index', compact('beranda', 'mitras'));
+        $post_pengumumans = DetailBlog::where('kategori_blog_id', '8')->orderBy('id', 'desc')->paginate(3);
+        $post_beritas = DetailBlog::where('kategori_blog_id', '6')->orderBy('id', 'desc')->paginate(3);
+        $detail_produks = DetailProduk::orderBy('id', 'desc')->paginate(9);
+        return view('admin.halaman.beranda.index', compact('beranda', 'mitras', 'post_pengumumans', 'post_beritas', 'detail_produks'));
     }
 
     public function update(Request $request, $id)
@@ -21,121 +26,53 @@ class BerandaController extends Controller
         // dd($request->home_img1);
         //validasi data
         $rules = [
-            'home_h1' => 'required|string|max:255',
-            'home_p1' => 'required', 'string',
-            'home_img1' => 'max:5000|mimes:jpeg,png,jpg,svg',
-            'about_h1' => 'required|string|max:255',
-            'about_h2' => 'required|string|max:255',
-            'about_p1' => 'required', 'string',
-            'about_h3' => 'required|string|max:255',
-            'about_p2' => 'required', 'string',
-            'galeri_h1' => 'required|string|max:255',
-            'galeri_h2' => 'required|string|max:255',
-            'galeri_p1' => 'required', 'string',
-            'mitra_h1' => 'required|string|max:255',
-            'mitra_h2' => 'required|string|max:255',
-            'mitra_p1' => 'required', 'string',
-            'blog_h1' => 'required|string|max:255',
-            'blog_h2' => 'required|string|max:255',
-            'blog_p1' => 'required', 'string',
-            'kontak_h1' => 'required|string|max:255',
-            'kontak_h2' => 'required|string|max:255',
-            'kontak_p1' => 'required', 'string',
+            'pengumuman_h1' => 'required|string|max:255',
+            'ig_h1' => 'required', 'string',
+            'link_ig' => 'required|string|max:255',
+            'yt_h1' => 'required|string|max:255',
+            'link_yt' => 'required', 'string',
+            'berita_h1' => 'required|string|max:255',
+            'galeri_h1' => 'required', 'string',
+            'lokasi_h1' => 'required|string|max:255',
         ];
         $message = [
-            'home_h1.required' => 'Tidak Boleh Kosong',
-            'home_h1.string' => 'Harus Berupa String',
+            'pengumuman_h1.required' => 'Tidak Boleh Kosong',
+            'pengumuman_h1.string' => 'Harus Berupa String',
 
-            'home_p1.required' => 'Tidak Boleh Kosong',
-            'home_p1.string' => 'Harus Berupa String',
+            'ig_h1.required' => 'Tidak Boleh Kosong',
+            'ig_h1.string' => 'Harus Berupa String',
 
-            'home_img1.max' => ' Ukuran File Terlalu Besar',
-            'home_img1.mimes' => ' File Format Harus jpeg,png,jpg',
+            'link_ig.required' => 'Tidak Boleh Kosong',
+            'link_ig.string' => 'Tidak Boleh Kosong',
 
-            'about_h1.required' => 'Tidak Boleh Kosong',
-            'about_h1.string' => 'Tidak Boleh Kosong',
+            'yt_h1.required' => 'Tidak Boleh Kosong',
+            'yt_h1.string' => 'Harus Berupa String',
 
-            'about_h2.required' => 'Tidak Boleh Kosong',
-            'about_h2.string' => 'Harus Berupa String',
+            'link_yt.required' => 'Tidak Boleh Kosong',
+            'link_yt.string' => 'Harus Berupa String',
 
-            'about_p1.required' => 'Tidak Boleh Kosong',
-            'about_p1.string' => 'Harus Berupa String',
-
-            'about_h3.required' => 'Tidak Boleh Kosong',
-            'about_h3.string' => 'Harus Berupa String',
-
-            'about_p2.required' => 'Tidak Boleh Kosong',
-            'about_p2.string' => 'Harus Berupa String',
+            'berita_h1.required' => 'Tidak Boleh Kosong',
+            'berita_h1.string' => 'Harus Berupa String',
 
             'galeri_h1.required' => 'Tidak Boleh Kosong',
             'galeri_h1.string' => 'Harus Berupa String',
 
-            'galeri_h2.required' => 'Tidak Boleh Kosong',
-            'galeri_h2.string' => 'Harus Berupa String',
-
-            'galeri_p1.required' => 'Tidak Boleh Kosong',
-            'galeri_p1.string' => 'Harus Berupa String',
-
-            'mitra_h1.required' => 'Tidak Boleh Kosong',
-            'mitra_h1.string' => 'Harus Berupa String',
-
-            'mitra_h2.required' => 'Tidak Boleh Kosong',
-            'mitra_h2.string' => 'Harus Berupa String',
-
-            'mitra_p1.required' => 'Tidak Boleh Kosong',
-            'mitra_p1.string' => 'Harus Berupa String',
-
-            'blog_h1.required' => 'Tidak Boleh Kosong',
-            'blog_h1.string' => 'Harus Berupa String',
-
-            'blog_h2.required' => 'Tidak Boleh Kosong',
-            'blog_h2.string' => 'Harus Berupa String',
-
-            'blog_p1.required' => 'Tidak Boleh Kosong',
-            'blog_p1.string' => 'Harus Berupa String',
-
-            'kontak_h1.required' => 'Tidak Boleh Kosong',
-            'kontak_h1.string' => 'Harus Berupa String',
-
-            'kontak_h2.required' => 'Tidak Boleh Kosong',
-            'kontak_h2.string' => 'Harus Berupa String',
-
-            'kontak_p1.required' => 'Tidak Boleh Kosong',
-            'kontak_p1.string' => 'Harus Berupa String',
-
+            'lokasi_h1.required' => 'Tidak Boleh Kosong',
+            'lokasi_h1.string' => 'Harus Berupa String',
 
         ];
         $this->validate($request, $rules, $message);
 
         //simpan ke database beranda
         $beranda = Beranda::where('id', $request->id)->first();
-        $beranda->home_h1 = $request->home_h1;
-        $beranda->home_p1 = $request->home_p1;
-        if (!empty($request->home_img1)) {
-            if (\File::exists(public_path('img/beranda/') . $beranda->home_img1)) {
-                \File::delete(public_path('img/beranda/') . $beranda->home_img1);
-            }
-            $fileName = date('Ymd') . time() . '.' . $request->home_img1->extension();
-            $request->file('home_img1')->move(public_path('img/beranda'), $fileName);
-            $beranda->home_img1 = $fileName;
-        }
-        $beranda->about_h1 = $request->about_h1;
-        $beranda->about_h2 = $request->about_h2;
-        $beranda->about_p1 = $request->about_p1;
-        $beranda->about_h3 = $request->about_h3;
-        $beranda->about_p2 = $request->about_p2;
+        $beranda->pengumuman_h1 = $request->pengumuman_h1;
+        $beranda->ig_h1 = $request->ig_h1;
+        $beranda->link_ig = $request->link_ig;
+        $beranda->yt_h1 = $request->yt_h1;
+        $beranda->link_yt = $request->link_yt;
+        $beranda->berita_h1 = $request->berita_h1;
         $beranda->galeri_h1 = $request->galeri_h1;
-        $beranda->galeri_h2 = $request->galeri_h2;
-        $beranda->galeri_p1 = $request->galeri_p1;
-        $beranda->mitra_h1 = $request->mitra_h1;
-        $beranda->mitra_h2 = $request->mitra_h2;
-        $beranda->mitra_p1 = $request->mitra_p1;
-        $beranda->blog_h1 = $request->blog_h1;
-        $beranda->blog_h2 = $request->blog_h2;
-        $beranda->blog_p1 = $request->blog_p1;
-        $beranda->kontak_h1 = $request->kontak_h1;
-        $beranda->kontak_h2 = $request->kontak_h2;
-        $beranda->kontak_p1 = $request->kontak_p1;
+        $beranda->lokasi_h1 = $request->lokasi_h1;
         $beranda->update();
 
         return Redirect::route('admin.halaman.beranda')->with('message', 'Halaman Beranda Berhasil Diperbarui');
@@ -173,7 +110,7 @@ class BerandaController extends Controller
 
         $beranda = Beranda::first();
         $mitras = Mitra::all();
-        return view('admin.halaman.beranda.index', compact('beranda', 'mitras'));
+        return Redirect::route('admin.halaman.footer')->with('message', 'Mitra Berhasil Ditambahkan');
     }
 
     public function edit_mitra($id)
@@ -213,7 +150,7 @@ class BerandaController extends Controller
 
         $beranda = Beranda::first();
         $mitras = Mitra::all();
-        return view('admin.halaman.beranda.index', compact('beranda', 'mitras'));
+        return Redirect::route('admin.halaman.footer')->with('message', 'Mitra Berhasil Diperbarui');
     }
 
     public function destroy(Request $request)
@@ -227,21 +164,6 @@ class BerandaController extends Controller
 
         $beranda = Beranda::first();
         $mitras = Mitra::all();
-        return view('admin.halaman.beranda.index', compact('beranda', 'mitras'));
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
+        return Redirect::route('admin.halaman.footer')->with('message', 'Mitra Berhasil Dihapus');
     }
 }

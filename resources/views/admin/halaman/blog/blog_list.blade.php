@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit Galeri Tenant')
+@section('title', 'Edit blog Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
@@ -11,16 +11,16 @@
 
 
 
-    <form id="saveForm" action="{{route('admin.halaman.galeri.update', $galeri->id)}}" method="POST"
+    <form id="saveForm" action="{{route('admin.halaman.blog.update', $blog->id)}}" method="POST"
         enctype="multipart/form-data">
         @csrf
     </form>
 
-    <form id="searchForm" action="{{ route('admin.halaman.galeri.search')}}" method="GET">
+    <form id="searchForm" action="{{ route('admin.halaman.blog.search')}}" method="GET">
         @csrf
     </form>
 
-    <form id="filterForm" action="{{ route('admin.halaman.galeri.filter')}}" method="GET">
+    <form id="filterForm" action="{{ route('admin.halaman.blog.filter')}}" method="GET">
         @csrf
     </form>
 
@@ -84,37 +84,36 @@
                                     <span class="bg-gradient-to-r from-purple-500 to-pink-500 text-dark bg-clip-text">
                                         <input form="saveForm" type="text" id="sorotan_h1"
                                             class="block border border-grey-light w-full p-3 rounded mb-4 @error('sorotan_h1') is-invalid @enderror"
-                                            name="sorotan_h1" value="{{$galeri->sorotan_h1}}" required
+                                            name="sorotan_h1" value="{{$blog->sorotan_h1}}" required
                                             autocomplete="sorotan_h1" autofocus></span>
                                 </h2>
                                 <hr>
                             </div>
                         </div>
 
-
                         <div class="flex flex-wrap">
 
-                            @if ($rekomendasiGaleris->count())
-                            @foreach($rekomendasiGaleris as $rekomendasiGaleri)
+                            @if ($rekomendasiBlogs->count())
+                            @foreach($rekomendasiBlogs as $rekomendasiBlog)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                                    <img src="/img/detail_produk/{{$rekomendasiGaleri->detail_produk_img}}"
-                                        alt="Programming" class="h-64 w-full object-cover">
+                                    <img src="/img/detail_blog/{{$rekomendasiBlog->detail_blog_img}}" alt="Programming"
+                                        class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>
-                                            <a href="{{route('admin.halaman.galeri.edit_produk', $rekomendasiGaleri->id)}}"
-                                                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate">{{$rekomendasiGaleri->judul_h1}}</a>
+                                            <a href="{{route('admin.halaman.blog.edit_blog', $rekomendasiBlog->id)}}"
+                                                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate">{{$rekomendasiBlog->judul_h1}}</a>
                                         </h3>
                                         <small class="text-slate-400 dark:text-slate-600">{{
-                                            $rekomendasiGaleri->created_at->diffForHumans()}} |
-                                            {{$rekomendasiGaleri->kategori_galeri->kategori}}
+                                            $rekomendasiBlog->created_at->diffForHumans()}} |
+                                            {{$rekomendasiBlog->kategori_blog->kategori}}
                                         </small>
                                         <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
-                                            {!!$rekomendasiGaleri->deskripsi_p1!!}
+                                            {!!$rekomendasiBlog->deskripsi_p1!!}
                                         </div>
-                                        <a href="{{route('admin.halaman.galeri.edit_produk', $rekomendasiGaleri->id)}}"
+                                        <a href="{{route('admin.halaman.blog.edit_blog', $rekomendasiBlog->id)}}"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
-                                        <a href="{{route('admin.halaman.galeri.delete_produk', $rekomendasiGaleri->id)}}"
+                                        <a href="{{route('admin.halaman.blog.delete_blog', $rekomendasiBlog->id)}}"
                                             class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
                                     </div>
                                 </div>
@@ -123,31 +122,32 @@
                             @else
                             <p
                                 class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
-                                Belum ada produk yang disorot</p>
+                                Belum ada blog yang disorot</p>
                             @endif
 
                         </div>
 
                         <div class="w-full sm:w-96 mx-auto">
                             <div class="mt-4">
-                                {{ $rekomendasiGaleris->links() }}
+                                {{ $rekomendasiBlogs->links() }}
                             </div>
                         </div>
+
 
                     </div>
                 </section>
                 {{-- Rekomendasi Tenant Section End --}}
 
-                {{-- Galeri Tenant Section Start --}}
+                {{-- blog Tenant Section Start --}}
                 <section id="tenant" class="pt-36 pb-32 bg-slate-100 dark:bg-slate-800">
                     <div class="container">
                         <div class="w-full px-4">
                             <div class="max-w-xl mx-auto text-center mb-10">
                                 <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">
-                                    <input form="saveForm" type="text" id="galeri_h1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('galeri_h1') is-invalid @enderror"
-                                        name="galeri_h1" value="{{$galeri->galeri_h1}}" required
-                                        autocomplete="galeri_h1" autofocus>
+                                    <input form="saveForm" type="text" id="blog_h1"
+                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('blog_h1') is-invalid @enderror"
+                                        name="blog_h1" value="{{$blog->blog_h1}}" required autocomplete="blog_h1"
+                                        autofocus>
                                 </h2>
                                 <hr>
                             </div>
@@ -157,8 +157,7 @@
                                     <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                                         <input form="searchForm" name="query" type="text"
                                             class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
-                                            placeholder="Cari Produk" aria-label="Search"
-                                            aria-describedby="searchForm" />
+                                            placeholder="Cari blog" aria-label="Search" aria-describedby="searchForm" />
                                         <button form="searchForm"
                                             class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
                                             type="submit" id="searchForm" data-te-ripple-init
@@ -193,7 +192,7 @@
                                             class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
                                             Filter
                                         </button>
-                                        <a href="{{route('admin.halaman.galeri.show_kategori')}}"
+                                        <a href="{{route('admin.halaman.blog.show_kategori')}}"
                                             class=" flex items-center rounded bg-secondary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg ml-1">Edit</a>
                                     </div>
                                 </div>
@@ -203,23 +202,23 @@
 
 
                         <div class="flex flex-wrap">
-                            @if ($detail_produks->count())
-                            @foreach($detail_produks as $detail_produk)
+                            @if ($detail_blogs->count())
+                            @foreach($detail_blogs as $detail_blog)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                                 <div class="bg-white rounded shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Gambar"
+                                    <img src="/img/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Gambar"
                                         class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>
-                                            <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
-                                                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_produk->judul_h1}}</a>
+                                            <a href="{{route('admin.halaman.blog.edit_blog', $detail_blog->id)}}"
+                                                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_blog->judul_h1}}</a>
                                         </h3>
                                         <div
                                             class="font-medium text-base text-secondary mb-6 truncate hover:text-clip max-h-20">
-                                            {!!$detail_produk->deskripsi_p1!!}</div>
-                                        <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
+                                            {!!$detail_blog->deskripsi_p1!!}</div>
+                                        <a href="{{route('admin.halaman.blog.edit_blog', $detail_blog->id)}}"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>
-                                        <a href="{{route('admin.halaman.galeri.delete_produk', $detail_produk->id)}}"
+                                        <a href="{{route('admin.halaman.blog.delete_blog', $detail_blog->id)}}"
                                             class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80">Hapus</a>
                                     </div>
                                 </div>
@@ -228,25 +227,19 @@
                             @else
                             <p
                                 class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
-                                Produk
+                                blog
                                 tidak tersedia.</p>
                             @endif
                         </div>
 
-                        <div class="w-full sm:w-96 mx-auto">
-                            <div class="mt-4">
-                                {{ $detail_produks->links() }}
-                            </div>
-                        </div>
-
                         <!--Metric Card-->
                         <div class="w-min mx-auto">
-                            <a href="/admin/halaman/galeri/tambah_produk">
+                            <a href="/admin/halaman/blog/tambah_blog">
                                 <div
                                     class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mt-10  block mx-auto w-full sm:w-96">
                                     <div class="flex flex-row items-center justify-center">
                                         <div class="text-center">
-                                            <h2 class="font-bold uppercase">Tambah Produk Baru</h2>
+                                            <h2 class="font-bold uppercase">Tambah blog Baru</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -255,10 +248,153 @@
                         <!--/Metric Card-->
                     </div>
                 </section>
-                {{-- Galeri Tenant Section End --}}
+                {{-- blog Tenant Section End --}}
 
             </div>
         </div>
+    </div>
+
+    <div class="flex flex-row flex-wrap flex-grow mt-2 opacity-0">
+
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+            <!--Graph Card-->
+            <div class="bg-white border-transparent rounded-lg shadow-xl">
+                <div
+                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                    <h class="font-bold uppercase text-gray-600">Graph</h>
+                </div>
+                <div class="p-5">
+                    <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
+                    <script>
+                        new Chart(document.getElementById("chartjs-7"), {
+                    "type": "bar",
+                    "data": {
+                        "labels": ["January", "February", "March", "April"],
+                        "datasets": [{
+                            "label": "Page Impressions",
+                            "data": [10, 20, 30, 40],
+                            "borderColor": "rgb(255, 99, 132)",
+                            "backgroundColor": "rgba(255, 99, 132, 0.2)"
+                        }, {
+                            "label": "Adsense Clicks",
+                            "data": [5, 15, 10, 30],
+                            "type": "line",
+                            "fill": false,
+                            "borderColor": "rgb(54, 162, 235)"
+                        }]
+                    },
+                    "options": {
+                        "scales": {
+                            "yAxes": [{
+                                "ticks": {
+                                    "beginAtZero": true
+                                }
+                            }]
+                        }
+                    }
+                });
+                    </script>
+                </div>
+            </div>
+            <!--/Graph Card-->
+        </div>
+
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+            <!--Graph Card-->
+            <div class="bg-white border-transparent rounded-lg shadow-xl">
+                <div
+                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                    <h2 class="font-bold uppercase text-gray-600">Graph</h2>
+                </div>
+                <div class="p-5">
+                    <canvas id="chartjs-0" class="chartjs" width="undefined" height="undefined"></canvas>
+                    <script>
+                        new Chart(document.getElementById("chartjs-0"), {
+                    "type": "line",
+                    "data": {
+                        "labels": ["January", "February", "March", "April", "May", "June", "July"],
+                        "datasets": [{
+                            "label": "Views",
+                            "data": [65, 59, 80, 81, 56, 55, 40],
+                            "fill": false,
+                            "borderColor": "rgb(75, 192, 192)",
+                            "lineTension": 0.1
+                        }]
+                    },
+                    "options": {}
+                });
+                    </script>
+                </div>
+            </div>
+            <!--/Graph Card-->
+        </div>
+
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+            <!--Graph Card-->
+            <div class="bg-white border-transparent rounded-lg shadow-xl">
+                <div
+                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                    <h2 class="font-bold uppercase text-gray-600">Graph</h2>
+                </div>
+                <div class="p-5">
+                    <canvas id="chartjs-1" class="chartjs" width="undefined" height="undefined"></canvas>
+                    <script>
+                        new Chart(document.getElementById("chartjs-1"), {
+                    "type": "bar",
+                    "data": {
+                        "labels": ["January", "February", "March", "April", "May", "June", "July"],
+                        "datasets": [{
+                            "label": "Likes",
+                            "data": [65, 59, 80, 81, 56, 55, 40],
+                            "fill": false,
+                            "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
+                            "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(54, 162, 235)", "rgb(153, 102, 255)", "rgb(201, 203, 207)"],
+                            "borderWidth": 1
+                        }]
+                    },
+                    "options": {
+                        "scales": {
+                            "yAxes": [{
+                                "ticks": {
+                                    "beginAtZero": true
+                                }
+                            }]
+                        }
+                    }
+                });
+                    </script>
+                </div>
+            </div>
+            <!--/Graph Card-->
+        </div>
+
+        <div class="w-full md:w-1/2 xl:w-1/3 p-6">
+            <!--Graph Card-->
+            <div class="bg-white border-transparent rounded-lg shadow-xl">
+                <div
+                    class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                    <h5 class="font-bold uppercase text-gray-600">Graph</h5>
+                </div>
+                <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined" height="undefined"></canvas>
+                    <script>
+                        new Chart(document.getElementById("chartjs-4"), {
+                    "type": "doughnut",
+                    "data": {
+                        "labels": ["P1", "P2", "P3"],
+                        "datasets": [{
+                            "label": "Issues",
+                            "data": [300, 50, 100],
+                            "backgroundColor": ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 205, 86)"]
+                        }]
+                    }
+                });
+                    </script>
+                </div>
+            </div>
+            <!--/Graph Card-->
+        </div>
+
+
     </div>
 
     @endsection

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tambah Detail Blog')
+@section('title', 'Tambah blog blog Tenant')
 @section('menu-1', 'border-gray-800')
 @section('menu-2', 'border-gray-800')
 @section('menu-3', 'border-purple-500 text-purple-500')
@@ -56,80 +56,100 @@
             <div class=" rounded-lg shadow-xl p-5">
 
                 {{-- Tentang Section Start --}}
-                <section id="tentang" class="pt-36 pb-16 dark:bg-dark">
-                    <div class="container">
+                <section id="tentang" class="pt-36 pb-16 bg-white">
+                    <div class="sm:container">
                         <div class="w-full px-4">
-                            <div class="max-w-5xl mx-auto text-center mb-6">
-                                <h4 class="font-semibold text-lg text-primary mb-2">Detail blog</h4>
-                                <h2 class="font-bold text-dark text-3xl mb-12 sm:text-4xl lg:text-5xl dark:text-white">
-                                    @error('judul_h1')
-                                    <small style="color: red">{{$message}}</small>
-                                    @enderror
-                                    <input type="text" id="judul_h1"
-                                        class="block border border-grey-light w-full p-3 rounded mb-4 @error('judul_h1') is-invalid @enderror"
-                                        name="judul_h1" placeholder="Judul blog.." required autocomplete="judul_h1"
-                                        autofocus>
-                                </h2>
-                                <div class="w-full flex flex-wrap">
-                                    <div class="w-full px-4 lg:w-1/2 aspect-video">
-                                        <div class="text-left font-semibold">Pilih Foto Cover</div>
-                                        @error('detail_blog_img')
-                                        <small style="color: red">{{$message}}</small>
-                                        @enderror
-                                        <input type="file"
-                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('detail_blog_img') is-invalid @enderror"
-                                            name="detail_blog_img" accept="image/*" required>
-                                    </div>
-                                    <div class="w-full px-4 lg:w-1/2 aspect-video">
-                                        <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
-                                        @error('link_yt')
-                                        <small style="color: red">{{$message}}</small>
-                                        @enderror
-                                        <input type="text" id="link_yt" name="link_yt"
-                                            class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_yt') is-invalid @enderror"
-                                            required autocomplete="link_yt" autofocus placeholder="Kode Link Youtube..">
-                                    </div>
-                                </div>
-                                <div class="w-52 my-10 text-left">
-                                    <label for="kategori" class="">Pilih Kategori blog</label>
-                                    <select name="kategori" id="kategori"
-                                        class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500">
+                            <div class="max-w-5xl mx-auto mb-6">
 
-                                        @foreach ($kategoris as $kategori)
-                                        <option value="{{$kategori->id}}"
-                                            class="block px-4 py-2 text-sm text-{{$kategori->kategori}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
-                                            role="menuitem" @if($kategori->kategori == '{{$kategori->kategori}}')
-                                            selected
-                                            @endif>{{$kategori->kategori}}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="shadow-md p-4">
+                                    <div><a href="#" class="text-primary hover:text-dark">Home</a> /
+                                    </div>
                                 </div>
-                                <div class="font-medium text-md text-secondary md:text-lg text-justify mb-2">
-                                    @error('deskripsi_p1')
-                                    <small style="color: red">{{$message}}</small>
-                                    @enderror
-                                    <textarea type="text" id="editor1" name="deskripsi_p1"
-                                        class="w-full text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96"
-                                        placeholder="Deskripsi blog.."></textarea>
+
+                                <div class="flex flex-wrap">
+
+                                    <div class="w-full p-4 lg:w-3/4">
+                                        <h1 class="font-bold text-3xl my-5 text-justify">
+                                            @error('judul_h1')
+                                            <small style="color: red">{{$message}}</small>
+                                            @enderror
+                                            <input type="text" id="judul_h1"
+                                                class="block border border-grey-light w-full p-3 rounded mb-4 @error('judul_h1') is-invalid @enderror"
+                                                name="judul_h1" placeholder="Judul blog.." required
+                                                autocomplete="judul_h1" autofocus>
+                                        </h1>
+                                        <hr>
+                                        <small class="text-slate-400">
+                                            ... |
+                                            ...
+                                        </small>
+
+                                        @error('deskripsi_p1')
+                                        <small style="color: red">{{$message}}</small>
+                                        @enderror
+                                        <div class="font-medium text-base text-dark text-justify mt-7 mb-3">
+                                            <textarea type="text" id="editor1" name="deskripsi_p1"
+                                                class="w-full p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96"></textarea>
+                                        </div>
+
+                                        <!--Metric Card-->
+                                        <div class="w-min mx-auto">
+                                            <button href="/admin/halaman/blog/edit_blog/tambah_foto">
+                                                <div
+                                                    class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mb-10 w-full block mx-auto sm:w-96">
+                                                    <div class="flex flex-row items-center justify-center">
+                                                        <div class="text-center">
+                                                            <h2 class="font-bold uppercase">Tambah Foto</h2>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </div>
+                                        <!--/Metric Card-->
+
+                                        <hr class="mt-5">
+                                    </div>
+
+                                    <div class="w-full p-4 lg:w-1/4">
+                                        <div class="">
+
+                                            <h1 class="text-base mb-4 mt-7">Foto Sampul :</h1>
+                                            <input type="file"
+                                                class="block border border-grey-light w-full p-3 rounded mb-4 @error('detail_blog_img') is-invalid @enderror"
+                                                name="detail_blog_img" accept="image/*" required>
+
+                                            <h1 class="text-base mb-4 mt-7">Video :</h1>
+                                            <div class="w-full mb-10">
+                                                <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
+                                                @error('link_yt')
+                                                <small style="color: red">{{$message}}</small>
+                                                @enderror
+                                                <input type="text" id="link_yt"
+                                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_yt') is-invalid @enderror"
+                                                    name="link_yt" placeholder="Kode link youtube.." required
+                                                    autocomplete="link_yt" autofocus>
+                                            </div>
+
+                                            <h1 class="text-base mb-4 mt-7">Pilih Kategori blog :</h1>
+                                            <select name="kategori" id="kategori"
+                                                class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500 mb-10">
+
+                                                @foreach ($kategoris as $kategori)
+                                                <option value="{{$kategori->id}}"
+                                                    class="block px-4 py-2 text-sm text-{{$kategori->kategori}}-500 hover:bg-gray-100 hover:text-gray-900 capitalize"
+                                                    role="menuitem" @if($kategori->kategori ==
+                                                    '{{$kategori->kategori}}')
+                                                    selected
+                                                    @endif>{{$kategori->kategori}}</option>
+                                                @endforeach
+                                            </select>
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-
-                        <!--Metric Card-->
-
-                        <button
-                            class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mb-10 block mx-auto w-full sm:w-96">
-                            <a href="/admin/halaman/blog/edit_blog/tambah_foto">
-                                <div class="flex flex-row items-center justify-center">
-                                    <div class="text-right md:text-center">
-                                        <h2 class="font-bold uppercase">Tambah Foto</h2>
-                                    </div>
-                                </div>
-                            </a>
-                        </button>
-                        <!--/Metric Card-->
-
-
                     </div>
                 </section>
                 {{-- Tentang Section End --}}

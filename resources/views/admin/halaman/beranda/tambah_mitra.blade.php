@@ -15,7 +15,7 @@
 
             <!--Metric Card-->
             <div class="w-min">
-                <a href="/admin/halaman/beranda">
+                <a href="/admin/halaman/footer">
                     <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
                             <div class="text-right md:text-center">
