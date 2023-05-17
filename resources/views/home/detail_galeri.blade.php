@@ -42,7 +42,7 @@
             @foreach($foto_produks as $foto_produk)
             <div class="mb-12 w-full">
               <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
-                <img src="/img/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
+                <img src="/image/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
               </div>
               <h3 class="font-semibold text-sm text-dark mt-5 mb-3 text-center">
                 {{$foto_produk->produk_h1}}</h3>

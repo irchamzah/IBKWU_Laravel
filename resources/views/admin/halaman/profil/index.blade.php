@@ -30,7 +30,7 @@
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Simpan Perubahan</h2>
+                        <h2 class="font-bold uppercase">Simpan</h2>
                     </div>
                 </div>
             </button>
@@ -212,7 +212,7 @@
                         <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                             <div class="mb-12 p-4">
                                 <div class="rounded-md shadow-md overflow-hidden">
-                                    <img src="/img/profil/{{$profil->struktur_img1}}" alt="" width="w-full">
+                                    <img src="/image/profil/{{$profil->struktur_img1}}" alt="" width="w-full">
                                     <input type="file"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('struktur_img1') is-invalid @enderror"
                                         name="struktur_img1" accept="image/*">

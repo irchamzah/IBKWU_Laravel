@@ -83,7 +83,7 @@
                                     Profil</label>
 
                                 <div class="col-md-6">
-                                    <img src="/img/fotoadmin/{{$user->image}}" alt="" class="im-fluid" width="90">
+                                    <img src="/image/fotoadmin/{{$user->image}}" alt="" class="im-fluid" width="90">
                                     <input type="file"
                                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('image') is-invalid @enderror"
                                         name="image" accept="image/*">

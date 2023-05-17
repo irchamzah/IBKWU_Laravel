@@ -13,13 +13,6 @@
 
     <title>IBKWU - Inkubator Bisnis dan Kewirausahaan</title>
 
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    </script>
 </head>
 
 <body class="font-poppins">
@@ -144,7 +137,7 @@
                         @foreach($mitras as $mitra)
                         <div class="max-w-[120px]  mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
                             <a href="{{$mitra->mitra_link}}" target="_blank">
-                                <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
+                                <img src="/image/mitra/{{$mitra->mitra_img}}" alt="Google"
                                     class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
                             </a>
                         </div>

@@ -55,7 +55,8 @@ class BlogController extends Controller
             ->orderBy('id', 'desc')->paginate(6);
         $blog = Blog::first();
         $kategoris = KategoriBlog::all();
-        return view('admin.halaman.blog.index', compact('detail_blogs', 'query', 'blog', 'kategoris'));
+        $rekomendasiBlogs = DetailBlog::where('kategori_blog_id', '2')->orderBy('id', 'desc')->paginate(3);
+        return view('admin.halaman.blog.index', compact('detail_blogs', 'query', 'blog', 'kategoris', 'rekomendasiBlogs'));
     }
 
     public function filter(Request $request)

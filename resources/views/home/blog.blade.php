@@ -23,12 +23,12 @@
 
 {{-- Rekomendasi Tenant Section Start --}}
 <section id="home" class="pt-36 pb-32 dark:bg-dark">
-  <div class="">
+  <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-16">
         {{-- <h4 class="animate-bounce font-semibold text-lg text-primary mb-2">{{$blog->sorotan_h1}}</h4> --}}
         <h2 class="animate-bounce font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl"><span
-            class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">{{$blog->sorotan_h2}}</span>
+            class="bg-gradient-to-r from-purple-500 to-pink-500 text-transparent bg-clip-text">{{$blog->sorotan_h1}}</span>
         </h2>
         <hr>
         {{-- <div class="font-medium text-md text-secondary md:text-lg">
@@ -44,7 +44,7 @@
       @foreach($rekomendasiblogs as $rekomendasiblog)
       <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-          <img src="/img/detail_blog/{{$rekomendasiblog->detail_blog_img}}" alt="Programming"
+          <img src="/image/detail_blog/{{$rekomendasiblog->detail_blog_img}}" alt="Programming"
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
             <h3>
@@ -87,7 +87,7 @@
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-10">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$blog->blog_h1}}</h4> --}}
-        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$blog->blog_h2}}
+        <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$blog->blog_h1}}
         </h2>
         <hr>
         {{-- <div class="font-medium text-md text-secondary md:text-lg">{{$blog->blog_p1}}</div> --}}
@@ -162,7 +162,7 @@
         @foreach($detail_blogs as $detail_blog)
         <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
           <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-            <img src="/img/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
+            <img src="/image/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
               class="h-64 w-full object-cover">
             <div class="py-8 px-6">
               <h3>

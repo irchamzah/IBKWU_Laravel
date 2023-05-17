@@ -31,7 +31,7 @@
                 <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                     <div class="flex flex-row items-center justify-center">
                         <div class="text-right md:text-center">
-                            <h2 class="font-bold uppercase">Simpan Perubahan</h2>
+                            <h2 class="font-bold uppercase">Simpan</h2>
                         </div>
                     </div>
                 </button>
@@ -87,7 +87,7 @@
                                     @foreach($mitras as $mitra)
                                     <div class="max-w-[120px]  mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
                                         <a href="{{$mitra->mitra_link}}" target="_blank">
-                                            <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
+                                            <img src="/image/mitra/{{$mitra->mitra_img}}" alt="Google"
                                                 class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
                                         </a>
                                         <a href="{{route('admin.halaman.beranda.edit_mitra', $mitra->id)}}"

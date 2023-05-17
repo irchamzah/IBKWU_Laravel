@@ -103,7 +103,7 @@
     <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
       <div class="mb-12 p-4">
         <div class="rounded-md shadow-md overflow-hidden">
-          <img src="/img/profil/{{$profil->struktur_img1}}" alt="" width="w-full">
+          <img src="/image/profil/{{$profil->struktur_img1}}" alt="" width="w-full">
         </div>
       </div>
     </div>

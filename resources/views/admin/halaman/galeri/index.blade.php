@@ -98,7 +98,7 @@
                             @foreach($rekomendasiGaleris as $rekomendasiGaleri)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                                    <img src="/img/detail_produk/{{$rekomendasiGaleri->detail_produk_img}}"
+                                    <img src="/image/detail_produk/{{$rekomendasiGaleri->detail_produk_img}}"
                                         alt="Programming" class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>
@@ -207,15 +207,19 @@
                             @foreach($detail_produks as $detail_produk)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                                 <div class="bg-white rounded shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Gambar"
+                                    <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Gambar"
                                         class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>
                                             <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
-                                                class="block mb-3 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_produk->judul_h1}}</a>
+                                                class="block mb-1 font-semibold text-xl text-dark hover:text-primary hover:dark:text-primary truncate dark:text-white">{{$detail_produk->judul_h1}}</a>
                                         </h3>
+                                        <small class="text-slate-400 dark:text-slate-600">{{
+                                            $detail_produk->created_at->diffForHumans()}} |
+                                            {{$detail_produk->kategori_galeri->kategori}}
+                                        </small>
                                         <div
-                                            class="font-medium text-base text-secondary mb-6 truncate hover:text-clip max-h-20">
+                                            class="font-medium text-base text-secondary mb-6 mt-2 truncate hover:text-clip max-h-20">
                                             {!!$detail_produk->deskripsi_p1!!}</div>
                                         <a href="{{route('admin.halaman.galeri.edit_produk', $detail_produk->id)}}"
                                             class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Edit</a>

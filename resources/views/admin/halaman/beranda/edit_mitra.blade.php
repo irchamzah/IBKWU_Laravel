@@ -47,7 +47,7 @@
                     @error('mitra_img')
                     <small style="color: red">{{$message}}</small>
                     @enderror
-                    <img src="/img/mitra/{{$mitra->mitra_img}}" alt="" class="w-40 h-40">
+                    <img src="/image/mitra/{{$mitra->mitra_img}}" alt="" class="w-40 h-40">
                     <input type="file"
                         class="block border border-grey-light w-full p-3 rounded mb-4 @error('mitra_img') is-invalid @enderror"
                         name="mitra_img" accept="image/*">

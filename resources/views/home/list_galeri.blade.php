@@ -85,7 +85,7 @@
         @foreach($detail_produks as $detail_produk)
         <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
           <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-            <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Programming"
+            <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Programming"
               class="h-64 w-full object-cover">
             <div class="py-8 px-6">
               <h3>

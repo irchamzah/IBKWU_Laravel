@@ -97,7 +97,7 @@
                                         @foreach($foto_produks as $foto_produk)
                                         <div class="mb-12 w-full">
                                             <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
-                                                <img src="/img/foto_produk/{{$foto_produk->produk_img1}}" alt=""
+                                                <img src="/image/foto_produk/{{$foto_produk->produk_img1}}" alt=""
                                                     width="w-full">
                                             </div>
                                             <h3 class="font-semibold text-sm text-dark mt-5 mb-3 text-center">
@@ -137,7 +137,7 @@
                                         <div class="">
 
                                             <h1 class="text-base mb-4 mt-7">Foto Sampul :</h1>
-                                            <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}"
+                                            <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}"
                                                 alt="Programming" class="w-full">
                                             <input type="file"
                                                 class="block border border-grey-light w-full p-3 rounded mb-4 @error('detail_produk_img') is-invalid @enderror"
@@ -147,7 +147,7 @@
                                             <div class="w-full mb-10">
                                                 <iframe class=""
                                                     src="https://www.youtube.com/embed/{{$detail_produk->link_yt}}"></iframe>
-                                                <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
+                                                <img src="/image/contoh_link_yt.png" alt="" class="my-5 mx-auto">
                                                 @error('link_yt')
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror
@@ -212,7 +212,7 @@
                                                 </blockquote>
                                                 <script async src="//www.instagram.com/embed.js"></script>
 
-                                                <img src="/img/contoh_link_ig.png" alt="" class="my-5 mx-auto">
+                                                <img src="/image/contoh_link_ig.png" alt="" class="my-5 mx-auto">
                                                 @error('link_ig')
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror

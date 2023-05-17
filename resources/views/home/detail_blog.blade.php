@@ -50,7 +50,7 @@
             @foreach($foto_blogs as $foto_blog)
             <div class="mb-12 w-full">
               <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
-                <img src="/img/foto_blog/{{$foto_blog->blog_img1}}" alt="" width="w-full">
+                <img src="/image/foto_blog/{{$foto_blog->blog_img1}}" alt="" width="w-full">
               </div>
               <div class="font-semibold text-sm text-dark mt-5 mb-3 text-center">
                 {{$foto_blog->blog_h1}}</div>

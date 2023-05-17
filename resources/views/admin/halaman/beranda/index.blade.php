@@ -30,7 +30,7 @@
             <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
-                        <h2 class="font-bold uppercase">Simpan Perubahan</h2>
+                        <h2 class="font-bold uppercase">Simpan</h2>
                     </div>
                 </div>
             </button>
@@ -80,7 +80,7 @@
                                         <a href="#"
                                             class="border-2 text-white w-min mx-auto px-3 py-1 mt-4 rounded hover:bg-white hover:bg-opacity-20">Selengkapnya</a>
                                     </div>
-                                    <img src="/img/detail_blog/{{$post_pengumuman->detail_blog_img}}"
+                                    <img src="/image/detail_blog/{{$post_pengumuman->detail_blog_img}}"
                                         class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
                                         alt="...">
                                 </div>
@@ -163,7 +163,7 @@
                 @foreach($post_pengumumans as $post_pengumuman)
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="/img/detail_blog/{{$post_pengumuman->detail_blog_img}}" alt="Programming"
+                        <img src="/image/detail_blog/{{$post_pengumuman->detail_blog_img}}" alt="Programming"
                             class="h-64 w-full object-cover">
                         <div class="py-8 px-6">
                             <h3>
@@ -213,7 +213,7 @@
                             style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
                         </blockquote>
                         <script async src="//www.instagram.com/embed.js"></script>
-                        <img src="/img/contoh_link_ig.png" alt="" class="my-3 rounded-lg">
+                        <img src="/image/contoh_link_ig.png" alt="" class="my-3 rounded-lg">
                         <input type="text" id="link_ig"
                             class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_ig') is-invalid @enderror"
                             name="link_ig" value="{{$beranda->link_ig}}" required autocomplete="link_ig" autofocus
@@ -232,7 +232,7 @@
                         <iframe class="w-full aspect-video"
                             src="https://www.youtube.com/embed/{{$beranda->link_yt}}"></iframe>
 
-                        <img src="/img/contoh_link_yt.png" alt="" class="my-3 rounded-lg">
+                        <img src="/image/contoh_link_yt.png" alt="" class="my-3 rounded-lg">
                         <input type="text" id="link_yt"
                             class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_yt') is-invalid @enderror"
                             name="link_yt" value="{{$beranda->link_yt}}" required autocomplete="link_yt" autofocus
@@ -266,11 +266,11 @@
                 @foreach($post_beritas as $post_berita)
                 <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                     <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-                        <img src="/img/detail_blog/{{$post_berita->detail_blog_img}}" alt="Programming"
+                        <img src="/image/detail_blog/{{$post_berita->detail_blog_img}}" alt="Programming"
                             class="h-64 w-full object-cover">
                         <div class="py-8 px-6">
                             <h3>
-                                <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
+                                <a href="#"
                                     class="block mb-1 font-semibold text-xl text-dark hover:text-primary truncate">{{$post_berita->judul_h1}}</a>
                             </h3>
                             <small class="text-slate-400">{{
@@ -279,7 +279,7 @@
                             </small>
                             <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
                                 {!!$post_berita->deskripsi_p1!!}</div>
-                            <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
+                            <a href="#"
                                 class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
                                 Selengkapnya</a>
                         </div>
@@ -311,7 +311,7 @@
                 </div>
                 <div class="w-full self-end px-4 lg:w-1/2">
                     <div class="relative mt-10 lg:mt-0 lg:right-0">
-                        <img src="/img/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
+                        <img src="/image/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
                             class="relative z-10 mx-auto w-96 bg-cover">
                         <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
                         </span>
@@ -344,9 +344,8 @@
                 @if ($detail_produks->count())
                 @foreach($detail_produks as $detail_produk)
                 <div class=" p-4 md:w-1/3">
-                    <div class="rounded-md shadow-md overflow-hidden"><a
-                            href="{{route('galeri.detail_galeri', $detail_produk->slug)}}">
-                            <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina"
+                    <div class="rounded-md shadow-md overflow-hidden"><a href="#">
+                            <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina"
                                 width="w-full" class="h-64 w-full object-cover hover:opacity-90"></a>
                     </div>
                     {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{$detail_produk->judul_h1}}</h3>
@@ -394,7 +393,7 @@
                     @foreach($mitras as $mitra)
                     <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
                         <a href="{{$mitra->mitra_link}}" target="_blank">
-                            <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
+                            <img src="/image/mitra/{{$mitra->mitra_img}}" alt="Google"
                                 class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
                         </a>
                     </div>

@@ -41,7 +41,7 @@
                   <a href="{{route('blog.detail_blog', $post_pengumuman->slug)}}"
                     class="border-2 text-white w-min mx-auto px-3 py-1 mt-4 rounded hover:bg-white hover:bg-opacity-20">Selengkapnya</a>
                 </div>
-                <img src="/img/detail_blog/{{$post_pengumuman->detail_blog_img}}"
+                <img src="/image/detail_blog/{{$post_pengumuman->detail_blog_img}}"
                   class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
               </div>
               @endforeach
@@ -116,7 +116,7 @@
       @foreach($post_pengumumans as $post_pengumuman)
       <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-          <img src="/img/detail_blog/{{$post_pengumuman->detail_blog_img}}" alt="Programming"
+          <img src="/image/detail_blog/{{$post_pengumuman->detail_blog_img}}" alt="Programming"
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
             <h3>
@@ -198,7 +198,7 @@
       @foreach($post_beritas as $post_berita)
       <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
         <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
-          <img src="/img/detail_blog/{{$post_berita->detail_blog_img}}" alt="Programming"
+          <img src="/image/detail_blog/{{$post_berita->detail_blog_img}}" alt="Programming"
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
             <h3>
@@ -242,7 +242,7 @@
       </div>
       <div class="w-full self-end px-4 lg:w-1/2">
         <div class="relative mt-10 lg:mt-0 lg:right-0">
-          <img src="/img/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
+          <img src="/image/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
             class="relative z-10 mx-auto w-96 bg-cover">
           <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
           </span>
@@ -274,7 +274,7 @@
       <div class=" p-4 md:w-1/3">
         <div class="rounded-md shadow-md overflow-hidden"><a
             href="{{route('galeri.detail_galeri', $detail_produk->slug)}}">
-            <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
+            <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
               class="h-64 w-full object-cover hover:opacity-90"></a>
         </div>
         {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{$detail_produk->judul_h1}}</h3>
@@ -321,7 +321,7 @@
         @foreach($mitras as $mitra)
         <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
           <a href="{{$mitra->mitra_link}}" target="_blank">
-            <img src="/img/mitra/{{$mitra->mitra_img}}" alt="Google"
+            <img src="/image/mitra/{{$mitra->mitra_img}}" alt="Google"
               class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
           </a>
         </div>

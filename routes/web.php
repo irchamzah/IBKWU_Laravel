@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HalamanController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -122,3 +123,5 @@ Route::get('/admin/halaman/blog/show_kategori/delete_kategori/{id}', [BlogContro
 // Edit Footer
 Route::get('/admin/halaman/footer', [FooterController::class, 'index'])->middleware('auth')->name('admin.halaman.footer');
 Route::post('/admin/halaman/footer/update/{id}', [FooterController::class, 'update'])->middleware('auth')->name('admin.halaman.footer.update');
+
+Route::get('/image/{folder}/{file}', [ImageController::class, 'index'])->name('image');

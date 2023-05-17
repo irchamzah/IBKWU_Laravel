@@ -120,7 +120,7 @@
 
                                             <h1 class="text-base mb-4 mt-7">Video :</h1>
                                             <div class="w-full mb-10">
-                                                <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
+                                                <img src="/image/contoh_link_yt.png" alt="" class="my-5 mx-auto">
                                                 @error('link_yt')
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror

@@ -97,7 +97,7 @@
                             @foreach($rekomendasiGaleris as $rekomendasiGaleri)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                                 <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10 dark:bg-slate-800">
-                                    <img src="/img/detail_produk/{{$rekomendasiGaleri->detail_produk_img}}"
+                                    <img src="/image/detail_produk/{{$rekomendasiGaleri->detail_produk_img}}"
                                         alt="Programming" class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>
@@ -207,7 +207,7 @@
                             @foreach($detail_produks as $detail_produk)
                             <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
                                 <div class="bg-white rounded shadow-lg overflow-hidden mb-10 dark:bg-dark">
-                                    <img src="/img/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Gambar"
+                                    <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="Gambar"
                                         class="h-64 w-full object-cover">
                                     <div class="py-8 px-6">
                                         <h3>

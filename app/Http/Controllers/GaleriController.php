@@ -61,7 +61,8 @@ class GaleriController extends Controller
             ->orderBy('id', 'desc')->paginate(6);
         $galeri = Galeri::first();
         $kategoris = KategoriGaleri::all();
-        return view('admin.halaman.galeri.index', compact('detail_produks', 'query', 'galeri', 'kategoris'));
+        $rekomendasiGaleris = DetailProduk::where('kategori_galeri_id', '2')->orderBy('id', 'desc')->paginate(3);
+        return view('admin.halaman.galeri.index', compact('detail_produks', 'query', 'galeri', 'kategoris', 'rekomendasiGaleris'));
     }
 
     public function filter(Request $request)

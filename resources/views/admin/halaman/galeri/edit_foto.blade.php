@@ -62,7 +62,7 @@
                         <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto ">
                             <div class="mb-12 p-4 md:w-1/2">
                                 <div id="show-modal" class="rounded-md shadow-md overflow-hidden hover:opacity-80">
-                                    <img src="/img/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
+                                    <img src="/image/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
                                     @error('produk_img1')
                                     <small class="text-red-600">{{$message}}</small>
                                     @enderror
