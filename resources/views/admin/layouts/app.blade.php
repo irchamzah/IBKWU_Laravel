@@ -22,7 +22,7 @@
 
 </head>
 
-<body class="bg-gray-800 font-poppins leading-normal tracking-normal mt-12">
+<body class="bg-gray-800 font-sans leading-normal tracking-normal mt-12">
 
     <header>
         <!--Nav-->
@@ -38,7 +38,7 @@
                 <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">
                     <span class="relative w-full">
                         {{-- <input aria-label="search" type="search" id="search" placeholder="Search"
-                            class="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400 rounded py-3 px-2 pl-10 appearance-none leading-normal">
+                            class="w-full bg-gray-900 text-white transition border border-transparent focus:outline-none focus:border-gray-400  py-3 px-2 pl-10 appearance-none leading-normal">
                         <div class="absolute search-icon" style="top: 1rem; left: .8rem;">
                             <svg class="fill-current pointer-events-none text-white w-4 h-4"
                                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -58,7 +58,7 @@
                                 <button onclick="toggleDD('myDropdown')"
                                     class="drop-button text-white py-2 px-2 flex items-center">
 
-                                    <div class="w-8 h-8 rounded mx-5 bg-cover bg-center"
+                                    <div class="w-8 h-8  mx-5 bg-cover bg-center"
                                         style="background-image: url(/img/fotoadmin/{{Auth::user()->image;}})"> </div>
 
                                     Hi, {{Auth::user()->name;}}
@@ -149,8 +149,7 @@
                 <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
                     <div class="bg-gray-800 pt-3">
-                        <div
-                            class="rounded-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
+                        <div class="-tl-3xl bg-gradient-to-r from-blue-900 to-gray-800 p-4 shadow text-2xl text-white">
 
                             {{-- Start Title --}}
                             <h1 class="font-bold pl-2">@yield('title')</h1>

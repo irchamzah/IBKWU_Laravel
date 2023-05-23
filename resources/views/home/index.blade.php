@@ -1,24 +1,19 @@
 @extends('home.app')
 
 @section('title', 'Beranda')
-@section('menu-1', 'text-primary')
-@section('menu-2', 'text-dark')
-@section('menu-3', 'text-dark')
-@section('menu-31', 'text-dark')
-@section('menu-32', 'text-dark')
-@section('menu-33', 'text-dark')
-@section('menu-34', 'text-dark')
-@section('menu-4', 'text-dark')
-@section('menu-5', 'text-dark')
-@section('menu-6', 'text-dark')
-@section('menu-7', 'text-dark')
+@section('menu-1', 'text-white bg-sky-600')
+@section('menu-2', 'text-white')
+@section('menu-3', 'text-white')
+@section('menu-4', 'text-white')
+@section('menu-5', 'text-white')
+@section('menu-6', 'text-white')
 @section('content')
 
 {{-- Slider Section Start --}}
 <section id="slider" class="pt-24">
   <div class="">
     <div class="flex flex-wrap">
-      <div class="w-full self-center px-4 ">
+      <div class="w-full self-center ">
 
         <!-- component -->
         <!-- This is an example component -->
@@ -26,28 +21,28 @@
 
           <div id="default-carousel" class="relative" data-carousel="static">
             <!-- Carousel wrapper -->
-            <div class="overflow-hidden relative h-56 rounded-lg sm:h-64 xl:h-80 2xl:h-96">
+            <div class="overflow-hidden relative h-56 sm:h-64 xl:h-80 2xl:h-96">
 
-              @if ($post_pengumumans->count())
-              @foreach($post_pengumumans as $post_pengumuman)
+              @if ($post_beritas->count())
+              @foreach($post_beritas as $post_berita)
               <!-- Item 1 -->
               <div class="hidden duration-700 ease-in-out" data-carousel-item>
                 <div
                   class="absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-1/2 text-center">
                   <span
-                    class="text-2xl font-semibold text-white sm:text-3xl mb-2 truncate">{{$post_pengumuman->judul_h1}}</span>
+                    class="text-2xl font-semibold text-white sm:text-3xl mb-2 truncate">{{$post_berita->judul_h1}}</span>
                   <span
-                    class="text-sm font-semibold text-white sm:text-sm truncate max-h-10">{!!$post_pengumuman->deskripsi_p1!!}</span>
-                  <a href="{{route('blog.detail_blog', $post_pengumuman->slug)}}"
-                    class="border-2 text-white w-min mx-auto px-3 py-1 mt-4 rounded hover:bg-white hover:bg-opacity-20">Selengkapnya</a>
+                    class="text-sm font-semibold text-white sm:text-sm truncate max-h-10">{!!$post_berita->deskripsi_p1!!}</span>
+                  <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
+                    class="border-2 text-white w-min mx-auto px-3 py-1 mt-4 hover:bg-white hover:bg-opacity-20">Selengkapnya</a>
                 </div>
-                <img src="/image/detail_blog/{{$post_pengumuman->detail_blog_img}}"
+                <img src="/image/detail_blog/{{$post_berita->detail_blog_img}}"
                   class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
               </div>
               @endforeach
               @else
-              <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
-                Blog tidak tersedia.</p>
+              <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
+                Post tidak tersedia.</p>
               @endif
 
             </div>
@@ -98,12 +93,12 @@
 {{-- Slider Section End --}}
 
 {{-- Blog Section Start --}}
-<section id="blog" class="pt-36 pb-32 bg-slate-100">
+<section id="blog" class="pt-10 pb-10 bg-fixed bg-cover bg-bottom">
   <div class="sm:container">
     <div class="w-full px-4">
-      <div class="max-w-xl mx-auto text-center mb-16">
+      <div class="max-w-xl mx-auto text-center mb-5">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4> --}}
-        <h2 class="font-bold text-dark  mb-4 text-3xl sm:text-4xl lg:text-5xl hover:text-primary"><a
+        <h2 class="font-bold text-dark  mb-5 text-3xl sm:text-4xl lg:text-4xl hover:text-primary"><a
             href="/blog">{{$beranda->pengumuman_h1}}</a></h2>
         <hr>
         {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p> --}}
@@ -114,8 +109,8 @@
 
       @if ($post_pengumumans->count())
       @foreach($post_pengumumans as $post_pengumuman)
-      <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+      <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+        <div class="bg-white  shadow-lg overflow-hidden mb-10">
           <img src="/image/detail_blog/{{$post_pengumuman->detail_blog_img}}" alt="Programming"
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
@@ -130,14 +125,14 @@
             <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
               {!!$post_pengumuman->deskripsi_p1!!}</div>
             <a href="{{route('blog.detail_blog', $post_pengumuman->slug)}}"
-              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
+              class="font-medium text-sm text-white bg-primary py-2 px-4 hover:bg-sky-600">Baca
               Selengkapnya</a>
           </div>
         </div>
       </div>
       @endforeach
       @else
-      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
         Blog tidak tersedia.</p>
       @endif
 
@@ -147,30 +142,15 @@
 {{-- Blog Section End --}}
 
 {{-- About Section Start --}}
-<section id="about" class="pt-36 pb-32">
+<section id="about" class="pt-10 pb-10 bg-fixed bg-cover bg-bottom"
+  style="background-image: url(/img/gedung_pasca_sarjana_polije.jpg)">
   <div class="sm:container">
     <div class="flex flex-wrap">
-      <div class="w-full px-4 mb-10 lg:w-1/2">
-        {{-- <h4 class="font-bold uppercase text-primary text-lg mb-3">{{$beranda->about_h1}}</h4> --}}
-        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">{{$beranda->ig_h1}}
-        </h3>
-        <div class="w-full px-4 aspect-video">
-
-          {{-- instagram embed code --}}
-          <blockquote class="instagram-media w-full" data-instgrm-captioned
-            data-instgrm-permalink="https://www.instagram.com/p/{{$beranda->link_ig}}/?utm_source=ig_embed&amp;utm_campaign=loading"
-            data-instgrm-version="14"
-            style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-          </blockquote>
-          <script async src="//www.instagram.com/embed.js"></script>
-
-
-        </div>
-      </div>
-      <div class="w-full px-4 lg:w-1/2">
-        <h3 class="font-semibold text-dark text-2xl sm:text-3xl lg:text-4xl mb-4 lg:pt-10">{{$beranda->yt_h1}}
-        </h3>
-        <div class="w-full px-4 aspect-video">
+      <div class="w-full px-4 text-center mb-5">
+        <h2 class="font-semibold text-white text-3xl sm:text-4xl lg:text-4xl mb-5 lg:pt-5">{{$beranda->yt_h1}}
+        </h2>
+        <hr class="max-w-xl mx-auto">
+        <div class="w-full px-4 aspect-video mt-5">
           <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/{{$beranda->link_yt}}"></iframe>
         </div>
       </div>
@@ -180,12 +160,12 @@
 {{-- About Section End --}}
 
 {{-- Blog Section Start --}}
-<section id="blog" class="pt-36 pb-32 bg-slate-100">
+<section id="blog" class="pt-10 pb-10">
   <div class="sm:container">
     <div class="w-full px-4">
-      <div class="max-w-xl mx-auto text-center mb-16">
+      <div class="max-w-xl mx-auto text-center mb-5">
         {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->blog_h1}}</h4> --}}
-        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-5xl mb-4 hover:text-primary"><a
+        <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-4xl mb-5 hover:text-primary"><a
             href="/blog">{{$beranda->berita_h1}}</a></h2>
         <hr>
         {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->blog_p1}}</p> --}}
@@ -196,8 +176,8 @@
 
       @if ($post_beritas->count())
       @foreach($post_beritas as $post_berita)
-      <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-10">
+      <div class="w-full px-4 md:w-1/2 lg:w-1/4">
+        <div class="bg-white shadow-lg overflow-hidden mb-10">
           <img src="/image/detail_blog/{{$post_berita->detail_blog_img}}" alt="Programming"
             class="h-64 w-full object-cover">
           <div class="py-8 px-6">
@@ -212,14 +192,14 @@
             <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
               {!!$post_berita->deskripsi_p1!!}</div>
             <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
-              class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80">Baca
+              class="font-medium text-sm text-white bg-primary py-2 px-4 hover:bg-sky-600">Baca
               Selengkapnya</a>
           </div>
         </div>
       </div>
       @endforeach
       @else
-      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
         Blog tidak tersedia.</p>
       @endif
 
@@ -253,54 +233,52 @@
 </section> --}}
 {{-- Hero Section End --}}
 
-{{-- Galeri Section Start --}}
-<section id="galeri" class="pt-36 pb-16 bg-white">
-  <div class="sm:container">
+{{-- Contact Section Start --}}
+<section id="contact" class="pt-10 pb-10 bg-fixed bg-cover bg-bottom"
+  style="background-image: url(/img/gedung_pasca_sarjana_polije.jpg)">
+  <div class="container">
     <div class="w-full px-4">
-      <div class="max-w-xl mx-auto text-center mb-16">
-        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->galeri_h1}}</h4> --}}
-        <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl hover:text-primary"><a
-            href="/galeri">{{$beranda->galeri_h1}}</a>
+      <div class="max-w-xl mx-auto text-center mb-5">
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->kontak_h1}}</h4> --}}
+        <h3 class="font-bold text-white text-3xl sm:text-4xl mb-5">{{$beranda->lokasi_h1}}
         </h3>
         <hr>
-        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->galeri_p1}}</p> --}}
+        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->kontak_p1}}</p> --}}
       </div>
     </div>
 
-    <div class="w-full px-4 flex flex-wrap justify-center  xl:mx-auto">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415.135323894769!2d113.72303419350794!3d-8.156823629789072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6c06feea7%3A0x8014dc75ef0320b7!2sGedung%20Pasca%20Sarjana%20Politeknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1681550636653!5m2!1sid!2sid"
+      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade" class="items-center w-full text-center mx-auto"></iframe>
 
-      @if ($detail_produks->count())
-      @foreach($detail_produks as $detail_produk)
-      <div class=" p-4 md:w-1/3">
-        <div class="rounded-md shadow-md overflow-hidden"><a
-            href="{{route('galeri.detail_galeri', $detail_produk->slug)}}">
-            <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
-              class="h-64 w-full object-cover hover:opacity-90"></a>
+
+    {{-- <form>
+      <div class="w-full lg:w-2/3 lg:mx-auto">
+        <div class="w-full px-4 mb-8">
+          <label for="nama" class="text-base font-bold text-primary">Nama</label>
+          <input type="text" id="nama"
+            class="w-full bg-slate-200 text-dark p-3 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" />
         </div>
-        {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{$detail_produk->judul_h1}}</h3>
-        <small class="text-slate-400">{{
-          $detail_produk->created_at->diffForHumans()}} |
-          {{$detail_produk->kategori_galeri->kategori}}
-        </small>
-        <div class="font-medium text-base text-secondary truncate mt-2">{!!$detail_produk->deskripsi_p1!!}</div> --}}
+        <div class="w-full px-4 mb-8">
+          <label for="email" class="text-base font-bold text-primary">Email</label>
+          <input type="text" id="email"
+            class="w-full bg-slate-200 text-dark p-3 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" />
+        </div>
+        <div class="w-full px-4 mb-8">
+          <label for="pesan" class="text-base font-bold text-primary">Pesan</label>
+          <textarea type="text" id="email"
+            class="w-full bg-slate-200 text-dark p-3 focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"></textarea>
+        </div>
+        <div class="w-full px-4">
+          <button
+            class="text-base font-semibold text-white bg-primary py-3 px-8 w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
+        </div>
       </div>
-      @endforeach
-      @else
-      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
-        Produk
-        tidak tersedia.</p>
-      @endif
-
-    </div>
-
-  </div>
-  <div class=" mx-auto items-center w-full text-center mt-12 mb-20">
-    <a href="/galeri"
-      class=" text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya
-      ></a>
+    </form> --}}
   </div>
 </section>
-{{-- Galeri Section End --}}
+{{-- Contact Section End --}}
 
 {{-- Mitra Section Start --}}
 {{-- <section id="mitra" class="pt-36 pb-32 bg-slate-800">
@@ -308,7 +286,7 @@
     <div class="w-full px-4">
       <div class="mx-auto text-center mb-16">
         <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->mitra_h1}}</h4>
-        <h2 class="font-bold text-white text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$beranda->mitra_h2}}
+        <h2 class="font-bold text-white text-3xl mb-5 sm:text-4xl lg:text-5xl">{{$beranda->mitra_h2}}
         </h2>
         <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->mitra_p1}}</p>
       </div>
@@ -327,7 +305,7 @@
         </div>
         @endforeach
         @else
-        <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+        <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
           Mitra tidak Tersedia.</p>
         @endif
       </div>
@@ -336,50 +314,53 @@
 </section> --}}
 {{-- Mitra Section End --}}
 
-{{-- Contact Section Start --}}
-<section id="contact" class="pt-36 pb-32 bg-slate-100">
-  <div class="container">
+{{-- Galeri Section Start --}}
+<section id="galeri" class="pt-10 pb-10">
+  <div class="sm:container">
     <div class="w-full px-4">
-      <div class="max-w-xl mx-auto text-center mb-16">
-        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->kontak_h1}}</h4> --}}
-        <h3 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">{{$beranda->lokasi_h1}}
+      <div class="max-w-xl mx-auto text-center mb-5">
+        {{-- <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->galeri_h1}}</h4> --}}
+        <h3 class="font-bold text-dark text-3xl sm:text-4xl mb-5 hover:text-primary"><a
+            href="/galeri">{{$beranda->galeri_h1}}</a>
         </h3>
         <hr>
-        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->kontak_p1}}</p> --}}
+        {{-- <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->galeri_p1}}</p> --}}
       </div>
     </div>
 
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d415.135323894769!2d113.72303419350794!3d-8.156823629789072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695b6c06feea7%3A0x8014dc75ef0320b7!2sGedung%20Pasca%20Sarjana%20Politeknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1681550636653!5m2!1sid!2sid"
-      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade" class="items-center w-full text-center mx-auto"></iframe>
+    <div class="w-full px-4 flex flex-wrap justify-center  xl:mx-auto">
 
-
-    {{-- <form>
-      <div class="w-full lg:w-2/3 lg:mx-auto">
-        <div class="w-full px-4 mb-8">
-          <label for="nama" class="text-base font-bold text-primary">Nama</label>
-          <input type="text" id="nama"
-            class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" />
+      @if ($detail_produks->count())
+      @foreach($detail_produks as $detail_produk)
+      <div class="p-4 md:w-1/3">
+        <div class=" shadow-md overflow-hidden"><a href="{{route('galeri.detail_galeri', $detail_produk->slug)}}">
+            <img src="/image/detail_produk/{{$detail_produk->detail_produk_img}}" alt="macarina" width="w-full"
+              class="h-64 w-full object-cover hover:opacity-90"></a>
         </div>
-        <div class="w-full px-4 mb-8">
-          <label for="email" class="text-base font-bold text-primary">Email</label>
-          <input type="text" id="email"
-            class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" />
-        </div>
-        <div class="w-full px-4 mb-8">
-          <label for="pesan" class="text-base font-bold text-primary">Pesan</label>
-          <textarea type="text" id="email"
-            class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"></textarea>
-        </div>
-        <div class="w-full px-4">
-          <button
-            class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
-        </div>
+        {{-- <h3 class="font-semibold text-xl text-dark mt-5 mb-3">{{$detail_produk->judul_h1}}</h3>
+        <small class="text-slate-400">{{
+          $detail_produk->created_at->diffForHumans()}} |
+          {{$detail_produk->kategori_galeri->kategori}}
+        </small>
+        <div class="font-medium text-base text-secondary truncate mt-2">{!!$detail_produk->deskripsi_p1!!}</div> --}}
       </div>
-    </form> --}}
+      @endforeach
+      @else
+      <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
+        Produk
+        tidak tersedia.</p>
+      @endif
+
+    </div>
+
+  </div>
+  <div class=" mx-auto items-center w-full text-center mt-10 mb-10">
+    <a href="/galeri" class="text-base font-medium text-white bg-primary py-3 px-6 hover:bg-sky-600">Lihat
+      Produk Lainnya</a>
   </div>
 </section>
-{{-- Contact Section End --}}
+{{-- Galeri Section End --}}
+
+
 
 @endsection

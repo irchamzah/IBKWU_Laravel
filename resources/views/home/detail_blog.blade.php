@@ -1,17 +1,12 @@
 @extends('home.app')
 
 @section('title', 'Detail Blog')
-@section('menu-1', 'text-dark')
-@section('menu-2', 'text-dark')
-@section('menu-3', 'text-dark')
-@section('menu-31', 'text-dark')
-@section('menu-32', 'text-dark')
-@section('menu-33', 'text-dark')
-@section('menu-34', 'text-dark')
-@section('menu-4', 'text-dark')
-@section('menu-5', 'text-dark')
-@section('menu-6', 'text-dark')
-@section('menu-7', 'text-primary')
+@section('menu-1', 'text-white')
+@section('menu-2', 'text-white')
+@section('menu-3', 'text-white')
+@section('menu-4', 'text-white')
+@section('menu-5', 'text-white')
+@section('menu-6', 'text-white bg-sky-600')
 @section('content')
 
 <form id="searchForm" action="{{ route('blog.search')}}" method="GET">
@@ -49,7 +44,7 @@
 
             @foreach($foto_blogs as $foto_blog)
             <div class="mb-12 w-full">
-              <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
+              <div id="show-modal" class="shadow-md overflow-hidden mx-auto">
                 <img src="/image/foto_blog/{{$foto_blog->blog_img1}}" alt="" width="w-full">
               </div>
               <div class="font-semibold text-sm text-dark mt-5 mb-3 text-center">
@@ -84,10 +79,10 @@
                   <div class="mt-5 w-full sm:w-96">
                     <div class="relative mb-4 flex w-full flex-wrap items-stretch">
                       <input form="searchForm" name="query" type="text"
-                        class="bg-white dark:bg-slate-600 dark:border-neutral-700 relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
-                        placeholder="Cari post" aria-label="Search" aria-describedby="searchForm" />
+                        class="bg-white dark:bg-slate-600 dark:border-neutral-700 relative m-0 -mr-px block w-[1%] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                        placeholder="Cari Post" aria-label="Search" aria-describedby="searchForm" />
                       <button form="searchForm"
-                        class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
+                        class="relative z-[2] flex items-center bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md hover:bg-sky-600 focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
                         type="submit" id="searchForm" data-te-ripple-init data-te-ripple-color="light">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
                           <path fill-rule="evenodd"
@@ -103,7 +98,7 @@
                   <div class=" w-full sm:w-96">
                     <div class="relative mb-16 flex w-full flex-wrap items-stretch">
                       <select name="kategori"
-                        class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto rounded-l border border-solid border-neutral-300  bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none transition duration-300 ease-in-out focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
+                        class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto border border-solid border-neutral-300  bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-200"
                         form="filterForm">
                         <option value="">Pilih Kategori</option>
                         @foreach ($kategoris as $kategori)
@@ -114,7 +109,7 @@
                         @endforeach
                       </select>
                       <button type="submit" form="filterForm"
-                        class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:bg-opacity-80 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                        class="relative z-[2] flex items-center bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md hover:bg-sky-600 focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
                         Filter
                       </button>
                     </div>

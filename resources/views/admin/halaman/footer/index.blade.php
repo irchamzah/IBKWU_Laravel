@@ -15,7 +15,7 @@
             <!--Metric Card-->
             <div class="w-min">
                 <a href="/admin/halaman">
-                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                    <div class="bg-blue-600 text-white -lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
                             <div class="text-right md:text-center">
                                 <h2 class="font-bold uppercase">Kembali</h2>
@@ -28,7 +28,7 @@
 
             <!--Metric Card-->
             <a href="/admin/halaman">
-                <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
+                <button class="bg-green-600 text-white -lg p-5 hover:bg-green-700">
                     <div class="flex flex-row items-center justify-center">
                         <div class="text-right md:text-center">
                             <h2 class="font-bold uppercase">Simpan</h2>
@@ -40,10 +40,10 @@
 
             @if($message = Session::get('message'))
             <div role="alert">
-                <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                <div class="bg-green-500 text-white font-bold -t px-4 py-2 mt-10">
                     Berhasil!
                 </div>
-                <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                <div class="border border-t-0 border-green-400 -b bg-green-100 px-4 py-3 text-green-700">
                     <p>{{$message}}</p>
                 </div>
             </div>
@@ -54,7 +54,7 @@
 
     <div class="flex flex-wrap">
         <div class="w-full p-6">
-            <div class=" rounded-lg shadow-xl p-5">
+            <div class=" -lg shadow-xl p-5">
 
                 {{-- Footer Start --}}
                 <footer class="bg-dark pt-24 pb-12">
@@ -63,20 +63,20 @@
                             <div class="w-full px-4 mb-12 text-slate-300 font-medium md:w-1/3">
                                 <h3 class="font-bold text-2xl mb-2">ALAMAT KANTOR</h3>
                                 <p class="my-5"><input type="text" id="address"
-                                        class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('address') is-invalid @enderror"
+                                        class="text-dark block border border-grey-light w-full p-3  mb-4 @error('address') is-invalid @enderror"
                                         name="address" value="{{$footer->address}}" required autocomplete="address"
                                         autofocus>
                                 </p>
                                 <p class="my-5"><input type="text" id="address_2"
-                                        class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('address_2') is-invalid @enderror"
+                                        class="text-dark block border border-grey-light w-full p-3  mb-4 @error('address_2') is-invalid @enderror"
                                         name="address_2" value="{{$footer->address_2}}" required
                                         autocomplete="address_2" autofocus></p>
                                 <p class="my-5"><input type="text" id="phone"
-                                        class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('phone') is-invalid @enderror"
+                                        class="text-dark block border border-grey-light w-full p-3  mb-4 @error('phone') is-invalid @enderror"
                                         name="phone" value="{{$footer->phone}}" required autocomplete="phone" autofocus>
                                 </p>
                                 <p class="my-5"><input type="text" id="phone_2"
-                                        class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('phone_2') is-invalid @enderror"
+                                        class="text-dark block border border-grey-light w-full p-3  mb-4 @error('phone_2') is-invalid @enderror"
                                         name="phone_2" value="{{$footer->phone_2}}" required autocomplete="phone_2"
                                         autofocus></p>
                             </div>
@@ -91,21 +91,21 @@
                                                 class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
                                         </a>
                                         <a href="{{route('admin.halaman.beranda.edit_mitra', $mitra->id)}}"
-                                            class="font-medium text-sm text-white bg-primary rounded-lg hover:opacity-80 text-center w-auto my-1">Edit</a>
+                                            class="font-medium text-sm text-white bg-primary -lg hover:opacity-80 text-center w-auto my-1">Edit</a>
 
                                         <a href="{{route('admin.halaman.beranda.delete_mitra', $mitra->id)}}"
-                                            class="font-medium text-sm text-white bg-red-500 rounded-lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
+                                            class="font-medium text-sm text-white bg-red-500 -lg hover:opacity-80 text-center w-auto my-1">Hapus</a>
                                     </div>
                                     @endforeach
                                     @else
                                     <p
-                                        class="text-red-600 mx-auto border-collapse border-red-500 border-2 rounded-xl p-4 bg-white">
+                                        class="text-red-600 mx-auto border-collapse border-red-500 border-2 -xl p-4 bg-white">
                                         Mitra tidak Tersedia.</p>
                                     @endif
 
                                 </div>
                                 <a href="{{route('admin.halaman.beranda.tambah_mitra')}}"
-                                    class="w-60 text-center py-3 rounded bg-primary text-white hover:opacity-90 focus:outline-none my-1 block mx-auto mt-10">Tambah
+                                    class="w-60 text-center py-3  bg-primary text-white hover:opacity-90 focus:outline-none my-1 block mx-auto mt-10">Tambah
                                     Mitra
                                 </a>
                             </div>
@@ -117,7 +117,7 @@
                                         <div href="#" target="_blank"
                                             class="inline-block text-base hover:text-primary mb-3"><input type="text"
                                                 id="link_1"
-                                                class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('link_1') is-invalid @enderror"
+                                                class="text-dark block border border-grey-light w-full p-3  mb-4 @error('link_1') is-invalid @enderror"
                                                 name="link_1" value="{{$footer->link_1}}" required autocomplete="link_1"
                                                 autofocus></div>
                                     </li>
@@ -125,7 +125,7 @@
                                         <div href="#" target="_blank"
                                             class="inline-block text-base hover:text-primary mb-3"><input type="text"
                                                 id="link_2"
-                                                class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('link_2') is-invalid @enderror"
+                                                class="text-dark block border border-grey-light w-full p-3  mb-4 @error('link_2') is-invalid @enderror"
                                                 name="link_2" value="{{$footer->link_2}}" required autocomplete="link_1"
                                                 autofocus></div>
                                     </li>
@@ -133,7 +133,7 @@
                                         <div href="#" target="_blank"
                                             class="inline-block text-base hover:text-primary mb-3"><input type="text"
                                                 id="link_3"
-                                                class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('link_3') is-invalid @enderror"
+                                                class="text-dark block border border-grey-light w-full p-3  mb-4 @error('link_3') is-invalid @enderror"
                                                 name="link_3" value="{{$footer->link_3}}" required autocomplete="link_3"
                                                 autofocus></div>
                                     </li>
@@ -141,7 +141,7 @@
                                         <div href="#" target="_blank"
                                             class="inline-block text-base hover:text-primary mb-3"><input type="text"
                                                 id="link_4"
-                                                class="text-dark block border border-grey-light w-full p-3 rounded mb-4 @error('link_4') is-invalid @enderror"
+                                                class="text-dark block border border-grey-light w-full p-3  mb-4 @error('link_4') is-invalid @enderror"
                                                 name="link_4" value="{{$footer->link_4}}" required autocomplete="link_4"
                                                 autofocus></div>
                                     </li>
@@ -153,7 +153,7 @@
                             {{-- <div class="flex items-center justify-center mb-5">
 
                                 <a href="{{$footer->yt_link}}" target="_blank"
-                                    class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
+                                    class="w-9 h-9 mr-3 -full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                                     <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <title>YouTube</title>
@@ -164,7 +164,7 @@
 
 
                                 <a href="{{$footer->ig_link}}" target="_blank"
-                                    class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
+                                    class="w-9 h-9 mr-3 -full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                                     <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <title>Instagram</title>
@@ -174,7 +174,7 @@
                                 </a>
 
                                 <a href="{{$footer->twt_link}}" target="_blank"
-                                    class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
+                                    class="w-9 h-9 mr-3 -full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                                     <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <title>Twitter</title>
@@ -184,7 +184,7 @@
                                 </a>
 
                                 <a href="{{$footer->li_link}}" target="_blank"
-                                    class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
+                                    class="w-9 h-9 mr-3 -full flex justify-center items-center border border-slate-300 hover:border-primary hover:bg-primary hover:text-white text-slate-300">
                                     <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <title>LinkedIn</title>
@@ -213,9 +213,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">
@@ -256,9 +256,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">
@@ -299,9 +299,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">
@@ -342,9 +342,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">

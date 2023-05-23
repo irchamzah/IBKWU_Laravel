@@ -13,7 +13,7 @@
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
         <!--Metric Card-->
         <a href="/admin/akun/create">
-            <button class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700">
+            <button class="bg-blue-600 text-white -lg p-5 hover:bg-blue-700">
 
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-right md:text-center">
@@ -25,20 +25,20 @@
         <!--/Metric Card-->
         @if($message = Session::get('message'))
         <div role="alert">
-            <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+            <div class="bg-green-500 text-white font-bold -t px-4 py-2 mt-10">
                 Berhasil!
             </div>
-            <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+            <div class="border border-t-0 border-green-400 -b bg-green-100 px-4 py-3 text-green-700">
                 <p>{{$message}}</p>
             </div>
         </div>
         @endif
         @if($error = Session::get('error'))
         <div role="alert">
-            <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+            <div class="bg-red-500 text-white font-bold -t px-4 py-2 mt-10">
                 Gagal!
             </div>
-            <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+            <div class="border border-t-0 border-red-400 -b bg-red-100 px-4 py-3 text-red-700">
                 <p>{{$error}}</p>
             </div>
         </div>
@@ -49,9 +49,9 @@
 <div class="flex flex-row flex-wrap flex-grow mt-2">
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600">Akun yang Terdaftar</h2>
             </div>
             <div class="p-5">
@@ -76,12 +76,12 @@
                             <td>{{$user->email}}</td>
                             <td class="flex flex-col">
                                 <a href="{{route('admin.akun.edit', $user->id)}}"
-                                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full text-center mt-3 mb-1">Edit</a>
+                                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4  w-full text-center mt-3 mb-1">Edit</a>
                                 <form action="{{route('admin.akun.destroy', $user->id)}}" method="POST"
                                     onsubmit="return confirm('YAKIN HAPUS DATA INI?')">
                                     @csrf
                                     <button type="submit"
-                                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-full mb-3 mt-1">Hapus</button>
+                                        class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4  w-full mb-3 mt-1">Hapus</button>
                                 </form>
                             </td>
                         </tr>
@@ -96,9 +96,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">
@@ -138,9 +138,9 @@
     </div>
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">
@@ -180,9 +180,9 @@
     </div>
     <div class="w-full md:w-1/2 xl:w-1/3 p-6 opacity-0">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">

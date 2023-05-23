@@ -17,7 +17,7 @@
             <!--Metric Card-->
             <div class="w-min">
                 <a href="/admin/halaman/blog">
-                    <div class="bg-blue-600 text-white rounded-lg p-5 hover:bg-blue-700 w-min mb-2">
+                    <div class="bg-blue-600 text-white -lg p-5 hover:bg-blue-700 w-min mb-2">
                         <div class="flex flex-row items-center justify-center">
                             <div class="text-center">
                                 <h2 class="font-bold uppercase">Kembali</h2>
@@ -29,7 +29,7 @@
             <!--/Metric Card-->
 
             <!--Metric Card-->
-            <button class="bg-green-600 text-white rounded-lg p-5 hover:bg-green-700">
+            <button class="bg-green-600 text-white -lg p-5 hover:bg-green-700">
                 <div class="flex flex-row items-center justify-center">
                     <div class="text-center">
                         <h2 class="font-bold uppercase">Simpan</h2>
@@ -40,10 +40,10 @@
 
             @if($message = Session::get('message'))
             <div role="alert">
-                <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 mt-10">
+                <div class="bg-green-500 text-white font-bold -t px-4 py-2 mt-10">
                     Berhasil!
                 </div>
-                <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                <div class="border border-t-0 border-green-400 -b bg-green-100 px-4 py-3 text-green-700">
                     <p>{{$message}}</p>
                 </div>
             </div>
@@ -54,7 +54,7 @@
 
     <div class="flex flex-wrap">
         <div class="w-full p-6">
-            <div class=" rounded-lg shadow-xl p-5">
+            <div class=" -lg shadow-xl p-5">
 
                 {{-- Tentang Section Start --}}
                 <section id="tentang" class="pt-36 pb-16 bg-white">
@@ -75,7 +75,7 @@
                                             <small style="color: red">{{$message}}</small>
                                             @enderror
                                             <input type="text" id="judul_h1"
-                                                class="block border border-grey-light w-full p-3 rounded mb-4 @error('judul_h1') is-invalid @enderror"
+                                                class="block border border-grey-light w-full p-3  mb-4 @error('judul_h1') is-invalid @enderror"
                                                 name="judul_h1" placeholder="Judul blog.."
                                                 value="{{$detail_blog->judul_h1}}" required autocomplete="judul_h1"
                                                 autofocus>
@@ -91,12 +91,12 @@
                                         @enderror
                                         <div class="font-medium text-base text-dark text-justify mt-7 mb-3">
                                             <textarea type="text" id="editor1" name="deskripsi_p1"
-                                                class="w-full p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96">{{$detail_blog->deskripsi_p1}}</textarea>
+                                                class="w-full p-3 -md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-96">{{$detail_blog->deskripsi_p1}}</textarea>
                                         </div>
 
                                         @foreach($foto_blogs as $foto_blog)
                                         <div class="mb-12 w-full">
-                                            <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
+                                            <div id="show-modal" class="-md shadow-md overflow-hidden mx-auto">
                                                 <img src="/image/foto_blog/{{$foto_blog->blog_img1}}" alt=""
                                                     width="w-full">
                                             </div>
@@ -107,9 +107,9 @@
                                             </div>
                                             <div class="w-full mx-auto justify-center flex mt-5">
                                                 <a href="{{route('admin.halaman.blog.edit_blog.edit_foto', $foto_blog->id)}}"
-                                                    class="font-medium text-sm text-white bg-primary py-2 px-4 rounded-lg hover:opacity-80 mx-2">Edit</a>
+                                                    class="font-medium text-sm text-white bg-primary py-2 px-4 -lg hover:opacity-80 mx-2">Edit</a>
                                                 <a href="{{route('admin.halaman.blog.edit_blog.delete_foto', $foto_blog->id)}}"
-                                                    class="font-medium text-sm text-white bg-red-500 py-2 px-4 rounded-lg hover:opacity-80 mx-2">Hapus</a>
+                                                    class="font-medium text-sm text-white bg-red-500 py-2 px-4 -lg hover:opacity-80 mx-2">Hapus</a>
                                             </div>
                                         </div>
                                         @endforeach
@@ -119,7 +119,7 @@
                                             <a
                                                 href="{{route('admin.halaman.blog.edit_blog.tambah_foto', $detail_blog->id)}}">
                                                 <div
-                                                    class="bg-primary text-white rounded-lg p-5 hover:opacity-90 mb-10 w-full block mx-auto sm:w-96">
+                                                    class="bg-primary text-white -lg p-5 hover:opacity-90 mb-10 w-full block mx-auto sm:w-96">
                                                     <div class="flex flex-row items-center justify-center">
                                                         <div class="text-center">
                                                             <h2 class="font-bold uppercase">Tambah Foto</h2>
@@ -140,7 +140,7 @@
                                             <img src="/image/detail_blog/{{$detail_blog->detail_blog_img}}"
                                                 alt="Programming" class="w-full">
                                             <input type="file"
-                                                class="block border border-grey-light w-full p-3 rounded mb-4 @error('detail_blog_img') is-invalid @enderror"
+                                                class="block border border-grey-light w-full p-3  mb-4 @error('detail_blog_img') is-invalid @enderror"
                                                 name="detail_blog_img" accept="image/*">
 
                                             <h1 class="text-base mb-4 mt-7">Video :</h1>
@@ -152,7 +152,7 @@
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror
                                                 <input type="text" id="link_yt"
-                                                    class="block border border-grey-light w-full p-3 rounded mb-4 @error('link_yt') is-invalid @enderror"
+                                                    class="block border border-grey-light w-full p-3  mb-4 @error('link_yt') is-invalid @enderror"
                                                     name="link_yt" placeholder="Kode link youtube.."
                                                     value="{{$detail_blog->link_yt}}" required autocomplete="link_yt"
                                                     autofocus>
@@ -160,7 +160,7 @@
 
                                             <h1 class="text-base mb-4 mt-7">Pilih Kategori blog :</h1>
                                             <select name="kategori" id="kategori"
-                                                class="border border-slate-400 p-2 rounded-lg w-full capitalize text-slate-500 mb-10">
+                                                class="border border-slate-400 p-2 -lg w-full capitalize text-slate-500 mb-10">
 
                                                 @foreach ($kategoris as $kategori)
                                                 <option value="{{$kategori->id}}"
@@ -192,9 +192,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h class="font-bold uppercase text-gray-600">Graph</h>
             </div>
             <div class="p-5">
@@ -235,9 +235,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600">Graph</h2>
             </div>
             <div class="p-5">
@@ -265,9 +265,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h2 class="font-bold uppercase text-gray-600">Graph</h2>
             </div>
             <div class="p-5">
@@ -304,9 +304,9 @@
 
     <div class="w-full md:w-1/2 xl:w-1/3 p-6">
         <!--Graph Card-->
-        <div class="bg-white border-transparent rounded-lg shadow-xl">
+        <div class="bg-white border-transparent -lg shadow-xl">
             <div
-                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
+                class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
                 <h5 class="font-bold uppercase text-gray-600">Graph</h5>
             </div>
             <div class="p-5"><canvas id="chartjs-4" class="chartjs" width="undefined" height="undefined"></canvas>

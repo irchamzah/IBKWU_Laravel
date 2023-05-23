@@ -27,40 +27,35 @@ class KategoriBlogSeeder extends Seeder
 
         //3
         KategoriBlog::create([
-            'kategori' => 'IBK & PPK'
+            'kategori' => 'Layanan'
         ]);
 
         //4
         KategoriBlog::create([
-            'kategori' => 'Layanan'
+            'kategori' => 'Program Kegiatan'
         ]);
 
         //5
         KategoriBlog::create([
-            'kategori' => 'Program Kegiatan'
+            'kategori' => 'Berita'
         ]);
 
         //6
         KategoriBlog::create([
-            'kategori' => 'Berita'
+            'kategori' => 'Kegiatan'
         ]);
 
         //7
         KategoriBlog::create([
-            'kategori' => 'Kegiatan'
+            'kategori' => 'Pengumuman'
         ]);
 
         //8
         KategoriBlog::create([
-            'kategori' => 'Pengumuman'
-        ]);
-
-        //9
-        KategoriBlog::create([
             'kategori' => 'Popular'
         ]);
 
-        //10
+        //9
         KategoriBlog::create([
             'kategori' => 'Seminar dan Loka Karya'
         ]);

@@ -15,37 +15,36 @@
 
 </head>
 
-<body class="font-poppins">
+<body class="font-sans">
     {{-- Header Start --}}
     <header class="bg-transparent fixed top-0 left-0 w-full flex items-center z-10 navbar-fixed">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-4">
-                    <a href="/admin" class="font-bold text-lg text-primary block py-6">IBKWU</a>
+                    <a href="/" class="font-bold text-lg text-white block py-6 px-4">IBKWU</a>
                 </div>
                 <div class="flex items-center px-4">
                     <button id="hamburger" name="hamburger" type="button" class="block absolute right-4 lg:hidden">
                         <span
-                            class="w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out origin-top-left"></span>
-                        <span class="w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out"></span>
+                            class="w-[30px] h-[2px] my-2 block bg-white transition duration-300 ease-in-out origin-top-left"></span>
+                        <span class="w-[30px] h-[2px] my-2 block bg-white transition duration-300 ease-in-out"></span>
                         <span
-                            class="w-[30px] h-[2px] my-2 block bg-dark transition duration-300 ease-in-out origin-bottom-left"></span>
+                            class="w-[30px] h-[2px] my-2 block bg-white transition duration-300 ease-in-out origin-bottom-left"></span>
                     </button>
 
                     <nav id="nav-menu"
-                        class="hidden absolute py-5 bg-white shadow-lg rounded-lg max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none lg:dark:bg-transparent dark:bg-dark dark:shadow-slate-500">
+                        class="hidden absolute shadow-2xl  bg-primary max-w-[250px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:dark:bg-transparent dark:bg-dark dark:shadow-slate-500">
                         <ul class="block lg:flex">
-                            <li class="group">
-                                <a href="/"
-                                    class="text-base @yield('menu-1') py-2 mx-4 flex group-hover:text-primary">Beranda</a>
+                            <li class="group @yield('menu-1') ">
+                                <a href="/" class="text-base  py-6 px-4 flex group-hover:bg-sky-600">Beranda</a>
                             </li>
                             <li class="group">
                                 <a href="/profil"
-                                    class="text-base @yield('menu-2') py-2 mx-4 flex group-hover:text-primary">Profil</a>
+                                    class="text-base @yield('menu-2') py-6 px-4 flex group-hover:bg-sky-600">Profil</a>
                             </li>
                             <li class="group">
                                 <a href="/layanan" id="layanan_dropdown" name="layanan_dropdown"
-                                    class="text-base @yield('menu-3') py-2 mx-4 flex group-hover:text-primary">
+                                    class="text-base @yield('menu-3') py-6 px-4 flex group-hover:bg-sky-600">
                                     Layanan
                                     {{-- <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -53,41 +52,35 @@
                                     </svg> --}}
                                 </a>
 
-                                {{-- <ul class="hidden absolute bg-white border-2 rounded-lg shadow-lg py-5 mt-1"
+                                {{-- <ul class="hidden absolute bg-white border-2 shadow-lg py-5 mt-1"
                                     id="layanan_menu">
                                     <li class="group"><a href=""
-                                            class="text-base @yield('menu-31') py-2 mx-4 flex hover:text-primary">Layanan
+                                            class="text-base @yield('menu-31') py-6 px-4 flex hover:bg-sky-600">Layanan
                                             Pra-Startup</a></li>
                                     <li class="group"><a href=""
-                                            class="text-base @yield('menu-32') py-2 mx-4 flex hover:text-primary">Layanan
+                                            class="text-base @yield('menu-32') py-6 px-4 flex hover:bg-sky-600">Layanan
                                             Start-Up</a></li>
                                     <li class="group"><a href=""
-                                            class="text-base @yield('menu-33') py-2 mx-4 flex hover:text-primary">Pendampingan
+                                            class="text-base @yield('menu-33') py-6 px-4 flex hover:bg-sky-600">Pendampingan
                                             Skill Up</a></li>
                                     <li class="group"><a href=""
-                                            class="text-base @yield('menu-34') py-2 mx-4 flex hover:text-primary">IBC
+                                            class="text-base @yield('menu-34') py-6 px-4 flex hover:bg-sky-600">IBC
                                             (Innovation Business Class)</a></li>
                                 </ul> --}}
                             </li>
-
-                            <li class="group">
-                                <a href="/ibk_ppk"
-                                    class="text-base @yield('menu-4') py-2 mx-4 flex group-hover:text-primary">IBK &
-                                    PPK</a>
-                            </li>
                             <li class="group">
                                 <a href="/program_kegiatan"
-                                    class="text-base @yield('menu-5') py-2 mx-4 flex group-hover:text-primary">Program
+                                    class="text-base @yield('menu-4') py-6 px-4 flex group-hover:bg-sky-600">Program
                                     Kegiatan</a>
                             </li>
                             <li class="group">
                                 <a href="/galeri"
-                                    class="text-base @yield('menu-6') py-2 mx-4 flex group-hover:text-primary">Galeri
+                                    class="text-base @yield('menu-5') py-6 px-4 flex group-hover:bg-sky-600">Galeri
                                     Tenant</a>
                             </li>
                             <li class="group">
                                 <a href="/blog"
-                                    class="text-base @yield('menu-7') py-2 mx-4 flex group-hover:text-primary">Post</a>
+                                    class="text-base @yield('menu-6') py-6 px-4 flex group-hover:bg-sky-600">Post</a>
                             </li>
                             {{-- <li class="mt-3 lg:mt-0 flex items-center pl-8">
                                 <div class="flex">
@@ -129,6 +122,7 @@
                     <p class="my-5">{{$footer->address_2}}</p>
                     <p class="my-5">{{$footer->phone}}</p>
                     <p class="my-5">{{$footer->phone_2}}</p>
+                    <p class="my-5">082 142 789 456 (Kartika Adi)</p>
                 </div>
                 <div class="w-full px-4 mb-12 md:w-1/3 ">
                     <h3 class="font-bold text-2xl mb-2 text-slate-300 mx-auto text-center">MITRA IBKWU</h3>

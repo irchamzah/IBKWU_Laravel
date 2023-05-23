@@ -26,8 +26,8 @@ class HomeController extends Controller
         $beranda = Beranda::first();
         $mitras = Mitra::all();
         $footer = Footer::first();
-        $post_pengumumans = DetailBlog::where('kategori_blog_id', '8')->orderBy('id', 'desc')->paginate(3);
-        $post_beritas = DetailBlog::where('kategori_blog_id', '6')->orderBy('id', 'desc')->paginate(3);
+        $post_pengumumans = DetailBlog::where('kategori_blog_id', '7')->orderBy('id', 'desc')->paginate(4);
+        $post_beritas = DetailBlog::where('kategori_blog_id', '5')->orderBy('id', 'desc')->paginate(4);
         $detail_produks = DetailProduk::orderBy('id', 'desc')->paginate(9);
         return view('home.index', compact('beranda', 'mitras', 'footer', 'post_pengumumans', 'post_beritas', 'detail_produks'));
     }
@@ -44,7 +44,7 @@ class HomeController extends Controller
     {
         $mitras = Mitra::all();
         $kategoris = KategoriBlog::all();
-        $detail_blogs = DetailBlog::where('kategori_blog_id', '4')->orderBy('id', 'desc')->get();
+        $detail_blogs = DetailBlog::where('kategori_blog_id', '3')->orderBy('id', 'desc')->get();
         $blog = Blog::first();
         $footer = Footer::first();
         return view('home.layanan', compact('detail_blogs', 'blog', 'kategoris', 'footer', 'mitras'));
@@ -64,7 +64,7 @@ class HomeController extends Controller
     {
         $mitras = Mitra::all();
         $kategoris = KategoriBlog::all();
-        $detail_blogs = DetailBlog::where('kategori_blog_id', '5')->orderBy('id', 'desc')->get();
+        $detail_blogs = DetailBlog::where('kategori_blog_id', '4')->orderBy('id', 'desc')->get();
         $blog = Blog::first();
         $footer = Footer::first();
         return view('home.program_kegiatan', compact('detail_blogs', 'blog', 'kategoris', 'footer', 'mitras'));

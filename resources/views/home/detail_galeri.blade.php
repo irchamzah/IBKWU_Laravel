@@ -1,17 +1,12 @@
 @extends('home.app')
 
 @section('title', 'Detail Galeri Tenant')
-@section('menu-1', 'text-dark')
-@section('menu-2', 'text-dark')
-@section('menu-3', 'text-dark')
-@section('menu-31', 'text-dark')
-@section('menu-32', 'text-dark')
-@section('menu-33', 'text-dark')
-@section('menu-34', 'text-dark')
-@section('menu-4', 'text-dark')
-@section('menu-5', 'text-dark')
-@section('menu-6', 'text-primary')
-@section('menu-7', 'text-dark')
+@section('menu-1', 'text-white')
+@section('menu-2', 'text-white')
+@section('menu-3', 'text-white')
+@section('menu-4', 'text-white')
+@section('menu-5', 'text-white bg-sky-600')
+@section('menu-6', 'text-white')
 @section('content')
 
 {{-- Tentang Section Start --}}
@@ -41,7 +36,7 @@
 
             @foreach($foto_produks as $foto_produk)
             <div class="mb-12 w-full">
-              <div id="show-modal" class="rounded-md shadow-md overflow-hidden mx-auto">
+              <div id="show-modal" class="shadow-md overflow-hidden mx-auto">
                 <img src="/image/foto_produk/{{$foto_produk->produk_img1}}" alt="" width="w-full">
               </div>
               <h3 class="font-semibold text-sm text-dark mt-5 mb-3 text-center">
@@ -67,7 +62,7 @@
                 @foreach($sosmeds as $sosmed)
                 <a href="{{$sosmed->link_sosmed}}" target="_blank" class="">
                   <div
-                    class="bg-{{$sosmed->warna->nama_warna}}-600 text-white rounded-lg p-2 text-center w-full hover:bg-{{$sosmed->warna->nama_warna}}-700 my-2">
+                    class="bg-{{$sosmed->warna->nama_warna}}-600 text-white p-2 text-center w-full hover:bg-{{$sosmed->warna->nama_warna}}-700 my-2">
 
                     {{$sosmed->nama_sosmed}}
                   </div>

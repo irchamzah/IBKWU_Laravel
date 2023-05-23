@@ -118,14 +118,12 @@ class BlogController extends Controller
         } elseif ($kategori_blog->id == '2') {
             return back()->withErrors(['Kategori "Sorotan" tidak boleh diedit']);
         } elseif ($kategori_blog->id == '3') {
-            return back()->withErrors(['Kategori "IBK & PPK" tidak boleh diedit']);
-        } elseif ($kategori_blog->id == '4') {
             return back()->withErrors(['Kategori "Layanan" tidak boleh diedit']);
-        } elseif ($kategori_blog->id == '5') {
+        } elseif ($kategori_blog->id == '4') {
             return back()->withErrors(['Kategori "Program Kegiatan" tidak boleh diedit']);
-        } elseif ($kategori_blog->id == '6') {
+        } elseif ($kategori_blog->id == '5') {
             return back()->withErrors(['Kategori "Berita" tidak boleh diedit']);
-        } elseif ($kategori_blog->id == '8') {
+        } elseif ($kategori_blog->id == '7') {
             return back()->withErrors(['Kategori "Pengumuman" tidak boleh diedit']);
         }
 
@@ -160,14 +158,12 @@ class BlogController extends Controller
         } elseif ($kategori_blog->id == '2') {
             return back()->withErrors(['Kategori "Sorotan" tidak boleh dihapus']);
         } elseif ($kategori_blog->id == '3') {
-            return back()->withErrors(['Kategori "IBK & PPK" tidak boleh dihapus']);
-        } elseif ($kategori_blog->id == '4') {
             return back()->withErrors(['Kategori "Layanan" tidak boleh dihapus']);
-        } elseif ($kategori_blog->id == '5') {
+        } elseif ($kategori_blog->id == '4') {
             return back()->withErrors(['Kategori "Program Kegiatan" tidak boleh dihapus']);
-        } elseif ($kategori_blog->id == '6') {
+        } elseif ($kategori_blog->id == '5') {
             return back()->withErrors(['Kategori "Berita" tidak boleh dihapus']);
-        } elseif ($kategori_blog->id == '8') {
+        } elseif ($kategori_blog->id == '7') {
             return back()->withErrors(['Kategori "Pengumuman" tidak boleh dihapus']);
         }
         $kategori_blog->delete();
