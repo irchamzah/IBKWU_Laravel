@@ -15,7 +15,7 @@
 
 </head>
 
-<body class="font-sans">
+<body class="font-opensans">
     {{-- Header Start --}}
     <header class="bg-transparent fixed top-0 left-0 w-full flex items-center z-10 navbar-fixed">
         <div class="container">
