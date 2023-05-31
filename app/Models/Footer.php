@@ -15,6 +15,7 @@ class Footer extends Model
         'address_2',
         'phone',
         'phone_2',
+        'phone_3',
         'link_1',
         'link_2',
         'link_3',

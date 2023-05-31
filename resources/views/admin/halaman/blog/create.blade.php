@@ -75,7 +75,7 @@
                                             @enderror
                                             <input type="text" id="judul_h1"
                                                 class="block border border-grey-light w-full p-3  mb-4 @error('judul_h1') is-invalid @enderror"
-                                                name="judul_h1" placeholder="Judul blog.." required
+                                                name="judul_h1" placeholder="Judul Post.." required
                                                 autocomplete="judul_h1" autofocus>
                                         </h1>
                                         <hr>

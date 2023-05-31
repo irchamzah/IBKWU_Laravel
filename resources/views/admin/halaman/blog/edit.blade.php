@@ -147,7 +147,7 @@
                                             <div class="w-full mb-10">
                                                 <iframe class=""
                                                     src="https://www.youtube.com/embed/{{$detail_blog->link_yt}}"></iframe>
-                                                <img src="/image/contoh_link_yt.png" alt="" class="my-5 mx-auto">
+                                                <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
                                                 @error('link_yt')
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror
@@ -158,7 +158,7 @@
                                                     autofocus>
                                             </div>
 
-                                            <h1 class="text-base mb-4 mt-7">Pilih Kategori blog :</h1>
+                                            <h1 class="text-base mb-4 mt-7">Kategori Post :</h1>
                                             <select name="kategori" id="kategori"
                                                 class="border border-slate-400 p-2 -lg w-full capitalize text-slate-500 mb-10">
 
@@ -195,7 +195,7 @@
         <div class="bg-white border-transparent -lg shadow-xl">
             <div
                 class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 -tl-lg -tr-lg p-2">
-                <h class="font-bold uppercase text-gray-600">Graph</h>
+                <h1 class="font-bold uppercase text-gray-600">Graph</h1>
             </div>
             <div class="p-5">
                 <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>

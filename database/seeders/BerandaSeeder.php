@@ -17,8 +17,6 @@ class BerandaSeeder extends Seeder
     {
         Beranda::create([
             'pengumuman_h1' => 'PENGUMUMAN',
-            'ig_h1' => 'TEMUI KAMI DI INSTAGRAM',
-            'link_ig' => 'Ck3kfIPPEVS',
             'yt_h1' => 'TEMUI KAMI DI YOUTUBE',
             'link_yt' => 's9AtzO8r1WI',
             'berita_h1' => 'BERITA TERBARU',

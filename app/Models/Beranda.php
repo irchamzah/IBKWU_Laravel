@@ -12,8 +12,6 @@ class Beranda extends Model
 
     protected $fillable = [
         'pengumuman_h1',
-        'ig_h1',
-        'link_ig',
         'yt_h1',
         'link_yt',
         'berita_h1',

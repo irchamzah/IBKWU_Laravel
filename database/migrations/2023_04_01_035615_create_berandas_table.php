@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('berandas', function (Blueprint $table) {
             $table->id();
             $table->string('pengumuman_h1');
-            $table->string('ig_h1');
-            $table->string('link_ig');
             $table->string('yt_h1');
             $table->string('link_yt');
             $table->string('berita_h1');

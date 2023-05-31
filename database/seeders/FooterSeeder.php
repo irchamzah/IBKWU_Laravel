@@ -20,6 +20,7 @@ class FooterSeeder extends Seeder
             'address_2' => 'Jl. Mastrip, Kotak Pos 164 – Tegalgede, Sumbersari, Kabupaten Jember, Jawa Timur 68124',
             'phone' => '(0331) 333 532',
             'phone_2' => '085 204 980 161 (Hariono Rakhmat)',
+            'phone_3' => '082 142 789 456 (Kartika Adi)',
             'link_1' => 'https://polije.ac.id/',
             'link_2' => '',
             'link_3' => '',

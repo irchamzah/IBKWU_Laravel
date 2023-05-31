@@ -79,6 +79,10 @@
                                         class="text-dark block border border-grey-light w-full p-3  mb-4 @error('phone_2') is-invalid @enderror"
                                         name="phone_2" value="{{$footer->phone_2}}" required autocomplete="phone_2"
                                         autofocus></p>
+                                <p class="my-5"><input type="text" id="phone_3"
+                                        class="text-dark block border border-grey-light w-full p-3  mb-4 @error('phone_3') is-invalid @enderror"
+                                        name="phone_3" value="{{$footer->phone_3}}" required autocomplete="phone_3"
+                                        autofocus></p>
                             </div>
                             <div class="w-full px-4 mb-12 md:w-1/3 ">
                                 <h3 class="font-bold text-2xl mb-2 text-slate-300 mx-auto text-center">MITRA IBKWU</h3>
@@ -86,7 +90,7 @@
                                     @if ($mitras->count())
                                     @foreach($mitras as $mitra)
                                     <div class="max-w-[120px]  mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
-                                        <a href="{{$mitra->mitra_link}}" target="_blank">
+                                        <a href="{{route('admin.halaman.beranda.edit_mitra', $mitra->id)}}">
                                             <img src="/image/mitra/{{$mitra->mitra_img}}" alt="Google"
                                                 class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
                                         </a>

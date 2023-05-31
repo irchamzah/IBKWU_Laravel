@@ -11,7 +11,6 @@ class Galeri extends Model
     protected $table = "galeris";
 
     protected $fillable = [
-        'sorotan_h1',
         'galeri_h1'
     ];
 }

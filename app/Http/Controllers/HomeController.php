@@ -123,7 +123,8 @@ class HomeController extends Controller
         $sosmeds = Sosmed::where('produk_id', $detail_produk->id)->orderBy('id', 'asc')->get();
         $kategoris = KategoriGaleri::orderByRaw("id = $detail_produk->kategori_galeri_id DESC")->get();
         $footer = Footer::first();
-        return view('home.detail_galeri', compact('footer', 'detail_produk', 'foto_produks', 'sosmeds', 'kategoris', 'mitras'));
+        $detail_produks = DetailProduk::where('kategori_galeri_id', $detail_produk->kategori_galeri_id)->orderBy('id', 'desc')->paginate(9);
+        return view('home.detail_galeri', compact('footer', 'detail_produk', 'foto_produks', 'sosmeds', 'kategoris', 'mitras', 'detail_produks'));
     }
 
     ///////////// BLOG
@@ -190,7 +191,8 @@ class HomeController extends Controller
             ->select('kategori_blogs.kategori', DB::raw('count(detail_blogs.id) as total'))
             ->groupBy('kategori_blogs.kategori')
             ->get();
-        return view('home.detail_blog', compact('footer', 'detail_blog', 'foto_blogs', 'kategoris', 'kategoriss', 'mitras'));
+        $detail_blogs = DetailBlog::where('kategori_blog_id', $detail_blog->kategori_blog_id)->orderBy('id', 'desc')->paginate(9);
+        return view('home.detail_blog', compact('footer', 'detail_blog', 'foto_blogs', 'kategoris', 'kategoriss', 'mitras', 'detail_blogs'));
     }
 
     public function list_blog($kategori)

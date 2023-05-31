@@ -16,7 +16,6 @@ class GaleriSeeder extends Seeder
     public function run()
     {
         Galeri::create([
-            'sorotan_h1' => 'Sorotan Produk',
             'galeri_h1' => 'Produk yang Tersedia'
         ]);
     }

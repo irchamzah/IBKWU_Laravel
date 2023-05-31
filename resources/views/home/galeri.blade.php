@@ -18,7 +18,7 @@
 </form>
 
 {{-- Rekomendasi Tenant Section Start --}}
-<section id="home" class="pt-36 pb-10 dark:bg-dark">
+{{-- <section id="home" class="pt-36 pb-10 dark:bg-dark">
   <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-5">
@@ -70,11 +70,11 @@
     </div>
 
   </div>
-</section>
+</section> --}}
 {{-- Rekomendasi Tenant Section End --}}
 
 {{-- Galeri Tenant Section Start --}}
-<section id="tenant" class="pt-10 pb-10 bg-slate-100 dark:bg-slate-800">
+<section id="tenant" class="pt-36 pb-10 bg-slate-100 dark:bg-slate-800">
   <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-5">

@@ -22,7 +22,7 @@ class GaleriController extends Controller
     public function index()
     {
         $galeri = Galeri::first();
-        $detail_produks = DetailProduk::orderBy('id', 'desc')->paginate(6);
+        $detail_produks = DetailProduk::orderBy('id', 'desc')->paginate(9);
         $kategoris = KategoriGaleri::all();
         $rekomendasiGaleris = DetailProduk::where('kategori_galeri_id', '2')->orderBy('id', 'desc')->paginate(3);
         return view('admin.halaman.galeri.index', compact('galeri', 'detail_produks', 'kategoris', 'rekomendasiGaleris'));
@@ -32,13 +32,9 @@ class GaleriController extends Controller
     {
         //validasi data
         $rules = [
-            'sorotan_h1' => 'required|string|max:255',
             'galeri_h1' => 'required|string|max:255',
         ];
         $message = [
-            'sorotan_h1.required' => 'Tidak Boleh Kosong',
-            'sorotan_h1.string' => 'Harus Berupa String',
-
             'galeri_h1.required' => 'Tidak Boleh Kosong',
             'galeri_h1.string' => 'Harus Berupa String',
         ];
@@ -46,7 +42,6 @@ class GaleriController extends Controller
 
         //simpan ke database galeri
         $galeri = Galeri::where('id', $request->id)->first();
-        $galeri->sorotan_h1 = $request->sorotan_h1;
         $galeri->galeri_h1 = $request->galeri_h1;
         $galeri->update();
 
@@ -58,7 +53,7 @@ class GaleriController extends Controller
         $query = $request->input('query');
         $detail_produks = DetailProduk::where('judul_h1', 'LIKE', '%' . $query . '%')
             ->orWhere('deskripsi_p1', 'LIKE', '%' . $query . '%')
-            ->orderBy('id', 'desc')->paginate(6);
+            ->orderBy('id', 'desc')->paginate(9);
         $galeri = Galeri::first();
         $kategoris = KategoriGaleri::all();
         $rekomendasiGaleris = DetailProduk::where('kategori_galeri_id', '2')->orderBy('id', 'desc')->paginate(3);
@@ -75,7 +70,7 @@ class GaleriController extends Controller
             $query->where('kategori_galeri_id', $request->kategori);
 
             $kategoris = KategoriGaleri::all();
-            $detail_produks = $query->orderBy('id', 'desc')->get();
+            $detail_produks = $query->orderBy('id', 'desc')->paginate(9);
             $galeri = Galeri::first();
             $rekomendasiGaleris = DetailProduk::where('kategori_galeri_id', '2')->orderBy('id', 'desc')->paginate(3);
             return view('admin.halaman.galeri.galeri_list', compact('detail_produks', 'query', 'galeri', 'kategoris', 'rekomendasiGaleris'));

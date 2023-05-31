@@ -60,40 +60,40 @@ class DetailBlogSeeder extends Seeder
         //5
         DetailBlog::create([
             'detail_blog_img' => '',
-            'judul_h1' => 'Layanan Pra-Startup',
-            'slug' => 'layanan-pra-startup',
+            'judul_h1' => 'Pendampingan Produksi',
+            'slug' => 'pendampingan-produksi',
             'link_yt' => '',
-            'deskripsi_p1' => '',
+            'deskripsi_p1' => 'Isi penjelasan pendampingan masih belum tersedia, sedang menunggu pembaruan informasi lebih lanjut',
             'kategori_blog_id' => '3'
         ]);
 
         //6
         DetailBlog::create([
             'detail_blog_img' => '',
-            'judul_h1' => 'Layanan Start-Up',
-            'slug' => 'layanan-start-up',
+            'judul_h1' => 'Pendampingan Pemasaran',
+            'slug' => 'pendampingan-pemasaran',
             'link_yt' => '',
-            'deskripsi_p1' => '',
+            'deskripsi_p1' => 'Isi penjelasan pendampingan masih belum tersedia, sedang menunggu pembaruan informasi lebih lanjut',
             'kategori_blog_id' => '3'
         ]);
 
         //7
         DetailBlog::create([
             'detail_blog_img' => '',
-            'judul_h1' => 'Pendampingan Skill Up',
-            'slug' => 'pendampingan-skill-up',
+            'judul_h1' => 'Pendampingan Legalitas',
+            'slug' => 'pendampingan-legalitas',
             'link_yt' => '',
-            'deskripsi_p1' => '',
+            'deskripsi_p1' => 'Isi penjelasan pendampingan masih belum tersedia, sedang menunggu pembaruan informasi lebih lanjut',
             'kategori_blog_id' => '3'
         ]);
 
         //8
         DetailBlog::create([
             'detail_blog_img' => '',
-            'judul_h1' => 'IBC (Innovation Business Class)',
-            'slug' => 'ibc-innovation-business-class',
+            'judul_h1' => 'Pendampingan Manajemen',
+            'slug' => 'pendampingan-manajemen',
             'link_yt' => '',
-            'deskripsi_p1' => '',
+            'deskripsi_p1' => 'Isi penjelasan pendampingan masih belum tersedia, sedang menunggu pembaruan informasi lebih lanjut',
             'kategori_blog_id' => '3'
         ]);
 
@@ -184,7 +184,7 @@ class DetailBlogSeeder extends Seeder
             'slug' => 'pilih-reseller-atau-dropsip',
             'link_yt' => '',
             'deskripsi_p1' => '<p>TEGALBOTO, Radar Jember – Dunia bisnis online atau daring telah menjadi pilihan banyak anak muda. Kata-kata dropship dan reseller, juga tak asing bagi lagi. Bahkan, pelaku bisnis online masih binggung memilih strategi alur distribusi, dengan dropship atau reseller.IKLAN</p><p>&nbsp;</p><p>Founder Yuk Bisnis Jaya Setiabudi yang jadi pemateri roadshow workshop di 10 kota tentang revolusi saluran distribusi mengatakan, bisnis online anak milenial saat ini harus menguasai traffic, logistik, payment, dan platform. “Kuasai empat ini,” terangnya.</p><p>&nbsp;</p><p>Dalam dunia jual beli online, kata dia, dua istilah reseller dan dropship sering diketahui. Bahkan, situs jual beli lewat e-commerce juga menyediakan layanan itu semua. Sayangnya, saat Jaya Setiabudi melempar beberapa pertanyaan barang apa saja yang pantas jadi reseller dan dropship, banyak diantara peserta yang mayoritas bergelut di dunia bisnis online, menjawab kurang tepat.</p><p>&nbsp;</p><p>“Kalau mau jual kemeja batik, mau jual pakai sistem jadi reseller atau dropship,” ucap Jaya yang melempar pertanyaan ke peserta.</p><p>&nbsp;</p><p>Secara sederhana dropship adalah mereka yang menjual barang dengan tidak melakukan penyetokan, tapi pihak lainnya yang mengirimkan barang ke konsumen. Sementara reseller adalah mereka yang lakukan jual beli online dengan barang membeli barang jualannya terlebih dahulu, baru dikirim ke konsumen.</p><p>&nbsp;</p><p>Dua metode distribusi sederhana tersebut, harus memahami agar lebih tepat menjual barang lewat media daring. “Menentukan apakah pakai dropship atau reseller, tidak cukup dilihat barang apa saja yang hendak dijual, tapi juga dilihat dari kondisi demografi dan geografis,” ujarnya.</p><p>&nbsp;</p><p>Jika menjual produk fashion seperti batik dengan satu corak, jika lewat reseller juga dilihat apakah daerah sekitar itu punya selera yang sama dengan satu corak tersebut. Bagi Jaya, namanya pemilihan baju tentu saja berbeda, sehingga alangkah baiknya lewat dropship saja.</p><p>&nbsp;</p><p>Sedangkan, untuk jual popok bayi, jika daerah sekitar banyak anak kecil, maka lebih baik sebagai reseller bukan dropship. “Reseller itu adalah distributor, tapi skala kecil dan perseorangan,” ujarnya.</p><p>&nbsp;</p><p>Sebenarnya ada juga metode selain reseller ataupun dropship. Namanya affiliate, yaitu dengan cara jadi influencer yaitu mempengaruhi konsumen baik memakai metode you tube ataupun blog. “Saat lihat you tube itu, klik dan pergi ke situs penjual barang tersebut dan berhasil terjual. Ada juga nilai keuntungan berapa persen,” tuturnya. Sayangnya, metode itu tidak begitu masif diterapkan di Indonesia, lantaran masyarakat Indonesia masih semi online.</p><p>&nbsp;</p><p>Menjual barang lewat online hari ini cermelang dan bagus. Tapi selanjutnya juga belum pasti bagus untuk menjual lewat online terus. Dia mencontohkan yang terjadi adalah pelaku usaha kripik pedas-pedasan. “Pada waktu pertama rilis, jual online itu menarik. Saya juga pernah mengatakan, suatu hari jual online juga belum tentu menjanjikan,” ujarnya.</p><p>&nbsp;</p><p>Alhasil, kripik pedas-pedas itu omzetnya berangsur turun. Bahkan, yang awalnya jual lewat online saja, sudah merambah ke jalur konvensional dengan menitipkan barang ke gerai-gerai supermaret dan toko. “Distribusi dalam bisnis itu juga kejam,” tegasnya.</p><p>&nbsp;</p><p>Sementara itu, Wadir III Bid Kemahasiswaan Polije Wahyu Kurnia mengatakan, acara yang baik untuk membuka pemikiran para mahasiswa, para pelaku pengusaha online. Dengan jumlah kuantitas bisnis online yang meningkat, tentu saja yang berat yaitu di ongkos kirim. Sehingga lewat kegiatan ini juga ada kerjasama dengan pihak ekspedisi agar ongkir bisa ditekan.</p><p>&nbsp;</p><p>Polije sendiri juga mendorong untuk terciptakan enterpeuner. “Polije ada namanya UPT Pengembangan Karir dan Kewirausaha,” katanya. Lewat unit tersebut, juga membangun dan membina mereka yang ingin mengembangkan usaha. (*)</p><p>&nbsp;</p><p>Reporter : Dwi Siswanto</p><p>&nbsp;</p><p>Fotografer : Dwi Siswanto</p><p>&nbsp;</p><p>Editor : Hadi Sumarsono</p><p>&nbsp;</p><p>Sumber: <a href="https://radarjember.jawapos.com/pendidikan/08/03/2020/pilih-resseler-atau-dropsip/">https://radarjember.jawapos.com/pendidikan/08/03/2020/pilih-resseler-atau-dropsip/</a></p>',
-            'kategori_blog_id' => '9'
+            'kategori_blog_id' => '5'
         ]);
 
         //18
@@ -194,7 +194,7 @@ class DetailBlogSeeder extends Seeder
             'slug' => 'ibkwutalks-the-rise-and-fall-business-in-the-new-normal',
             'link_yt' => '',
             'deskripsi_p1' => '<p>Inkubator Bisnis dan Kewirausahaan (IBKWU) Politeknik Negeri Jember pada tanggal 17 Juni 2020 menyelanggarakan seminar secara daring dengan tema “The Rise and Fall Business in The New Normal” untuk umum.</p>',
-            'kategori_blog_id' => '9'
+            'kategori_blog_id' => '5'
         ]);
 
         //19
@@ -204,7 +204,7 @@ class DetailBlogSeeder extends Seeder
             'slug' => 'siap-bantu-umkm-di-jawa-timur-ibkwu-polije-memberikan-pelatihan-dan-sertifikasi-pendamping-umkm-bagi-staff',
             'link_yt' => '',
             'deskripsi_p1' => '<p>Inkubator Bisnis dan Kewirausahaan (IBKWU) Politeknik Negeri Jember (Polije) melihat geliat bisnis dan UMKM di wilayah Jawa Timur menjadi melambat karena pandemi. Sebagai langkah dalam rangka persiapan membantu UMKM tersebut, IBKWU Polije menyiapkan Sumber Daya Manusia (SDM) yang kompeten dalam pendampingan UMKM melalui kegiatan sertifikasi dan pendampingan UMKM.</p>',
-            'kategori_blog_id' => '9'
+            'kategori_blog_id' => '5'
         ]);
 
         //20

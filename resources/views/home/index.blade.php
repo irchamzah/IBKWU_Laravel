@@ -10,10 +10,10 @@
 @section('content')
 
 {{-- Slider Section Start --}}
-<section id="slider" class="pt-24">
+<section id="slider" class="pt-24 bg-slate-100">
   <div class="">
     <div class="flex flex-wrap">
-      <div class="w-full self-center ">
+      <div class="w-full self-center bg-black">
 
         <!-- component -->
         <!-- This is an example component -->
@@ -30,14 +30,14 @@
                 <div
                   class="absolute flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-1/2 text-center">
                   <span
-                    class="text-2xl font-semibold text-white sm:text-3xl mb-2 truncate">{{$post_berita->judul_h1}}</span>
+                    class="text-2xl font-extrabold text-white sm:text-3xl mb-2 truncate">{{$post_berita->judul_h1}}</span>
                   <span
-                    class="text-sm font-semibold text-white sm:text-sm truncate max-h-10">{!!$post_berita->deskripsi_p1!!}</span>
+                    class="text-sm font-medium text-white sm:text-sm truncate max-h-10">{!!$post_berita->deskripsi_p1!!}</span>
                   <a href="{{route('blog.detail_blog', $post_berita->slug)}}"
                     class="border-2 text-white w-min mx-auto px-3 py-1 mt-4 hover:bg-white hover:bg-opacity-20">Selengkapnya</a>
                 </div>
                 <img src="/image/detail_blog/{{$post_berita->detail_blog_img}}"
-                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                  class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2 opacity-50" alt="...">
               </div>
               @endforeach
               @else
@@ -93,7 +93,7 @@
 {{-- Slider Section End --}}
 
 {{-- Blog Section Start --}}
-<section id="blog" class="pt-10 pb-10 bg-fixed bg-cover bg-bottom">
+<section id="blog" class="pt-10 pb-10 bg-fixed bg-slate-100">
   <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-5">
@@ -135,8 +135,14 @@
       <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
         Blog tidak tersedia.</p>
       @endif
-
     </div>
+
+    <div class="w-full sm:w-96 mx-auto">
+      <div class="mt-4 mx-10">
+        {{ $post_pengumumans->links() }}
+      </div>
+    </div>
+
   </div>
 </section>
 {{-- Blog Section End --}}
@@ -147,7 +153,7 @@
   <div class="sm:container">
     <div class="flex flex-wrap">
       <div class="w-full px-4 text-center mb-5">
-        <h2 class="font-semibold text-white text-3xl sm:text-4xl lg:text-4xl mb-5 lg:pt-5">{{$beranda->yt_h1}}
+        <h2 class="font-bold text-white  mb-5 text-3xl sm:text-4xl lg:text-4xl">{{$beranda->yt_h1}}
         </h2>
         <hr class="max-w-xl mx-auto">
         <div class="w-full px-4 aspect-video mt-5">
@@ -202,36 +208,17 @@
       <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
         Blog tidak tersedia.</p>
       @endif
-
     </div>
+
+    <div class="w-full sm:w-96 mx-auto">
+      <div class="mt-4">
+        {{ $post_beritas->links() }}
+      </div>
+    </div>
+
   </div>
 </section>
 {{-- Blog Section End --}}
-
-{{-- Hero Section Start --}}
-{{-- <section id="home" class="pt-36">
-  <div class="container">
-    <div class="flex flex-wrap">
-      <div class="w-full self-center px-4 lg:w-1/2">
-        <span class="block font-bold text-slate-900 text-4xl mt-1 lg:text-5xl mb-6">{{$beranda->home_h1}}</span>
-        <p class="font-medium text-secondary mb-10 leading-relaxed">{{$beranda->home_p1}}</p>
-
-        <a href="/profil"
-          class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Selengkapnya
-          ></a>
-      </div>
-      <div class="w-full self-end px-4 lg:w-1/2">
-        <div class="relative mt-10 lg:mt-0 lg:right-0">
-          <img src="/image/beranda/{{$beranda->home_img1}}" alt="Dhanang Eka Putra"
-            class="relative z-10 mx-auto w-96 bg-cover">
-          <span class="absolute bottom-0 left-1/2 -translate-x-1/2 md:scale-125">
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> --}}
-{{-- Hero Section End --}}
 
 {{-- Contact Section Start --}}
 <section id="contact" class="pt-10 pb-10 bg-fixed bg-cover bg-bottom"
@@ -280,40 +267,6 @@
 </section>
 {{-- Contact Section End --}}
 
-{{-- Mitra Section Start --}}
-{{-- <section id="mitra" class="pt-36 pb-32 bg-slate-800">
-  <div class="container">
-    <div class="w-full px-4">
-      <div class="mx-auto text-center mb-16">
-        <h4 class="font-semibold text-lg text-primary mb-2">{{$beranda->mitra_h1}}</h4>
-        <h2 class="font-bold text-white text-3xl mb-5 sm:text-4xl lg:text-5xl">{{$beranda->mitra_h2}}
-        </h2>
-        <p class="font-medium text-md text-secondary md:text-lg">{{$beranda->mitra_p1}}</p>
-      </div>
-    </div>
-
-    <div class="w-full px-4">
-      <div class="flex flex-wrap items-center justify-center">
-
-        @if ($mitras->count())
-        @foreach($mitras as $mitra)
-        <div class="max-w-[120px] mx-4 py-4 lg:mx-6 xl:mx-8 flex flex-col">
-          <a href="{{$mitra->mitra_link}}" target="_blank">
-            <img src="/image/mitra/{{$mitra->mitra_img}}" alt="Google"
-              class="grayscale opacity-60 transition duration-500 hover:grayscale-0 hover:opacity-100">
-          </a>
-        </div>
-        @endforeach
-        @else
-        <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
-          Mitra tidak Tersedia.</p>
-        @endif
-      </div>
-    </div>
-  </div>
-</section> --}}
-{{-- Mitra Section End --}}
-
 {{-- Galeri Section Start --}}
 <section id="galeri" class="pt-10 pb-10">
   <div class="sm:container">
@@ -350,14 +303,19 @@
         Produk
         tidak tersedia.</p>
       @endif
+    </div>
 
+    <div class="w-full sm:w-96 mx-auto">
+      <div class="mt-4">
+        {{ $detail_produks->links() }}
+      </div>
     </div>
 
   </div>
-  <div class=" mx-auto items-center w-full text-center mt-10 mb-10">
+  {{-- <div class=" mx-auto items-center w-full text-center mt-10 mb-10">
     <a href="/galeri" class="text-base font-medium text-white bg-primary py-3 px-6 hover:bg-sky-600">Lihat
       Produk Lainnya</a>
-  </div>
+  </div> --}}
 </section>
 {{-- Galeri Section End --}}
 

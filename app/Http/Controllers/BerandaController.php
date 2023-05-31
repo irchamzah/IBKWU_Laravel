@@ -15,8 +15,8 @@ class BerandaController extends Controller
     {
         $beranda = Beranda::first();
         $mitras = Mitra::all();
-        $post_pengumumans = DetailBlog::where('kategori_blog_id', '8')->orderBy('id', 'desc')->paginate(3);
-        $post_beritas = DetailBlog::where('kategori_blog_id', '6')->orderBy('id', 'desc')->paginate(3);
+        $post_pengumumans = DetailBlog::where('kategori_blog_id', '7')->orderBy('id', 'desc')->paginate(4);
+        $post_beritas = DetailBlog::where('kategori_blog_id', '5')->orderBy('id', 'desc')->paginate(4);
         $detail_produks = DetailProduk::orderBy('id', 'desc')->paginate(9);
         return view('admin.halaman.beranda.index', compact('beranda', 'mitras', 'post_pengumumans', 'post_beritas', 'detail_produks'));
     }
@@ -27,8 +27,6 @@ class BerandaController extends Controller
         //validasi data
         $rules = [
             'pengumuman_h1' => 'required|string|max:255',
-            'ig_h1' => 'required', 'string',
-            'link_ig' => 'required|string|max:255',
             'yt_h1' => 'required|string|max:255',
             'link_yt' => 'required', 'string',
             'berita_h1' => 'required|string|max:255',
@@ -38,12 +36,6 @@ class BerandaController extends Controller
         $message = [
             'pengumuman_h1.required' => 'Tidak Boleh Kosong',
             'pengumuman_h1.string' => 'Harus Berupa String',
-
-            'ig_h1.required' => 'Tidak Boleh Kosong',
-            'ig_h1.string' => 'Harus Berupa String',
-
-            'link_ig.required' => 'Tidak Boleh Kosong',
-            'link_ig.string' => 'Tidak Boleh Kosong',
 
             'yt_h1.required' => 'Tidak Boleh Kosong',
             'yt_h1.string' => 'Harus Berupa String',
@@ -61,13 +53,12 @@ class BerandaController extends Controller
             'lokasi_h1.string' => 'Harus Berupa String',
 
         ];
+        // dd($request);
         $this->validate($request, $rules, $message);
 
         //simpan ke database beranda
         $beranda = Beranda::where('id', $request->id)->first();
         $beranda->pengumuman_h1 = $request->pengumuman_h1;
-        $beranda->ig_h1 = $request->ig_h1;
-        $beranda->link_ig = $request->link_ig;
         $beranda->yt_h1 = $request->yt_h1;
         $beranda->link_yt = $request->link_yt;
         $beranda->berita_h1 = $request->berita_h1;

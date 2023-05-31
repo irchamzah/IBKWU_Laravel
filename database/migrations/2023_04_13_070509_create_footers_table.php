@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address_2');
             $table->string('phone');
             $table->string('phone_2');
+            $table->string('phone_3');
             $table->string('link_1');
             $table->string('link_2');
             $table->string('link_3');

@@ -34,7 +34,7 @@
             <div class="relative mb-4 flex w-full flex-wrap items-stretch">
               <input form="searchForm" name="query" type="text"
                 class="bg-white relative m-0 -mr-px block w-[1%] min-w-0 flex-auto border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-1.5 text-base font-normal text-neutral-700 outline-none focus:border-primary focus:text-neutral-700 focus:shadow-te-primary focus:outline-none"
-                placeholder="Cari post" aria-label="Search" aria-zdescribedby="searchForm" />
+                placeholder="Cari Post" aria-label="Search" aria-zdescribedby="searchForm" />
               <button form="searchForm"
                 class="relative z-[2] flex items-center bg-primary px-6 py-2.5 text-xs font-medium uppercase leading-tight text-white shadow-md hover:bg-sky-600 focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg"
                 type="submit" id="searchForm" data-te-ripple-init data-te-ripple-color="light">

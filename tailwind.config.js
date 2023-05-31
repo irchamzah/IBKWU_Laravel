@@ -19,7 +19,11 @@ module.exports = {
                 primary: "#0093d3",
                 // primary: "#0F4C75",
                 secondary: "#64748b",
-                dark: "#0f172a",
+                secondary2: "#EBE079",
+                dark: "#131313",
+                // dark: "#212121",
+                dark2: "#424242",
+                dark3: "#616161",
             },
             fontFamily: {
                 poppins: ['"Poppins"', "sans-serif"],

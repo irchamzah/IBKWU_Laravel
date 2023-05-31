@@ -31,8 +31,8 @@ class ProfilSeeder extends Seeder
       'struktur_h1' => 'Struktur Kepengurusan IBKWU',
       'struktur_p1' => '<p>IBKWU Politeknik Negeri Jember memiliki struktur kepengurusan sesuai Surat Keputusan Direktur Politeknik Negeri Jember Nomor 3131/PL17/KP/SK/2020 adalah sebagai berikut:</p><p><strong>- Kepala</strong> : Dr. Dhanang Eka Putra, SP, M.Sc</p><p><strong>-&nbsp;Sekretaris</strong> : Hariyono Rakhmad, S.Pd, M.Kom</p><p><strong>-&nbsp;General Manajer</strong> : Drs. Lukman Ekana Putra, P.Si., M. Si.</p><p><strong>-&nbsp;Manajer Teknologi Informasi</strong> : Nugroho Setyo Wibowo, S.T., M. T.</p><p><strong>-&nbsp;Manajer Kemitraan</strong> : Elly Antika, S.T., M. Kom.</p><p><strong>-&nbsp;Manajer Training &amp; Business Class </strong>: Mukhamad Angga Gumilang, S. Pd., M. Eng.</p><p><strong>-&nbsp;Manajer Diseminasi Teknologi </strong>: Rindha Retina Darah Pertami, S. P., M. Si.</p><p><strong>-&nbsp;Manajer Pengembangan Produk</strong>: Silvia Oktavia Nur Yudiastuti, S.T.P., M.T.P.</p>',
       'struktur_img1' => 'struktur_kepengurusan_ibkwu.png',
-      'sdm_h1' => 'SDM Pendamping',
-      'sdm_p1' => '<p>IBKWU Politeknik Negeri Jember memiliki SDM Pendamping sebagai berikut :</p><ul><li>- 2020 – 2021</li></ul>'
+      'sdm_h1' => 'SDM Pendamping UMKM',
+      'sdm_p1' => '<p>IBKWU Politeknik Negeri Jember memiliki SDM Pendamping UMKM sebagai berikut :</p><p>1. Arifningtyas<br>2. Eko Nuryahya<br>3. Suci Hastuti<br>4. Mohamad Nasrudin Latif<br>5. Eva Fahmadia Jilan Maulida<br>6. Lukman Ekana Putra<br>7. Silvia Oktavia Nur Yudiastuti<br>8. Rindha Rentina Darah Pertami<br>9. Alinea Dwi Elisanti<br>10. David K Susilo<br>11. Dedik Hevea Ermanu<br>12. Dhanang Eka Putra<br>13. Hariyono Rakhmad<br>14. Kartika Adi<br>15. Elly Antika<br>16. Huda Ahmad Hudori<br>17. Deltaningtyas Tri Cahyaningrum<br>18. Yohan Yuanta<br>19. Financia Mayasari<br>20. Putri Ratu Syarifah<br>21. Suwartono<br>22. Mukhamad Angga Gumilang<br>23. Uyun Erma Malika<br>24. Ujang Suryadi<br>25. Risse Entikaria Rachmanita</p>'
     ]);
   }
 }

@@ -30,7 +30,7 @@
         <div class="flex flex-wrap">
 
           <div class="w-full p-4 lg:w-3/4">
-            <h1 class="font-bold text-3xl text-dark my-5 text-justify">
+            <h1 class="font-bold text-3xl text-dark my-5">
               {{$detail_blog->judul_h1}}
             </h1>
             <hr>
@@ -125,5 +125,61 @@
     </div>
 </section>
 {{-- Tentang Section End --}}
+
+{{-- blog Tenant Section Start --}}
+<section id="tenant" class="pt-10 pb-10 bg-slate-100 dark:bg-slate-800">
+  <div class="sm:container">
+    <div class="w-full px-4">
+
+      <div class="max-w-xl mx-auto text-center mb-5">
+        <h2 class="font-bold text-dark mb-5 text-3xl sm:text-4xl">POST LAINNYA
+        </h2>
+        <hr class="mb-10">
+      </div>
+
+      <div class="flex flex-wrap">
+
+        @if ($detail_blogs->count())
+        @foreach($detail_blogs as $detail_blog)
+        <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
+          <div class="bg-white shadow-lg overflow-hidden mb-10">
+            <img src="/image/detail_blog/{{$detail_blog->detail_blog_img}}" alt="Programming"
+              class="h-64 w-full object-cover">
+            <div class="py-8 px-6">
+              <h3>
+                <a href="{{route('blog.detail_blog', $detail_blog->slug)}}"
+                  class="block mb-1 font-semibold text-xl text-dark hover:text-primary truncate">{{$detail_blog->judul_h1}}</a>
+              </h3>
+              <small class="text-slate-400">{{
+                $detail_blog->created_at->diffForHumans()}} |
+                {{$detail_blog->kategori_blog->kategori}}
+              </small>
+              <div class="font-medium text-base text-secondary mb-6 truncate mt-2 max-h-20">
+                {!!$detail_blog->deskripsi_p1!!}
+              </div>
+              <a href="{{route('blog.detail_blog', $detail_blog->slug)}}"
+                class="font-medium text-sm text-white bg-primary py-2 px-4 hover:bg-sky-600">Baca
+                Selengkapnya</a>
+            </div>
+          </div>
+        </div>
+        @endforeach
+        @else
+        <p class="text-red-600 mx-auto border-collapse border-red-500 border-2 p-4 bg-white">
+          blog
+          tidak tersedia.</p>
+        @endif
+      </div>
+
+      <div class="w-full sm:w-96 mx-auto">
+        <div class="mt-4">
+          {{ $detail_blogs->links() }}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+{{-- blog Tenant Section End --}}
 
 @endsection

@@ -16,91 +16,102 @@ class SosmedSeeder extends Seeder
     public function run()
     {
         Sosmed::create([
-            'nama_sosmed' => 'Youtube',
-            'link_sosmed' => 'https://www.youtube.com/',
-            'warna_id' => '3',
-            'produk_id' => '1'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'instagram',
-            'link_sosmed' => 'https://www.instagram.com/',
-            'warna_id' => '4',
-            'produk_id' => '1'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'Twitter',
-            'link_sosmed' => 'https://twitter.com/',
-            'warna_id' => '5',
-            'produk_id' => '1'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'LinkedIn',
-            'link_sosmed' => 'https://www.linkedin.com/',
+            'nama_sosmed' => 'Instagram',
+            'link_sosmed' => 'https://www.instagram.com/rvsccookies.id/',
             'warna_id' => '9',
+            'produk_id' => '1'
+        ]);
+
+        Sosmed::create([
+            'nama_sosmed' => 'Email',
+            'link_sosmed' => 'mailto:rvsccookies@gmail.com',
+            'warna_id' => '6',
+            'produk_id' => '1'
+        ]);
+
+        Sosmed::create([
+            'nama_sosmed' => 'WhatsApp',
+            'link_sosmed' => 'https://wa.me/082245896948',
+            'warna_id' => '5',
             'produk_id' => '1'
         ]);
 
         //
 
         Sosmed::create([
-            'nama_sosmed' => 'Youtube',
-            'link_sosmed' => 'https://www.youtube.com/',
-            'warna_id' => '3',
-            'produk_id' => '2'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'instagram',
-            'link_sosmed' => 'https://www.instagram.com/',
-            'warna_id' => '4',
-            'produk_id' => '2'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'Twitter',
-            'link_sosmed' => 'https://twitter.com/',
+            'nama_sosmed' => 'WhatsApp',
+            'link_sosmed' => 'https://wa.me/+6285804211994',
             'warna_id' => '5',
             'produk_id' => '2'
         ]);
 
         Sosmed::create([
-            'nama_sosmed' => 'LinkedIn',
-            'link_sosmed' => 'https://www.linkedin.com/',
-            'warna_id' => '9',
+            'nama_sosmed' => 'Email',
+            'link_sosmed' => 'mailto:musaechips@gmail.com',
+            'warna_id' => '4',
+            'produk_id' => '2'
+        ]);
+
+        Sosmed::create([
+            'nama_sosmed' => 'Website',
+            'link_sosmed' => 'http://www.musaechips.com',
+            'warna_id' => '8',
             'produk_id' => '2'
         ]);
 
         //
 
         Sosmed::create([
-            'nama_sosmed' => 'Youtube',
-            'link_sosmed' => 'https://www.youtube.com/',
-            'warna_id' => '3',
-            'produk_id' => '3'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'instagram',
-            'link_sosmed' => 'https://www.instagram.com/',
-            'warna_id' => '4',
-            'produk_id' => '3'
-        ]);
-
-        Sosmed::create([
-            'nama_sosmed' => 'Twitter',
-            'link_sosmed' => 'https://twitter.com/',
+            'nama_sosmed' => 'WhatsApp',
+            'link_sosmed' => 'https://wa.me/+6281217757777',
             'warna_id' => '5',
             'produk_id' => '3'
         ]);
 
         Sosmed::create([
-            'nama_sosmed' => 'LinkedIn',
-            'link_sosmed' => 'https://www.linkedin.com/',
-            'warna_id' => '9',
+            'nama_sosmed' => 'Email',
+            'link_sosmed' => 'mailto:helmiceo@macarina.id',
+            'warna_id' => '6',
             'produk_id' => '3'
+        ]);
+
+        //
+
+        Sosmed::create([
+            'nama_sosmed' => 'WhatsApp',
+            'link_sosmed' => 'https://wa.me/8508089',
+            'warna_id' => '5',
+            'produk_id' => '4'
+        ]);
+
+        //
+
+        Sosmed::create([
+            'nama_sosmed' => 'WhatsApp 1',
+            'link_sosmed' => 'https://wa.me/+6285101747899',
+            'warna_id' => '5',
+            'produk_id' => '5'
+        ]);
+
+        Sosmed::create([
+            'nama_sosmed' => 'WhatsApp 2',
+            'link_sosmed' => 'https://wa.me/+6289639099000',
+            'warna_id' => '5',
+            'produk_id' => '5'
+        ]);
+
+        Sosmed::create([
+            'nama_sosmed' => 'Email',
+            'link_sosmed' => 'mailto:sambel.mbegor@gmail.com',
+            'warna_id' => '3',
+            'produk_id' => '5'
+        ]);
+
+        Sosmed::create([
+            'nama_sosmed' => 'Instagram',
+            'link_sosmed' => 'https://www.instagram.com/sambal.mbegor/',
+            'warna_id' => '9',
+            'produk_id' => '5'
         ]);
     }
 }

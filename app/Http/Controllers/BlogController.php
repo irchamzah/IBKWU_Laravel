@@ -16,7 +16,7 @@ class BlogController extends Controller
     public function index()
     {
         $blog = Blog::first();
-        $detail_blogs = DetailBlog::orderBy('id', 'desc')->paginate(6);
+        $detail_blogs = DetailBlog::orderBy('id', 'desc')->paginate(9);
         $kategoris = KategoriBlog::all();
         $rekomendasiBlogs = DetailBlog::where('kategori_blog_id', '2')->orderBy('id', 'desc')->paginate(3);
         return view('admin.halaman.blog.index', compact('blog', 'detail_blogs', 'kategoris', 'rekomendasiBlogs'));
@@ -26,13 +26,9 @@ class BlogController extends Controller
     {
         //validasi data
         $rules = [
-            'sorotan_h1' => 'required|string|max:255',
             'blog_h1' => 'required|string|max:255',
         ];
         $message = [
-            'sorotan_h1.required' => 'Tidak Boleh Kosong',
-            'sorotan_h1.string' => 'Harus Berupa String',
-
             'blog_h1.required' => 'Tidak Boleh Kosong',
             'blog_h1.string' => 'Harus Berupa String',
         ];
@@ -40,7 +36,6 @@ class BlogController extends Controller
 
         //simpan ke database blog
         $blog = Blog::where('id', $request->id)->first();
-        $blog->sorotan_h1 = $request->sorotan_h1;
         $blog->blog_h1 = $request->blog_h1;
         $blog->update();
 
@@ -52,7 +47,7 @@ class BlogController extends Controller
         $query = $request->input('query');
         $detail_blogs = DetailBlog::where('judul_h1', 'LIKE', '%' . $query . '%')
             ->orWhere('deskripsi_p1', 'LIKE', '%' . $query . '%')
-            ->orderBy('id', 'desc')->paginate(6);
+            ->orderBy('id', 'desc')->paginate(9);
         $blog = Blog::first();
         $kategoris = KategoriBlog::all();
         $rekomendasiBlogs = DetailBlog::where('kategori_blog_id', '2')->orderBy('id', 'desc')->paginate(3);
@@ -69,7 +64,7 @@ class BlogController extends Controller
             $query->where('kategori_blog_id', $request->kategori);
 
             $kategoris = KategoriBlog::all();
-            $detail_blogs = $query->orderBy('id', 'desc')->paginate(6);
+            $detail_blogs = $query->orderBy('id', 'desc')->get();
             $blog = Blog::first();
             $rekomendasiBlogs = DetailBlog::where('kategori_blog_id', '2')->orderBy('id', 'desc')->paginate(3);
             return view('admin.halaman.blog.blog_list', compact('detail_blogs', 'query', 'blog', 'kategoris', 'rekomendasiBlogs'));

@@ -55,12 +55,12 @@
             <div class=" -lg shadow-xl p-5">
 
                 {{-- Tentang Section Start --}}
-                <section id="tentang" class="pt-10 pb-10 bg-white">
+                <section id="tentang" class="pt-36 pb-16 dark:bg-dark bg-white">
                     <div class="sm:container">
 
                         <div class="w-full px-4">
-                            <div class="max-w-5xl mx-auto mb-5">
-                                <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-4xl mb-5 text-center">
+                            <div class="max-w-5xl mx-auto mb-6">
+                                <h2 class="font-bold text-dark text-3xl mb-6 sm:text-4xl lg:text-5xl text-center">
                                     <input type="text" id="tentang_h1"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('tentang_h1') is-invalid @enderror"
                                         name="tentang_h1" value="{{$profil->tentang_h1}}" required
@@ -83,12 +83,12 @@
                 {{-- Tentang Section End --}}
 
                 {{-- Visi dan Misi Section Start --}}
-                <section id="visi" class="pt-10 pb-10 bg-slate-100 dark:bg-slate-800">
+                <section id="visi" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
                     <div class="sm:container">
                         <div class="">
                             <div class="w-full px-4">
-                                <div class="max-w-5xl mx-auto text-center mb-5">
-                                    <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-4xl mb-5">
+                                <div class="max-w-5xl mx-auto text-center mb-10">
+                                    <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">
                                         <input type="text" id="visi_h1"
                                             class="block border border-grey-light w-full p-3  mb-4 @error('visi_h1') is-invalid @enderror"
                                             name="visi_h1" value="{{$profil->visi_h1}}" required autocomplete="visi_h1"
@@ -100,14 +100,13 @@
 
                             <div class="flex flex-wrap">
                                 <div class="w-full px-4 lg:w-1/2">
-                                    <h2
-                                        class="font-semibold text-dark text-2xl mb-4 lg:text-3xl sm:text-4xl lg:pt-12 text-center">
+                                    <h2 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 text-center">
                                         <input type="text" id="visi_h2"
                                             class="block border border-grey-light w-full p-3  mb-4 @error('visi_h2') is-invalid @enderror"
                                             name="visi_h2" value="{{$profil->visi_h2}}" required autocomplete="visi_h2"
                                             autofocus>
                                     </h2>
-                                    <div class="list-disc font-medium text-base  mb-5 lg:text-lg lg:pl-6 text-justify">
+                                    <div class="list-disc font-medium text-base  mb-6 lg:text-lg lg:pl-6 text-justify">
                                         @error('visi_p1')
                                         <small style="color: red">{{$message}}</small>
                                         @enderror
@@ -117,14 +116,13 @@
                                     </div>
                                 </div>
                                 <div class="w-full px-4 lg:w-1/2">
-                                    <h2
-                                        class="font-semibold text-dark text-2xl mb-4 lg:text-3xl sm:text-4xl lg:pt-12 text-center">
+                                    <h2 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 text-center">
                                         <input type="text" id="visi_h3"
                                             class="block border border-grey-light w-full p-3  mb-4 @error('visi_h3') is-invalid @enderror"
                                             name="visi_h3" value="{{$profil->visi_h3}}" required autocomplete="visi_h3"
                                             autofocus>
                                     </h2>
-                                    <div class="list-disc font-medium text-base  mb-5 lg:text-lg lg:pl-6 text-justify">
+                                    <div class="list-disc font-medium text-base  mb-6 lg:text-lg lg:pl-6 text-justify">
                                         @error('visi_p2')
                                         <small style="color: red">{{$message}}</small>
                                         @enderror
@@ -141,11 +139,11 @@
                 {{-- Visi dan Misi Section End --}}
 
                 {{-- Tujuan dan Sasaran Section Start --}}
-                <section id="tujuan" class="pt-10 pb-10 bg-white">
+                <section id="tujuan" class="pt-36 pb-16 dark:bg-dark bg-white">
                     <div class="sm:container">
                         <div class="w-full px-4">
-                            <div class="max-w-5xl mx-auto text-center mb-5">
-                                <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-4xl mb-5">
+                            <div class="max-w-5xl mx-auto text-center mb-10">
+                                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">
                                     <input type="text" id="tujuan_h1"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('tujuan_h1') is-invalid @enderror"
                                         name="tujuan_h1" value="{{$profil->tujuan_h1}}" required
@@ -157,14 +155,13 @@
 
                         <div class="flex flex-wrap">
                             <div class="w-full px-4 lg:w-1/2">
-                                <h2
-                                    class="font-semibold text-dark text-2xl mb-4 lg:text-3xl sm:text-4xl lg:pt-12 text-center">
+                                <h2 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 text-center">
                                     <input type="text" id="tujuan_h2"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('tujuan_h2') is-invalid @enderror"
                                         name="tujuan_h2" value="{{$profil->tujuan_h2}}" required
                                         autocomplete="tujuan_h2" autofocus>
                                 </h2>
-                                <ul class="list-disc font-medium text-base  mb-5 lg:text-lg lg:pl-6 text-justify">
+                                <ul class="list-disc font-medium text-base  mb-6 lg:text-lg lg:pl-6 text-justify">
                                     <textarea name="tujuan_p1" id="editor4" id="tujuan_p1" cols="30" rows="10"
                                         type="text"
                                         class="h-32 block border border-grey-light w-full p-3  mb-4 @error('tujuan_p1') is-invalid @enderror"
@@ -172,14 +169,13 @@
                                 </ul>
                             </div>
                             <div class="w-full px-4 lg:w-1/2">
-                                <h2
-                                    class="font-semibold text-dark text-2xl mb-4 lg:text-3xl sm:text-4xl lg:pt-12 text-center">
+                                <h2 class="font-semibold text-dark text-2xl mb-4 lg:text-3xl lg:pt-12 text-center">
                                     <input type="text" id="tujuan_h3"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('tujuan_h3') is-invalid @enderror"
                                         name="tujuan_h3" value="{{$profil->tujuan_h3}}" required
                                         autocomplete="tujuan_h3" autofocus>
                                 </h2>
-                                <ul class="list-disc font-medium text-base  mb-5 lg:text-lg lg:pl-6 text-justify">
+                                <ul class="list-disc font-medium text-base  mb-6 lg:text-lg lg:pl-6 text-justify">
                                     <textarea name="tujuan_p2" id="editor5" id="tujuan_p2" cols="30" rows="10"
                                         type="text"
                                         class="h-32 block border border-grey-light w-full p-3  mb-4 @error('tujuan_p2') is-invalid @enderror"
@@ -192,11 +188,11 @@
                 {{-- Tujuan dan Sasaran Section End --}}
 
                 {{-- Struktur Kepengurusan Section Start --}}
-                <section id="struktur" class="pt-10 pb-10 bg-slate-100 dark:bg-slate-800">
+                <section id="struktur" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
                     <div class="sm:container">
                         <div class="w-full px-4">
-                            <div class="max-w-5xl mx-auto text-center mb-5">
-                                <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-4xl mb-5">
+                            <div class="max-w-5xl mx-auto text-center mb-10">
+                                <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl">
                                     <input type="text" id="struktur_h1"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('struktur_h1') is-invalid @enderror"
                                         name="struktur_h1" value="{{$profil->struktur_h1}}" required
@@ -215,7 +211,7 @@
 
                         <div class="w-full px-4 flex flex-wrap justify-center xl:w-10/12 xl:mx-auto">
                             <div class="mb-12 p-4">
-                                <div class="shadow-md overflow-hidden">
+                                <div class="-md shadow-md overflow-hidden">
                                     <img src="/image/profil/{{$profil->struktur_img1}}" alt="" width="w-full">
                                     <input type="file"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('struktur_img1') is-invalid @enderror"
@@ -228,11 +224,11 @@
                 {{-- Struktur Kepengurusan Section End --}}
 
                 {{-- SDM Pendamping Section Start --}}
-                <section id="tentang" class="pt-10 pb-10 bg-white">
+                <section id="tentang" class="pt-36 pb-16 dark:bg-dark bg-white">
                     <div class="sm:container">
                         <div class="w-full px-4">
-                            <div class="max-w-5xl mx-auto mb-5">
-                                <h2 class="font-bold text-dark text-3xl sm:text-4xl lg:text-4xl mb-5 text-center">
+                            <div class="max-w-5xl mx-auto mb-6">
+                                <h2 class="font-bold text-dark text-3xl mb-6 sm:text-4xl lg:text-5xl text-center">
                                     <input type="text" id="sdm_h1"
                                         class="block border border-grey-light w-full p-3  mb-4 @error('sdm_h1') is-invalid @enderror"
                                         name="sdm_h1" value="{{$profil->sdm_h1}}" required autocomplete="sdm_h1"

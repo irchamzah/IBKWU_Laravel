@@ -147,7 +147,7 @@
                                             <div class="w-full mb-10">
                                                 <iframe class=""
                                                     src="https://www.youtube.com/embed/{{$detail_produk->link_yt}}"></iframe>
-                                                <img src="/image/contoh_link_yt.png" alt="" class="my-5 mx-auto">
+                                                <img src="/img/contoh_link_yt.png" alt="" class="my-5 mx-auto">
                                                 @error('link_yt')
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror
@@ -211,7 +211,7 @@
                                                 </blockquote>
                                                 <script async src="//www.instagram.com/embed.js"></script>
 
-                                                <img src="/image/contoh_link_ig.png" alt="" class="my-5 mx-auto">
+                                                <img src="/img/contoh_link_ig.png" alt="" class="my-5 mx-auto">
                                                 @error('link_ig')
                                                 <small style="color: red">{{$message}}</small>
                                                 @enderror

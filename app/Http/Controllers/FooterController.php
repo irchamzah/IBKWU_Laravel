@@ -29,6 +29,7 @@ class FooterController extends Controller
             'address_2' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'phone_2' => 'required|string|max:255',
+            'phone_3' => 'required|string|max:255',
             'link_1' => 'required|string|max:255',
             'link_2' => 'required|string|max:255',
             'link_3' => 'required|string|max:255',
@@ -46,6 +47,9 @@ class FooterController extends Controller
 
             'phone_2.required' => 'Tidak Boleh Kosong',
             'phone_2.string' => 'Tidak Boleh Kosong',
+
+            'phone_3.required' => 'Tidak Boleh Kosong',
+            'phone_3.string' => 'Tidak Boleh Kosong',
 
             'link_1.required' => 'Tidak Boleh Kosong',
             'link_1.string' => 'Harus Berupa String',
