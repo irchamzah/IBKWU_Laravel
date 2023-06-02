@@ -166,7 +166,7 @@
 {{-- About Section End --}}
 
 {{-- Blog Section Start --}}
-<section id="blog" class="pt-10 pb-10">
+<section id="blog" class="pt-10 pb-10 bg-slate-100">
   <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-5">
@@ -268,7 +268,7 @@
 {{-- Contact Section End --}}
 
 {{-- Galeri Section Start --}}
-<section id="galeri" class="pt-10 pb-10">
+<section id="galeri" class="pt-10 pb-10 bg-slate-100">
   <div class="sm:container">
     <div class="w-full px-4">
       <div class="max-w-xl mx-auto text-center mb-5">

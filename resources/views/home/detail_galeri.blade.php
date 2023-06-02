@@ -53,15 +53,77 @@
                 width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div> --}}
+            <hr class="my-5">
 
             <!--Metric Card-->
-            <a href="{{route('admin.halaman.galeri.edit_produk.tambah_sosmed', $detail_produk->id)}}">
-              <div class="bg-primary text-white hover:opacity-90 text-center -lg p-2 w-40 mx-auto">
-                <span class="material-symbols-outlined">
-                  Tambah Komentar
-                </span>
+            <div class="bg-slate-100 p-4 shadow rounded-3xl mb-4 flex rounded-tl-none">
+              <form action="{{route('galeri.detail_galeri.komen.komen_galeri_store')}}" method="POST"
+                enctype="multipart/form-data">
+                @csrf
+
+                <input type="text" name="id" value="{{$detail_produk->id}}" hidden>
+                <div class="form-group">
+                  <label for="nama_user">Nama Pengguna</label><br>
+                  @error('nama_user')
+                  <small style="color: red">{{$message}}</small>
+                  @enderror
+                  <input type="text" id="nama_user"
+                    class="block border border-grey-light w-full p-3  mb-4 @error('nama_user') is-invalid @enderror"
+                    name="nama_user" value="{{ old('nama_user') }}" required autocomplete="nama_user" autofocus>
+                </div>
+
+                <div class="form-group">
+                  <label for="komen_user">Komentar</label><br>
+                  @error('komen_user')
+                  <small style="color: red">{{$message}}</small>
+                  @enderror
+                  <input type="text" id="komen_user"
+                    class="block border border-grey-light w-full p-3  mb-4 @error('komen_user') is-invalid @enderror"
+                    name="komen_user" value="{{ old('komen_user') }}" required autocomplete="komen_user" autofocus>
+                </div>
+                <div class="flex">
+                  <button>
+                    <div
+                      class="bg-green-600 text-white hover:opacity-90 text-center -lg py-4 px-6 w-min whitespace-nowrap font-semibold my-10 flex-row ml-2">
+                      Tambahkan Komentar
+                    </div>
+                  </button>
+                </div>
+              </form>
+            </div>
+            <!--/Metric Card-->
+
+            <h1 class="text-base mb-4 mt-7 font-semibold">Komentar :</h1>
+            @foreach($komen_produks as $komen_produk)
+            <div class="bg-slate-100 p-4 shadow rounded-full mb-4 flex rounded-tl-none">
+              <div class="h-10 w-10 items-center justify-center my-auto mr-5 rounded-full  bg-slate-500">
+                <svg class="w-6 h-6 text-white my-auto mx-auto text-center justify-center mt-1" fill="none"
+                  viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 2a5 5 0 015 5v2a5 5 0 01-10 0V7a5 5 0 015-5zM12 14c3.866 0 7 3.134 7 7v1a1 1 0 01-1 1H6a1 1 0 01-1-1v-1c0-3.866 3.134-7 7-7z" />
+                </svg>
+
               </div>
-            </a>
+              <div class="">
+                <h3 class="text-lg font-semibold mb-2">{{ $komen_produk->nama_user }}</h3>
+                <p class="text-gray-600">{{ $komen_produk->komen_user}}</p>
+                <span class="text-gray-400 text-sm">{{ $komen_produk->created_at->diffForHumans() }}</span>
+                <div class="text-red-400 text-sm w-full mt-3"><a
+                    href="{{route('galeri.detail_galeri.komen.komen_galeri_delete', $komen_produk->id, $komen_produk->produk_id)}}"><small
+                      class="">Hapus Komentar</small></a>
+                </div>
+              </div>
+            </div>
+            @endforeach
+
+
+            <!--Metric Card-->
+            {{-- <a href="{{route('galeri.detail_galeri.komen', $detail_produk->slug)}}">
+              <div
+                class="bg-primary text-white hover:opacity-90 text-center -lg py-4 px-6 w-min mx-auto whitespace-nowrap font-semibold my-10 flex-row rounded-full rounded-tl-none">
+                Tambah Komentar
+              </div>
+            </a> --}}
             <!--/Metric Card-->
 
             <hr class="mt-5">

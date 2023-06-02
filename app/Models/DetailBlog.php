@@ -24,6 +24,12 @@ class DetailBlog extends Model
         return $this->hasMany('App\Models\FotoBlog', 'blog_id', 'id');
     }
 
+
+    public function komenb()
+    {
+        return $this->hasMany('App\Models\Komenb', 'blog_id', 'id');
+    }
+
     public function kategori_blog()
     {
         return $this->belongsTo('App\Models\KategoriBlog', 'kategori_blog_id', 'id');

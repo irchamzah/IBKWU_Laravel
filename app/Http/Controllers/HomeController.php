@@ -12,6 +12,8 @@ use App\Models\FotoProduk;
 use App\Models\Galeri;
 use App\Models\KategoriBlog;
 use App\Models\KategoriGaleri;
+use App\Models\Komen;
+use App\Models\Komenb;
 use App\Models\Mitra;
 use App\Models\Profil;
 use App\Models\Sosmed;
@@ -124,7 +126,62 @@ class HomeController extends Controller
         $kategoris = KategoriGaleri::orderByRaw("id = $detail_produk->kategori_galeri_id DESC")->get();
         $footer = Footer::first();
         $detail_produks = DetailProduk::where('kategori_galeri_id', $detail_produk->kategori_galeri_id)->orderBy('id', 'desc')->paginate(9);
-        return view('home.detail_galeri', compact('footer', 'detail_produk', 'foto_produks', 'sosmeds', 'kategoris', 'mitras', 'detail_produks'));
+        $komen_produks = Komen::where('produk_id', $detail_produk->id)->orderBy('id', 'desc')->get();
+        return view('home.detail_galeri', compact('footer', 'detail_produk', 'foto_produks', 'sosmeds', 'kategoris', 'mitras', 'detail_produks', 'komen_produks'));
+    }
+
+    public function komen_galeri_create($slug)
+    {
+        $mitras = Mitra::all();
+        $detail_produk = DetailProduk::where('slug', $slug)->first();
+        $foto_produks = FotoProduk::where('produk_id', $detail_produk->id)->orderBy('id', 'asc')->get();
+        $sosmeds = Sosmed::where('produk_id', $detail_produk->id)->orderBy('id', 'asc')->get();
+        $kategoris = KategoriGaleri::orderByRaw("id = $detail_produk->kategori_galeri_id DESC")->get();
+        $footer = Footer::first();
+        $detail_produks = DetailProduk::where('kategori_galeri_id', $detail_produk->kategori_galeri_id)->orderBy('id', 'desc')->paginate(9);
+        $komen_produks = Komen::where('produk_id', $detail_produk->id)->orderBy('id', 'asc')->get();
+        return view('home.detail_galeri_komen', compact('footer', 'detail_produk', 'foto_produks', 'sosmeds', 'kategoris', 'mitras', 'detail_produks', 'komen_produks'));
+    }
+
+    public function komen_galeri_store(Request $request)
+    {
+        // dd($request);
+        // Validasi Data
+        $rules = [
+            'nama_user' => 'required|string|max:255',
+            'komen_user' => 'required|string|max:255',
+        ];
+        $message = [
+            'nama_user.required' => ' Judul Tidak Boleh Kosong',
+            'nama_user.string' => ' Judul Harus Berupa String',
+
+            'komen_user.required' => ' Deskripsi Tidak Boleh Kosong',
+            'komen_user.string' => ' Deskripsi Harus Berupa String',
+        ];
+        $this->validate($request, $rules, $message);
+
+        Komen::create([
+            'produk_id' => $request->id,
+            'nama_user' => $request->nama_user,
+            'komen_user' => $request->komen_user,
+        ]);
+
+        $detail_produk_id = DetailProduk::where('id', $request->id)->first();
+        // dd($detail_produk_id);
+
+        return Redirect::route('galeri.detail_galeri', $detail_produk_id->slug)->with('message', 'Komentar Berhasil Ditambahkan.');
+    }
+
+    public function delete_komen_produk(Request $request)
+    {
+        // dd($request->produk_id);
+        $komen_produk = Komen::where('id', $request->id)->first();
+        $detail_produk_id = DetailProduk::where('id', $komen_produk->produk_id)->first();
+        $komen_produk->delete();
+
+
+
+        return Redirect::route('galeri.detail_galeri', $detail_produk_id->slug)->with('message', 'Komentar Berhasil Dihapus.');
     }
 
     ///////////// BLOG
@@ -183,6 +240,7 @@ class HomeController extends Controller
     {
         $mitras = Mitra::all();
         $detail_blog = DetailBlog::where('slug', $slug)->first();
+        // dd($slug);
         $foto_blogs = FotoBlog::where('blog_id', $detail_blog->id)->orderBy('id', 'asc')->get();
         $kategoris = KategoriBlog::orderByRaw("id = $detail_blog->kategori_blog_id DESC")->get();
         $footer = Footer::first();
@@ -192,7 +250,9 @@ class HomeController extends Controller
             ->groupBy('kategori_blogs.kategori')
             ->get();
         $detail_blogs = DetailBlog::where('kategori_blog_id', $detail_blog->kategori_blog_id)->orderBy('id', 'desc')->paginate(9);
-        return view('home.detail_blog', compact('footer', 'detail_blog', 'foto_blogs', 'kategoris', 'kategoriss', 'mitras', 'detail_blogs'));
+        $komen_blogs = Komenb::where('blog_id', $detail_blog->id)->orderBy('id', 'desc')->get();
+        // dd($komen_blogs);
+        return view('home.detail_blog', compact('footer', 'detail_blog', 'foto_blogs', 'kategoris', 'kategoriss', 'mitras', 'detail_blogs', 'komen_blogs'));
     }
 
     public function list_blog($kategori)
@@ -210,5 +270,62 @@ class HomeController extends Controller
         //     ->get();
         $footer = Footer::first();
         return view('home.list_blog', compact('blog', 'mitras', 'detail_blogs', 'kategoris', 'footer'));
+    }
+
+    public function komen_blog_create($slug)
+    {
+        $mitras = Mitra::all();
+        $detail_blog = DetailBlog::where('slug', $slug)->first();
+        $foto_blogs = Fotoblog::where('blog_id', $detail_blog->id)->orderBy('id', 'asc')->get();
+        $kategoris = KategoriBlog::orderByRaw("id = $detail_blog->kategori_blog_id DESC")->get();
+        $footer = Footer::first();
+        $kategoriss = DB::table('detail_blogs')
+            ->join('kategori_blogs', 'detail_blogs.kategori_blog_id', '=', 'kategori_blogs.id')
+            ->select('kategori_blogs.kategori', DB::raw('count(detail_blogs.id) as total'))
+            ->groupBy('kategori_blogs.kategori')
+            ->get();
+        $detail_blogs = DetailBlog::where('kategori_blog_id', $detail_blog->kategori_blog_id)->orderBy('id', 'desc')->paginate(9);
+        $komen_blogs = Komenb::where('blog_id', $detail_blog->id)->orderBy('id', 'asc')->get();
+        return view('home.detail_blog_komen', compact('footer', 'detail_blog', 'foto_blogs', 'kategoris', 'kategoriss', 'mitras', 'detail_blogs', 'komen_blogs'));
+    }
+
+    public function komen_blog_store(Request $request)
+    {
+        // dd($request);
+        // Validasi Data
+        $rules = [
+            'nama_user' => 'required|string|max:255',
+            'komen_user' => 'required|string|max:255',
+        ];
+        $message = [
+            'nama_user.required' => ' Judul Tidak Boleh Kosong',
+            'nama_user.string' => ' Judul Harus Berupa String',
+
+            'komen_user.required' => ' Deskripsi Tidak Boleh Kosong',
+            'komen_user.string' => ' Deskripsi Harus Berupa String',
+        ];
+        $this->validate($request, $rules, $message);
+
+        Komenb::create([
+            'blog_id' => $request->id,
+            'nama_user' => $request->nama_user,
+            'komen_user' => $request->komen_user,
+        ]);
+
+        $detail_blog_id = DetailBlog::where('id', $request->id)->first();
+        // dd($detail_blog_id);
+
+        return Redirect::route('blog.detail_blog', $detail_blog_id->slug)->with('message', 'Komentar Berhasil Ditambahkan.');
+    }
+
+    public function delete_komen_blog(Request $request)
+    {
+        // dd($request->blog_id);
+        $komen_blog = Komenb::where('id', $request->id)->first();
+        $detail_blog_id = DetailBlog::where('id', $komen_blog->blog_id)->first();
+        // dd($komen_blog);
+        $komen_blog->delete();
+
+        return Redirect::route('blog.detail_blog', $detail_blog_id->slug)->with('message', 'Komentar Berhasil Dihapus.');
     }
 }

@@ -30,6 +30,11 @@ class DetailProduk extends Model
         return $this->hasMany('App\Models\Sosmed', 'produk_id', 'id');
     }
 
+    public function komen()
+    {
+        return $this->hasMany('App\Models\Komen', 'produk_id', 'id');
+    }
+
     public function kategori_galeri()
     {
         return $this->belongsTo('App\Models\KategoriGaleri', 'kategori_galeri_id', 'id');

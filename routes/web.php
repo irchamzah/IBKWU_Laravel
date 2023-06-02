@@ -24,12 +24,22 @@ Route::get('/galeri', [HomeController::class, 'galeri'])->name('galeri');
 Route::get('/galeri/search', [HomeController::class, 'search'])->name('galeri.search');
 Route::get('/galeri/filter', [HomeController::class, 'filter'])->name('galeri.filter');
 Route::get('/galeri/detail_galeri/{slug}', [HomeController::class, 'detail_galeri'])->name('galeri.detail_galeri');
+//Komen Galeri
+Route::get('/galeri/detail_galeri/komen/{slug}', [HomeController::class, 'komen_galeri_create'])->name('galeri.detail_galeri.komen');
+Route::post('/galeri/detail_galeri/komen/store', [HomeController::class, 'komen_galeri_store'])->name('galeri.detail_galeri.komen.komen_galeri_store');
+Route::get('/galeri/detail_galeri/komen/delete/{id}', [HomeController::class, 'delete_komen_produk'])->name('galeri.detail_galeri.komen.komen_galeri_delete');
+
 // Blog
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog/search', [HomeController::class, 'search_blog'])->name('blog.search');
 Route::get('/blog/filter', [HomeController::class, 'filter_blog'])->name('blog.filter');
 Route::get('/blog/detail_blog/{slug}', [HomeController::class, 'detail_blog'])->name('blog.detail_blog');
 Route::get('/blog/list_blog/{kategori}', [HomeController::class, 'list_blog'])->name('blog.list_blog');
+//Komen Blog
+Route::get('/blog/detail_blog/komen/{slug}', [HomeController::class, 'komen_blog_create'])->name('blog.detail_blog.komen');
+Route::post('/blog/detail_blog/komen/store', [HomeController::class, 'komen_blog_store'])->name('blog.detail_blog.komen.komen_blog_store');
+Route::get('/blog/detail_blog/komen/delete/{id}', [HomeController::class, 'delete_komen_blog'])->name('blog.detail_blog.komen.komen_blog_delete');
+
 
 // Admin
 // Login
